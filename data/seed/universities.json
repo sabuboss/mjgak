@@ -165,7 +165,66 @@
       "type": "general",
       "admission_url": "https://admission.yonsei.ac.kr",
       "priority": 1,
-      "sources": []
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 연세대학교 대학입학전형 선행학습 영향평가 결과보고서",
+          "page_url": "https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=3490",
+          "url": "https://admission.yonsei.ac.kr/seoul/download.asp?furl=bbs/20260327160952XLFXUW.PDF&fname=report.pdf",
+          "filename": "yonsei_2026_report.pdf",
+          "verified": false
+        },
+        {
+          "year": 2026,
+          "kind": "questions",
+          "title": "2026학년도 연세대학교 선행학습 영향평가 결과보고서 [별책] 대학별고사 기출문제",
+          "page_url": "https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=3490",
+          "url": "https://admission.yonsei.ac.kr/seoul/download.asp?furl=bbs/20260327160953Z3AHFA.PDF&fname=report.pdf",
+          "filename": "yonsei_2026_report_annex.pdf",
+          "verified": false,
+          "category": "essay_based"
+        },
+        {
+          "year": 2025,
+          "kind": "report",
+          "title": "2025학년도 연세대학교 대학입학전형 선행학습 영향평가 결과보고서",
+          "page_url": "https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=3356",
+          "url": "https://admission.yonsei.ac.kr/seoul/download.asp?furl=bbs/20250327095714YEKPG6.PDF&fname=report.pdf",
+          "filename": "yonsei_2025_report.pdf",
+          "verified": false
+        },
+        {
+          "year": 2025,
+          "kind": "questions",
+          "title": "2025학년도 연세대학교 선행학습 영향평가 결과보고서 [별책] 대학별고사 기출문제",
+          "page_url": "https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=3356",
+          "url": "https://admission.yonsei.ac.kr/seoul/download.asp?furl=bbs/20250327095714ZHKZD6.PDF&fname=report.pdf",
+          "filename": "yonsei_2025_report_annex.pdf",
+          "verified": false,
+          "category": "essay_based"
+        },
+        {
+          "year": 2024,
+          "kind": "report",
+          "title": "2024학년도 연세대학교 대학입학전형 선행학습 영향평가 결과보고서",
+          "page_url": "https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=3217",
+          "url": "https://admission.yonsei.ac.kr/seoul/download.asp?furl=bbs/202403291024039B2MEE.PDF&fname=report.pdf",
+          "filename": "yonsei_2024_report.pdf",
+          "verified": false
+        },
+        {
+          "year": 2024,
+          "kind": "questions",
+          "title": "2024학년도 연세대학교 선행학습 영향평가 결과보고서 별책(기출문제)",
+          "page_url": "https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=3217",
+          "url": "https://admission.yonsei.ac.kr/seoul/download.asp?furl=bbs/20240329102403BURKUB.PDF&fname=report.pdf",
+          "filename": "yonsei_2024_report_annex.pdf",
+          "verified": false,
+          "category": "essay_based"
+        }
+      ],
+      "report_board_url": "https://admission.yonsei.ac.kr/seoul/admission/html/counsel/data.asp"
     },
     {
       "code": "korea",
@@ -174,7 +233,29 @@
       "type": "general",
       "admission_url": "https://admission.korea.ac.kr",
       "priority": 1,
-      "sources": []
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 고려대학교 선행학습 영향평가 자체평가보고서",
+          "page_url": "https://oku.korea.ac.kr/oku/cms/FR_BBS_CON/BoardView.do?MENU_ID=720&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=88",
+          "url": "https://oku.korea.ac.kr/ajaxfile/FR_SVC/FileDown.do?GBN=X01&BOARD_SEQ=2&SITE_NO=2&BBS_SEQ=88&FILE_SEQ=1",
+          "filename": "korea_2026_report.pdf",
+          "verified": false,
+          "note": "보고서 안에 면접·논술 기출문항 수록. 지적소유권 고지 있음(무단 출판·게재 금지)."
+        },
+        {
+          "year": 2025,
+          "kind": "report",
+          "title": "2025학년도 고려대학교 선행학습 영향평가 자체평가보고서",
+          "page_url": "https://oku.korea.ac.kr/oku/cms/FR_BBS_CON/BoardView.do?MENU_ID=720&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=87",
+          "url": "https://oku.korea.ac.kr/ajaxfile/FR_SVC/FileDown.do?GBN=X01&BOARD_SEQ=2&SITE_NO=2&BBS_SEQ=87&FILE_SEQ=1",
+          "filename": "korea_2025_report.pdf",
+          "verified": false,
+          "note": "보고서 안에 면접·논술 기출문항 수록. 지적소유권 고지 있음(무단 출판·게재 금지)."
+        }
+      ],
+      "report_board_url": "https://oku.korea.ac.kr/oku/cms/FR_CON/index.do?MENU_ID=720"
     },
     {
       "code": "skku",
@@ -183,7 +264,39 @@
       "type": "general",
       "admission_url": "https://admission.skku.edu",
       "priority": 1,
-      "sources": []
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "questions",
+          "title": "2026학년도 수시모집 학생부종합전형(성균인재) 면접시험 기출문항",
+          "page_url": "https://admission.skku.edu/admission/html/rolling/question.html",
+          "url": "https://admission.skku.edu/common/download.php?fpath=board/20260327133837CBPHV4.pdf&fname=q.pdf",
+          "filename": "skku_2026_seonggyun_questions.pdf",
+          "category": "student_record",
+          "verified": false
+        },
+        {
+          "year": 2026,
+          "kind": "questions",
+          "title": "2026학년도 수시모집 학생부종합전형(과학인재) 기출문항",
+          "page_url": "https://admission.skku.edu/admission/html/rolling/question.html",
+          "url": "https://admission.skku.edu/common/download.php?fpath=board/20260327112113BUUCSE.pdf&fname=q.pdf",
+          "filename": "skku_2026_science_questions.pdf",
+          "category": "major",
+          "verified": false
+        },
+        {
+          "year": 2025,
+          "kind": "questions",
+          "title": "2025학년도 수시모집 학생부종합전형(면접모집단위) 면접시험 기출문제",
+          "page_url": "https://admission.skku.edu/admission/html/rolling/question.html",
+          "url": "https://admission.skku.edu/common/download.php?fpath=board/202506251639538EF5EN.pdf&fname=q.pdf",
+          "filename": "skku_2025_interview_questions.pdf",
+          "category": "student_record",
+          "verified": false
+        }
+      ],
+      "report_board_url": "https://admission.skku.edu/admission/html/rolling/question.html"
     },
     {
       "code": "khu",

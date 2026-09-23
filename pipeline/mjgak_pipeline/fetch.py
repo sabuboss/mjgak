@@ -47,11 +47,14 @@ def download(url: str, dest: Path, page_url: str | None = None, timeout: int = 1
         headers["Referer"] = page_url
     r = s.get(url, headers=headers, timeout=timeout, stream=True)
     r.raise_for_status()
-    ctype = r.headers.get("content-type", "")
-    if "pdf" not in ctype and "octet-stream" not in ctype:
-        raise RuntimeError(f"PDF 가 아닙니다 (content-type={ctype}). 게시글 URL 을 확인하세요.")
+    # content-type 은 대학마다 제멋대로(application/unknown 등)라 매직바이트로 판별
+    it = r.iter_content(1 << 16)
+    first = next(it, b"")
+    if not first.startswith(b"%PDF"):
+        raise RuntimeError(f"PDF 가 아닙니다 (content-type={r.headers.get('content-type')}, head={first[:40]!r}). 게시글 URL 을 확인하세요.")
     with dest.open("wb") as f:
-        for chunk in r.iter_content(1 << 16):
+        f.write(first)
+        for chunk in it:
             f.write(chunk)
     return dest
 

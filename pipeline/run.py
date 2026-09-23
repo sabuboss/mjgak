@@ -40,8 +40,8 @@ def cmd_parse(args):
     for src in univ["sources"]:
         if args.year and src["year"] != args.year:
             continue
-        if src["kind"] == "report":
-            continue  # 보고서는 문항 원문이 없음(출제의도·검토의견). 별도 단계에서 활용.
+        if src["kind"] == "report" and not getattr(parser, "PARSES_REPORTS", False):
+            continue  # 서울대처럼 보고서에 문항 원문이 없는 대학은 건너뜀. 고려대처럼 보고서에 문항카드가 있으면 파서가 PARSES_REPORTS=True 선언.
         pdf = source_dest(args.univ, src)
         if not pdf.exists():
             print(f"[parse] 없음: {pdf.relative_to(ROOT)} (먼저 fetch)")
