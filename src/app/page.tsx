@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { WaitlistForm } from "@/components/WaitlistForm";
+
 const TYPES = [
   { code: "VOCATIONAL", label: "특성화고·마이스터고", hint: "진학을 택한 이유, 실습 경험, 기초학력 질문" },
   { code: "GED", label: "검정고시", hint: "자퇴 사유, 자기주도 학습, 학생부 없이 증명하기" },
@@ -51,6 +53,14 @@ export default function Home() {
         <p className="mt-2">
           생기부 PDF를 올리더라도 브라우저 안에서만 읽어 활동 요약을 만들고, 원문은 서버로 보내지 않습니다. 답변과 진행 상황도 기본적으로 내 브라우저에만 저장됩니다.
         </p>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold">정식 오픈 알림</h2>
+        <p className="mt-1 text-sm text-gray-600">베타 기간에는 무료입니다. 더 많은 대학과 AI 코칭이 열리면 이메일로 알려 드립니다.</p>
+        <div className="mt-3 max-w-md">
+          <WaitlistForm />
+        </div>
       </section>
     </main>
   );

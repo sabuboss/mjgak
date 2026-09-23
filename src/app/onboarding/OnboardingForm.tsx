@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
+import { RecordUpload } from "@/components/RecordUpload";
 import { useTurnstile } from "@/components/Turnstile";
 import type { ProfileCode } from "@/db/schema";
 import { GenerateResponse } from "@/lib/llm/schemas";
@@ -189,6 +190,13 @@ export function OnboardingForm({ profiles, universities, session, turnstileSiteK
               + 활동 추가
             </button>
           )}
+          <RecordUpload
+            onPick={(lines) => {
+              const merged = [...activities.filter((a) => a.trim()), ...lines].slice(0, 5);
+              while (merged.length < 3) merged.push("");
+              setActivities(merged);
+            }}
+          />
           <label className="block text-sm">
             <span className="font-medium">유형별 추가 정보</span>
             <textarea value={notes} onChange={(e) => setNotes(e.target.value.slice(0, 600))} rows={3} placeholder={profileCode ? NOTES_HINT[profileCode as ProfileCode] : ""} className="mt-1 w-full rounded border px-3 py-2" />
