@@ -107,6 +107,15 @@ export const userAnswers = sqliteTable(
   (t) => [index("user_answers_user_idx").on(t.userId)],
 );
 
+/** LLM 응답 캐시: 같은 대학·전형·유형 조합의 기본 예상질문 세트 (SPEC 5장). 개인화 부분은 캐시하지 않는다. */
+export const llmCache = sqliteTable("llm_cache", {
+  key: text("key").primaryKey(),
+  value: text("value", { mode: "json" }).notNull().$type<unknown>(),
+  model: text("model").notNull(),
+  promptVersion: text("prompt_version").notNull(),
+  createdAt: text("created_at").notNull().default(sql`(datetime('now'))`),
+});
+
 /** 대기자 이메일 (Phase 1 랜딩). */
 export const waitlist = sqliteTable("waitlist", {
   id: integer("id").primaryKey({ autoIncrement: true }),

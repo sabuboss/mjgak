@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.128.0",
+    "@upstash/ratelimit": "^2.1.0",
+    "@upstash/redis": "^1.39.0",
     "better-sqlite3": "^13.0.3",
     "drizzle-orm": "^0.45.3",
     "idb": "^8.0.3",
