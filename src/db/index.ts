@@ -12,7 +12,6 @@ import * as schema from "./schema";
 export const DB_PATH = process.env.DATABASE_URL ?? "data/mjgak.db";
 
 declare global {
-  // eslint-disable-next-line no-var
   var __mjgakDb: ReturnType<typeof createDb> | undefined;
 }
 

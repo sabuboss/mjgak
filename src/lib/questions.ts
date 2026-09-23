@@ -98,3 +98,68 @@ export function reviewStats() {
     .orderBy(schema.universities.code)
     .all();
 }
+
+// ---- 공개 대학 페이지용 ----
+export function getUniversityByCode(code: string) {
+  return db.select().from(schema.universities).where(eq(schema.universities.code, code)).get();
+}
+
+export function universitySummaries() {
+  return db
+    .select({
+      code: schema.universities.code,
+      name: schema.universities.name,
+      region: schema.universities.region,
+      type: schema.universities.type,
+      priority: schema.universities.priority,
+      admissionUrl: schema.universities.admissionUrl,
+      total: sql<number>`count(${schema.questions.id})`,
+      actual: sql<number>`sum(case when ${schema.questions.kind} = 'actual' then 1 else 0 end)`,
+      minYear: sql<number | null>`min(${schema.questions.year})`,
+      maxYear: sql<number | null>`max(${schema.questions.year})`,
+    })
+    .from(schema.universities)
+    .leftJoin(schema.questions, eq(schema.questions.universityId, schema.universities.id))
+    .groupBy(schema.universities.id)
+    .orderBy(sql`count(${schema.questions.id}) desc`, schema.universities.priority, schema.universities.name)
+    .all();
+}
+
+export function questionsForUniversity(code: string, year?: number) {
+  const where: SQL[] = [eq(schema.universities.code, code)];
+  if (year) where.push(eq(schema.questions.year, year));
+  return db
+    .select({
+      id: schema.questions.id,
+      year: schema.questions.year,
+      kind: schema.questions.kind,
+      unit: schema.questions.unit,
+      text: schema.questions.text,
+      presentedMaterial: schema.questions.presentedMaterial,
+      intent: schema.questions.intent,
+      rubric: schema.questions.rubric,
+      modelAnswerHint: schema.questions.modelAnswerHint,
+      verified: schema.questions.verified,
+      sourceUrl: schema.questions.sourceUrl,
+      sourcePage: schema.questions.sourcePage,
+      admissionName: schema.admissionTypes.name,
+      category: schema.admissionTypes.category,
+    })
+    .from(schema.questions)
+    .innerJoin(schema.universities, eq(schema.questions.universityId, schema.universities.id))
+    .leftJoin(schema.admissionTypes, eq(schema.questions.admissionTypeId, schema.admissionTypes.id))
+    .where(and(...where))
+    .orderBy(desc(schema.questions.year), schema.admissionTypes.name, schema.questions.id)
+    .all();
+}
+
+export function yearsForUniversity(code: string) {
+  return db
+    .select({ year: schema.questions.year, n: sql<number>`count(*)` })
+    .from(schema.questions)
+    .innerJoin(schema.universities, eq(schema.questions.universityId, schema.universities.id))
+    .where(eq(schema.universities.code, code))
+    .groupBy(schema.questions.year)
+    .orderBy(desc(schema.questions.year))
+    .all();
+}

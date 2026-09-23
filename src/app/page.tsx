@@ -1,69 +1,57 @@
-import Image from "next/image";
+import Link from "next/link";
+
+const TYPES = [
+  { code: "VOCATIONAL", label: "특성화고·마이스터고", hint: "진학을 택한 이유, 실습 경험, 기초학력 질문" },
+  { code: "GED", label: "검정고시", hint: "자퇴 사유, 자기주도 학습, 학생부 없이 증명하기" },
+  { code: "REPEAT", label: "재수·N수", hint: "재도전 이유, 지난 1년의 변화, 성숙도" },
+  { code: "OVERSEAS_3", label: "재외국민 3년 특례", hint: "해외 학교 경험, 한국어·적응, 정체성" },
+  { code: "OVERSEAS_12", label: "12년 특례·외국인", hint: "한국어 능력, 한국 진학 동기, 영어 면접" },
+  { code: "ALTERNATIVE", label: "대안학교", hint: "대안교육의 의미, 교과 보완, 자기주도 프로젝트" },
+  { code: "GENERAL", label: "일반고", hint: "학생부 활동 기반 질문과 꼬리질문" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="mx-auto max-w-4xl px-4 py-14">
+      <p className="text-sm font-medium text-emerald-700">면접각 · 무료 베타</p>
+      <h1 className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">
+        특성화고·검정고시·재수생·해외 출신도
+        <br />
+        <span className="text-emerald-700">나에게 맞는</span> 면접 준비
+      </h1>
+      <p className="mt-4 max-w-2xl text-gray-700">
+        대학이 공개한 면접 기출문항을 대학·전형·연도별로 정리하고, 지원자 유형에 맞춘 예상질문과 답변 코칭을 제공합니다. 실제 기출과 예상질문은 항상 구분해서
+        보여 드리고, 모든 문항에는 대학 입학처 출처 링크가 있습니다.
+      </p>
+      <div className="mt-6 flex flex-wrap gap-3">
+        <Link href="/onboarding" className="rounded-lg bg-black px-5 py-3 text-white">
+          내 유형으로 시작하기
+        </Link>
+        <Link href="/univ" className="rounded-lg border px-5 py-3">
+          대학별 기출 보기
+        </Link>
+      </div>
+
+      <section className="mt-14">
+        <h2 className="text-lg font-semibold">지원자 유형별 준비</h2>
+        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+          {TYPES.map((t) => (
+            <li key={t.code}>
+              <Link href={`/onboarding?type=${t.code}`} className="block rounded-lg border p-4 hover:border-black">
+                <p className="font-medium">{t.label}</p>
+                <p className="mt-1 text-sm text-gray-600">{t.hint}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-14 rounded-lg border bg-gray-50 p-5 text-sm text-gray-700">
+        <h2 className="font-semibold">생기부는 서버에 올라가지 않습니다</h2>
+        <p className="mt-2">
+          생기부 PDF를 올리더라도 브라우저 안에서만 읽어 활동 요약을 만들고, 원문은 서버로 보내지 않습니다. 답변과 진행 상황도 기본적으로 내 브라우저에만 저장됩니다.
+        </p>
+      </section>
+    </main>
   );
 }
