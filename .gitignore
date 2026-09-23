@@ -43,8 +43,7 @@ next-env.d.ts
 # mjgak: 수집한 대학 보고서 원문 PDF는 절대 커밋하지 않음 (재배포 금지)
 /data/raw/
 /pipeline/raw/
-/pipeline/out/*.jsonl
-!/pipeline/out/.gitkeep
+/pipeline/out/_*
 
 # sqlite
 *.db
