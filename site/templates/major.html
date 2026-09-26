@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › 계열별 질문</p>
+<h1>{{ m.label }} 계열 면접 질문</h1>
+<p class="lead">{{ m.desc }}</p>
+<div class="tnav">{% for x in majors %}{% if x.code == m.code %}<span class="tchip on">{{ x.label }}</span>{% else %}<a class="tchip" href="{{ x.url }}">{{ x.label }}</a>{% endif %}{% endfor %}</div>
+<p class="note">{{ notice }}</p>
+<div class="toc"><b>이 페이지의 질문</b><ol>{% for q in m.questions %}<li><a href="#q{{ loop.index }}">{{ q.question }}</a></li>{% endfor %}</ol></div>
+{% for q in m.questions %}
+<section class="qsec" id="q{{ loop.index }}">
+  <h2>{{ loop.index }}. {{ q.question }}</h2>
+  <p class="why"><b>왜 묻나</b> {{ q.why }}</p>
+  <div class="answer">{{ q.answer_html }}</div>
+  <p class="tip"><b>준비 팁</b> {{ q.tips }}</p>
+</section>
+{% endfor %}
+<p class="note">[대괄호]는 본인 경험으로 바꾸세요. 표준 답변은 구조를 보여 주는 예시이며 그대로 외우면 면접관이 알아봅니다. 자주 나오는 공통 질문은 <a href="/category/intro/">여기</a>에서.</p>
+{% endblock %}

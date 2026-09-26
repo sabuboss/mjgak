@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block head %}<script type="application/ld+json">{{ jsonld|safe }}</script>{% endblock %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="{{ cat.url }}">{{ cat.label }}</a></p>
+<h1>{{ q.question }}</h1>
+<p class="meta">{{ cat.label }} · 자주 나오는 질문{% if q.keywords %} · {{ q.keywords|join(", ") }}{% endif %}</p>
+
+<h2>왜 이 질문을 할까</h2>
+<p>{{ q.why }}</p>
+
+<h2>표준 답변 예시</h2>
+<div class="answer">{{ answer_html }}</div>
+<p class="note">{{ notice }}</p>
+
+<h2>답변 구조</h2>
+<ol class="frame">{% for f in q.frame %}<li>{{ f }}</li>{% endfor %}</ol>
+
+<h2>이렇게 준비하세요</h2>
+<p>{{ q.tips }}</p>
+
+<h2>피해야 할 답</h2>
+<ul class="avoid">{% for a in q.avoid %}<li>{{ a }}</li>{% endfor %}</ul>
+
+{% if related %}
+<h2>비슷한 실제 기출</h2>
+<p class="lead">대학 입학처가 공개한 문항 중 이 질문과 겹치는 것입니다. 표현이 어떻게 달라지는지 보세요.</p>
+<ul class="actual">{% for r in related %}<li><span class="kind kind-{{ 'actual' if r.kind == '실제 기출' else 'example' }}">{{ r.kind }}</span> <a href="{{ r.url }}">{{ r.univ }} {{ r.year }}</a> — {{ r.text }} <a class="src" href="{{ r.source_url }}" target="_blank" rel="noopener">출처↗</a></li>{% endfor %}</ul>
+{% endif %}
+
+<h2>유형별로 다르게 답해야 할 때</h2>
+<p>같은 질문이라도 지원자 유형에 따라 강조점이 다릅니다. 내 유형 페이지에서 답변 프레임의 주의점을 확인하세요.</p>
+<div class="tnav">{% for p in profiles %}<a class="tchip" href="{{ p.url }}">{{ p.label }}</a>{% endfor %}</div>
+
+<h2>같은 묶음의 다른 질문</h2>
+<ol class="qlist">{% for r in same_cat %}<li><a href="{{ r.url }}">{{ r.question }}</a></li>{% endfor %}</ol>
+<nav class="pn">{% if prev_q %}<a href="{{ prev_q.url }}">‹ {{ prev_q.question }}</a>{% endif %}{% if next_q %}<a class="next" href="{{ next_q.url }}">{{ next_q.question }} ›</a>{% endif %}</nav>
+<div class="author"><div class="av">{{ site.author_initial }}</div><p><b>{{ site.author }}</b>{{ site.author_bio }}</p></div>
+{% endblock %}

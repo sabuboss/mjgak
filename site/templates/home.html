@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block head_title %}{{ site.name }} — {{ site.tagline }}{% endblock %}
+{% block wrapclass %} home{% endblock %}
+{% block body %}
+<section class="hero">
+  <p class="eyebrow">무료 · 회원가입 없음</p>
+  <h1>대입 면접,<br>자주 나오는 질문부터 준비하세요</h1>
+  <p class="sub">전국 대학 면접에서 반복되는 질문 {{ common.questions|length }}개의 표준 답변과 답변 구조, 계열별·지원자 유형별 질문, 그리고 대학이 직접 공개한 실제 기출을 한곳에 모았습니다.</p>
+  <div class="search"><input id="q" type="search" placeholder="질문 검색 — 예: 지원동기, 단점, 검정고시" autocomplete="off"><ul id="qr" hidden></ul></div>
+  <div class="cta"><a class="btn" href="/q/{{ top[0].slug }}/">첫 질문부터 보기</a><a class="btn ghost" href="/univ/">대학별 기출</a></div>
+</section>
+
+<ul class="trust">
+  <li><b>표준 답변 = 구조</b>정답을 외우는 게 아니라 결론→근거→경험→연결 구조를 익힙니다.</li>
+  <li><b>실제 기출은 출처와 함께</b>서울대·연세대·고려대·성균관대 입학처 공개 문항을 연도·전형별로 정리했습니다.</li>
+  <li><b>일반고만 위한 사이트가 아닙니다</b>검정고시·특성화고·재수·재외국민·대안학교 지원자 전용 질문이 있습니다.</li>
+</ul>
+
+<h2>자주 나오는 질문 {{ common.questions|length }}개</h2>
+<div class="tnav">{% for k, c in common.categories.items() %}<a class="tchip" href="{{ c.url }}">{{ c.label }} <i>{{ c.n }}</i></a>{% endfor %}</div>
+{% for k, c in common.categories.items() %}
+<section class="topic">
+  <h2><a href="{{ c.url }}">{{ c.label }}</a></h2>
+  <p>{{ c.desc }}</p>
+  <ol class="qlist">{% for q in by_cat[k] %}<li><a href="{{ q.url }}">{{ q.question }}</a></li>{% endfor %}</ol>
+</section>
+{% endfor %}
+
+<h2>지원자 유형별 질문</h2>
+<p class="lead">유형마다 반드시 나오는 질문이 다릅니다. 내 유형을 먼저 고르세요.</p>
+<div class="cards">
+{% for p in profiles %}<a class="card" href="{{ p.url }}"><span class="chip">{{ p.seed_questions|length }}문항</span><b>{{ p.label }}</b><p>{{ p.description }}</p></a>{% endfor %}
+</div>
+
+<h2>계열별 질문</h2>
+<div class="cards">
+{% for m in majors %}<a class="card" href="{{ m.url }}"><span class="chip">{{ m.questions|length }}문항</span><b>{{ m.label }}</b><p>{{ m.desc }}</p></a>{% endfor %}
+</div>
+
+<h2>실제 기출을 공개한 대학</h2>
+<p class="lead">「공교육정상화법」에 따라 매년 3월 입학처가 공개하는 면접 문항을 구조화했습니다. 원문은 출처 링크에서.</p>
+<div class="cards">
+{% for u in univ_cards %}<a class="card" href="{{ u.url }}"><span class="chip">실제 기출 {{ u.actual }}</span><b>{{ u.name }}</b><p>{{ u.years[-1] }}~{{ u.years[0] }}학년도 · 문항 {{ u.n }}개</p></a>{% endfor %}
+</div>
+<p class="note">서류(학생부) 기반 면접과 인성면접은 문항 공개 의무가 없어 대부분의 대학이 공개하지 않습니다. 그 경우 위의 공통·유형별 질문으로 준비하세요. <a href="/univ/">전국 대학 목록 보기</a></p>
+
+<h2>면접 준비 순서</h2>
+<ol class="steps">
+  <li><b>내 유형 확인</b>일반고·검정고시·특성화고·재수·재외국민·대안학교 중 어디인지. 유형별 필수 질문이 다릅니다.</li>
+  <li><b>자주 나오는 질문 48개 훑기</b>각 질문의 '왜 묻는지'를 먼저 읽고, 표준 답변의 구조만 익힙니다.</li>
+  <li><b>내 경험으로 바꿔 쓰기</b>[대괄호]를 본인 경험으로 채우고 말하듯 다시 씁니다. 40~60초로 녹음해 봅니다.</li>
+  <li><b>대학별 기출 확인</b>지원 대학이 문항을 공개했다면 최근 3개년 기출을 읽고 출제 의도를 파악합니다.</li>
+</ol>
+<div class="author"><div class="av">{{ site.author_initial }}</div><p><b>{{ site.author }}</b>{{ site.author_bio }}</p></div>
+<script src="/static/site.js" defer></script>
+{% endblock %}

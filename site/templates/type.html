@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › 지원자 유형별 질문</p>
+<h1>{{ p.label }} 지원자 면접 질문</h1>
+<p class="lead">{{ p.description }}</p>
+<div class="tnav">{% for x in profiles %}{% if x.code == p.code %}<span class="tchip on">{{ x.label }}</span>{% else %}<a class="tchip" href="{{ x.url }}">{{ x.label }}</a>{% endif %}{% endfor %}</div>
+
+<h2>답변 프레임</h2>
+<ol class="frame">{% for f in p.answer_frame.structure %}<li>{{ f }}</li>{% endfor %}</ol>
+<p class="meta">권장 길이: {{ p.answer_frame.length_hint }}</p>
+<div class="callout"><b>이 유형이 특히 조심할 점</b><ul>{% for c in p.answer_frame.cautions %}<li>{{ c }}</li>{% endfor %}</ul></div>
+<h3>피해야 할 표현</h3>
+<ul class="avoid">{% for a in p.answer_frame.avoid %}<li>{{ a }}</li>{% endfor %}</ul>
+
+<h2>자주 나오는 질문 {{ p.seed_questions|length }}개</h2>
+<div class="toc"><b>목차</b><ol>{% for q in p.seed_questions %}<li><a href="#{{ q.id }}">{{ q.text }}</a></li>{% endfor %}</ol></div>
+{% for q in p.seed_questions %}
+<section class="qsec" id="{{ q.id }}">
+  <h2>{{ loop.index }}. {{ q.text }}{% if q.tags and '필수' in q.tags %} <span class="must">거의 반드시</span>{% endif %}</h2>
+  <p class="why"><b>왜 묻나</b> {{ q.why_asked }}</p>
+  {% if q.answer_html %}<div class="answer">{{ q.answer_html }}</div>{% endif %}
+  <p class="tip"><b>준비 팁</b> {{ q.tips }}</p>
+</section>
+{% endfor %}
+<p class="note">[대괄호]는 본인 경험으로 바꾸세요. 공통 질문(지원동기·장단점·진로 등)은 <a href="/category/intro/">자주 나오는 질문</a>에서 함께 준비하세요.</p>
+{% endblock %}

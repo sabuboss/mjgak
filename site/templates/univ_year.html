@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="/univ/">대학별</a> › <a href="/univ/{{ u.code }}/">{{ u.name }}</a></p>
+<h1>{{ u.name }} {{ y }}학년도 면접 기출</h1>
+<div class="tnav">{% for yy in years %}{% if yy == y %}<span class="tchip on">{{ yy }}</span>{% else %}<a class="tchip" href="/univ/{{ u.code }}/{{ yy }}/">{{ yy }}</a>{% endif %}{% endfor %}</div>
+<div class="toc"><b>전형</b><ol>{% for name, recs in by_adm.items() %}<li><a href="#a{{ loop.index }}">{{ name }} ({{ recs|length }})</a></li>{% endfor %}</ol></div>
+{% for name, recs in by_adm.items() %}
+<h2 id="a{{ loop.index }}">{{ name }}</h2>
+{% for r in recs %}
+<article class="qa" id="q{{ loop.index }}">
+  <p class="qmeta"><span class="kind kind-{{ r.kind }}">{{ kind_label[r.kind] }}</span>{% if r.unit %} <span title="{{ r.unit }}">{{ r.unit[:60] }}{% if r.unit|length > 60 %}…{% endif %}</span>{% endif %}</p>
+  <p class="qtext">{{ r.text }}</p>
+  {% if r.presented_material %}<details><summary>제시문 보기</summary><pre class="pm">{{ r.presented_material[:1500] }}{% if r.presented_material|length > 1500 %} …(이하 생략, 출처에서 확인){% endif %}</pre></details>{% endif %}
+  {% if r.intent or r.model_answer_hint or r.rubric %}<details><summary>출제 의도 · 해설 · 평가 요소</summary>
+    {% if r.intent %}<p><b>출제 의도</b> {{ r.intent[:800] }}</p>{% endif %}
+    {% if r.model_answer_hint %}<p><b>해설</b> {{ r.model_answer_hint[:1200] }}</p>{% endif %}
+    {% if r.rubric %}<p><b>평가 요소</b> {{ r.rubric[:600] }}</p>{% endif %}
+  </details>{% endif %}
+  <p class="src"><a href="{{ r.source_url }}" target="_blank" rel="noopener">출처: {{ u.name }} 입학처 공개자료{% if r.source_page %} p.{{ r.source_page }}{% endif %} ↗</a></p>
+</article>
+{% endfor %}
+{% endfor %}
+<p class="note">문항은 입학처 공개 자료를 구조화한 것이며 원문 PDF는 싣지 않습니다. 수학·과학 문항은 수식이 빠져 있을 수 있으니 출처에서 원문을 확인하세요.</p>
+{% endblock %}

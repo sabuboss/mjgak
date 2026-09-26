@@ -54,3 +54,6 @@ next-env.d.ts
 /pipeline/.venv/
 __pycache__/
 *.pyc
+
+# 정적 사이트 산출물
+/site/dist/

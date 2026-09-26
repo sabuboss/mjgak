@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › 자주 나오는 질문</p>
+<h1>{{ cat.label }}</h1>
+<p class="lead">{{ cat.desc }}</p>
+<div class="tnav">{% for k, c in categories.items() %}{% if k == key %}<span class="tchip on">{{ c.label }} <i>{{ c.n }}</i></span>{% else %}<a class="tchip" href="{{ c.url }}">{{ c.label }} <i>{{ c.n }}</i></a>{% endif %}{% endfor %}</div>
+<div class="qcards">
+{% for q in questions %}
+<a class="qcard" href="{{ q.url }}"><b>{{ q.question }}</b><p>{{ q.why }}</p></a>
+{% endfor %}
+</div>
+{% endblock %}

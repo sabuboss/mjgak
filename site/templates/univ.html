@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="/univ/">대학별</a></p>
+<h1>{{ u.name }} 면접 기출문항</h1>
+<p class="meta">{{ years[-1] }}~{{ years[0] }}학년도 · 문항 {{ u.n }}개 (실제 기출 {{ u.actual }}) · <a href="{{ seed.admission_url }}" target="_blank" rel="noopener">입학처↗</a>{% if seed.report_board_url %} · <a href="{{ seed.report_board_url }}" target="_blank" rel="noopener">공개자료 게시판↗</a>{% endif %}</p>
+
+<h2>연도별 보기</h2>
+<div class="tnav">{% for y in years %}<a class="tchip" href="/univ/{{ u.code }}/{{ y }}/">{{ y }}학년도</a>{% endfor %}</div>
+
+<h2>전형별 면접 유형</h2>
+<table class="tbl"><tr><th>전형</th><th>면접 유형</th><th>공개 문항</th><th>연도</th></tr>
+{% for a in admissions %}<tr><td>{{ a.name }}</td><td>{{ a.category }}</td><td>{{ a.n }}</td><td>{{ a.years|join(", ") }}</td></tr>{% endfor %}
+</table>
+
+<h2>{{ years[0] }}학년도 문항 맛보기</h2>
+{% for r in sample %}
+<article class="qa">
+  <p class="qmeta"><span class="kind kind-{{ r.kind }}">{{ kind_label[r.kind] }}</span> {{ r.admission_name }}{% if r.unit %} · <span title="{{ r.unit }}">{{ r.unit[:40] }}{% if r.unit|length > 40 %}…{% endif %}</span>{% endif %}</p>
+  <p class="qtext">{{ r.text }}</p>
+  <p class="src"><a href="{{ r.source_url }}" target="_blank" rel="noopener">출처: {{ u.name }} 입학처 공개자료{% if r.source_page %} p.{{ r.source_page }}{% endif %} ↗</a></p>
+</article>
+{% endfor %}
+<p><a class="btn" href="/univ/{{ u.code }}/{{ years[0] }}/">{{ years[0] }}학년도 전체 보기</a></p>
+
+<h2>이 대학 면접을 준비할 때</h2>
+<ul>
+  <li>제시문 기반 면접은 제시문을 읽는 시간이 짧습니다. 기출 제시문으로 '요약 → 비교 → 입장' 순서를 시간 재며 연습하세요.</li>
+  <li>수학·과학 문항은 이 사이트의 텍스트에서 수식이 빠져 있을 수 있습니다. 반드시 출처 PDF에서 원문을 확인하세요.</li>
+  <li>서류 기반 면접·인성면접 문항은 공개되지 않습니다. <a href="/category/intro/">공통 질문</a>과 <a href="/type/general/">유형별 질문</a>으로 준비하세요.</li>
+</ul>
+<p class="note">이 페이지의 문항은 입학처 공개 자료를 구조화한 것으로, 원문 PDF는 싣지 않습니다. 각 문항의 출처 링크에서 원문을 확인하세요. 잘못 옮겨진 문항은 <a href="/contact/">문의</a>로 알려 주세요.</p>
+{% endblock %}

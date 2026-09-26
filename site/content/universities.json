@@ -1,0 +1,121 @@
+{
+  "notice": "대학 목록은 면접을 실시하는 주요 대학을 지역별로 정리한 것입니다. 링크는 각 대학 공식 홈페이지이며, 전형별 면접 실시 여부와 반영 비율은 매년 바뀌므로 반드시 해당 연도 모집요강에서 확인하세요. '기출 공개'로 표시된 대학은 입학처가 공개한 실제 면접 문항을 정리해 두었습니다.",
+  "regions": [
+    {
+      "name": "서울",
+      "universities": [
+        { "code": "snu", "name": "서울대학교", "url": "https://www.snu.ac.kr" },
+        { "code": "yonsei", "name": "연세대학교", "url": "https://www.yonsei.ac.kr" },
+        { "code": "korea", "name": "고려대학교", "url": "https://www.korea.ac.kr" },
+        { "code": "skku", "name": "성균관대학교", "url": "https://www.skku.edu" },
+        { "code": "hanyang", "name": "한양대학교", "url": "https://www.hanyang.ac.kr" },
+        { "code": "cau", "name": "중앙대학교", "url": "https://www.cau.ac.kr" },
+        { "code": "khu", "name": "경희대학교", "url": "https://www.khu.ac.kr" },
+        { "code": "hufs", "name": "한국외국어대학교", "url": "https://www.hufs.ac.kr" },
+        { "code": "uos", "name": "서울시립대학교", "url": "https://www.uos.ac.kr" },
+        { "code": "ewha", "name": "이화여자대학교", "url": "https://www.ewha.ac.kr" },
+        { "code": "sogang", "name": "서강대학교", "url": "https://www.sogang.ac.kr" },
+        { "code": "konkuk", "name": "건국대학교", "url": "https://www.konkuk.ac.kr" },
+        { "code": "dongguk", "name": "동국대학교", "url": "https://www.dongguk.edu" },
+        { "code": "hongik", "name": "홍익대학교", "url": "https://www.hongik.ac.kr" },
+        { "code": "kookmin", "name": "국민대학교", "url": "https://www.kookmin.ac.kr" },
+        { "code": "sookmyung", "name": "숙명여자대학교", "url": "https://www.sookmyung.ac.kr" },
+        { "code": "soongsil", "name": "숭실대학교", "url": "https://www.ssu.ac.kr" },
+        { "code": "sejong", "name": "세종대학교", "url": "https://www.sejong.ac.kr" },
+        { "code": "dankook", "name": "단국대학교", "url": "https://www.dankook.ac.kr" },
+        { "code": "kwangwoon", "name": "광운대학교", "url": "https://www.kw.ac.kr" },
+        { "code": "sangmyung", "name": "상명대학교", "url": "https://www.smu.ac.kr" },
+        { "code": "seoultech", "name": "서울과학기술대학교", "url": "https://www.seoultech.ac.kr" },
+        { "code": "sungshin", "name": "성신여자대학교", "url": "https://www.sungshin.ac.kr" },
+        { "code": "duksung", "name": "덕성여자대학교", "url": "https://www.duksung.ac.kr" },
+        { "code": "dongduk", "name": "동덕여자대학교", "url": "https://www.dongduk.ac.kr" },
+        { "code": "catholic", "name": "가톨릭대학교", "url": "https://www.catholic.ac.kr" },
+        { "code": "myongji", "name": "명지대학교", "url": "https://www.mju.ac.kr" },
+        { "code": "snue", "name": "서울교육대학교", "url": "https://www.snue.ac.kr" }
+      ]
+    },
+    {
+      "name": "경기·인천",
+      "universities": [
+        { "code": "inha", "name": "인하대학교", "url": "https://www.inha.ac.kr" },
+        { "code": "ajou", "name": "아주대학교", "url": "https://www.ajou.ac.kr" },
+        { "code": "kyonggi", "name": "경기대학교", "url": "https://www.kyonggi.ac.kr" },
+        { "code": "gachon", "name": "가천대학교", "url": "https://www.gachon.ac.kr" },
+        { "code": "inu", "name": "인천대학교", "url": "https://www.inu.ac.kr" },
+        { "code": "hanyang-erica", "name": "한양대학교 ERICA", "url": "https://www.hanyang.ac.kr/web/erica" },
+        { "code": "kgu-gyeongin", "name": "경인교육대학교", "url": "https://www.ginue.ac.kr" },
+        { "code": "cha", "name": "차의과학대학교", "url": "https://www.cha.ac.kr" },
+        { "code": "kau", "name": "한국항공대학교", "url": "https://www.kau.ac.kr" }
+      ]
+    },
+    {
+      "name": "대전·충청·강원",
+      "universities": [
+        { "code": "kaist", "name": "KAIST", "url": "https://www.kaist.ac.kr" },
+        { "code": "cnu", "name": "충남대학교", "url": "https://www.cnu.ac.kr" },
+        { "code": "cbnu", "name": "충북대학교", "url": "https://www.cbnu.ac.kr" },
+        { "code": "knu-kangwon", "name": "강원대학교", "url": "https://www.kangwon.ac.kr" },
+        { "code": "hanbat", "name": "한밭대학교", "url": "https://www.hanbat.ac.kr" },
+        { "code": "gjue", "name": "공주교육대학교", "url": "https://www.gjue.ac.kr" },
+        { "code": "cje", "name": "청주교육대학교", "url": "https://www.cje.ac.kr" },
+        { "code": "cnue", "name": "춘천교육대학교", "url": "https://www.cnue.ac.kr" },
+        { "code": "koreatech", "name": "한국기술교육대학교", "url": "https://www.koreatech.ac.kr" },
+        { "code": "hallym", "name": "한림대학교", "url": "https://www.hallym.ac.kr" },
+        { "code": "sunmoon", "name": "선문대학교", "url": "https://www.sunmoon.ac.kr" }
+      ]
+    },
+    {
+      "name": "대구·경북",
+      "universities": [
+        { "code": "knu", "name": "경북대학교", "url": "https://www.knu.ac.kr" },
+        { "code": "postech", "name": "POSTECH", "url": "https://www.postech.ac.kr" },
+        { "code": "dgist", "name": "DGIST", "url": "https://www.dgist.ac.kr" },
+        { "code": "yu", "name": "영남대학교", "url": "https://www.yu.ac.kr" },
+        { "code": "kmu", "name": "계명대학교", "url": "https://www.kmu.ac.kr" },
+        { "code": "dnue", "name": "대구교육대학교", "url": "https://www.dnue.ac.kr" },
+        { "code": "andong", "name": "안동대학교", "url": "https://www.andong.ac.kr" }
+      ]
+    },
+    {
+      "name": "부산·울산·경남",
+      "universities": [
+        { "code": "pnu", "name": "부산대학교", "url": "https://www.pusan.ac.kr" },
+        { "code": "unist", "name": "UNIST", "url": "https://www.unist.ac.kr" },
+        { "code": "gnu", "name": "경상국립대학교", "url": "https://www.gnu.ac.kr" },
+        { "code": "dau", "name": "동아대학교", "url": "https://www.donga.ac.kr" },
+        { "code": "pknu", "name": "부경대학교", "url": "https://www.pknu.ac.kr" },
+        { "code": "ulsan", "name": "울산대학교", "url": "https://www.ulsan.ac.kr" },
+        { "code": "bnue", "name": "부산교육대학교", "url": "https://www.bnue.ac.kr" },
+        { "code": "jnue", "name": "진주교육대학교", "url": "https://www.cue.ac.kr" },
+        { "code": "changwon", "name": "창원대학교", "url": "https://www.changwon.ac.kr" },
+        { "code": "inje", "name": "인제대학교", "url": "https://www.inje.ac.kr" }
+      ]
+    },
+    {
+      "name": "광주·전라·제주",
+      "universities": [
+        { "code": "jnu", "name": "전남대학교", "url": "https://www.jnu.ac.kr" },
+        { "code": "jbnu", "name": "전북대학교", "url": "https://www.jbnu.ac.kr" },
+        { "code": "gist", "name": "GIST", "url": "https://www.gist.ac.kr" },
+        { "code": "kentech", "name": "한국에너지공과대학교", "url": "https://www.kentech.ac.kr" },
+        { "code": "chosun", "name": "조선대학교", "url": "https://www.chosun.ac.kr" },
+        { "code": "wonkwang", "name": "원광대학교", "url": "https://www.wku.ac.kr" },
+        { "code": "gnue", "name": "광주교육대학교", "url": "https://www.gnue.ac.kr" },
+        { "code": "jnue", "name": "전주교육대학교", "url": "https://www.jnue.ac.kr" },
+        { "code": "jejunu", "name": "제주대학교", "url": "https://www.jejunu.ac.kr" },
+        { "code": "mokpo", "name": "목포대학교", "url": "https://www.mokpo.ac.kr" }
+      ]
+    },
+    {
+      "name": "사관학교·경찰대 등 특수대학",
+      "universities": [
+        { "code": "kma", "name": "육군사관학교", "url": "https://www.kma.ac.kr" },
+        { "code": "navy", "name": "해군사관학교", "url": "https://www.navy.ac.kr" },
+        { "code": "afa", "name": "공군사관학교", "url": "https://www.afa.ac.kr" },
+        { "code": "kndu", "name": "국군간호사관학교", "url": "https://www.kafna.ac.kr" },
+        { "code": "police", "name": "경찰대학", "url": "https://www.police.ac.kr" },
+        { "code": "knmu", "name": "한국해양대학교", "url": "https://www.kmou.ac.kr" }
+      ]
+    }
+  ]
+}

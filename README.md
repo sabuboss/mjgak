@@ -77,3 +77,21 @@ API: `POST /api/generate`, `POST /api/feedback` (세션 토큰·레이트리밋�
 - 모든 문항 `source_url` 있음, 원문 PDF 는 `pipeline/raw/`(git 제외)에만 있고 앱에서 서빙하지 않음
 - 데이터 삭제: 로컬(IndexedDB·localStorage) 전량 삭제. 서버 옵트인 저장은 아직 없음
 - 375px 모바일: 랜딩·대학·연습 화면 가로 스크롤 없음 확인
+
+## 정적 사이트 (site/) — 무료 공개 버전
+
+운영비 0원으로 공개하는 버전. 마음체크와 같은 구조(Jinja2 → dist → GitHub Actions → `dist` 브랜치 → Cloudflare Pages).
+
+```bash
+pipeline/.venv/Scripts/python site/build.py     # site/dist/ 생성 (jinja2 필요)
+python -m http.server -d site/dist 8000          # 미리보기
+```
+
+- `site/content/common.json` 자주 나오는 질문 48개 + 표준 답변 (6개 카테고리)
+- `site/content/majors.json` 계열별 7종 × 6문항, `site/content/type_answers.json` 유형별 답변 예시 (질문은 `data/seed/profiles/*.json`)
+- `site/content/universities.json` 전국 주요 대학 목록(지역별), 기출 있는 대학은 `pipeline/out/*.jsonl` 에서 자동 생성
+- `site/pages/*.md` 소개·준비법·개인정보처리방침·문의 (애드센스 심사용 고정 페이지)
+- `site/site.json` 사이트명·URL·작성자·애드센스 ID. **배포 후 `url` 을 실제 도메인으로 바꿀 것**
+- 배포: `.github/workflows/site.yml` 이 push 마다 빌드해 `dist` 브랜치에 올림. Cloudflare Pages 프로젝트에서 Production branch=`dist`, Build command 비움, Output=`/`
+
+Next.js 앱(`src/`)은 데이터 파이프라인·검수·(향후 유료 개인화)용 로컬 도구로 남겨 둔다.
