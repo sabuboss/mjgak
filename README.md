@@ -91,7 +91,8 @@ python -m http.server -d site/dist 8000          # 미리보기
 - `site/content/majors.json` 계열별 7종 × 6문항, `site/content/type_answers.json` 유형별 답변 예시 (질문은 `data/seed/profiles/*.json`)
 - `site/content/universities.json` 전국 주요 대학 목록(지역별), 기출 있는 대학은 `pipeline/out/*.jsonl` 에서 자동 생성
 - `site/pages/*.md` 소개·준비법·개인정보처리방침·문의 (애드센스 심사용 고정 페이지)
-- `site/site.json` 사이트명·URL·작성자·애드센스 ID. **배포 후 `url` 을 실제 도메인으로 바꿀 것**
-- 배포: `.github/workflows/site.yml` 이 push 마다 빌드해 `dist` 브랜치에 올림. Cloudflare Pages 프로젝트에서 Production branch=`dist`, Build command 비움, Output=`/`
+- `site/site.json` 사이트명·URL(`https://mjgak.com`)·`base`(하위 경로 배포 시 `/mjgak`, 루트 도메인이면 `""`)·작성자·애드센스 ID·서치콘솔 인증 파일명
+- 배포: `.github/workflows/site.yml` 이 push 마다 빌드해 `dist` 브랜치에 올림(CNAME=mjgak.com 포함). GitHub Pages 가 `dist` 브랜치 루트를 서빙, 커스텀 도메인 mjgak.com (가비아 DNS: A 185.199.108~111.153, CNAME www→sabuboss.github.io)
+- 루트 `sabuboss.github.io` 저장소(별도)는 애드센스 확인용 안내 페이지 + ads.txt
 
 Next.js 앱(`src/`)은 데이터 파이프라인·검수·(향후 유료 개인화)용 로컬 도구로 남겨 둔다.
