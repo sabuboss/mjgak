@@ -194,6 +194,8 @@ def main():
     js = DIST / "static" / "site.js"
     js.write_text(with_base(js.read_text(encoding="utf-8")), encoding="utf-8")
     (DIST / ".nojekyll").write_text("", encoding="utf-8")  # GitHub Pages: Jekyll 처리 끄기
+    if site.get("adsense_client"):  # 애드센스 ads.txt (루트 도메인 배포 시 유효)
+        (DIST / "ads.txt").write_text("google.com, " + site["adsense_client"].replace("ca-", "") + ", DIRECT, f08c47fec0942fa0" + chr(10), encoding="utf-8")
     for fname in site.get("google_verification_files", []):  # 서치콘솔 HTML 파일 인증
         (DIST / fname).write_text(f"google-site-verification: {fname}", encoding="utf-8")
 
