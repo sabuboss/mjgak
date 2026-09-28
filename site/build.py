@@ -50,9 +50,23 @@ def ph(text: str) -> str:
     return re.sub(r"\[([^\]]+)\]", r'<mark class="ph">[\1]</mark>', t)
 
 
+BASE = site.get("base", "").rstrip("/")  # GitHub Pages 처럼 하위 경로에 올릴 때 "/mjgak". 루트 도메인이면 "".
+site["url"] = site["url"].rstrip("/") + BASE  # canonical·sitemap·RSS·JSON-LD 는 전체 주소를 쓴다
+
+
+def with_base(content: str) -> str:
+    """루트 절대 링크(href="/…", src="/…")에 BASE 를 붙인다. 외부 링크(//, http)는 건드리지 않는다."""
+    if not BASE:
+        return content
+    content = re.sub(r'((?:href|src|action)=")/(?!/)', r'' + BASE + '/', content)
+    return content.replace('fetch("/search.json")', f'fetch("{BASE}/search.json")')
+
+
 def write(path: str, content: str):
     p = DIST / path
     p.parent.mkdir(parents=True, exist_ok=True)
+    if path.endswith((".html", ".js")):
+        content = with_base(content)
     p.write_text(content, encoding="utf-8")
 
 
@@ -60,6 +74,7 @@ def page(path: str, tpl: str, **ctx):
     ctx.setdefault("site", site)
     ctx.setdefault("year", TODAY.year)
     ctx.setdefault("path", "/" + path.rstrip("/") + ("/" if path else ""))
+    ctx["base"] = BASE
     write((path + "/index.html") if path else "index.html", env.get_template(tpl).render(**ctx))
 
 
@@ -176,6 +191,9 @@ def main():
         shutil.rmtree(DIST)
     DIST.mkdir()
     shutil.copytree(ROOT / "static", DIST / "static")
+    js = DIST / "static" / "site.js"
+    js.write_text(with_base(js.read_text(encoding="utf-8")), encoding="utf-8")
+    (DIST / ".nojekyll").write_text("", encoding="utf-8")  # GitHub Pages: Jekyll 처리 끄기
 
     common = load_common()
     majors = load(ROOT / "content" / "majors.json")

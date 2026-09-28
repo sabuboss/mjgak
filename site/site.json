@@ -1,6 +1,7 @@
 {
   "name": "면접각",
-  "url": "https://mjgak.pages.dev",
+  "url": "https://sabuboss.github.io",
+  "base": "/mjgak",
   "tagline": "대입 면접에서 자주 나오는 질문과 표준 답변",
   "description": "전국 대학 면접에서 자주 나오는 질문 48개의 표준 답변, 계열별·지원자 유형별 질문, 그리고 서울대·연세대·고려대·성균관대가 공개한 실제 면접 기출을 한곳에 정리했습니다. 무료입니다.",
   "author": "부름쌤",
