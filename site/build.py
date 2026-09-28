@@ -58,7 +58,7 @@ def with_base(content: str) -> str:
     """루트 절대 링크(href="/…", src="/…")에 BASE 를 붙인다. 외부 링크(//, http)는 건드리지 않는다."""
     if not BASE:
         return content
-    content = re.sub(r'((?:href|src|action)=")/(?!/)', r'' + BASE + '/', content)
+    content = re.sub(r"((?:href|src|action)=\")/(?!/)", lambda m: m.group(1) + BASE + "/", content)
     return content.replace('fetch("/search.json")', f'fetch("{BASE}/search.json")')
 
 
