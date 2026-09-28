@@ -848,6 +848,11 @@
           "code": "mcu",
           "name": "목포가톨릭대학교",
           "url": "https://www.mcu.ac.kr"
+        },
+        {
+          "code": "gjc",
+          "name": "광주가톨릭대학교",
+          "url": "https://www.gjc.ac.kr"
         }
       ]
     },
@@ -920,6 +925,11 @@
           "code": "seoil",
           "name": "서일대학교",
           "url": "https://www.seoil.ac.kr"
+        },
+        {
+          "code": "sewu",
+          "name": "숭의여자대학교",
+          "url": "https://www.sewu.ac.kr"
         },
         {
           "code": "induk",
@@ -1065,6 +1075,11 @@
           "code": "ysc",
           "name": "용인예술과학대학교",
           "url": "https://www.ysc.ac.kr"
+        },
+        {
+          "code": "wat",
+          "name": "웅지세무대학교",
+          "url": "https://wat.ac.kr"
         },
         {
           "code": "yuhan",
@@ -1227,6 +1242,11 @@
           "url": "https://www.kbsc.ac.kr"
         },
         {
+          "code": "gch",
+          "name": "경북보건대학교",
+          "url": "https://www.gch.ac.kr"
+        },
+        {
           "code": "kbc",
           "name": "경북전문대학교",
           "url": "https://www.kbc.ac.kr"
@@ -1330,6 +1350,16 @@
           "code": "gimhae",
           "name": "김해대학교",
           "url": "https://www.gimhae.ac.kr"
+        },
+        {
+          "code": "daedong",
+          "name": "대동대학교",
+          "url": "https://www.daedong.ac.kr"
+        },
+        {
+          "code": "dist",
+          "name": "동원과학기술대학교",
+          "url": "http://www.dist.ac.kr"
         },
         {
           "code": "dit",
@@ -1440,6 +1470,16 @@
           "code": "wu",
           "name": "원광보건대학교",
           "url": "https://www.wu.ac.kr"
+        },
+        {
+          "code": "cntu",
+          "name": "전남과학대학교",
+          "url": "https://www.cntu.ac.kr"
+        },
+        {
+          "code": "dorip",
+          "name": "전남도립대학교(국립목포대 담양캠퍼스로 통합)",
+          "url": "https://damyang.mokpo.ac.kr/rep/index.do"
         },
         {
           "code": "jbsc",
