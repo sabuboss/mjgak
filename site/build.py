@@ -194,6 +194,8 @@ def main():
     js = DIST / "static" / "site.js"
     js.write_text(with_base(js.read_text(encoding="utf-8")), encoding="utf-8")
     (DIST / ".nojekyll").write_text("", encoding="utf-8")  # GitHub Pages: Jekyll 처리 끄기
+    for fname in site.get("google_verification_files", []):  # 서치콘솔 HTML 파일 인증
+        (DIST / fname).write_text(f"google-site-verification: {fname}", encoding="utf-8")
 
     common = load_common()
     majors = load(ROOT / "content" / "majors.json")
