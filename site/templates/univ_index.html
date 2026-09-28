@@ -24,5 +24,15 @@
 {% for u in r.universities %}<li>{% if u.code in with_data %}<a href="/univ/{{ u.code }}/"><b>{{ u.name }}</b></a> <span class="kind kind-actual">면접 기출</span>{% elif u.code in prep_link %}<a href="{{ prep_link[u.code] }}"><b>{{ u.name }}</b></a> <span class="kind kind-example">준비 가이드</span>{% else %}{{ u.name }}{% endif %} <a class="src" href="{{ u.url }}" target="_blank" rel="noopener">홈페이지↗</a>{% if u.report_url %} <a class="src" href="{{ u.report_url }}" target="_blank" rel="noopener">{{ u.report_year }} 보고서↗</a>{% endif %}</li>{% endfor %}
 </ul>
 {% endfor %}
+{% if colleges %}
+<h2 id="college">전국 전문대학</h2>
+<p class="lead">{{ college_notice }} 학과별 준비는 <a href="/dept/nursing/">간호학과</a>·<a href="/dept/early-childhood-education/">유아교육과</a>·<a href="/dept/physical-therapy/">물리치료학과</a>·<a href="/dept/biomedical-lab/">임상병리·방사선·치위생</a>·<a href="/dept/tourism-hospitality/">관광·호텔</a> 페이지를 참고하세요.</p>
+{% for r in colleges %}
+<h3>{{ r.name }}</h3>
+<ul class="ulist">
+{% for u in r.universities %}<li>{{ u.name }} <a class="src" href="{{ u.url }}" target="_blank" rel="noopener">홈페이지↗</a></li>{% endfor %}
+</ul>
+{% endfor %}
+{% endif %}
 <p class="note">목록에 없는 대학이나 잘못된 링크는 <a href="/contact/">문의</a>로 알려 주세요. 다른 대학의 공개 문항도 차례로 정리할 예정입니다.</p>
 {% endblock %}

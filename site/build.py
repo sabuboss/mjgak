@@ -378,8 +378,8 @@ def main():
                 u["report_year"] = reports[0]["year"]
         r["universities"].sort(key=lambda u: (u["code"] not in with_data, u["code"] not in prep_link, u["name"]))
     prep_cards = [{"code": u["code"], "name": u["name"], "blurb": u["blurb"], "url": u["url"], "has_data": u["code"] in with_data} for u in uprof["universities"]]
-    page("univ", "univ_index.html", regions=unis["regions"], notice=unis["notice"], with_data=set(with_data), prep_link=prep_link, prep_cards=prep_cards, univ_cards=univ_cards,
-         title="전국 대학 면접 안내·준비 가이드·기출 공개 대학", description=f"주요 대학 {len(prep_cards)}곳의 특성·면접 방식·맞춤 예상 질문, 전국 대학 홈페이지·보고서 링크, 실제 면접 문항을 공개한 대학의 기출 정리.")
+    page("univ", "univ_index.html", regions=unis["regions"], notice=unis["notice"], colleges=unis.get("colleges", []), college_notice=unis.get("college_notice", ""), with_data=set(with_data), prep_link=prep_link, prep_cards=prep_cards, univ_cards=univ_cards,
+         title="전국 대학·전문대 면접 안내·준비 가이드·기출 공개 대학", description=f"주요 대학 {len(prep_cards)}곳의 특성·면접 방식·맞춤 예상 질문, 전국 4년제·전문대 홈페이지·보고서 링크, 실제 면접 문항을 공개한 대학의 기출 정리.")
     urls.append("/univ/")
 
     # 기출 없는 대학의 준비 가이드 페이지

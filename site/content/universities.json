@@ -453,6 +453,21 @@
           "code": "gwnu",
           "name": "국립강릉원주대학교",
           "url": "https://www.gwnu.ac.kr"
+        },
+        {
+          "code": "ggu",
+          "name": "금강대학교",
+          "url": "https://www.ggu.ac.kr"
+        },
+        {
+          "code": "kkot",
+          "name": "꽃동네대학교",
+          "url": "https://www.kkot.ac.kr"
+        },
+        {
+          "code": "daejeon-theo",
+          "name": "대전신학대학교",
+          "url": "https://www.daejeon.ac.kr"
         }
       ]
     },
@@ -548,6 +563,21 @@
           "code": "dyu",
           "name": "동양대학교",
           "url": "https://www.dyu.ac.kr"
+        },
+        {
+          "code": "daeshin",
+          "name": "대신대학교",
+          "url": "https://www.daeshin.ac.kr"
+        },
+        {
+          "code": "ytus",
+          "name": "영남신학대학교",
+          "url": "https://www.ytus.ac.kr"
+        },
+        {
+          "code": "dgau",
+          "name": "대구예술대학교",
+          "url": "https://www.dgau.ac.kr"
         }
       ]
     },
@@ -663,6 +693,11 @@
           "code": "kaya",
           "name": "가야대학교",
           "url": "https://www.kaya.ac.kr"
+        },
+        {
+          "code": "bpu",
+          "name": "부산장신대학교",
+          "url": "https://www.bpu.ac.kr"
         }
       ]
     },
@@ -788,6 +823,31 @@
           "code": "howon",
           "name": "호원대학교",
           "url": "https://www.howon.ac.kr"
+        },
+        {
+          "code": "yewon",
+          "name": "예원예술대학교",
+          "url": "https://www.yewon.ac.kr"
+        },
+        {
+          "code": "hanil",
+          "name": "한일장신대학교",
+          "url": "https://www.hanil.ac.kr"
+        },
+        {
+          "code": "htus",
+          "name": "호남신학대학교",
+          "url": "https://www.htus.ac.kr"
+        },
+        {
+          "code": "kwangshin",
+          "name": "광신대학교",
+          "url": "https://www.kwangshin.ac.kr"
+        },
+        {
+          "code": "mcu",
+          "name": "목포가톨릭대학교",
+          "url": "https://www.mcu.ac.kr"
         }
       ]
     },
@@ -826,5 +886,598 @@
         }
       ]
     }
-  ]
+  ],
+  "colleges": [
+    {
+      "name": "서울",
+      "universities": [
+        {
+          "code": "dongyang",
+          "name": "동양미래대학교",
+          "url": "https://www.dongyang.ac.kr"
+        },
+        {
+          "code": "mjc",
+          "name": "명지전문대학",
+          "url": "https://www.mjc.ac.kr"
+        },
+        {
+          "code": "baewha",
+          "name": "배화여자대학교",
+          "url": "https://www.baewha.ac.kr"
+        },
+        {
+          "code": "shu",
+          "name": "삼육보건대학교",
+          "url": "https://www.shu.ac.kr"
+        },
+        {
+          "code": "snjc",
+          "name": "서울여자간호대학교",
+          "url": "https://www.snjc.ac.kr"
+        },
+        {
+          "code": "seoil",
+          "name": "서일대학교",
+          "url": "https://www.seoil.ac.kr"
+        },
+        {
+          "code": "induk",
+          "name": "인덕대학교",
+          "url": "https://www.induk.ac.kr"
+        },
+        {
+          "code": "jb",
+          "name": "정화예술대학교",
+          "url": "https://www.jb.ac.kr"
+        },
+        {
+          "code": "hywoman",
+          "name": "한양여자대학교",
+          "url": "https://www.hywoman.ac.kr"
+        }
+      ]
+    },
+    {
+      "name": "경기·인천",
+      "universities": [
+        {
+          "code": "gtec",
+          "name": "경기과학기술대학교",
+          "url": "https://www.gtec.ac.kr"
+        },
+        {
+          "code": "kyungmin",
+          "name": "경민대학교",
+          "url": "https://www.kyungmin.ac.kr"
+        },
+        {
+          "code": "kbu",
+          "name": "경복대학교",
+          "url": "https://www.kbu.ac.kr"
+        },
+        {
+          "code": "kiwu",
+          "name": "경인여자대학교",
+          "url": "https://www.kiwu.ac.kr"
+        },
+        {
+          "code": "kaywon",
+          "name": "계원예술대학교",
+          "url": "https://www.kaywon.ac.kr"
+        },
+        {
+          "code": "kookje",
+          "name": "국제대학교",
+          "url": "https://www.kookje.ac.kr"
+        },
+        {
+          "code": "kimpo",
+          "name": "김포대학교",
+          "url": "https://www.kimpo.ac.kr"
+        },
+        {
+          "code": "nonghyup",
+          "name": "농협대학교",
+          "url": "https://www.nonghyup.ac.kr"
+        },
+        {
+          "code": "daelim",
+          "name": "대림대학교",
+          "url": "https://www.daelim.ac.kr"
+        },
+        {
+          "code": "du",
+          "name": "동서울대학교",
+          "url": "https://www.du.ac.kr"
+        },
+        {
+          "code": "dima",
+          "name": "동아방송예술대학교",
+          "url": "https://www.dima.ac.kr"
+        },
+        {
+          "code": "tw",
+          "name": "동원대학교",
+          "url": "https://www.tw.ac.kr"
+        },
+        {
+          "code": "doowon",
+          "name": "두원공과대학교",
+          "url": "https://www.doowon.ac.kr"
+        },
+        {
+          "code": "bc",
+          "name": "부천대학교",
+          "url": "https://www.bc.ac.kr"
+        },
+        {
+          "code": "seoularts",
+          "name": "서울예술대학교",
+          "url": "https://www.seoularts.ac.kr"
+        },
+        {
+          "code": "seojeong",
+          "name": "서정대학교",
+          "url": "https://www.seojeong.ac.kr"
+        },
+        {
+          "code": "ssc",
+          "name": "수원과학대학교",
+          "url": "https://www.ssc.ac.kr"
+        },
+        {
+          "code": "swc",
+          "name": "수원여자대학교",
+          "url": "https://www.swc.ac.kr"
+        },
+        {
+          "code": "shingu",
+          "name": "신구대학교",
+          "url": "https://www.shingu.ac.kr"
+        },
+        {
+          "code": "sau",
+          "name": "신안산대학교",
+          "url": "https://www.sau.ac.kr"
+        },
+        {
+          "code": "ansan",
+          "name": "안산대학교",
+          "url": "https://www.ansan.ac.kr"
+        },
+        {
+          "code": "yit",
+          "name": "여주대학교",
+          "url": "https://www.yit.ac.kr"
+        },
+        {
+          "code": "yeonsung",
+          "name": "연성대학교",
+          "url": "https://www.yeonsung.ac.kr"
+        },
+        {
+          "code": "osan",
+          "name": "오산대학교",
+          "url": "https://www.osan.ac.kr"
+        },
+        {
+          "code": "ysc",
+          "name": "용인예술과학대학교",
+          "url": "https://www.ysc.ac.kr"
+        },
+        {
+          "code": "yuhan",
+          "name": "유한대학교",
+          "url": "https://www.yuhan.ac.kr"
+        },
+        {
+          "code": "jeiu",
+          "name": "인천재능대학교",
+          "url": "http://www.jeiu.ac.kr"
+        },
+        {
+          "code": "inhatc",
+          "name": "인하공업전문대학",
+          "url": "https://www.inhatc.ac.kr"
+        },
+        {
+          "code": "jangan",
+          "name": "장안대학교",
+          "url": "https://www.jangan.ac.kr"
+        },
+        {
+          "code": "ck",
+          "name": "청강문화산업대학교",
+          "url": "https://www.ck.ac.kr"
+        },
+        {
+          "code": "ktc",
+          "name": "한국관광대학교",
+          "url": "https://www.ktc.ac.kr"
+        }
+      ]
+    },
+    {
+      "name": "대전·충청·강원",
+      "universities": [
+        {
+          "code": "gangdong",
+          "name": "강동대학교",
+          "url": "https://www.gangdong.ac.kr"
+        },
+        {
+          "code": "gyc",
+          "name": "강릉영동대학교",
+          "url": "https://www.gyc.ac.kr"
+        },
+        {
+          "code": "gw",
+          "name": "강원도립대학교",
+          "url": "https://www.gw.ac.kr"
+        },
+        {
+          "code": "ddu",
+          "name": "대덕대학교",
+          "url": "https://www.ddu.ac.kr"
+        },
+        {
+          "code": "daewon",
+          "name": "대원대학교",
+          "url": "https://www.daewon.ac.kr"
+        },
+        {
+          "code": "dst",
+          "name": "대전과학기술대학교",
+          "url": "https://www.dst.ac.kr"
+        },
+        {
+          "code": "hit",
+          "name": "대전보건대학교",
+          "url": "https://www.hit.ac.kr"
+        },
+        {
+          "code": "bscu",
+          "name": "백석문화대학교",
+          "url": "https://www.bscu.ac.kr"
+        },
+        {
+          "code": "saekyung",
+          "name": "세경대학교",
+          "url": "https://www.saekyung.ac.kr"
+        },
+        {
+          "code": "songgok",
+          "name": "송곡대학교",
+          "url": "https://www.songgok.ac.kr"
+        },
+        {
+          "code": "songho",
+          "name": "송호대학교",
+          "url": "https://www.songho.ac.kr"
+        },
+        {
+          "code": "shinsung",
+          "name": "신성대학교",
+          "url": "https://www.shinsung.ac.kr"
+        },
+        {
+          "code": "motor",
+          "name": "아주자동차대학교",
+          "url": "https://www.motor.ac.kr"
+        },
+        {
+          "code": "yonam",
+          "name": "연암대학교",
+          "url": "https://www.yonam.ac.kr"
+        },
+        {
+          "code": "wsi",
+          "name": "우송정보대학",
+          "url": "https://www.wsi.ac.kr"
+        },
+        {
+          "code": "cnsu",
+          "name": "충남도립대학교",
+          "url": "https://www.cnsu.ac.kr"
+        },
+        {
+          "code": "cpu",
+          "name": "충북도립대학교",
+          "url": "https://www.cpu.ac.kr"
+        },
+        {
+          "code": "chsu",
+          "name": "충북보건과학대학교",
+          "url": "https://www.chsu.ac.kr"
+        },
+        {
+          "code": "ok",
+          "name": "충청대학교",
+          "url": "https://www.ok.ac.kr"
+        },
+        {
+          "code": "pro",
+          "name": "한국영상대학교",
+          "url": "https://www.pro.ac.kr"
+        },
+        {
+          "code": "hsc",
+          "name": "한림성심대학교",
+          "url": "https://www.hsc.ac.kr"
+        },
+        {
+          "code": "hj",
+          "name": "혜전대학교",
+          "url": "https://www.hj.ac.kr"
+        }
+      ]
+    },
+    {
+      "name": "대구·경북",
+      "universities": [
+        {
+          "code": "csj",
+          "name": "가톨릭상지대학교",
+          "url": "https://www.csj.ac.kr"
+        },
+        {
+          "code": "kbsc",
+          "name": "경북과학대학교",
+          "url": "https://www.kbsc.ac.kr"
+        },
+        {
+          "code": "kbc",
+          "name": "경북전문대학교",
+          "url": "https://www.kbc.ac.kr"
+        },
+        {
+          "code": "kmcu",
+          "name": "계명문화대학교",
+          "url": "https://www.kmcu.ac.kr"
+        },
+        {
+          "code": "gumi",
+          "name": "구미대학교",
+          "url": "https://www.gumi.ac.kr"
+        },
+        {
+          "code": "tk",
+          "name": "대경대학교",
+          "url": "https://www.tk.ac.kr"
+        },
+        {
+          "code": "ttc",
+          "name": "대구공업대학교",
+          "url": "https://www.ttc.ac.kr"
+        },
+        {
+          "code": "tsu",
+          "name": "대구과학대학교",
+          "url": "https://www.tsu.ac.kr"
+        },
+        {
+          "code": "dhc",
+          "name": "대구보건대학교",
+          "url": "https://www.dhc.ac.kr"
+        },
+        {
+          "code": "mkc",
+          "name": "문경대학교",
+          "url": "https://www.mkc.ac.kr"
+        },
+        {
+          "code": "sunlin",
+          "name": "선린대학교",
+          "url": "https://www.sunlin.ac.kr"
+        },
+        {
+          "code": "sc",
+          "name": "수성대학교",
+          "url": "https://www.sc.ac.kr"
+        },
+        {
+          "code": "asc",
+          "name": "안동과학대학교",
+          "url": "https://www.asc.ac.kr"
+        },
+        {
+          "code": "ync",
+          "name": "영남이공대학교",
+          "url": "https://www.ync.ac.kr"
+        },
+        {
+          "code": "yju",
+          "name": "영진전문대학교",
+          "url": "http://www.yju.ac.kr"
+        },
+        {
+          "code": "pohang",
+          "name": "포항대학교",
+          "url": "https://www.pohang.ac.kr"
+        },
+        {
+          "code": "hosan",
+          "name": "호산대학교",
+          "url": "https://www.hosan.ac.kr"
+        }
+      ]
+    },
+    {
+      "name": "부산·울산·경남",
+      "universities": [
+        {
+          "code": "koje",
+          "name": "거제대학교",
+          "url": "https://www.koje.ac.kr"
+        },
+        {
+          "code": "gc",
+          "name": "경남도립거창대학",
+          "url": "https://www.gc.ac.kr"
+        },
+        {
+          "code": "namhae",
+          "name": "경남도립남해대학",
+          "url": "https://www.namhae.ac.kr"
+        },
+        {
+          "code": "kit",
+          "name": "경남정보대학교",
+          "url": "https://www.kit.ac.kr"
+        },
+        {
+          "code": "gimhae",
+          "name": "김해대학교",
+          "url": "https://www.gimhae.ac.kr"
+        },
+        {
+          "code": "dit",
+          "name": "동의과학대학교",
+          "url": "https://www.dit.ac.kr"
+        },
+        {
+          "code": "masan",
+          "name": "마산대학교",
+          "url": "https://www.masan.ac.kr"
+        },
+        {
+          "code": "bsks",
+          "name": "부산경상대학교",
+          "url": "https://www.bsks.ac.kr"
+        },
+        {
+          "code": "bist",
+          "name": "부산과학기술대학교",
+          "url": "https://www.bist.ac.kr"
+        },
+        {
+          "code": "bhc",
+          "name": "부산보건대학교",
+          "url": "https://www.bhu.ac.kr"
+        },
+        {
+          "code": "bwc",
+          "name": "부산여자대학교",
+          "url": "https://www.bwc.ac.kr"
+        },
+        {
+          "code": "yc",
+          "name": "연암공과대학교",
+          "url": "https://www.yc.ac.kr"
+        },
+        {
+          "code": "uc",
+          "name": "울산과학대학교",
+          "url": "https://www.uc.ac.kr"
+        },
+        {
+          "code": "jhc",
+          "name": "진주보건대학교",
+          "url": "https://www.jhc.ac.kr"
+        },
+        {
+          "code": "cmu",
+          "name": "창원문성대학교",
+          "url": "https://www.cmu.ac.kr"
+        },
+        {
+          "code": "ch",
+          "name": "춘해보건대학교",
+          "url": "https://www.ch.ac.kr"
+        },
+        {
+          "code": "klc",
+          "name": "한국승강기대학교",
+          "url": "https://www.klc.ac.kr"
+        }
+      ]
+    },
+    {
+      "name": "광주·전라·제주",
+      "universities": [
+        {
+          "code": "ghu",
+          "name": "광주보건대학교",
+          "url": "https://www.ghu.ac.kr"
+        },
+        {
+          "code": "kunjang",
+          "name": "군장대학교",
+          "url": "https://www.kunjang.ac.kr"
+        },
+        {
+          "code": "ccn",
+          "name": "기독간호대학교",
+          "url": "https://www.ccn.ac.kr"
+        },
+        {
+          "code": "dkc",
+          "name": "동강대학교",
+          "url": "https://www.dkc.ac.kr"
+        },
+        {
+          "code": "msu",
+          "name": "목포과학대학교",
+          "url": "https://www.msu.ac.kr"
+        },
+        {
+          "code": "paekche",
+          "name": "백제예술대학교",
+          "url": "https://www.paekche.ac.kr"
+        },
+        {
+          "code": "seoyeong",
+          "name": "서영대학교",
+          "url": "https://www.seoyeong.ac.kr"
+        },
+        {
+          "code": "suncheon",
+          "name": "순천제일대학교",
+          "url": "https://www.suncheon.ac.kr"
+        },
+        {
+          "code": "wu",
+          "name": "원광보건대학교",
+          "url": "https://www.wu.ac.kr"
+        },
+        {
+          "code": "jbsc",
+          "name": "전북과학대학교",
+          "url": "https://www.jbsc.ac.kr"
+        },
+        {
+          "code": "jvision",
+          "name": "전주비전대학교",
+          "url": "https://www.jvision.ac.kr"
+        },
+        {
+          "code": "ctc",
+          "name": "제주관광대학교",
+          "url": "https://www.ctc.ac.kr"
+        },
+        {
+          "code": "chu",
+          "name": "제주한라대학교",
+          "url": "https://www.chu.ac.kr"
+        },
+        {
+          "code": "cst",
+          "name": "조선이공대학교",
+          "url": "https://www.cst.ac.kr"
+        },
+        {
+          "code": "scjc",
+          "name": "청암대학교",
+          "url": "https://www.scjc.ac.kr"
+        },
+        {
+          "code": "hanyeong",
+          "name": "한영대학교",
+          "url": "https://www.hanyeong.ac.kr"
+        }
+      ]
+    }
+  ],
+  "college_notice": "전문대학은 대부분 학생부(교과) 위주로 선발하지만 간호·보건·유아교육·항공·예체능 등 상당수 학과가 면접이나 실기를 봅니다. 전문대 면접은 지원 동기, 학과 이해, 인성·태도, 졸업 후 진로를 짧게 묻는 서류·인성 면접이 많습니다. 자주 나오는 공통 질문과 학과별 질문으로 준비하고, 반영 비율과 방식은 각 대학 입학처 모집요강에서 확인하세요."
 }
