@@ -5,6 +5,12 @@
 <p class="lead">{{ m.desc }}</p>
 <div class="tnav">{% for x in majors %}{% if x.code == m.code %}<span class="tchip on">{{ x.label }}</span>{% else %}<a class="tchip" href="{{ x.url }}">{{ x.label }}</a>{% endif %}{% endfor %}</div>
 <p class="note">{{ notice }}</p>
+{% if m.depts %}
+<h2>{{ m.label }} 계열 학과별 질문</h2>
+<div class="cards">
+{% for d in m.depts %}<a class="card" href="{{ d.url }}"><span class="chip">{{ d.questions|length }}문항</span><b>{{ d.label }}</b><p>{{ d.desc }}</p></a>{% endfor %}
+</div>
+{% endif %}
 <div class="toc"><b>이 페이지의 질문</b><ol>{% for q in m.questions %}<li><a href="#q{{ loop.index }}">{{ q.question }}</a></li>{% endfor %}</ol></div>
 {% for q in m.questions %}
 <section class="qsec" id="q{{ loop.index }}">

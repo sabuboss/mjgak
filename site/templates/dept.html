@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block head %}<script type="application/ld+json">{{ jsonld }}</script>{% endblock %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="/dept/">학과별 질문</a> › <a href="{{ group.url }}">{{ group.label }} 계열</a></p>
+<h1>{{ d.label }} 면접 질문과 답변</h1>
+<p class="lead">{{ d.desc }}</p>
+<div class="tnav">{% for x in siblings %}{% if x.slug == d.slug %}<span class="tchip on">{{ x.label }}</span>{% else %}<a class="tchip" href="{{ x.url }}">{{ x.label }}</a>{% endif %}{% endfor %}</div>
+<p class="note">{{ notice }} 계열 공통 질문은 <a href="{{ group.url }}">{{ group.label }} 계열 페이지</a>에서, 지원동기·장단점 같은 공통 질문은 <a href="/category/intro/">자주 나오는 질문</a>에서 함께 준비하세요.</p>
+<div class="toc"><b>이 페이지의 질문</b><ol>{% for q in d.questions %}<li><a href="#q{{ loop.index }}">{{ q.question }}</a></li>{% endfor %}</ol></div>
+{% for q in d.questions %}
+<section class="qsec" id="q{{ loop.index }}">
+  <h2>{{ loop.index }}. {{ q.question }}</h2>
+  <p class="why"><b>왜 묻나</b> {{ q.why }}</p>
+  <div class="answer">{{ q.answer_html }}</div>
+  <p class="tip"><b>준비 팁</b> {{ q.tips }}</p>
+</section>
+{% endfor %}
+{% if related %}
+<h2>이 학과와 관련된 실제 기출</h2>
+{% for r in related %}
+<article class="qa">
+  <p class="qmeta"><span class="kind kind-actual">{{ r.kind }}</span> <a href="{{ r.url }}">{{ r.univ }} {{ r.year }}학년도</a></p>
+  <p class="qtext">{{ r.text }}</p>
+</article>
+{% endfor %}
+{% endif %}
+<h2>함께 보면 좋은 페이지</h2>
+<ul>
+  <li><a href="{{ group.url }}">{{ group.label }} 계열 공통 질문 {{ group.questions|length }}개</a></li>
+  <li><a href="/category/major/">전공·학업 관련 공통 질문</a></li>
+  <li><a href="/univ/">대학별 면접 준비 가이드와 기출</a></li>
+</ul>
+<p class="note">[대괄호]는 본인 경험으로 바꾸세요. 표준 답변은 구조를 보여 주는 예시이며 그대로 외우면 면접관이 알아봅니다. 학과 이름과 교육과정은 대학마다 다르니 지원 학과 홈페이지를 반드시 확인하세요.</p>
+{% endblock %}

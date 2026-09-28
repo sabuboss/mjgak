@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › 학과별 질문</p>
+<h1>학과별 면접 질문과 답변</h1>
+<p class="lead">계열보다 한 단계 좁혀, 학과(전공)별로 반복해서 나오는 질문 {{ total }}개를 표준 답변과 함께 정리했습니다. 지원 학과를 고르세요. 목록에 없는 학과는 가장 가까운 학과나 <a href="/major/{{ groups[0].code }}/">계열 페이지</a>로 준비하세요.</p>
+<div class="tnav">{% for g in groups %}<a class="tchip" href="#g-{{ g.code }}">{{ g.label }} <i>{{ g.depts|length }}</i></a>{% endfor %}</div>
+{% for g in groups %}
+<section class="topic" id="g-{{ g.code }}">
+  <h2><a href="{{ g.url }}">{{ g.label }} 계열</a></h2>
+  <p>{{ g.desc }} 계열 공통 질문은 <a href="{{ g.url }}">여기</a>.</p>
+  <div class="cards">
+  {% for d in g.depts %}<a class="card" href="{{ d.url }}"><span class="chip">{{ d.questions|length }}문항</span><b>{{ d.label }}</b><p>{{ d.desc }}</p></a>{% endfor %}
+  </div>
+</section>
+{% endfor %}
+<p class="note">학과별 질문은 여러 대학 면접에서 공통으로 나오는 유형을 이 사이트가 정리한 것으로 실제 기출이 아닙니다. 실제 기출이 공개된 대학은 <a href="/univ/">대학별 페이지</a>에서 확인하세요.</p>
+{% endblock %}

@@ -121,6 +121,52 @@ def load_univ_seed():
     return {u["code"]: u for u in load(REPO / "data" / "seed" / "universities.json")["universities"]}
 
 
+def load_departments():
+    """content/departments_*.json -> 학과 목록 (group 은 majors.json 의 code)."""
+    out = []
+    for f in sorted((ROOT / "content").glob("departments_*.json")):
+        out += load(f)["departments"]
+    seen = set()
+    for d in out:
+        assert d["slug"] not in seen, f"duplicate dept slug {d['slug']}"
+        seen.add(d["slug"])
+        d["url"] = f"/dept/{d['slug']}/"
+    return out
+
+
+def load_profiles_univ():
+    p = load(ROOT / "content" / "university_profiles.json")
+    for u in p["universities"]:
+        u["url"] = f"/univ/{u['code']}/"
+    return p
+
+
+def jsonld_faq(title: str, desc: str, url_path: str, qa: list):
+    url = f"{site['url']}{url_path}"
+    ents = [{"@type": "Question", "name": q["question"],
+             "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"\[([^\]]+)\]", r"(\1)", q["answer"])}} for q in qa]
+    return json.dumps({"@context": "https://schema.org", "@graph": [
+        {"@type": "Article", "headline": title, "description": desc,
+         "author": {"@type": "Person", "name": site["author"], "url": f"{site['url']}/about/"},
+         "publisher": {"@type": "Organization", "name": site["name"], "url": site["url"]},
+         "datePublished": site["publish_date"], "dateModified": site["publish_date"], "mainEntityOfPage": url},
+        {"@type": "FAQPage", "mainEntity": ents}]}, ensure_ascii=False)
+
+
+def related_by_keywords(kw: set[str], actual_by, univ_names, limit=3):
+    scored = []
+    for code, recs in actual_by.items():
+        for r in recs:
+            if r["kind"] not in ("actual", "example") or len(r["text"]) > 220:
+                continue
+            s = len(kw & tokens(r["text"]))
+            if s >= 2:
+                scored.append((s, r["year"], code, r))
+    scored.sort(key=lambda x: (-x[0], -x[1]))
+    return [{"univ": univ_names.get(code, code), "code": code, "year": y, "text": r["text"], "kind": KIND_LABEL[r["kind"]],
+             "url": f"/univ/{code}/{y}/"} for s, y, code, r in scored[:limit]]
+
+
 # ---------- 렌더 조각 ----------
 def related_actual(q, actual_by, univ_names, limit=3):
     """공통 질문과 비슷한 실제 기출 3개 (키워드·토큰 겹침 점수)."""
@@ -226,10 +272,41 @@ def main():
     for m in majors["majors"]:
         m["url"] = f"/major/{m['code']}/"
 
+    # 학과별 + 대학 프로필
+    depts = load_departments()
+    major_by = {m["code"]: m for m in majors["majors"]}
+    for m in majors["majors"]:
+        m["depts"] = [d for d in depts if d["group"] == m["code"]]
+    for d in depts:
+        assert d["group"] in major_by, f"unknown group {d['group']} in {d['slug']}"
+    uprof = load_profiles_univ()
+    prof_by = {u["code"]: u for u in uprof["universities"]}
+    for cq in uprof["common_questions"]:
+        cq["answer_html"] = ph(cq["answer"])
+    for u in uprof["universities"]:
+        for q in u["questions"]:
+            q["answer_html"] = ph(q["answer"])
+    prepped = {c for c in prof_by if c not in with_data}
+
     # 홈
     page("", "home.html", common=common, by_cat=by_cat, majors=majors["majors"], profiles=profiles, univ_cards=univ_cards,
-         top=common["questions"][:8], description=site["description"])
+         depts=depts, prep_n=len(prof_by), top=common["questions"][:8], description=site["description"])
     urls.append("/")
+
+    # 학과별
+    page("dept", "dept_index.html", groups=[m for m in majors["majors"] if m["depts"]], total=sum(len(d["questions"]) for d in depts),
+         title=f"학과별 면접 질문과 답변 {len(depts)}개 학과", description="국문·영문·심리·경영·컴퓨터·기계·의예·간호·교육·디자인 등 학과별로 반복되는 면접 질문과 표준 답변.")
+    urls.append("/dept/")
+    for d in depts:
+        for q in d["questions"]:
+            q["answer_html"] = ph(q["answer"])
+        g = major_by[d["group"]]
+        page(f"dept/{d['slug']}", "dept.html", d=d, group=g, siblings=g["depts"], notice=majors["notice"],
+             related=related_by_keywords(tokens(d["label"] + " " + d["desc"]), actual_by, univ_names),
+             jsonld=jsonld_faq(f"{d['label']} 면접 질문과 답변", d["desc"], d["url"], d["questions"]),
+             title=f"{d['label']} 면접 질문 {len(d['questions'])}개와 답변", description=f"{d['desc']} 자주 나오는 질문과 표준 답변, 준비 팁.")
+        urls.append(d["url"])
+        rss.append((f"{d['label']} 면접 질문과 답변", d["url"], d["desc"]))
 
     # 공통 질문 상세
     qs = common["questions"]
@@ -288,10 +365,23 @@ def main():
             if reports:
                 u["report_url"] = reports[0]["url"]
                 u["report_year"] = reports[0]["year"]
-        r["universities"].sort(key=lambda u: (u["code"] not in with_data, u["name"]))
-    page("univ", "univ_index.html", regions=unis["regions"], notice=unis["notice"], with_data=set(with_data), univ_cards=univ_cards,
-         title="전국 대학 면접 안내와 기출 공개 대학", description="전국 주요 대학의 공식 홈페이지 링크와, 입학처가 실제 면접 문항을 공개한 대학의 기출 정리.")
+        r["universities"].sort(key=lambda u: (u["code"] not in with_data, u["code"] not in prepped, u["name"]))
+    prep_cards = [{"code": u["code"], "name": u["name"], "blurb": u["blurb"], "url": u["url"], "has_data": u["code"] in with_data} for u in uprof["universities"]]
+    page("univ", "univ_index.html", regions=unis["regions"], notice=unis["notice"], with_data=set(with_data), prepped=prepped, prep_cards=prep_cards, univ_cards=univ_cards,
+         title="전국 대학 면접 안내·준비 가이드·기출 공개 대학", description=f"주요 대학 {len(prep_cards)}곳의 특성·면접 방식·맞춤 예상 질문, 전국 대학 홈페이지·보고서 링크, 실제 면접 문항을 공개한 대학의 기출 정리.")
     urls.append("/univ/")
+
+    # 기출 없는 대학의 준비 가이드 페이지
+    for code in sorted(prepped):
+        p = prof_by[code]
+        s = seed.get(code, {})
+        reports = sorted([s_ for s_ in s.get("sources", []) if s_.get("kind") == "report"], key=lambda x: -x["year"])
+        page(f"univ/{code}", "univ_prep.html", p=p, home=p.get("home") or s.get("admission_url", "#"),
+             report_url=reports[0]["url"] if reports else None, report_year=reports[0]["year"] if reports else None,
+             common_questions=uprof["common_questions"], notice=uprof["notice"],
+             title=f"{p['name']} 면접 준비 가이드 — 특징·면접 방식·예상 질문", description=f"{p['blurb']} 면접 방식과 준비 포인트, 맞춤 예상 질문 {len(p['questions'])}개.")
+        urls.append(p["url"])
+        rss.append((f"{p['name']} 면접 준비 가이드", p["url"], p["blurb"]))
     for u in univ_cards:
         recs = actual_by[u["code"]]
         s = seed[u["code"]]
@@ -305,7 +395,7 @@ def main():
             a["years"] = sorted(a["years"], reverse=True)
         years = u["years"]
         page(f"univ/{u['code']}", "univ.html", u=u, seed=s, years=years, admissions=list(adm.values()), sample=[r for r in recs if r["year"] == years[0]][:6],
-             kind_label=KIND_LABEL, title=f"{u['name']} 면접 기출문항 {years[-1]}~{years[0]}학년도",
+             p=prof_by.get(u["code"]), kind_label=KIND_LABEL, title=f"{u['name']} 면접 기출문항 {years[-1]}~{years[0]}학년도",
              description=f"{u['name']} 입학처가 공개한 면접·구술고사 문항 {u['n']}개를 연도·전형별로 정리했습니다. 출제 의도와 출처 링크 포함.")
         urls.append(u["url"])
         for y in years:
@@ -332,8 +422,11 @@ def main():
     search = [{"t": q["question"], "u": q["url"], "c": q["cat_label"]} for q in common["questions"]]
     search += [{"t": f"{m['label']} · {q['question']}", "u": m["url"], "c": "계열별"} for m in majors["majors"] for q in m["questions"]]
     search += [{"t": f"{p['label']} · {q['text']}", "u": p["url"], "c": "유형별"} for p in profiles for q in p["seed_questions"]]
+    search += [{"t": f"{d['label']} · {q['question']}", "u": d["url"], "c": "학과별"} for d in depts for q in d["questions"]]
+    search += [{"t": f"{u['name']} · {q['question']}", "u": u["url"], "c": "대학별"} for u in uprof["universities"] for q in u["questions"]]
+    search += [{"t": f"{u['name']} 면접 준비 가이드", "u": u["url"], "c": "대학별"} for u in uprof["universities"]]
     write("search.json", json.dumps(search, ensure_ascii=False))
-    print(f"pages: {len(urls)}  questions: {len(common['questions'])}  actual: {sum(len(v) for v in actual_by.values())}  -> {DIST}")
+    print(f"pages: {len(urls)}  questions: {len(common['questions'])}  depts: {len(depts)}  univ profiles: {len(prof_by)}  actual: {sum(len(v) for v in actual_by.values())}  -> {DIST}")
 
 
 if __name__ == "__main__":
