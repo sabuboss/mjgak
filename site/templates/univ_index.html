@@ -21,7 +21,7 @@
 {% for r in regions %}
 <h3>{{ r.name }}</h3>
 <ul class="ulist">
-{% for u in r.universities %}<li>{% if u.code in with_data %}<a href="/univ/{{ u.code }}/"><b>{{ u.name }}</b></a> <span class="kind kind-actual">면접 기출</span>{% elif u.code in prepped %}<a href="/univ/{{ u.code }}/"><b>{{ u.name }}</b></a> <span class="kind kind-example">준비 가이드</span>{% else %}{{ u.name }}{% endif %} <a class="src" href="{{ u.url }}" target="_blank" rel="noopener">홈페이지↗</a>{% if u.report_url %} <a class="src" href="{{ u.report_url }}" target="_blank" rel="noopener">{{ u.report_year }} 보고서↗</a>{% endif %}</li>{% endfor %}
+{% for u in r.universities %}<li>{% if u.code in with_data %}<a href="/univ/{{ u.code }}/"><b>{{ u.name }}</b></a> <span class="kind kind-actual">면접 기출</span>{% elif u.code in prep_link %}<a href="{{ prep_link[u.code] }}"><b>{{ u.name }}</b></a> <span class="kind kind-example">준비 가이드</span>{% else %}{{ u.name }}{% endif %} <a class="src" href="{{ u.url }}" target="_blank" rel="noopener">홈페이지↗</a>{% if u.report_url %} <a class="src" href="{{ u.report_url }}" target="_blank" rel="noopener">{{ u.report_year }} 보고서↗</a>{% endif %}</li>{% endfor %}
 </ul>
 {% endfor %}
 <p class="note">목록에 없는 대학이나 잘못된 링크는 <a href="/contact/">문의</a>로 알려 주세요. 다른 대학의 공개 문항도 차례로 정리할 예정입니다.</p>

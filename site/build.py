@@ -135,8 +135,14 @@ def load_departments():
 
 
 def load_profiles_univ():
+    """content/university_profiles*.json 을 합친다. notice/common_questions 는 첫 파일 것."""
     p = load(ROOT / "content" / "university_profiles.json")
+    for f in sorted((ROOT / "content").glob("university_profiles_*.json")):
+        p["universities"] += load(f)["universities"]
+    seen = set()
     for u in p["universities"]:
+        assert u["code"] not in seen, f"duplicate univ profile {u['code']}"
+        seen.add(u["code"])
         u["url"] = f"/univ/{u['code']}/"
     return p
 
@@ -287,6 +293,11 @@ def main():
         for q in u["questions"]:
             q["answer_html"] = ph(q["answer"])
     prepped = {c for c in prof_by if c not in with_data}
+    # 분교·캠퍼스 코드(also) 는 본교 프로필 페이지로 연결
+    prep_link = {c: f"/univ/{c}/" for c in prof_by}
+    for u in uprof["universities"]:
+        for a in u.get("also", []):
+            prep_link.setdefault(a, u["url"])
 
     # 홈
     page("", "home.html", common=common, by_cat=by_cat, majors=majors["majors"], profiles=profiles, univ_cards=univ_cards,
@@ -365,9 +376,9 @@ def main():
             if reports:
                 u["report_url"] = reports[0]["url"]
                 u["report_year"] = reports[0]["year"]
-        r["universities"].sort(key=lambda u: (u["code"] not in with_data, u["code"] not in prepped, u["name"]))
+        r["universities"].sort(key=lambda u: (u["code"] not in with_data, u["code"] not in prep_link, u["name"]))
     prep_cards = [{"code": u["code"], "name": u["name"], "blurb": u["blurb"], "url": u["url"], "has_data": u["code"] in with_data} for u in uprof["universities"]]
-    page("univ", "univ_index.html", regions=unis["regions"], notice=unis["notice"], with_data=set(with_data), prepped=prepped, prep_cards=prep_cards, univ_cards=univ_cards,
+    page("univ", "univ_index.html", regions=unis["regions"], notice=unis["notice"], with_data=set(with_data), prep_link=prep_link, prep_cards=prep_cards, univ_cards=univ_cards,
          title="전국 대학 면접 안내·준비 가이드·기출 공개 대학", description=f"주요 대학 {len(prep_cards)}곳의 특성·면접 방식·맞춤 예상 질문, 전국 대학 홈페이지·보고서 링크, 실제 면접 문항을 공개한 대학의 기출 정리.")
     urls.append("/univ/")
 
