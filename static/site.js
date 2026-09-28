@@ -5,7 +5,7 @@
   var data = null;
   function load(cb) {
     if (data) return cb();
-    fetch("/search.json").then(function (r) { return r.json(); }).then(function (d) { data = d; cb(); }).catch(function () {});
+    fetch("/mjgak/search.json").then(function (r) { return r.json(); }).then(function (d) { data = d; cb(); }).catch(function () {});
   }
   function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function render(q) {
@@ -13,7 +13,7 @@
     if (!q) { list.hidden = true; list.innerHTML = ""; return; }
     var terms = q.split(/\s+/);
     var hits = data.filter(function (it) { return terms.every(function (t) { return it.t.indexOf(t) >= 0 || it.c.indexOf(t) >= 0; }); }).slice(0, 12);
-    if (!hits.length) { list.innerHTML = '<li><a href="/category/intro/">일치하는 질문이 없습니다. 전체 목록 보기</a></li>'; list.hidden = false; return; }
+    if (!hits.length) { list.innerHTML = '<li><a /mjgak/category/intro/">일치하는 질문이 없습니다. 전체 목록 보기</a></li>'; list.hidden = false; return; }
     list.innerHTML = hits.map(function (it) { return '<li><a href="' + it.u + '">' + esc(it.t) + "<small>" + esc(it.c) + "</small></a></li>"; }).join("");
     list.hidden = false;
   }
