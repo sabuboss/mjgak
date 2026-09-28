@@ -11,11 +11,11 @@
 <p class="note">이 대학들은 제시문 기반 면접·구술고사 문항을 매년 3월 입학처 홈페이지에 공개합니다. 서류 기반 면접·인성면접은 문항이 공개되지 않으므로 <a href="/category/intro/">공통 질문</a>과 <a href="/type/general/">유형별 질문</a>으로 준비하세요.</p>
 
 <h2>지역별 주요 대학</h2>
-<p class="lead">대학 홈페이지 → 입학처 → 모집요강에서 면접 실시 전형과 반영 비율을 확인하세요. 표시된 대학은 이 사이트에 기출 정리가 있습니다.</p>
+<p class="lead">대학 홈페이지 → 입학처 → 모집요강에서 면접 실시 전형과 반영 비율을 확인하세요. "면접 기출" 표시가 있는 대학은 이 사이트에 문항 정리가 있고, "보고서" 링크는 각 대학이 공개한 선행학습 영향평가 보고서 원문(서울진로진학정보센터 제공)입니다. 대부분의 대학은 서류 기반 면접 문항을 공개하지 않으므로 보고서에서 면접 실시 전형과 평가 방식만 확인하고, 문항은 <a href="/category/intro/">자주 나오는 질문</a>으로 준비하세요.</p>
 {% for r in regions %}
 <h3>{{ r.name }}</h3>
 <ul class="ulist">
-{% for u in r.universities %}<li>{% if u.code in with_data %}<a href="/univ/{{ u.code }}/"><b>{{ u.name }}</b></a> <span class="kind kind-actual">기출 공개</span>{% else %}{{ u.name }}{% endif %} <a class="src" href="{{ u.url }}" target="_blank" rel="noopener">홈페이지↗</a></li>{% endfor %}
+{% for u in r.universities %}<li>{% if u.code in with_data %}<a href="/univ/{{ u.code }}/"><b>{{ u.name }}</b></a> <span class="kind kind-actual">면접 기출</span>{% else %}{{ u.name }}{% endif %} <a class="src" href="{{ u.url }}" target="_blank" rel="noopener">홈페이지↗</a>{% if u.report_url %} <a class="src" href="{{ u.report_url }}" target="_blank" rel="noopener">{{ u.report_year }} 보고서↗</a>{% endif %}</li>{% endfor %}
 </ul>
 {% endfor %}
 <p class="note">목록에 없는 대학이나 잘못된 링크는 <a href="/contact/">문의</a>로 알려 주세요. 다른 대학의 공개 문항도 차례로 정리할 예정입니다.</p>

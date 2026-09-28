@@ -265,7 +265,28 @@ def main():
              description=p["description"])
         urls.append(p["url"])
 
-    # 대학
+    # 대학 목록: content/universities.json(지역별 수동 목록) + seed 에만 있는 대학 합치기, 보고서 링크 붙이기
+    REGION_MAP = {"서울": "서울", "경기": "경기·인천", "인천": "경기·인천", "대전": "대전·충청·강원", "충남": "대전·충청·강원", "충북": "대전·충청·강원",
+                  "강원": "대전·충청·강원", "세종": "대전·충청·강원", "대구": "대구·경북", "경북": "대구·경북", "부산": "부산·울산·경남", "울산": "부산·울산·경남",
+                  "경남": "부산·울산·경남", "광주": "광주·전라·제주", "전북": "광주·전라·제주", "전남": "광주·전라·제주", "제주": "광주·전라·제주"}
+    listed = {u["code"] for r in unis["regions"] for u in r["universities"]}
+    for code, su in seed.items():
+        reports = [s_ for s_ in su.get("sources", []) if s_.get("kind") == "report"]
+        if code not in listed and reports:
+            rname = REGION_MAP.get(su.get("region", ""), "기타")
+            reg = next((r for r in unis["regions"] if r["name"] == rname), None)
+            if reg is None:
+                reg = {"name": rname, "universities": []}
+                unis["regions"].append(reg)
+            reg["universities"].append({"code": code, "name": su["name"], "url": su["admission_url"]})
+    for r in unis["regions"]:
+        for u in r["universities"]:
+            su = seed.get(u["code"])
+            reports = sorted([s_ for s_ in (su or {}).get("sources", []) if s_.get("kind") == "report"], key=lambda x: -x["year"])
+            if reports:
+                u["report_url"] = reports[0]["url"]
+                u["report_year"] = reports[0]["year"]
+        r["universities"].sort(key=lambda u: (u["code"] not in with_data, u["name"]))
     page("univ", "univ_index.html", regions=unis["regions"], notice=unis["notice"], with_data=set(with_data), univ_cards=univ_cards,
          title="전국 대학 면접 안내와 기출 공개 대학", description="전국 주요 대학의 공식 홈페이지 링크와, 입학처가 실제 면접 문항을 공개한 대학의 기출 정리.")
     urls.append("/univ/")

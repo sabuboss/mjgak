@@ -305,7 +305,17 @@
       "type": "general",
       "admission_url": "https://iphak.khu.ac.kr",
       "priority": 2,
-      "sources": []
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 경희대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90/%EA%B2%BD%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "khu_2026_report.pdf",
+          "verified": false
+        }
+      ]
     },
     {
       "code": "cau",
@@ -314,7 +324,17 @@
       "type": "general",
       "admission_url": "https://admission.cau.ac.kr",
       "priority": 2,
-      "sources": []
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 중앙대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%A4%91%EC%95%99%EB%8C%80%ED%95%99%EA%B5%90/%EC%A4%91%EC%95%99%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "cau_2026_report.pdf",
+          "verified": false
+        }
+      ]
     },
     {
       "code": "uos",
@@ -323,7 +343,17 @@
       "type": "general",
       "admission_url": "https://admission.uos.ac.kr",
       "priority": 2,
-      "sources": []
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 서울시립대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%84%9C%EC%9A%B8%EC%8B%9C%EB%A6%BD%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%9C%EC%9A%B8%EC%8B%9C%EB%A6%BD%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "uos_2026_report.pdf",
+          "verified": false
+        }
+      ]
     },
     {
       "code": "ewha",
@@ -332,7 +362,17 @@
       "type": "general",
       "admission_url": "https://admission.ewha.ac.kr",
       "priority": 2,
-      "sources": []
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 이화여자대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%9D%B4%ED%99%94%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90/%EC%9D%B4%ED%99%94%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "ewha_2026_report.pdf",
+          "verified": false
+        }
+      ]
     },
     {
       "code": "hufs",
@@ -341,7 +381,17 @@
       "type": "general",
       "admission_url": "https://adms.hufs.ac.kr",
       "priority": 2,
-      "sources": []
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 한국외국어대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%95%9C%EA%B5%AD%EC%99%B8%EA%B5%AD%EC%96%B4%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EA%B5%AD%EC%99%B8%EA%B5%AD%EC%96%B4%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "hufs_2026_report.pdf",
+          "verified": false
+        }
+      ]
     },
     {
       "code": "dongguk",
@@ -350,7 +400,17 @@
       "type": "general",
       "admission_url": "https://ipsi.dongguk.edu",
       "priority": 2,
-      "sources": []
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 동국대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EB%8F%99%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90/%EB%8F%99%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "dongguk_2026_report.pdf",
+          "verified": false
+        }
+      ]
     },
     {
       "code": "inha",
@@ -359,7 +419,17 @@
       "type": "general",
       "admission_url": "https://admission.inha.ac.kr",
       "priority": 2,
-      "sources": []
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 인하대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%9D%B8%ED%95%98%EB%8C%80%ED%95%99%EA%B5%90/%EC%9D%B8%ED%95%98%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "inha_2026_report.pdf",
+          "verified": false
+        }
+      ]
     },
     {
       "code": "unist",
@@ -413,7 +483,1217 @@
       "type": "general",
       "admission_url": "https://go.pusan.ac.kr",
       "priority": 4,
-      "sources": []
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 부산대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90/%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "pnu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "hanyang",
+      "name": "한양대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.hanyang.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 한양대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "hanyang_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "sogang",
+      "name": "서강대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.sogang.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 서강대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%84%9C%EA%B0%95%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%9C%EA%B0%95%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "sogang_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "konkuk",
+      "name": "건국대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.konkuk.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 건국대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B1%B4%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90/%EA%B1%B4%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "konkuk_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "kookmin",
+      "name": "국민대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.kookmin.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 국민대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B5%AD%EB%AF%BC%EB%8C%80%ED%95%99%EA%B5%90/%EA%B5%AD%EB%AF%BC%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "kookmin_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "sookmyung",
+      "name": "숙명여자대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.sookmyung.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 숙명여자대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%88%99%EB%AA%85%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90/%EC%88%99%EB%AA%85%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "sookmyung_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "soongsil",
+      "name": "숭실대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.ssu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 숭실대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%88%AD%EC%8B%A4%EB%8C%80%ED%95%99%EA%B5%90/%EC%88%AD%EC%8B%A4%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "soongsil_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "sejong",
+      "name": "세종대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.sejong.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 세종대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%84%B8%EC%A2%85%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%B8%EC%A2%85%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "sejong_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "kwangwoon",
+      "name": "광운대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.kw.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 광운대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B4%91%EC%9A%B4%EB%8C%80%ED%95%99%EA%B5%90/%EA%B4%91%EC%9A%B4%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "kwangwoon_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "sangmyung",
+      "name": "상명대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.smu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 상명대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%83%81%EB%AA%85%EB%8C%80%ED%95%99%EA%B5%90/%EC%83%81%EB%AA%85%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "sangmyung_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "seoultech",
+      "name": "서울과학기술대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.seoultech.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 서울과학기술대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%84%9C%EC%9A%B8%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%9C%EC%9A%B8%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "seoultech_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "sungshin",
+      "name": "성신여자대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.sungshin.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 성신여자대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%84%B1%EC%8B%A0%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%B1%EC%8B%A0%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "sungshin_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "duksung",
+      "name": "덕성여자대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.duksung.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 덕성여자대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EB%8D%95%EC%84%B1%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90/%EB%8D%95%EC%84%B1%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "duksung_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "dongduk",
+      "name": "동덕여자대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.dongduk.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 동덕여자대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EB%8F%99%EB%8D%95%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90/%EB%8F%99%EB%8D%95%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "dongduk_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "catholic",
+      "name": "가톨릭대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.catholic.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 가톨릭대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90/%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "catholic_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "myongji",
+      "name": "명지대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.mju.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 명지대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EB%AA%85%EC%A7%80%EB%8C%80%ED%95%99%EA%B5%90/%EB%AA%85%EC%A7%80%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "myongji_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "swu",
+      "name": "서울여자대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.swu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 서울여자대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%84%9C%EC%9A%B8%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%9C%EC%9A%B8%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "swu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "hansung",
+      "name": "한성대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.hansung.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 한성대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%95%9C%EC%84%B1%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EC%84%B1%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "hansung_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "skuniv",
+      "name": "서경대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.skuniv.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 서경대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%84%9C%EA%B2%BD%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%9C%EA%B2%BD%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "skuniv_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "skhu",
+      "name": "성공회대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.skhu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 성공회대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%84%B1%EA%B3%B5%ED%9A%8C%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%B1%EA%B3%B5%ED%9A%8C%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "skhu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "chongshin",
+      "name": "총신대학교",
+      "region": "서울",
+      "type": "general",
+      "admission_url": "https://www.chongshin.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 총신대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%B4%9D%EC%8B%A0%EB%8C%80%ED%95%99%EA%B5%90/%EC%B4%9D%EC%8B%A0%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "chongshin_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "ajou",
+      "name": "아주대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.ajou.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 아주대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90/%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "ajou_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "kyonggi",
+      "name": "경기대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.kyonggi.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 경기대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90/%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "kyonggi_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "gachon",
+      "name": "가천대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.gachon.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 가천대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B0%80%EC%B2%9C%EB%8C%80%ED%95%99%EA%B5%90/%EA%B0%80%EC%B2%9C%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "gachon_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "hanyang-erica",
+      "name": "한양대학교(ERICA)",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.hanyang.ac.kr/web/erica",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 한양대학교(ERICA) 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90%28ERICA%29_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "hanyang-erica_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "cha",
+      "name": "차의과학대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.cha.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 차의과학대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%B0%A8%EC%9D%98%EA%B3%BC%ED%95%99%EB%8C%80%ED%95%99%EA%B5%90/%EC%B0%A8%EC%9D%98%EA%B3%BC%ED%95%99%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "cha_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "kau",
+      "name": "한국항공대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.kau.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 한국항공대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%95%9C%EA%B5%AD%ED%95%AD%EA%B3%B5%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EA%B5%AD%ED%95%AD%EA%B3%B5%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "kau_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "sungkyul",
+      "name": "성결대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.sungkyul.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 성결대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%84%B1%EA%B2%B0%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%B1%EA%B2%B0%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "sungkyul_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "anyang",
+      "name": "안양대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.anyang.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 안양대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%95%88%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90/%EC%95%88%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "anyang_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "hs",
+      "name": "한신대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.hs.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 한신대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%95%9C%EC%8B%A0%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EC%8B%A0%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "hs_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "uhs",
+      "name": "협성대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.uhs.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 협성대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%98%91%EC%84%B1%EB%8C%80%ED%95%99%EA%B5%90/%ED%98%91%EC%84%B1%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "uhs_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "suwon",
+      "name": "수원대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.suwon.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 수원대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%88%98%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90/%EC%88%98%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "suwon_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "tukorea",
+      "name": "한국공학대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.tukorea.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 한국공학대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%95%9C%EA%B5%AD%EA%B3%B5%ED%95%99%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EA%B5%AD%EA%B3%B5%ED%95%99%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "tukorea_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "kangnam",
+      "name": "강남대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.kangnam.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 강남대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B0%95%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90/%EA%B0%95%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "kangnam_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "yongin",
+      "name": "용인대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.yongin.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 용인대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%9A%A9%EC%9D%B8%EB%8C%80%ED%95%99%EA%B5%90/%EC%9A%A9%EC%9D%B8%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "yongin_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "eulji",
+      "name": "을지대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.eulji.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 을지대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%9D%84%EC%A7%80%EB%8C%80%ED%95%99%EA%B5%90/%EC%9D%84%EC%A7%80%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "eulji_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "daejin",
+      "name": "대진대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.daejin.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 대진대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EB%8C%80%EC%A7%84%EB%8C%80%ED%95%99%EA%B5%90/%EB%8C%80%EC%A7%84%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "daejin_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "shinhan",
+      "name": "신한대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.shinhan.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 신한대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%8B%A0%ED%95%9C%EB%8C%80%ED%95%99%EA%B5%90/%EC%8B%A0%ED%95%9C%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "shinhan_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "hknu",
+      "name": "한경국립대학교",
+      "region": "경기",
+      "type": "general",
+      "admission_url": "https://www.hknu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 한경국립대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%95%9C%EA%B2%BD%EA%B5%AD%EB%A6%BD%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EA%B2%BD%EA%B5%AD%EB%A6%BD%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "hknu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "dankook-cheonan",
+      "name": "단국대학교(천안)",
+      "region": "충남",
+      "type": "general",
+      "admission_url": "https://www.dankook.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 단국대학교(천안) 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90%28%EC%B2%9C%EC%95%88%29/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90%28%EC%B2%9C%EC%95%88%29_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "dankook-cheonan_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "cnu",
+      "name": "충남대학교",
+      "region": "대전",
+      "type": "general",
+      "admission_url": "https://www.cnu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 충남대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%B6%A9%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90/%EC%B6%A9%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "cnu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "cbnu",
+      "name": "충북대학교",
+      "region": "충북",
+      "type": "general",
+      "admission_url": "https://www.cbnu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 충북대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%B6%A9%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90/%EC%B6%A9%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "cbnu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "kangwon",
+      "name": "강원대학교",
+      "region": "강원",
+      "type": "general",
+      "admission_url": "https://www.kangwon.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 강원대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B0%95%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90/%EA%B0%95%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "kangwon_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "koreatech",
+      "name": "한국기술교육대학교",
+      "region": "충남",
+      "type": "teachers",
+      "admission_url": "https://www.koreatech.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 한국기술교육대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%95%9C%EA%B5%AD%EA%B8%B0%EC%88%A0%EA%B5%90%EC%9C%A1%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EA%B5%AD%EA%B8%B0%EC%88%A0%EA%B5%90%EC%9C%A1%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "koreatech_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "hallym",
+      "name": "한림대학교",
+      "region": "강원",
+      "type": "general",
+      "admission_url": "https://www.hallym.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 한림대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%95%9C%EB%A6%BC%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EB%A6%BC%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "hallym_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "sunmoon",
+      "name": "선문대학교",
+      "region": "충남",
+      "type": "general",
+      "admission_url": "https://www.sunmoon.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 선문대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%84%A0%EB%AC%B8%EB%8C%80%ED%95%99%EA%B5%90/%EC%84%A0%EB%AC%B8%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "sunmoon_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "knue",
+      "name": "한국교원대학교",
+      "region": "충북",
+      "type": "general",
+      "admission_url": "https://www.knue.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 한국교원대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%95%9C%EA%B5%AD%EA%B5%90%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%9C%EA%B5%AD%EA%B5%90%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "knue_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "sch",
+      "name": "순천향대학교",
+      "region": "충남",
+      "type": "general",
+      "admission_url": "https://www.sch.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 순천향대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%88%9C%EC%B2%9C%ED%96%A5%EB%8C%80%ED%95%99%EA%B5%90/%EC%88%9C%EC%B2%9C%ED%96%A5%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "sch_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "nsu",
+      "name": "남서울대학교",
+      "region": "충남",
+      "type": "general",
+      "admission_url": "https://www.nsu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 남서울대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EB%82%A8%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90/%EB%82%A8%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "nsu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "bu",
+      "name": "백석대학교",
+      "region": "충남",
+      "type": "general",
+      "admission_url": "https://www.bu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 백석대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EB%B0%B1%EC%84%9D%EB%8C%80%ED%95%99%EA%B5%90/%EB%B0%B1%EC%84%9D%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "bu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "hoseo",
+      "name": "호서대학교",
+      "region": "충남",
+      "type": "general",
+      "admission_url": "https://www.hoseo.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 호서대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%98%B8%EC%84%9C%EB%8C%80%ED%95%99%EA%B5%90/%ED%98%B8%EC%84%9C%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "hoseo_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "kornu",
+      "name": "나사렛대학교",
+      "region": "충남",
+      "type": "general",
+      "admission_url": "https://www.kornu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 나사렛대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EB%82%98%EC%82%AC%EB%A0%9B%EB%8C%80%ED%95%99%EA%B5%90/%EB%82%98%EC%82%AC%EB%A0%9B%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "kornu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "cju",
+      "name": "청주대학교",
+      "region": "충북",
+      "type": "general",
+      "admission_url": "https://www.cju.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 청주대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%B2%AD%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90/%EC%B2%AD%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "cju_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "yonsei-mirae",
+      "name": "연세대학교(미래)",
+      "region": "강원",
+      "type": "general",
+      "admission_url": "https://www.yonsei.ac.kr/wj",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 연세대학교(미래) 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90%28%EB%AF%B8%EB%9E%98%29/%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90%28%EB%AF%B8%EB%9E%98%29_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "yonsei-mirae_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "korea-sejong",
+      "name": "고려대학교(세종)",
+      "region": "세종",
+      "type": "general",
+      "admission_url": "https://sejong.korea.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 고려대학교(세종) 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B3%A0%EB%A0%A4%EB%8C%80%ED%95%99%EA%B5%90%28%EC%84%B8%EC%A2%85%29/%EA%B3%A0%EB%A0%A4%EB%8C%80%ED%95%99%EA%B5%90%28%EC%84%B8%EC%A2%85%29_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "korea-sejong_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "hongik-sejong",
+      "name": "홍익대학교(세종)",
+      "region": "세종",
+      "type": "general",
+      "admission_url": "https://www.hongik.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 홍익대학교(세종) 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%28%EC%84%B8%EC%A2%85%29/%ED%99%8D%EC%9D%B5%EB%8C%80%ED%95%99%EA%B5%90%28%EC%84%B8%EC%A2%85%29_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "hongik-sejong_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "knu",
+      "name": "경북대학교",
+      "region": "대구",
+      "type": "general",
+      "admission_url": "https://www.knu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 경북대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B2%BD%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90/%EA%B2%BD%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "knu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "gnu",
+      "name": "경상국립대학교",
+      "region": "경남",
+      "type": "general",
+      "admission_url": "https://www.gnu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 경상국립대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B2%BD%EC%83%81%EA%B5%AD%EB%A6%BD%EB%8C%80%ED%95%99%EA%B5%90/%EA%B2%BD%EC%83%81%EA%B5%AD%EB%A6%BD%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "gnu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "jnu",
+      "name": "전남대학교",
+      "region": "광주",
+      "type": "general",
+      "admission_url": "https://www.jnu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 전남대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%A0%84%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90/%EC%A0%84%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "jnu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "jbnu",
+      "name": "전북대학교",
+      "region": "전북",
+      "type": "general",
+      "admission_url": "https://www.jbnu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 전북대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%A0%84%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90/%EC%A0%84%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "jbnu_2026_report.pdf",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "code": "jejunu",
+      "name": "제주대학교",
+      "region": "제주",
+      "type": "general",
+      "admission_url": "https://www.jejunu.ac.kr",
+      "report_board_url": "https://www.jinhak.or.kr/subList/20000000267",
+      "priority": 5,
+      "sources": [
+        {
+          "year": 2026,
+          "kind": "report",
+          "title": "2026학년도 제주대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
+          "page_url": "https://www.jinhak.or.kr/subList/20000000267",
+          "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EC%A0%9C%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90/%EC%A0%9C%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
+          "filename": "jejunu_2026_report.pdf",
+          "verified": false
+        }
+      ]
     }
   ]
 }

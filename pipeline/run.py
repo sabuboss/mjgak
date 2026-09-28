@@ -27,8 +27,24 @@ def cmd_fetch(args):
 
 
 def cmd_parse(args):
+    if args.univ == "all":
+        from mjgak_pipeline.fetch import load_universities
+        total = 0
+        for u in load_universities():
+            if not u.get("sources"):
+                continue
+            a = argparse.Namespace(univ=u["code"], year=args.year, llm=args.llm)
+            try:
+                total += cmd_parse(a) or 0
+            except Exception as e:  # noqa: BLE001
+                print(f"[parse] {u['code']} FAILED: {e}")
+        print(f"[parse] ALL done: {total} records")
+        return total
     univ = get_university(args.univ)
-    parser = importlib.import_module(f"parsers.{args.univ}")
+    try:
+        parser = importlib.import_module(f"parsers.{args.univ.replace('-', '_')}")
+    except ModuleNotFoundError:
+        parser = importlib.import_module("parsers.generic")  # 대교협 표준 문항카드 범용 파서
     use_llm = args.llm
     if use_llm:
         from mjgak_pipeline import structure
@@ -70,10 +86,16 @@ def cmd_parse(args):
         )
         all_recs.extend(recs)
     out = OUT / f"{args.univ}.jsonl"
+    if not all_recs:
+        if out.exists():
+            out.unlink()
+        print(f"[parse] {args.univ}: 문항 없음")
+        return 0
     with out.open("w", encoding="utf-8") as f:
         for r in all_recs:
             f.write(json.dumps(r.model_dump(), ensure_ascii=False) + "\n")
     print(f"[parse] 총 {len(all_recs)} records → {out.relative_to(ROOT)}")
+    return len(all_recs)
 
 
 def cmd_stats(args):
