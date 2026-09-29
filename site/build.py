@@ -420,7 +420,7 @@ def main():
             urls.append(f"/univ/{u['code']}/{y}/")
 
     # 고정 페이지
-    for name in ("guide", "about", "privacy", "contact"):
+    for name in ("guide", "schedule", "about", "privacy", "contact"):
         meta, body = md_page(name)
         page(name, "page.html", body=body, title=meta["title"], description=meta.get("description", ""))
         urls.append(f"/{name}/")
