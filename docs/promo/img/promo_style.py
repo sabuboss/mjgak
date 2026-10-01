@@ -92,12 +92,13 @@ def make_thumb(out, dept, line2="면접 질문 6가지", line3="답변 예시 �
 
 
 # ---------------------------------------------------------------- 모집요강 캡처
-def make_capture(out, pdf, page, start, end, univ, doc_label, note, dpi=200, start_pad=14, end_pad=6, lr=28):
-    """PDF 한 쪽에서 start 문구 ~ end(문구 또는 y좌표 또는 ('after', 문구)) 구간을 잘라 공통 틀에 넣는다."""
+def make_capture(out, pdf, page, start, end, univ, doc_label, note, dpi=200, start_pad=14, end_pad=6, lr=28, start_idx=0, end_idx=0):
+    """PDF 한 쪽에서 start 문구 ~ end(문구 또는 y좌표 또는 ('after', 문구)) 구간을 잘라 공통 틀에 넣는다.
+    같은 문구가 여러 번 나오면 start_idx / end_idx 로 몇 번째인지 고른다(-1 은 마지막)."""
     pg = pymupdf.open(pdf)[page - 1]
-    y0 = pg.search_for(start)[0].y0 - start_pad
+    y0 = pg.search_for(start)[start_idx].y0 - start_pad
     if isinstance(end, tuple) and end[0] == "after":
-        y1 = pg.search_for(end[1])[0].y1 + end_pad
+        y1 = pg.search_for(end[1])[end_idx].y1 + end_pad
     elif isinstance(end, str):
         y1 = pg.search_for(end)[0].y0 - end_pad
     else:
@@ -200,6 +201,24 @@ def jobs_business():
         "학교 축제 부스를 운영하며 재료비 예산 12만 원, 역할 분담 6명, 홍보를 동시에 챙겨야 했습니다.",
         "감으로 하면 재료가 남고 사람이 지친다는 걸 알았고, 원가와 인원을 표로 관리하자 이익률이 18%가 됐습니다.",
         "이 학과에서 마케팅과 조직관리를 체계적으로 배워, 숫자와 사람을 함께 보는 기획자가 되고 싶습니다.",
+    ])
+
+
+def jobs_cs():
+    make_thumb(HERE / "thumb-cs.png", "컴퓨터공학과")
+    make_capture(HERE / "kw-2027-sw-track.png", pdf("광운대학교"), 24, "학생부종합【소프트웨어우수인재전형】", ("after", "400점/0점"),
+                 "광운대학교", "2027학년도 수시모집요강 24쪽", "소프트웨어우수인재전형 · 컴퓨터정보공학부·소프트웨어학부 등 72명 · 서류 60% + 면접 40%", end_pad=14)
+    make_capture(HERE / "kw-2027-sw-interview.png", pdf("광운대학교"), 46, "평가방법", ("after", "면접 태도"),
+                 "광운대학교", "2027학년도 수시모집요강 46쪽", "면접 10분 · 블라인드 · 발전가능성 45%(소프트웨어 경험의 진정성 포함)", end_idx=-1, end_pad=14, start_pad=2)
+    make_capture(HERE / "sm-2027-sw-track.png", pdf("숙명여자대학교"), 20, "가. 모집단위 및 모집인원", "마. 전형요소별 평가방법",
+                 "숙명여자대학교", "2027학년도 수시모집요강 16쪽(PDF 20쪽)", "소프트웨어인재전형 · 컴퓨터과학·데이터사이언스 35명 · 면접 11월 28일(토) · 면접 30%", start_pad=16, end_pad=12)
+    make_capture(HERE / "sm-2027-sw-interview.png", pdf("숙명여자대학교"), 21, "2) 면접평가", "바. 제출서류",
+                 "숙명여자대학교", "2027학년도 수시모집요강 17쪽(PDF 21쪽)", "소프트웨어인재전형 면접 · 평가위원 2인 · 12분 내외 · 블라인드", end_pad=14)
+    make_structure(HERE / "structure-cs.png", [
+        "직접 만들어 보면서 문제를 쪼개고 해결하는 과정이 가장 재미있어서 컴퓨터공학과에 지원했습니다.",
+        "급식 메뉴 알림 봇을 파이썬으로 만들었는데, 학교 홈페이지 구조가 바뀌면 멈추는 문제가 생겼습니다.",
+        "위치가 아니라 표의 규칙을 읽도록 바꿔 해결했고, 원인을 찾는 습관이 코드 실력보다 중요하다는 걸 알았습니다.",
+        "이 학과에서 자료구조와 운영체제를 제대로 배워, 30명이 아니라 3만 명이 써도 멈추지 않는 서비스를 만들고 싶습니다.",
     ])
 
 
