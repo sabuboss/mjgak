@@ -1,6 +1,6 @@
 제목: 유아교육과 면접 질문 6가지와 답변 예시 총정리 (2027 수시 유아교육과 면접 준비법)
 
-[이미지 1 — 제미나이 생성: 대표 이미지 / 아래 "제미나이 프롬프트 1" 사용]
+[썸네일 — thumb-ece.png (대표 이미지로 지정)]
 
 유아교육과 면접은 "아이를 좋아하느냐"를 묻는 자리가 아닙니다. 아이를 좋아하는 건 지원자 전원이 같습니다. 면접관은 그 마음 위에 무엇을 쌓았는지를 봅니다. 이 글은 유아교육과 면접에서 해마다 반복되는 질문 6가지와 답변 예시, 실제 2027학년도 모집요강에 나온 면접 방식과 평가 기준, 2주 준비 순서, 그리고 실기·복장·시간 같은 자주 묻는 것들까지 한 번에 정리했습니다. 학생부종합전형으로 유아교육과에 지원한 고3과 재수생, 자녀 면접을 챙기는 학부모님이 읽으시면 됩니다.
 
@@ -42,7 +42,7 @@
 답변 예시:
 "먼저 부모님이 왜 걱정하시는지 끝까지 듣겠습니다. 그다음 아이가 블록 놀이를 하면서 '큰 거 세 개, 작은 거 두 개' 하고 세던 장면처럼, 놀이 속에서 수 개념과 공간 감각이 자라는 실제 모습을 보여 드리겠습니다. 누리과정이 놀이 중심으로 만들어진 이유도 안내하고, 궁금하시면 언제든 참관하실 수 있다고 말씀드리겠습니다. 부모와 교사는 아이를 위한 같은 편이라는 태도로 대하겠습니다."
 
-[이미지 2 — 제미나이 생성: 놀이 중심 교실 장면 / 아래 "제미나이 프롬프트 2" 사용]
+[이미지 1 — 제미나이 생성: 놀이 중심 교실 장면 / "제미나이 프롬프트 1"]
 
 ▶ 질문 3. 말을 안 듣고 친구를 때리는 아이가 있으면 어떻게 하겠습니까?
 
@@ -86,7 +86,7 @@
 
 어떤 질문이든 결론 → 경험 → 배운 점 → 연결, 이 순서로 40~60초 안에 말하면 됩니다. 덕성여대 면접 기준에 있는 "자신만의 동기와 자신감이 드러나는가", "경험을 바탕으로 자신만의 관점을 전달하는가"를 가장 확실하게 보여 주는 구조입니다.
 
-[도식 — answer-structure-4steps-ece.png]
+[도식 — structure-ece.png]
 
 ■ 유아교육과 면접 준비 순서 (2주 계획)
 
@@ -148,22 +148,18 @@ A. 유아교육과는 유치원 교사 양성이 중심이고, 졸업하면 유�
 아래는 블로그에 올리지 않는 작업용 메모입니다
 =====================================================================
 
-[이미지 배치 요약]
-- 이미지 1 (맨 위, 대표 이미지): 제미나이 프롬프트 1
-- 캡처 1: docs/promo/img/kangnam-2027-ece-interview.png
-- 캡처 2: docs/promo/img/duksung-2027-ece-interview-criteria.png
-- 이미지 2 (질문 2 아래): 제미나이 프롬프트 2
-- 도식: docs/promo/img/answer-structure-4steps-ece.png
-- 캡처 3: docs/promo/img/duksung-2027-ece-schedule.png
-→ 총 6장. 대표 이미지(썸네일)는 이미지 1로 지정하세요.
+[이미지 배치 요약 — 총 6장]
+1. 썸네일: img/thumb-ece.png (대표 이미지로 지정)
+2. 캡처 1: img/kangnam-2027-ece-interview.png
+3. 캡처 2: img/duksung-2027-ece-interview-criteria.png
+4. 이미지 1 (질문 2 아래): 제미나이 프롬프트 1
+5. 도식: img/structure-ece.png
+6. 캡처 3: img/duksung-2027-ece-schedule.png
 
-[제미나이 프롬프트 1 — 대표 이미지(썸네일)]
-A warm, bright flat illustration for a Korean blog post about early childhood education university admission interviews. A young Korean female high-school graduate in a neat navy cardigan sits calmly across a small table from two friendly interviewers in a sunlit room. On the wall behind them, soft pastel shapes suggest a kindergarten classroom: colorful building blocks, a picture book shelf, a small plant. Mood: hopeful, calm, professional. Soft pastel palette of cream, light peach, mint green and navy. Clean vector style, gentle lighting, plenty of empty space at the top for a title. No text, no letters, no logos, no watermark. Aspect ratio 16:9.
-
-[제미나이 프롬프트 2 — 놀이 중심 교실 장면]
-A soft, realistic-looking illustration of a Korean kindergarten classroom during free play. Three or four children around age 5 build a tower with large wooden blocks on a rug, counting blocks with their fingers, while a young female teacher kneels beside them, smiling and observing with a small notebook in hand. Warm natural light from a window, low shelves with picture books and craft materials in the background. The scene should convey "learning through play": curiosity, cooperation, concentration. Children's faces friendly and natural, no identifiable real people. Pastel colors, calm atmosphere. No text, no letters, no signs, no logos, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 놀이 중심 교실 장면 (4:3)]
+A Korean kindergarten classroom during free play. Three or four children around age 5 build a tower with large wooden blocks on a rug, counting blocks with their fingers, while a young female teacher kneels beside them, smiling and observing with a small notebook in hand. Low shelves with picture books and craft materials in the background, warm light from a window. The scene conveys "learning through play": curiosity, cooperation, concentration. Children's faces friendly and natural, no identifiable real people. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.
 
 [제미나이 사용 팁]
-- 한국어 글자가 들어간 이미지는 깨져 나오니, 프롬프트에 "No text"를 꼭 남겨 두세요. 글자가 필요한 건 위의 도식·캡처가 맡습니다.
-- 첫 결과가 서양 느낌이면 "Korean"과 "Korean kindergarten"을 한 번 더 강조해 다시 요청하세요.
+- 한국어 글자가 들어간 이미지는 깨져 나오니 "No text"를 꼭 남겨 두세요. 글자가 필요한 건 썸네일·도식·캡처가 맡습니다.
+- 결과가 서양 느낌이면 "Korean kindergarten"을 한 번 더 강조해 다시 요청하세요.
 - 아이 얼굴이 어색하면 "children seen from the side or from behind"를 추가하세요.
