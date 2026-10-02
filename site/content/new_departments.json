@@ -102,7 +102,14 @@
         "music",
         "media-communication"
       ],
-      "prompt": "A small practice studio with a mirror wall and a ring light. Three Korean teenagers in casual dance clothes rehearse a synchronized pose, one holding a microphone, reflected in the mirror; a phone on a tripod records them."
+      "prompt": "A small practice studio with a mirror wall and a ring light. Three Korean teenagers in casual dance clothes rehearse a synchronized pose, one holding a microphone, reflected in the mirror; a phone on a tripod records them.",
+      "videos": [
+        {
+          "id": "EhLzr77oJXE",
+          "title": "[동아방송예술대학교 K-POP과]  이우림 - Bad 무대 영상｜디마케이팝(DIMA KPOP)｜DIMA TV｜디마티비｜K-POP 전공｜케이팝과",
+          "channel": "DIMA TV_디마티비"
+        }
+      ]
     },
     {
       "slug": "k-beauty",
@@ -200,7 +207,19 @@
         "business",
         "tourism-hospitality"
       ],
-      "prompt": "A bright beauty studio with a large mirror and warm ring light: a Korean student in a black apron applies makeup to a seated friend's cheek with a brush, while another student styles hair at the next station; neat rows of brushes and small cosmetic bottles on the counter."
+      "prompt": "A bright beauty studio with a large mirror and warm ring light: a Korean student in a black apron applies makeup to a seated friend's cheek with a brush, while another student styles hair at the next station; neat rows of brushes and small cosmetic bottles on the counter.",
+      "videos": [
+        {
+          "id": "ZXmsCwiRAlc",
+          "title": "[미래는 대덕대] 헤어·피부·메이크업·네일까지 전부 섭렵! 대덕대학교 K-뷰티과 l  DDU 학과소개",
+          "channel": "대덕대학교"
+        },
+        {
+          "id": "fCmSYkI6xLQ",
+          "title": "[스케치] 서경대학교 메이크업디자인학과 졸업전시회 '흔적' _ 메이크업 디자인 전공 _ 서경대 미용예술대학",
+          "channel": "서경대학교 서포터즈 SKU CAST"
+        }
+      ]
     },
     {
       "slug": "semiconductor",
@@ -298,7 +317,19 @@
         "materials-engineering",
         "physics"
       ],
-      "prompt": "Inside a bright cleanroom-style lab, two Korean students in white coveralls examine a large shiny silicon wafer held up to the light; a simplified circuit-pattern diagram glows on a screen behind them."
+      "prompt": "Inside a bright cleanroom-style lab, two Korean students in white coveralls examine a large shiny silicon wafer held up to the light; a simplified circuit-pattern diagram glows on a screen behind them.",
+      "videos": [
+        {
+          "id": "yDq5jDENjI8",
+          "title": "[성신여대] 첨단학부 'AI융합학부'를 소개합니다!",
+          "channel": "성신여자대학교 Sungshin Women's University"
+        },
+        {
+          "id": "R9n9gG0iQEs",
+          "title": "#숭실대 특성화학과 소개 #전자정보공학부 전자공학전공",
+          "channel": "숭실대학교 입학처"
+        }
+      ]
     },
     {
       "slug": "battery",
@@ -381,7 +412,19 @@
         "chemistry",
         "materials-engineering"
       ],
-      "prompt": "A clean lab bench where a Korean student in safety goggles places a small pouch battery cell into a testing rig; a simple chart of a charge-discharge curve glows on a laptop; an electric car silhouette poster on the wall."
+      "prompt": "A clean lab bench where a Korean student in safety goggles places a small pouch battery cell into a testing rig; a simple chart of a charge-discharge curve glows on a laptop; an electric car silhouette poster on the wall.",
+      "videos": [
+        {
+          "id": "eDGzh9fzom0",
+          "title": "[성균관대 교수등판 EP.23ㅣ배터리학과] 방전된 진로 고민, 여기서 풀충전 가능합니다⚡",
+          "channel": "성균관대학교SKKU"
+        },
+        {
+          "id": "u6OXJDBDVjY",
+          "title": "인하대학교 이차전지융합학과(이차전지사업단) 소개",
+          "channel": "인하대학교 이차전지사업단"
+        }
+      ]
     },
     {
       "slug": "ai-medical",
@@ -474,7 +517,19 @@
         "biology",
         "ai-data"
       ],
-      "prompt": "A Korean student and a doctor in a white coat look together at a large monitor showing a simplified medical scan with soft highlighted regions and a small chart; a stethoscope and a laptop rest on the desk."
+      "prompt": "A Korean student and a doctor in a white coat look together at a large monitor showing a simplified medical scan with soft highlighted regions and a small chart; a stethoscope and a laptop rest on the desk.",
+      "videos": [
+        {
+          "id": "VIae95zLKt8",
+          "title": "[동국대학교 열린전공학부 전공소개] 첨단융합대학 의료인공지능공학과",
+          "channel": "동국대학교열린전공학부"
+        },
+        {
+          "id": "WzvDwJimzBI",
+          "title": "[재학생 전공 토크] 의료인공지능공학과 김다미 (자연3)",
+          "channel": "동국대학교DONGGUK UNIVERSITY"
+        }
+      ]
     },
     {
       "slug": "quantum",
@@ -552,7 +607,14 @@
         "mathematics",
         "computer-science"
       ],
-      "prompt": "A Korean student sketches a glowing abstract diagram of two entangled spheres connected by a wavy line on a glass board in a dim modern lab; a small chandelier-like quantum computer silhouette stands in the background."
+      "prompt": "A Korean student sketches a glowing abstract diagram of two entangled spheres connected by a wavy line on a glass board in a dim modern lab; a small chandelier-like quantum computer silhouette stands in the background.",
+      "videos": [
+        {
+          "id": "14kNVIImkos",
+          "title": "[서울과학기술대학교] 2027학년도 양자융합물리학과(신설학과) 안내영상",
+          "channel": "서울과학기술대학교 입학처"
+        }
+      ]
     },
     {
       "slug": "robotics-ai",
@@ -635,7 +697,19 @@
         "electrical-engineering",
         "ai-data"
       ],
-      "prompt": "A Korean student kneels beside a small four-legged robot on a workshop floor, adjusting a sensor with a screwdriver; a laptop shows a simple camera-view diagram with bounding boxes; a quadcopter drone rests on the shelf."
+      "prompt": "A Korean student kneels beside a small four-legged robot on a workshop floor, adjusting a sensor with a screwdriver; a laptop shows a simple camera-view diagram with bounding boxes; a quadcopter drone rests on the shelf.",
+      "videos": [
+        {
+          "id": "13chEO6qZjM",
+          "title": "학과토크 EP. AI로봇학과 [세종대학교/Sejong University]",
+          "channel": "세종대학교"
+        },
+        {
+          "id": "7NDka8zQBnM",
+          "title": "[세종대학교/Sejong University] 교수님이 들려주는 학과 이야기 [13탄] 국방시스템공학과",
+          "channel": "세종대학교"
+        }
+      ]
     },
     {
       "slug": "mobility",
@@ -717,7 +791,19 @@
         "aerospace-engineering",
         "mechanical-engineering"
       ],
-      "prompt": "A rooftop vertiport at dusk: a small electric air taxi with four rotors sits on a landing pad while two Korean students in light jackets look up at it holding a tablet showing a simple flight-path diagram; city skyline behind."
+      "prompt": "A rooftop vertiport at dusk: a small electric air taxi with four rotors sits on a landing pad while two Korean students in light jackets look up at it holding a tablet showing a simple flight-path diagram; city skyline behind.",
+      "videos": [
+        {
+          "id": "JcG5UVT06oA",
+          "title": "🤨 첨단융합공학부? 신설학부인가요?? 🦅연세대학교 첨단융합공학부 소개 영상 feat. IT융합공학전공, 지능형반도체전공, 모빌리티시스템전공",
+          "channel": "연세대학교_첨단융합공학부"
+        },
+        {
+          "id": "-LIs5XjtKLs",
+          "title": "[입시KU:티비] 학과가 궁금한 건대: 공과대학(2027학년도)",
+          "channel": "건국대학교Konkuk University"
+        }
+      ]
     },
     {
       "slug": "esports",
@@ -799,7 +885,19 @@
         "media-communication",
         "business"
       ],
-      "prompt": "A compact e-sports arena booth: five Korean students in matching team jackets sit at gaming PCs with headsets, while a coach stands behind pointing at a tablet; a large screen above shows an abstract game map with glowing markers."
+      "prompt": "A compact e-sports arena booth: five Korean students in matching team jackets sit at gaming PCs with headsets, while a coach stands behind pointing at a tablet; a large screen above shows an abstract game map with glowing markers.",
+      "videos": [
+        {
+          "id": "74XdAEjNu5c",
+          "title": "[호남대학교] e스포츠산업학과를 소개합니다.",
+          "channel": "호남대TV"
+        },
+        {
+          "id": "S21_12nyHPk",
+          "title": "신구대학교 e-스포츠과를 소개합니다.",
+          "channel": "신구대학교 e스포츠과"
+        }
+      ]
     },
     {
       "slug": "webtoon",
@@ -891,7 +989,19 @@
         "design",
         "media-communication"
       ],
-      "prompt": "A cozy desk with a pen tablet and a tall vertical monitor showing a scrolling comic page in simple panels; a Korean student with headphones inks a character while sticky-note storyboard thumbnails line the wall."
+      "prompt": "A cozy desk with a pen tablet and a tall vertical monitor showing a scrolling comic page in simple panels; a Korean student with headphones inks a character while sticky-note storyboard thumbnails line the wall.",
+      "videos": [
+        {
+          "id": "C23y3Jnlrf4",
+          "title": "인덕대학교 웹툰만화과 홍보 영상",
+          "channel": "인덕대학교"
+        },
+        {
+          "id": "26uJWYHBQtQ",
+          "title": "[2019 청강문화산업대학교 입시요강] 웹 콘텐츠 전문가를 키워내는 현장중심형 교육의 선도자, 만화콘텐츠스쿨",
+          "channel": "청강문화산업대학교"
+        }
+      ]
     },
     {
       "slug": "pet",
@@ -988,7 +1098,14 @@
         "biology",
         "nursing"
       ],
-      "prompt": "A bright veterinary training room: a Korean student in a light scrub top gently holds a calm medium-sized dog on an exam table while another student listens with a stethoscope; a grooming table and a small cat tower in the background."
+      "prompt": "A bright veterinary training room: a Korean student in a light scrub top gently holds a calm medium-sized dog on an exam table while another student listens with a stethoscope; a grooming table and a small cat tower in the background.",
+      "videos": [
+        {
+          "id": "Z6Z8Ulg9oKM",
+          "title": "[동신대반려동물학과] 당신의 동물 사랑을 직업으로! 반려동물학과 소개",
+          "channel": "동신대학교"
+        }
+      ]
     },
     {
       "slug": "free-major",
@@ -1070,7 +1187,14 @@
         "business",
         "ai-data"
       ],
-      "prompt": "A Korean student stands at a crossroads of three softly lit paths inside a university quad, each path marked by a simple abstract icon (a book, a gear, a leaf) on a signpost; the student holds a notebook and looks thoughtful but confident."
+      "prompt": "A Korean student stands at a crossroads of three softly lit paths inside a university quad, each path marked by a simple abstract icon (a book, a gear, a leaf) on a signpost; the student holds a notebook and looks thoughtful but confident.",
+      "videos": [
+        {
+          "id": "SPAydJNTDGM",
+          "title": "2026 신설학부 | 연수리와 함께하는 진리자유학부 A to Z (feat. YBS 아나운서)",
+          "channel": "연세대학교 Yonsei University"
+        }
+      ]
     },
     {
       "slug": "ai-convergence",
@@ -1158,7 +1282,19 @@
         "ai-data",
         "statistics"
       ],
-      "prompt": "A modern open lab where three Korean students gather around a large screen showing a simple neural-network diagram of connected nodes and a bar chart; one types on a laptop, another points at a node; a whiteboard with simple formulas behind."
+      "prompt": "A modern open lab where three Korean students gather around a large screen showing a simple neural-network diagram of connected nodes and a bar chart; one types on a laptop, another points at a node; a whiteboard with simple formulas behind.",
+      "videos": [
+        {
+          "id": "PfsDBq5jsw4",
+          "title": "[아주입학TV] 아주대에 이런 학과가 생겼다고? 신설 첨단학과 교수님들이 직접 알려드립니다📢 | 첨단스마트산업공학과, 첨단에코에너지공학과, AI컴퓨터공학부",
+          "channel": "Ajou G.A.i.A. | 아주대학교 입학처"
+        },
+        {
+          "id": "7cryjv_W74c",
+          "title": "인공지능시스템 학습로드맵",
+          "channel": "연세대 AI중심대학사업단"
+        }
+      ]
     }
   ]
 }

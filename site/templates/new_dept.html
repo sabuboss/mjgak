@@ -20,6 +20,14 @@
 {% for u in d.univs %}<tr><td>{{ u.u }}</td><td>{{ u.d }}</td><td>{{ u.note }}</td></tr>{% endfor %}
 </tbody></table>
 
+{% if d.videos %}
+<h2>대학이 직접 만든 소개 영상</h2>
+<p class="lead">개설 대학 공식 채널의 영상입니다. 실습실과 수업 분위기를 보고 지원 동기를 구체적으로 만드세요.</p>
+<div class="videos">
+{% for v in d.videos %}<figure class="video"><div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/{{ v.id }}" title="{{ v.title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>{{ v.title }} <span>— {{ v.channel }} (YouTube)</span></figcaption></figure>{% endfor %}
+</div>
+<p class="note">영상은 각 대학이 유튜브에 공개한 것을 유튜브 공식 임베드 기능으로 보여 주는 것이며, 저작권은 해당 대학에 있습니다. 영상 재생 시 유튜브(구글)의 개인정보 정책이 적용됩니다.</p>
+{% endif %}
 <h2>어떻게 뽑나</h2>
 <div class="callout">{{ d.selection }}</div>
 
