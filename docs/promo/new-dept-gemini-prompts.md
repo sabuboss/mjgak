@@ -1,4 +1,4 @@
-# 신설학과 대표 이미지 — 제미나이 프롬프트 12개
+# 신설학과 대표 이미지 — 제미나이 프롬프트 13개
 
 현재 사이트에는 텍스트형 대표 이미지(site/static/img/new/<slug>.png, 1200×630)가 들어가 있습니다. 아래 프롬프트로 일러스트를 만들어 같은 파일명으로 덮어쓰면 교체됩니다(`python site/build.py` 후 커밋).
 
@@ -70,6 +70,13 @@ A cozy desk with a pen tablet and a tall vertical monitor showing a scrolling co
 
 ```
 A bright veterinary training room: a Korean student in a light scrub top gently holds a calm medium-sized dog on an exam table while another student listens with a stethoscope; a grooming table and a small cat tower in the background. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 1200:630 (wide banner, 1.9:1).
+```
+
+
+## K-뷰티학과 · 뷰티산업학과 → `site/static/img/new/k-beauty.png`
+
+```
+A bright beauty studio with a large mirror and warm ring light: a Korean student in a black apron applies makeup to a seated friend's cheek with a brush, while another student styles hair at the next station; neat rows of brushes and small cosmetic bottles on the counter. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 1200:630 (wide banner, 1.9:1).
 ```
 
 
