@@ -113,3 +113,19 @@ mark.ph{background:var(--mark);color:#6b4d00;border-radius:4px;padding:0 3px;fon
 .author p{font-size:14px;margin:0}
 .author b{display:block;font-size:15px;margin-bottom:2px}
 @media (max-width:560px){h1{font-size:23px}.home .hero h1{font-size:26px}.trust,.cards,.ulist{grid-template-columns:1fr}.top nav a{margin-left:10px}.pn{flex-direction:column}.pn a{max-width:100%}}
+
+/* 신설학과 */
+.ncards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 4px}
+.ncard{display:block;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:var(--ink);background:var(--paper)}
+.ncard:hover{border-color:var(--accent);box-shadow:0 2px 12px rgba(43,76,126,.12)}
+.ncard img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;background:#23406e}
+.ncard .chip{margin:12px 14px 0}
+.ncard b{display:block;font-size:16.5px;line-height:1.4;margin:4px 14px 4px}
+.ncard p{font-size:13.5px;color:var(--muted);margin:0 14px 14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.hero-img{display:block;width:100%;height:auto;border-radius:14px;margin:4px 0 14px;border:1px solid var(--line)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.fact{background:var(--field);border-radius:12px;padding:14px 16px}
+.fact b{display:block;margin-bottom:6px;font-size:15px}
+.fact ul{margin:0;padding-left:18px;font-size:14.5px}
+.fact li{margin-bottom:4px}
+@media (max-width:600px){.ncards,.facts{grid-template-columns:1fr}}

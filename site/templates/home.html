@@ -41,6 +41,12 @@
 <p class="lead">계열보다 좁게, 지원 학과에서 반복되는 질문과 표준 답변. <a href="/dept/">전체 학과 목록</a></p>
 <div class="tnav">{% for d in depts %}<a class="tchip" href="{{ d.url }}">{{ d.label }}</a>{% endfor %}</div>
 
+<h2>새로 생긴 학과 {{ newd|length }}개</h2>
+<p class="lead">반도체·배터리·양자·AI부터 K-POP·e스포츠·웹툰·반려동물·자유전공까지. 왜 생겼는지, 어디서 뽑는지, 면접에서 무엇을 묻는지. <a href="/new/">신설학과 전체 보기</a></p>
+<div class="ncards home-n">
+{% for d in newd[:6] %}<a class="ncard" href="{{ d.url }}"><img src="{{ d.image }}" alt="{{ d.label }}" loading="lazy" width="1200" height="630"><span class="chip">{{ d.tag }}</span><b>{{ d.label }}</b><p>{{ d.summary }}</p></a>{% endfor %}
+</div>
+
 <h2>실제 기출을 공개한 대학</h2>
 <p class="lead">「공교육정상화법」에 따라 매년 3월 입학처가 공개하는 면접 문항을 구조화했습니다. 원문은 출처 링크에서.</p>
 <div class="cards">

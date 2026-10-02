@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block head %}<meta property="og:image" content="{{ site.url }}{{ d.image }}"><script type="application/ld+json">{{ jsonld }}</script>{% endblock %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="/new/">신설학과</a> › {{ d.tag }}</p>
+<h1>{{ d.label }} 면접 질문과 답변</h1>
+<p class="lead">{{ d.summary }}</p>
+<img class="hero-img" src="{{ d.image }}" alt="{{ d.label }}" width="1200" height="630">
+<p class="meta"><span class="chip">{{ d.tag }}</span> {{ d.since }}</p>
+<div class="tnav">{% for x in siblings %}{% if x.slug == d.slug %}<span class="tchip on">{{ x.label }}</span>{% else %}<a class="tchip" href="{{ x.url }}">{{ x.label }}</a>{% endif %}{% endfor %}</div>
+
+<h2>왜 생겼나</h2>
+<p>{{ d.why }}</p>
+<div class="facts">
+  <div class="fact"><b>무엇을 배우나</b><ul>{% for x in d.learn %}<li>{{ x }}</li>{% endfor %}</ul></div>
+  <div class="fact"><b>어디로 가나</b><ul>{% for x in d.careers %}<li>{{ x }}</li>{% endfor %}</ul></div>
+</div>
+
+<h2>개설 대학</h2>
+<table class="tbl"><thead><tr><th>대학</th><th>학과·전공</th><th>비고</th></tr></thead><tbody>
+{% for u in d.univs %}<tr><td>{{ u.u }}</td><td>{{ u.d }}</td><td>{{ u.note }}</td></tr>{% endfor %}
+</tbody></table>
+
+<h2>어떻게 뽑나</h2>
+<div class="callout">{{ d.selection }}</div>
+
+<h2>면접 질문 {{ d.questions|length }}개와 답변</h2>
+<div class="toc"><b>이 페이지의 질문</b><ol>{% for q in d.questions %}<li><a href="#q{{ loop.index }}">{{ q.question }}</a></li>{% endfor %}</ol></div>
+{% for q in d.questions %}
+<section class="qsec" id="q{{ loop.index }}">
+  <h2>{{ loop.index }}. {{ q.question }}</h2>
+  <p class="why"><b>왜 묻나</b> {{ q.why }}</p>
+  <div class="answer">{{ q.answer_html }}</div>
+  <p class="tip"><b>준비 팁</b> {{ q.tips }}</p>
+</section>
+{% endfor %}
+
+<h2>함께 보면 좋은 페이지</h2>
+<ul>
+  {% for r in related %}<li><a href="{{ r.url }}">{{ r.label }} 면접 질문과 답변</a> — 기존 학과 질문과 겹치는 부분이 많습니다</li>{% endfor %}
+  <li><a href="/new/">다른 신설학과 보기</a></li>
+  <li><a href="/category/major/">전공·학업 관련 공통 질문</a></li>
+  <li><a href="/schedule/">면접 일정과 시기별 준비</a></li>
+</ul>
+<p class="note">{{ notice }} [대괄호]는 본인 경험으로 바꾸세요.</p>
+{% endblock %}

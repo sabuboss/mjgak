@@ -134,6 +134,14 @@ def load_departments():
     return out
 
 
+def load_new_departments():
+    """content/new_departments.json -> 신설학과 목록."""
+    data = load(ROOT / "content" / "new_departments.json")
+    for d in data["departments"]:
+        d["url"] = f"/new/{d['slug']}/"
+    return data
+
+
 def load_profiles_univ():
     """content/university_profiles*.json 을 합친다. notice/common_questions 는 첫 파일 것."""
     p = load(ROOT / "content" / "university_profiles.json")
@@ -299,10 +307,32 @@ def main():
         for a in u.get("also", []):
             prep_link.setdefault(a, u["url"])
 
+    newd = load_new_departments()
+    dept_by = {d["slug"]: d for d in depts}
+
     # 홈
     page("", "home.html", common=common, by_cat=by_cat, majors=majors["majors"], profiles=profiles, univ_cards=univ_cards,
-         depts=depts, prep_n=len(prof_by), top=common["questions"][:8], description=site["description"])
+         depts=depts, newd=newd["departments"], prep_n=len(prof_by), top=common["questions"][:8], description=site["description"])
     urls.append("/")
+
+    # 신설학과
+    tag_order = []
+    for d in newd["departments"]:
+        if d["tag"] not in tag_order:
+            tag_order.append(d["tag"])
+    tags = [{"label": tg, "list": [d for d in newd["departments"] if d["tag"] == tg]} for tg in tag_order]
+    page("new", "new_index.html", intro=newd["intro"], notice=newd["notice"], tags=tags,
+         title=f"신설학과 면접 질문과 답변 {len(newd['departments'])}개 학과", description="반도체·배터리·양자·AI·K-POP·e스포츠·웹툰·반려동물·자유전공 등 새로 생긴 학과의 소개, 개설 대학, 선발 방식, 면접 질문 6개와 답변 예시.")
+    urls.append("/new/")
+    for d in newd["departments"]:
+        for q in d["questions"]:
+            q["answer_html"] = ph(q["answer"])
+        page(f"new/{d['slug']}", "new_dept.html", d=d, siblings=newd["departments"], notice=newd["notice"],
+             related=[dept_by[s] for s in d.get("related", []) if s in dept_by],
+             jsonld=jsonld_faq(f"{d['label']} 면접 질문과 답변", d["summary"], d["url"], d["questions"]),
+             title=f"{d['label']} 면접 질문 {len(d['questions'])}개와 답변 · 개설 대학", description=f"{d['summary']} 왜 생겼는지, 어디서 뽑는지, 어떻게 뽑는지와 면접 질문·답변 예시.")
+        urls.append(d["url"])
+        rss.append((f"{d['label']} 면접 질문과 답변 (신설학과)", d["url"], d["summary"]))
 
     # 학과별
     page("dept", "dept_index.html", groups=[m for m in majors["majors"] if m["depts"]], total=sum(len(d["questions"]) for d in depts),
@@ -434,10 +464,12 @@ def main():
     search += [{"t": f"{m['label']} · {q['question']}", "u": m["url"], "c": "계열별"} for m in majors["majors"] for q in m["questions"]]
     search += [{"t": f"{p['label']} · {q['text']}", "u": p["url"], "c": "유형별"} for p in profiles for q in p["seed_questions"]]
     search += [{"t": f"{d['label']} · {q['question']}", "u": d["url"], "c": "학과별"} for d in depts for q in d["questions"]]
+    search += [{"t": f"{d['label']} · {q['question']}", "u": d["url"], "c": "신설학과"} for d in newd["departments"] for q in d["questions"]]
+    search += [{"t": f"{d['label']} (신설학과)", "u": d["url"], "c": "신설학과"} for d in newd["departments"]]
     search += [{"t": f"{u['name']} · {q['question']}", "u": u["url"], "c": "대학별"} for u in uprof["universities"] for q in u["questions"]]
     search += [{"t": f"{u['name']} 면접 준비 가이드", "u": u["url"], "c": "대학별"} for u in uprof["universities"]]
     write("search.json", json.dumps(search, ensure_ascii=False))
-    print(f"pages: {len(urls)}  questions: {len(common['questions'])}  depts: {len(depts)}  univ profiles: {len(prof_by)}  actual: {sum(len(v) for v in actual_by.values())}  -> {DIST}")
+    print(f"pages: {len(urls)}  questions: {len(common['questions'])}  depts: {len(depts)}  new: {len(newd['departments'])}  univ profiles: {len(prof_by)}  actual: {sum(len(v) for v in actual_by.values())}  -> {DIST}")
 
 
 if __name__ == "__main__":

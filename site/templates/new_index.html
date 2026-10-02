@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › 신설학과</p>
+<h1>새로 생긴 학과, 면접은 이렇게 봅니다</h1>
+<p class="lead">{{ intro }}</p>
+<div class="tnav">{% for t in tags %}<a class="tchip" href="#t-{{ loop.index }}">{{ t.label }} <i>{{ t.list|length }}</i></a>{% endfor %}</div>
+{% for t in tags %}
+<section class="topic" id="t-{{ loop.index }}">
+  <h2>{{ t.label }}</h2>
+  <div class="ncards">
+  {% for d in t.list %}<a class="ncard" href="{{ d.url }}"><img src="{{ d.image }}" alt="{{ d.label }}" loading="lazy" width="1200" height="630"><span class="chip">{{ d.since }}</span><b>{{ d.label }}</b><p>{{ d.summary }}</p></a>{% endfor %}
+  </div>
+</section>
+{% endfor %}
+<h2>신설학과 면접에서 공통으로 나오는 질문</h2>
+<ol class="qlist">
+  <li>선배도 졸업생도 없는 신설 학과를 왜 선택했나요? 교육과정에서 무엇을 확인했나요?</li>
+  <li>이 분야가 왜 지금 뜨고 있는지, 산업의 어려움까지 알고 있나요?</li>
+  <li>기존 학과(예: 전자공학·실용음악·컴퓨터공학)와 무엇이 다른가요?</li>
+  <li>학생부의 활동을 이 분야와 어떻게 연결하나요?</li>
+  <li>이 분야의 윤리·사회 문제(AI 편향, 자율 무기, 저작권 등)에 대한 본인 생각은?</li>
+</ol>
+<p class="note">{{ notice }}</p>
+{% endblock %}
