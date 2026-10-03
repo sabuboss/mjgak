@@ -134,6 +134,30 @@ def load_departments():
     return out
 
 
+NICK = {"고려대학교": ["고대"], "연세대학교": ["연대"], "성균관대학교": ["성대"], "중앙대학교": ["중대"], "이화여자대학교": ["이대"],
+        "숙명여자대학교": ["숙대"], "한국외국어대학교": ["외대", "한국외대"], "서울시립대학교": ["시립대"], "건국대학교": ["건대"],
+        "동국대학교": ["동대"], "홍익대학교": ["홍대"], "한양대학교": ["한대"], "경북대학교": ["경대"], "한양대학교(ERICA)": ["한양에리카", "에리카", "한대 에리카"], "한양대학교 ERICA": ["한양에리카", "에리카", "한대 에리카", "한양대 안산"],
+        "한국교원대학교": ["교원대"], "서울과학기술대학교": ["서울과기대", "과기대"], "한국과학기술원(KAIST)": ["카이스트"], "KAIST": ["카이스트", "한국과학기술원"],
+        "POSTECH(포항공과대학교)": ["포스텍", "포항공대"], "UNIST(울산과학기술원)": ["유니스트", "울산과기원"], "GIST(광주과학기술원)": ["지스트"], "DGIST(대구경북과학기술원)": ["디지스트"]}
+
+
+def univ_aliases(name: str) -> list[str]:
+    """대학 이름의 흔한 줄임말: 서울교육대학교 → 서울교대, 숙명여자대학교 → 숙명여대, 국립창원대학교 → 창원대 …"""
+    out = set()
+    bases = {name, re.sub(r"^국립", "", name), re.sub(r"\(.*?\)", "", name).strip()}
+    for b in list(bases):
+        bases.add(re.sub(r"^국립", "", b))
+    for b in bases:
+        for pat, rep in (("교육대학교", "교대"), ("여자대학교", "여대"), ("과학기술대학교", "과기대"), ("외국어대학교", "외대"),
+                         ("산업대학교", "산업대"), ("공과대학교", "공대"), ("대학교", "대"), ("대학$", "대")):
+            if re.search(pat, b):
+                out.add(re.sub(pat, rep, b))
+        out.add(b)
+    out |= set(NICK.get(name, []))
+    out.discard(name)
+    return sorted(x for x in out if len(x) >= 2)
+
+
 def load_new_departments():
     """content/new_departments.json -> 신설학과 목록."""
     data = load(ROOT / "content" / "new_departments.json")
@@ -482,10 +506,10 @@ def main():
                 link, lab = prep_link[u["code"]], "대학 · 면접 준비 가이드"
             else:
                 link, lab = f"/univ/#u-{u['code']}", f"대학 · {r['name']} · 홈페이지 링크"
-            search.append({"t": u["name"], "u": link, "c": lab, "p": 1})
+            search.append({"t": u["name"], "u": link, "c": lab, "p": 1, "a": univ_aliases(u["name"])})
     for r in unis.get("colleges", []):
         for u in r["universities"]:
-            search.append({"t": u["name"], "u": f"/univ/#c-{u['code']}", "c": f"전문대 · {r['name']} · 홈페이지 링크", "p": 1})
+            search.append({"t": u["name"], "u": f"/univ/#c-{u['code']}", "c": f"전문대 · {r['name']} · 홈페이지 링크", "p": 1, "a": univ_aliases(u["name"])})
     search += [{"t": d["label"], "u": d["url"], "c": "학과 · 면접 질문과 답변", "p": 1} for d in depts]
     search += [{"t": d["label"], "u": d["url"], "c": "신설학과 · 소개와 면접 질문", "p": 1} for d in newd["departments"]]
     search += [{"t": f"{m['label']} 계열", "u": m["url"], "c": "계열별 질문", "p": 1} for m in majors["majors"]]
