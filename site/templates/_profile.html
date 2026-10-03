@@ -11,3 +11,12 @@
   <p class="tip"><b>준비 팁</b> {{ q.tips }}</p>
 </section>
 {% endfor %}
+
+{% if p.videos %}
+<h2>{{ p.name }} 공식 소개 영상</h2>
+<p class="lead">대학 공식 채널의 홍보·소개 영상입니다. 캠퍼스와 대학이 강조하는 인재상을 보고 지원 동기에 녹이세요.</p>
+<div class="videos">
+{% for v in p.videos %}<figure class="video"><div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/{{ v.id }}" title="{{ v.title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>{{ v.title }} <span>— {{ v.channel }} (YouTube)</span></figcaption></figure>{% endfor %}
+</div>
+<p class="note">영상은 해당 대학이 유튜브에 공개한 것을 유튜브 공식 임베드로 보여 주는 것이며 저작권은 대학에 있습니다.</p>
+{% endif %}
