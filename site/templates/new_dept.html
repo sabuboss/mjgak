@@ -10,6 +10,7 @@
 
 <h2>왜 생겼나</h2>
 <p>{{ d.why }}</p>
+{% if d.photo %}<figure class="photo"><img src="{{ d.photo }}" alt="{{ d.label }} 수업·실습 장면 (AI 생성 이미지)" loading="lazy"><figcaption>{{ d.label }}의 수업·실습 분위기를 표현한 이미지입니다 (AI 생성, 특정 대학의 실제 사진이 아닙니다)</figcaption></figure>{% endif %}
 <div class="facts">
   <div class="fact"><b>무엇을 배우나</b><ul>{% for x in d.learn %}<li>{{ x }}</li>{% endfor %}</ul></div>
   <div class="fact"><b>어디로 가나</b><ul>{% for x in d.careers %}<li>{{ x }}</li>{% endfor %}</ul></div>

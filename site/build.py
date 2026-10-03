@@ -139,6 +139,11 @@ def load_new_departments():
     data = load(ROOT / "content" / "new_departments.json")
     for d in data["departments"]:
         d["url"] = f"/new/{d['slug']}/"
+        # 제미나이 실사 이미지: static/img/new/photo-<slug>.(png|jpg|webp) 가 있으면 본문에 노출
+        for ext in ("png", "jpg", "jpeg", "webp"):
+            if (ROOT / "static" / "img" / "new" / f"photo-{d['slug']}.{ext}").exists():
+                d["photo"] = f"/static/img/new/photo-{d['slug']}.{ext}"
+                break
     return data
 
 
