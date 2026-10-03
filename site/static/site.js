@@ -12,8 +12,8 @@
   function norm(s) { return s.replace(/\s+/g, "").toLowerCase(); }
   function score(it, terms, q) {
     var t = norm(it.t), c = norm(it.c);
-    for (var i = 0; i < terms.length; i++) if (t.indexOf(terms[i]) < 0 && c.indexOf(terms[i]) < 0) return -1;
-    var s = 0;
+    for (var i = 0; i < terms.length; i++) if (t.indexOf(terms[i]) < 0 && c.indexOf(terms[i]) < 0) return null;
+    var s = 10;
     if (it.p) s += 100;                 /* 대학·학과 페이지 항목 우선 */
     if (t.indexOf(q) === 0) s += 50;    /* 앞부분 일치 */
     else if (t.indexOf(q) >= 0) s += 20;
@@ -24,7 +24,7 @@
     var raw = input.value.trim();
     if (!raw) { list.hidden = true; list.innerHTML = ""; return; }
     var q = norm(raw), terms = raw.split(/\s+/).map(norm).filter(Boolean);
-    var hits = data.map(function (it) { return [score(it, terms, q), it]; }).filter(function (x) { return x[0] >= 0; })
+    var hits = data.map(function (it) { return [score(it, terms, q), it]; }).filter(function (x) { return x[0] !== null; })
       .sort(function (a, b) { return b[0] - a[0]; }).slice(0, 12).map(function (x) { return x[1]; });
     if (!hits.length) { list.innerHTML = '<li><a href="/univ/">일치하는 결과가 없습니다. 대학 목록 보기</a></li><li><a href="/dept/">학과 목록 보기</a></li>'; list.hidden = false; return; }
     list.innerHTML = hits.map(function (it) { return '<li><a href="' + it.u + '">' + esc(it.t) + "<small>" + esc(it.c) + "</small></a></li>"; }).join("");

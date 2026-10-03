@@ -489,6 +489,7 @@ def main():
     search += [{"t": d["label"], "u": d["url"], "c": "학과 · 면접 질문과 답변", "p": 1} for d in depts]
     search += [{"t": d["label"], "u": d["url"], "c": "신설학과 · 소개와 면접 질문", "p": 1} for d in newd["departments"]]
     search += [{"t": f"{m['label']} 계열", "u": m["url"], "c": "계열별 질문", "p": 1} for m in majors["majors"]]
+    search += [{"t": f"{c['label']} 질문 {c['n']}개", "u": c["url"], "c": "자주 나오는 질문", "p": 1} for c in common["categories"].values()]
     search += [{"t": f"{pf['label']} 지원자", "u": pf["url"], "c": "유형별 질문", "p": 1} for pf in profiles]
     write("search.json", json.dumps(search, ensure_ascii=False))
     print(f"pages: {len(urls)}  questions: {len(common['questions'])}  depts: {len(depts)}  new: {len(newd['departments'])}  univ profiles: {len(prof_by)}  actual: {sum(len(v) for v in actual_by.values())}  -> {DIST}")
