@@ -11,11 +11,15 @@
   function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function norm(s) { return s.replace(/\s+/g, "").toLowerCase(); }
   function score(it, terms, q) {
-    var t = norm(it.t), c = norm(it.c);
-    for (var i = 0; i < terms.length; i++) if (t.indexOf(terms[i]) < 0 && c.indexOf(terms[i]) < 0) return null;
-    var s = 10;
+    var t = norm(it.t), c = norm(it.c), al = (it.a || []).map(norm);
+    for (var i = 0; i < terms.length; i++) {
+      var term = terms[i], ok = t.indexOf(term) >= 0 || c.indexOf(term) >= 0;
+      for (var k = 0; !ok && k < al.length; k++) ok = al[k].indexOf(term) >= 0;
+      if (!ok) return null;
+    }
+    var s = 10, pre = t.indexOf(q) === 0 || al.some(function (a) { return a.indexOf(q) === 0; });
     if (it.p) s += 100;                 /* 대학·학과 페이지 항목 우선 */
-    if (t.indexOf(q) === 0) s += 50;    /* 앞부분 일치 */
+    if (pre) s += 50;                   /* 앞부분 일치(별칭 포함) */
     else if (t.indexOf(q) >= 0) s += 20;
     s -= Math.min(t.length, 60) / 10;   /* 짧은 제목 우선 */
     return s;
