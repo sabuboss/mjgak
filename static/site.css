@@ -135,3 +135,6 @@ mark.ph{background:var(--mark);color:#6b4d00;border-radius:4px;padding:0 3px;fon
 .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video figcaption{font-size:13.5px;color:var(--ink);margin-top:6px}
 .video figcaption span{color:var(--muted)}
+.photo{margin:4px 0 18px}
+.photo img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+.photo figcaption{font-size:12.5px;color:var(--muted);margin-top:6px}
