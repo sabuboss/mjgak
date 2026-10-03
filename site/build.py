@@ -413,7 +413,7 @@ def main():
                 u["report_year"] = reports[0]["year"]
         r["universities"].sort(key=lambda u: (u["code"] not in with_data, u["code"] not in prep_link, u["name"]))
     prep_cards = [{"code": u["code"], "name": u["name"], "blurb": u["blurb"], "url": u["url"], "has_data": u["code"] in with_data} for u in uprof["universities"]]
-    page("univ", "univ_index.html", regions=unis["regions"], notice=unis["notice"], colleges=unis.get("colleges", []), college_notice=unis.get("college_notice", ""), with_data=set(with_data), prep_link=prep_link, prep_cards=prep_cards, univ_cards=univ_cards,
+    page("univ", "univ_index.html", regions=unis["regions"], notice=unis["notice"], colleges=unis.get("colleges", []), college_notice=unis.get("college_notice", ""), with_data=set(with_data), prep_link=prep_link, prep_cards=prep_cards, univ_cards=univ_cards, n_univ=sum(len(r["universities"]) for r in unis["regions"]), n_college=sum(len(r["universities"]) for r in unis.get("colleges", [])),
          title="전국 대학·전문대 면접 안내·준비 가이드·기출 공개 대학", description=f"주요 대학 {len(prep_cards)}곳의 특성·면접 방식·맞춤 예상 질문, 전국 4년제·전문대 홈페이지·보고서 링크, 실제 면접 문항을 공개한 대학의 기출 정리.")
     urls.append("/univ/")
 
@@ -473,6 +473,23 @@ def main():
     search += [{"t": f"{d['label']} (신설학과)", "u": d["url"], "c": "신설학과"} for d in newd["departments"]]
     search += [{"t": f"{u['name']} · {q['question']}", "u": u["url"], "c": "대학별"} for u in uprof["universities"] for q in u["questions"]]
     search += [{"t": f"{u['name']} 면접 준비 가이드", "u": u["url"], "c": "대학별"} for u in uprof["universities"]]
+    # 전국 4년제·전문대 전체 (가이드·기출이 있으면 그 페이지로, 없으면 대학 목록의 해당 줄로)
+    for r in unis["regions"]:
+        for u in r["universities"]:
+            if u["code"] in with_data:
+                link, lab = f"/univ/{u['code']}/", "대학 · 면접 기출 + 가이드"
+            elif u["code"] in prep_link:
+                link, lab = prep_link[u["code"]], "대학 · 면접 준비 가이드"
+            else:
+                link, lab = f"/univ/#u-{u['code']}", f"대학 · {r['name']} · 홈페이지 링크"
+            search.append({"t": u["name"], "u": link, "c": lab, "p": 1})
+    for r in unis.get("colleges", []):
+        for u in r["universities"]:
+            search.append({"t": u["name"], "u": f"/univ/#c-{u['code']}", "c": f"전문대 · {r['name']} · 홈페이지 링크", "p": 1})
+    search += [{"t": d["label"], "u": d["url"], "c": "학과 · 면접 질문과 답변", "p": 1} for d in depts]
+    search += [{"t": d["label"], "u": d["url"], "c": "신설학과 · 소개와 면접 질문", "p": 1} for d in newd["departments"]]
+    search += [{"t": f"{m['label']} 계열", "u": m["url"], "c": "계열별 질문", "p": 1} for m in majors["majors"]]
+    search += [{"t": f"{pf['label']} 지원자", "u": pf["url"], "c": "유형별 질문", "p": 1} for pf in profiles]
     write("search.json", json.dumps(search, ensure_ascii=False))
     print(f"pages: {len(urls)}  questions: {len(common['questions'])}  depts: {len(depts)}  new: {len(newd['departments'])}  univ profiles: {len(prof_by)}  actual: {sum(len(v) for v in actual_by.values())}  -> {DIST}")
 

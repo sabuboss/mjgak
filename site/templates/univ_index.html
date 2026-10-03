@@ -3,6 +3,8 @@
 <p class="crumb"><a href="/">홈</a> › 대학별</p>
 <h1>전국 대학 면접 안내</h1>
 <p class="lead">{{ notice }}</p>
+<div class="search big"><input type="search" placeholder="지원한 대학 이름을 입력하세요 — 예: 아주대, 강동대학교" autocomplete="off" aria-label="대학 검색"><ul hidden></ul></div>
+<p class="note">전국 4년제 {{ n_univ }}곳과 전문대 {{ n_college }}곳이 검색됩니다. 면접 준비 가이드가 있는 대학은 가이드 페이지로, 그 외 대학은 아래 목록의 해당 줄로 이동합니다.</p>
 
 <h2>실제 면접 문항을 공개한 대학</h2>
 <div class="cards">
@@ -21,7 +23,7 @@
 {% for r in regions %}
 <h3>{{ r.name }}</h3>
 <ul class="ulist">
-{% for u in r.universities %}<li>{% if u.code in with_data %}<a href="/univ/{{ u.code }}/"><b>{{ u.name }}</b></a> <span class="kind kind-actual">면접 기출</span>{% elif u.code in prep_link %}<a href="{{ prep_link[u.code] }}"><b>{{ u.name }}</b></a> <span class="kind kind-example">준비 가이드</span>{% else %}{{ u.name }}{% endif %} <a class="src" href="{{ u.url }}" target="_blank" rel="noopener">홈페이지↗</a>{% if u.report_url %} <a class="src" href="{{ u.report_url }}" target="_blank" rel="noopener">{{ u.report_year }} 보고서↗</a>{% endif %}</li>{% endfor %}
+{% for u in r.universities %}<li id="u-{{ u.code }}">{% if u.code in with_data %}<a href="/univ/{{ u.code }}/"><b>{{ u.name }}</b></a> <span class="kind kind-actual">면접 기출</span>{% elif u.code in prep_link %}<a href="{{ prep_link[u.code] }}"><b>{{ u.name }}</b></a> <span class="kind kind-example">준비 가이드</span>{% else %}{{ u.name }}{% endif %} <a class="src" href="{{ u.url }}" target="_blank" rel="noopener">홈페이지↗</a>{% if u.report_url %} <a class="src" href="{{ u.report_url }}" target="_blank" rel="noopener">{{ u.report_year }} 보고서↗</a>{% endif %}</li>{% endfor %}
 </ul>
 {% endfor %}
 {% if colleges %}
@@ -30,7 +32,7 @@
 {% for r in colleges %}
 <h3>{{ r.name }}</h3>
 <ul class="ulist">
-{% for u in r.universities %}<li>{{ u.name }} <a class="src" href="{{ u.url }}" target="_blank" rel="noopener">홈페이지↗</a></li>{% endfor %}
+{% for u in r.universities %}<li id="c-{{ u.code }}">{{ u.name }} <a class="src" href="{{ u.url }}" target="_blank" rel="noopener">홈페이지↗</a></li>{% endfor %}
 </ul>
 {% endfor %}
 {% endif %}
