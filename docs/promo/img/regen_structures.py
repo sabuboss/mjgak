@@ -9,7 +9,7 @@ done = []
 def noop(*a, **k):
     pass
 
-MODULES = ["promo_style", "jobs_urgent", "jobs_pharm", "jobs_ee", "jobs_batch4", "jobs_b5_A", "jobs_b5_B", "jobs_b5_D"]
+MODULES = ["promo_style", "jobs_urgent", "jobs_pharm", "jobs_ee", "jobs_batch4", "jobs_b5_A", "jobs_b5_B", "jobs_b5_C", "jobs_b5_D"]
 for name in MODULES:
     try:
         m = importlib.import_module(name)
