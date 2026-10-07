@@ -8,7 +8,7 @@ from promo_style import HERE, SRC, pdf, make_thumb, make_capture, make_structure
 def jobs_ee():
     make_thumb(HERE / "thumb-ee.png", "전기전자공학과")
     # 광운대 참빛인재Ⅰ 면접형
-    make_capture(HERE / "kw-2027-ee-track.png", pdf("광운대학교"), 19, "학생부종합【광운참빛인재전형", ("after", "600점/0점"),
+    make_capture(HERE / "kw-2027-ee-track.png", pdf("광운대학교"), 19, "학생부종합【광운참빛인재전형", 748.5,
                  "광운대학교", "2027학년도 수시모집요강 19쪽", "참빛인재Ⅰ 면접형 전자공학과 18명·전기공학과 10명 · 3.5배수 · 60% + 면접 40% · 최저 없음", start_pad=10, end_pad=3)
     make_capture(HERE / "kw-2027-ee-interview.png", pdf("광운대학교"), 46, "2. 면접평가 안내", "학생부종합【소프트웨어우수인재전형】",
                  "광운대학교", "2027학년도 수시모집요강 46쪽", "2인 개별 대면 10분 이내 · 문제 제시형 없음 · 발전가능성 45% + 종합적사고력 30% + 인성 25%", start_pad=10, end_pad=8)
@@ -20,7 +20,7 @@ def jobs_ee():
     make_capture(HERE / "mju-2027-ee-schedule.png", pdf("명지대학교"), 49, "3. 전형일정", ("after", "전형일정 상세내용은 p. 10 참조"),
                  "명지대학교", "2027학년도 수시모집요강 47쪽(PDF 49쪽)", "1단계 발표 11월 20일(금) · 자연캠퍼스 모집단위 면접 11월 28일(토) · 면접은 서울 인문캠퍼스에서", start_pad=10, end_pad=8)
     # 숭실대 SSU미래인재 면접형
-    make_capture(HERE / "ssu-2027-ee-method.png", pdf("숭실대학교"), 18, "전형요소 및 반영 비율", "동점자 처리 기준",
+    make_capture(HERE / "ssu-2027-ee-method.png", pdf("숭실대학교"), 18, "전형요소 및 반영 비율", 293,
                  "숭실대학교", "2027학년도 수시모집요강 13쪽(PDF 18쪽)", "SSU미래인재 면접형 전기공학부 24명·지능전자공학부 30명 · 3.5배수 · 50% + 면접 50% · 0점이면 불합격", start_pad=36, end_pad=20)
     make_capture(HERE / "ssu-2027-ee-interview.png", pdf("숭실대학교"), 62, "학생부종합전형 면접평가 안내", ("after", "기울였던 노력에 대해 이야기해 주세요"),
                  "숭실대학교", "2027학년도 수시모집요강 57쪽(PDF 62쪽)", "서류 기반 블라인드 12분 · 전공적합성 50% + 잠재력 50% · 면접질문 예시 공개 · 11월 27일(금)", start_pad=10, end_pad=8)

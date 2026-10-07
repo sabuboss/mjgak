@@ -8,7 +8,7 @@ KW = pdf("광운대학교"); MJU = pdf("명지대학교"); SSU = pdf("숭실대�
 
 
 def kw_track(out, note):
-    make_capture(out, KW, 19, "학생부종합【광운참빛인재전형", ("after", "600점/0점"), "광운대학교", "2027학년도 수시모집요강 19쪽", note, start_pad=10, end_pad=3)
+    make_capture(out, KW, 19, "학생부종합【광운참빛인재전형", 748.5, "광운대학교", "2027학년도 수시모집요강 19쪽", note, start_pad=10)
 
 
 def kw_interview(out):
@@ -29,7 +29,7 @@ def mju_schedule(out, note):
 
 
 def ssu_method(out, note):
-    make_capture(out, SSU, 18, "전형요소 및 반영 비율", "동점자 처리 기준", "숭실대학교", "2027학년도 수시모집요강 13쪽(PDF 18쪽)", note, start_pad=36, end_pad=20)
+    make_capture(out, SSU, 18, "전형요소 및 반영 비율", 293, "숭실대학교", "2027학년도 수시모집요강 13쪽(PDF 18쪽)", note, start_pad=36, end_pad=20)
 
 
 def ssu_interview(out, note="서류 기반 블라인드 12분 · 전공적합성 50% + 잠재력 50% · 면접질문 예시 공개 · 11월 27일(금)"):

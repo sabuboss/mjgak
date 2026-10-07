@@ -30,6 +30,29 @@ def font(size, bold=False):
     return ImageFont.truetype(FB if bold else F, size)
 
 
+# 맑은 고딕 일반체(malgun.ttf)는 "싶" 글자 윤곽이 깨져 그려진다(PIL/FreeType). 이런 글자만 Semilight 로 대신 그린다.
+FSL = "C:/Windows/Fonts/malgunsl.ttf"
+BROKEN = set("싶")
+
+
+def text_fixed(d, xy, text, fnt, fill):
+    x, y = xy
+    if not BROKEN.intersection(text) or fnt.path != F:
+        d.text((x, y), text, font=fnt, fill=fill)
+        return
+    alt = ImageFont.truetype(FSL, fnt.size)
+    seg = ""
+    for ch in text:
+        if ch in BROKEN:
+            if seg:
+                d.text((x, y), seg, font=fnt, fill=fill); x += d.textlength(seg, font=fnt); seg = ""
+            d.text((x, y), ch, font=alt, fill=fill); x += d.textlength(ch, font=fnt)
+        else:
+            seg += ch
+    if seg:
+        d.text((x, y), seg, font=fnt, fill=fill)
+
+
 def wrap_chars(d, text, fnt, maxw):
     out, cur = [], ""
     for ch in text:
@@ -123,7 +146,7 @@ def make_capture(out, pdf, page, start, end, univ, doc_label, note, dpi=200, sta
     img.paste(shot, (40, HEAD + 20))
     # 푸터
     fy = HEAD + shot.height + 40
-    d.text((40, fy + 10), f"출처: {univ} {doc_label}", font=font(26), fill=GRAY)
+    text_fixed(d, (40, fy + 10), f"출처: {univ} {doc_label}", font(26), GRAY)
     d.text((40, fy + 48), note, font=font(26, True), fill=NAVY)
     fb = font(26, True)
     d.text((W - 40 - d.textlength("면접각 mjgak.com", font=fb), fy + 48), "면접각 mjgak.com", font=fb, fill=GRAY)
@@ -163,7 +186,7 @@ def make_structure(out, examples, W=1200):
         d.rounded_rectangle([tx, y + 58, bx1 - 16, y + 58 + 30 * len(lines) + 14], radius=8, fill="#f7f9fc")
         d.text((tx + 12, y + 63), "예)", font=font(20, True), fill=CORAL)
         for j, ln in enumerate(lines):
-            d.text((tx + 46, y + 64 + 30 * j), ln, font=f_ex, fill=TEXT)
+            text_fixed(d, (tx + 46, y + 64 + 30 * j), ln, f_ex, TEXT)
         y += h
         if i < 3:
             cx = bx0 + 75
@@ -175,7 +198,7 @@ def make_structure(out, examples, W=1200):
               "예시는 본인 경험으로 바꾸세요. 그대로 외우면 면접관이 알아봅니다.",
               "한 답변이 60초를 넘기면 잘라내세요. 녹음해서 확인."]:
         d.ellipse([PAD + 4, y + 10, PAD + 12, y + 18], fill=NAVY)
-        d.text((PAD + 24, y), t, font=font(20), fill=TEXT); y += 30
+        text_fixed(d, (PAD + 24, y), t, font(20), TEXT); y += 30
     brand(d, W - PAD - 190, H - 52, size=24)
     img.save(out)
     print("structure", out, img.size)
