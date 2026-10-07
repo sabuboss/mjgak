@@ -13,6 +13,7 @@ report.md 가 비어 있지 않으면 워크플로가 GitHub 이슈를 연다.
 """
 from __future__ import annotations
 import glob, json, os, sys, time, datetime
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import requests, urllib3
 
@@ -87,18 +88,19 @@ def all_videos():
     return out
 
 
+def _video(v):
+    try:
+        r = requests.get("https://www.youtube.com/oembed", params={"url": "https://www.youtube.com/watch?v=" + v["id"], "format": "json"},
+                         headers=H, timeout=15, verify=VERIFY)
+        return None if r.status_code == 200 else {**v, "status": r.status_code}
+    except requests.RequestException as e:
+        return {**v, "status": type(e).__name__}
+
+
 def check_videos():
-    dead = {}
-    for v in all_videos():
-        try:
-            r = requests.get("https://www.youtube.com/oembed", params={"url": "https://www.youtube.com/watch?v=" + v["id"], "format": "json"},
-                             headers=H, timeout=20, verify=VERIFY)
-            if r.status_code != 200:
-                dead[v["id"]] = {**v, "status": r.status_code}
-        except requests.RequestException as e:
-            dead[v["id"]] = {**v, "status": type(e).__name__}
-        time.sleep(0.15)
-    return dead
+    with ThreadPoolExecutor(6) as ex:
+        res = list(ex.map(_video, all_videos()))
+    return {r["id"]: r for r in res if r}
 
 
 def all_sites():
@@ -111,19 +113,20 @@ def all_sites():
     return out
 
 
+def _site(s):
+    try:
+        r = requests.get(s["url"], headers=H, timeout=12, verify=VERIFY, allow_redirects=True)
+        return None if r.status_code < 400 else {**s, "status": r.status_code}
+    except requests.exceptions.SSLError:
+        return None  # 대학 사이트의 인증서 문제는 흔하고 브라우저에선 대개 열린다 — 경고하지 않음
+    except requests.RequestException as e:
+        return {**s, "status": type(e).__name__}
+
+
 def check_sites():
-    bad = {}
-    for s in all_sites():
-        try:
-            r = requests.get(s["url"], headers=H, timeout=25, verify=VERIFY, allow_redirects=True)
-            if r.status_code >= 400:
-                bad[s["code"]] = {**s, "status": r.status_code}
-        except requests.exceptions.SSLError:
-            pass  # 대학 사이트의 인증서 문제는 흔하고 브라우저에선 대개 열린다 — 경고하지 않음
-        except requests.RequestException as e:
-            bad[s["code"]] = {**s, "status": type(e).__name__}
-        time.sleep(0.1)
-    return bad
+    with ThreadPoolExecutor(8) as ex:
+        res = list(ex.map(_site, all_sites()))
+    return {r["code"]: r for r in res if r}
 
 
 def main():
