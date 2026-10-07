@@ -8,11 +8,11 @@
  },
  "dead_videos": {},
  "bad_sites": {
-  "hanyang-erica": {
-   "code": "hanyang-erica",
-   "name": "한양대학교 ERICA",
-   "url": "https://www.hanyang.ac.kr/web/erica",
-   "status": 404
+  "halla": {
+   "code": "halla",
+   "name": "한라대학교",
+   "url": "https://www.halla.ac.kr",
+   "status": "ConnectTimeout"
   },
   "dgist": {
    "code": "dgist",
@@ -20,22 +20,58 @@
    "url": "https://www.dgist.ac.kr",
    "status": "ConnectionError"
   },
-  "yu": {
-   "code": "yu",
-   "name": "영남대학교",
-   "url": "https://www.yu.ac.kr",
-   "status": 404
+  "dyu": {
+   "code": "dyu",
+   "name": "동양대학교",
+   "url": "https://www.dyu.ac.kr",
+   "status": "ConnectTimeout"
+  },
+  "daeshin": {
+   "code": "daeshin",
+   "name": "대신대학교",
+   "url": "https://www.daeshin.ac.kr",
+   "status": "ConnectionError"
   },
   "deu": {
    "code": "deu",
    "name": "동의대학교",
    "url": "https://www.deu.ac.kr",
-   "status": "ConnectionError"
+   "status": "ReadTimeout"
+  },
+  "ks": {
+   "code": "ks",
+   "name": "경성대학교",
+   "url": "https://www.ks.ac.kr",
+   "status": "ConnectTimeout"
+  },
+  "kaya": {
+   "code": "kaya",
+   "name": "가야대학교",
+   "url": "https://www.kaya.ac.kr",
+   "status": "ConnectTimeout"
   },
   "chosun": {
    "code": "chosun",
    "name": "조선대학교",
    "url": "https://www.chosun.ac.kr",
+   "status": "ConnectionError"
+  },
+  "honam": {
+   "code": "honam",
+   "name": "호남대학교",
+   "url": "http://www.honam.ac.kr",
+   "status": "ReadTimeout"
+  },
+  "songwon": {
+   "code": "songwon",
+   "name": "송원대학교",
+   "url": "https://www.songwon.ac.kr",
+   "status": "ConnectTimeout"
+  },
+  "kwangshin": {
+   "code": "kwangshin",
+   "name": "광신대학교",
+   "url": "https://www.kwangshin.ac.kr",
    "status": "ConnectionError"
   },
   "kma": {
@@ -48,13 +84,27 @@
    "code": "navy",
    "name": "해군사관학교",
    "url": "https://www.navy.ac.kr",
-   "status": "ConnectTimeout"
+   "status": "ConnectionError"
   },
   "afa": {
    "code": "afa",
    "name": "공군사관학교",
    "url": "https://www.afa.ac.kr",
    "status": "ConnectionError"
+  },
+  "kndu": {
+   "code": "kndu",
+   "name": "국군간호사관학교",
+   "url": "https://www.kafna.ac.kr",
+   "status": "ConnectTimeout"
   }
- }
+ },
+ "reported_sites": [
+  "afa",
+  "chosun",
+  "deu",
+  "dgist",
+  "kma",
+  "navy"
+ ]
 }
