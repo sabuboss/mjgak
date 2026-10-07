@@ -217,7 +217,7 @@
         {
           "code": "hanyang-erica",
           "name": "한양대학교 ERICA",
-          "url": "https://www.hanyang.ac.kr/web/erica"
+          "url": "https://erica.hanyang.ac.kr"
         },
         {
           "code": "kgu-gyeongin",
@@ -492,7 +492,7 @@
         {
           "code": "yu",
           "name": "영남대학교",
-          "url": "https://www.yu.ac.kr"
+          "url": "https://www.yu.ac.kr/main/index.do"
         },
         {
           "code": "kmu",

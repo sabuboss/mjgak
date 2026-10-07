@@ -1,0 +1,37 @@
+name: monitor
+# 매달 1일 09:00 KST 에 모집요강 PDF 공개·유튜브 영상·대학 링크를 점검하고, 달라진 게 있으면 이슈를 연다.
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install requests
+      - name: 점검 실행
+        run: TZ=Asia/Seoul python monitor/check.py
+      - name: 상태 저장
+        run: |
+          git config user.name "mjgak-monitor"
+          git config user.email "monitor@mjgak.com"
+          git add monitor/state.json monitor/summary.txt
+          git diff --cached --quiet || git commit -m "monitor: $(cat monitor/summary.txt)"
+          git push
+      - name: 달라진 게 있으면 이슈 열기
+        if: ${{ hashFiles('monitor/report.md') != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -s monitor/report.md ]; then
+            TITLE="[감시] $(date +%Y-%m) 점검 결과 — $(cat monitor/summary.txt | cut -c1-80)"
+            gh issue create --title "$TITLE" --body-file monitor/report.md --label monitor || gh issue create --title "$TITLE" --body-file monitor/report.md
+          else
+            echo "변경 없음"
+          fi

@@ -14,6 +14,17 @@
 | 9~12월 | 블로그 글 1일 1편 발행(또는 기존 글 수정), 유입 확인 | 매일 5분 | docs/promo/paste |
 | 분기 1회 | 유튜브 임베드 생존 확인(삭제·비공개 영상 교체) | 20분 | 아래 스크립트 |
 
+## 자동 감시 (GitHub Actions, 매달 1일 09:00)
+
+`.github/workflows/monitor.yml` 이 `monitor/check.py` 를 돌려 세 가지를 확인하고, 달라진 게 있으면 저장소에 **이슈**를 연다(이슈 알림 메일은 GitHub 계정 설정의 Notifications → Watching 에 따라 온다. 저장소 Watch 가 켜져 있어야 함).
+
+1. 다음 학년도 수시 모집요강 PDF 가 CDN 에 올라왔는지 — 블로그 글에 쓴 36개 대학(`GUIDE_UNIVS`). 새로 올라온 대학이 생기면 이슈에 목록이 적힌다 → 위 "연간 갱신" 시작 신호.
+2. 선행학습 영향평가 보고서(전년도 면접 기출)가 올라왔는지 — 기출 공개 10개 대학(`REPORT_UNIVS`).
+3. 사이트의 유튜브 영상 전부(oembed) + 전국 대학 홈페이지 링크. 영상은 새로 죽은 것, 홈페이지는 두 달 연속 실패한 것만 알린다.
+
+상태는 `monitor/state.json` 에 커밋된다(지난달과 비교용). 수동 실행: GitHub → Actions → monitor → Run workflow. 로컬: `MJGAK_INSECURE=1 python monitor/check.py` (회사망).
+블로그에 새 대학을 쓰면 `GUIDE_UNIVS` 에 대학명을 추가한다.
+
 ## 연간 갱신 (5~6월, 2028학년도 모집요강 나오면)
 
 1. PDF 내려받기 — 블로그 글에 쓴 대학은 `docs/promo/img/promo_style.py`의 `jobs_*` 함수에 모두 적혀 있다.

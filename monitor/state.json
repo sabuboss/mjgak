@@ -1,0 +1,60 @@
+{
+ "checked": "2026-10-07",
+ "pdfs": {
+  "guide_year": 2028,
+  "guides": {},
+  "report_year": 2027,
+  "reports": {}
+ },
+ "dead_videos": {},
+ "bad_sites": {
+  "hanyang-erica": {
+   "code": "hanyang-erica",
+   "name": "한양대학교 ERICA",
+   "url": "https://www.hanyang.ac.kr/web/erica",
+   "status": 404
+  },
+  "dgist": {
+   "code": "dgist",
+   "name": "DGIST",
+   "url": "https://www.dgist.ac.kr",
+   "status": "ConnectionError"
+  },
+  "yu": {
+   "code": "yu",
+   "name": "영남대학교",
+   "url": "https://www.yu.ac.kr",
+   "status": 404
+  },
+  "deu": {
+   "code": "deu",
+   "name": "동의대학교",
+   "url": "https://www.deu.ac.kr",
+   "status": "ConnectionError"
+  },
+  "chosun": {
+   "code": "chosun",
+   "name": "조선대학교",
+   "url": "https://www.chosun.ac.kr",
+   "status": "ConnectionError"
+  },
+  "kma": {
+   "code": "kma",
+   "name": "육군사관학교",
+   "url": "https://www.kma.ac.kr",
+   "status": "ConnectTimeout"
+  },
+  "navy": {
+   "code": "navy",
+   "name": "해군사관학교",
+   "url": "https://www.navy.ac.kr",
+   "status": "ConnectTimeout"
+  },
+  "afa": {
+   "code": "afa",
+   "name": "공군사관학교",
+   "url": "https://www.afa.ac.kr",
+   "status": "ConnectionError"
+  }
+ }
+}

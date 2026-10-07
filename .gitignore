@@ -57,3 +57,6 @@ __pycache__/
 
 # 정적 사이트 산출물
 /site/dist/
+
+# 자동 감시 결과(실행 때마다 생성)
+monitor/report.md
