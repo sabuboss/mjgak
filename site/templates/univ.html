@@ -4,6 +4,7 @@
 <h1>{{ u.name }} 면접 기출문항</h1>
 <p class="meta">{{ years[-1] }}~{{ years[0] }}학년도 · 문항 {{ u.n }}개 (실제 기출 {{ u.actual }}) · <a href="{{ seed.admission_url }}" target="_blank" rel="noopener">입학처↗</a>{% if seed.report_board_url %} · <a href="{{ seed.report_board_url }}" target="_blank" rel="noopener">공개자료 게시판↗</a>{% endif %}</p>
 
+{% if p and p.rich %}{% include "_rich_univ.html" %}{% endif %}
 <h2>연도별 보기</h2>
 <div class="tnav">{% for y in years %}<a class="tchip" href="/univ/{{ u.code }}/{{ y }}/">{{ y }}학년도</a>{% endfor %}</div>
 

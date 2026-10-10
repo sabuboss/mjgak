@@ -1,0 +1,32 @@
+{# 대학 rich 데이터(content/rich/univ/<code>.json). univ.html·univ_prep.html 상단에 넣는다. #}
+{% set r = p.rich %}
+<section class="unirich" id="y2027">
+<h2>2027학년도 {{ p.name }} 면접 핵심 <span class="badge">모집요강 확인</span></h2>
+<p class="lead">{{ r.summary }}</p>
+{% for t in r.tracks %}
+<div class="yrow">
+  <div class="yhead">{{ t.name }}</div>
+  <dl>
+    {% if t.units %}<dt>모집</dt><dd>{{ t.units }}</dd>{% endif %}
+    {% if t.method %}<dt>선발</dt><dd>{{ t.method }}</dd>{% endif %}
+    {% if t.interview %}<dt>면접</dt><dd>{{ t.interview }}</dd>{% endif %}
+    {% if t.criteria %}<dt>평가</dt><dd>{{ t.criteria }}</dd>{% endif %}
+    {% if t.first %}<dt>1단계 발표</dt><dd>{{ t.first }}</dd>{% endif %}
+    {% if t.date %}<dt>면접일</dt><dd><b>{{ t.date }}</b></dd>{% endif %}
+    {% if t.min %}<dt>수능 최저</dt><dd>{{ t.min }}</dd>{% endif %}
+  </dl>
+  {% if t.notes %}<ul class="ynotes">{% for n in t.notes %}<li>{{ n }}</li>{% endfor %}</ul>{% endif %}
+  {% if t.source %}<p class="ysrc">출처: {{ p.name }} {{ t.source }}</p>{% endif %}
+</div>
+{% endfor %}
+{% if r.published_questions %}
+<h3>{{ p.name }}가 모집요강에 공개한 면접 질문 {{ r.published_questions|length }}개</h3>
+<p class="note">대학이 직접 공개한 질문 예시(또는 전년도 실제 문항)입니다. "○○" 자리에는 내 학생부의 과목·활동이 들어간다고 보면 됩니다.</p>
+<ol class="pubq">{% for q in r.published_questions %}<li>{% if q.area %}<span class="chip">{{ q.area }}</span> {% endif %}{{ q.q }}</li>{% endfor %}</ol>
+<p><a class="btn" href="/practice/?set=univ:{{ p.code }}">이 질문으로 모의 면접 연습하기</a></p>
+{% endif %}
+{% if r.tips %}<h3>준비 포인트</h3><ul>{% for x in r.tips %}<li>{{ x }}</li>{% endfor %}</ul>{% endif %}
+{% if r.dress %}<p class="callout"><b>복장</b> {{ r.dress }}</p>{% endif %}
+{% if r.dept_links %}<h3>이 대학이 나오는 학과별 면접 정리</h3><div class="tnav">{% for x in r.dept_links %}<a class="tchip" href="{{ x.url }}">{{ x.label }}</a>{% endfor %}</div>{% endif %}
+<p class="note">{{ r.checked }} 기준으로 {{ p.name }} 2027학년도 수시모집요강에서 확인한 내용입니다. 면접 시간·장소는 1단계 합격자 발표 때 입학처 공지를 꼭 확인하세요. <a href="/schedule/#dates">전체 대학 면접 날짜 보기</a></p>
+</section>

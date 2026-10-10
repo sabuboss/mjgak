@@ -8,16 +8,19 @@ description: 2027학년도 수시 30개 대학 면접 날짜와 1단계 발표�
 <p>각 대학 <b>2027학년도 수시모집요강</b>에서 직접 확인한 면접일과 1단계 발표일입니다. 같은 대학도 계열·단과대학에 따라 날짜가 다르니 내 모집단위를 확인하고, 시간·장소는 1단계 발표 때 입학처 공지를 보세요.</p>
 <h3>수능 전 면접 <small>10월 중순 ~ 11월 초 · 교과 면접형과 일부 학종</small></h3>
 <table class="tbl"><tr><th>면접일</th><th>대학</th><th>전형 · 모집단위</th><th>1단계 발표</th></tr>
-<tr><td><b>10/14(수)</b></td><td>남부대</td><td>일반학생(교과)<br><small>향장미용학과 · 학생부70+면접30</small></td><td>-</td></tr>
+<tr><td><b>10/14(수)</b></td><td><a href="/univ/nambu/">남부대</a></td><td>일반학생(교과)<br><small>향장미용학과 · 학생부70+면접30</small></td><td>-</td></tr>
 <tr><td><b>10/15(목)~20(화)</b></td><td><a href="/univ/bu/">백석대</a></td><td>백석인재(교과)<br><small>학과별 지정일 · 교과60+면접40 · 5분</small></td><td>-</td></tr>
 <tr><td><b>10/17(토)~18(일)</b></td><td><a href="/univ/cju/">청주대</a></td><td>교과면접<br><small>보건의료과학대학 · 교과70+면접30</small></td><td>-</td></tr>
-<tr><td><b>10/24(토)</b></td><td><a href="/univ/cju/">청주대</a></td><td>교과면접<br><small>항공서비스학과 · 교과60+면접40</small></td><td>-</td></tr>
-<tr><td><b>10/24(토)~25(일)</b></td><td>한세대</td><td>면접우수자(교과)<br><small>인문사회학부 · 교과60+면접40</small></td><td>-</td></tr>
-<tr><td><b>10/25(일)</b></td><td>삼육대</td><td>세움인재(학종)<br><small>식품영양학과 · 60+40 · 8분</small></td><td>10/22(목)</td></tr>
+<tr><td><b>10/17(토)</b></td><td><a href="/univ/sungkyul/">성결대</a></td><td>SKU창의(교과)<br><small>전 모집단위 · 토론면접 · 1단계 40+면접 60</small></td><td>9/30(수)</td></tr>
+<tr><td><b>10/18(일)</b></td><td><a href="/univ/syu/">삼육대</a></td><td>재림교회목회자추천·기회균형Ⅰ·S/W인재<br><small>학종 · 60+40</small></td><td>10/15(목)</td></tr>
+<tr><td><b>10/24(토)~25(일)</b></td><td><a href="/univ/hansei/">한세대</a></td><td>면접우수자(교과)<br><small>인문사회학부 · 교과60+면접40</small></td><td>-</td></tr>
+<tr><td><b>10/25(일)</b></td><td><a href="/univ/cju/">청주대</a></td><td>교과면접<br><small>항공서비스학과 · 교과60+면접40</small></td><td>-</td></tr>
+<tr><td><b>10/25(일)</b></td><td><a href="/univ/syu/">삼육대</a></td><td>세움인재(학종)<br><small>전 모집단위 · 60+40 · 8분</small></td><td>10/22(목)</td></tr>
 <tr><td><b>10/31(토)</b></td><td><a href="/univ/sunmoon/">선문대</a></td><td>면접전형(교과)<br><small>보건계열(녹화)·항공서비스(대면) · 교과60+면접40</small></td><td>-</td></tr>
 <tr><td><b>10/31(토)</b></td><td><a href="/univ/kwangwoon/">광운대</a></td><td>참빛인재Ⅰ 면접형<br><small>자연계열 · 60+40 · 10분</small></td><td>10/28(수)</td></tr>
 <tr><td><b>11/1(일)</b></td><td><a href="/univ/kwangwoon/">광운대</a></td><td>참빛인재Ⅰ 면접형<br><small>인문계열 · 60+40 · 10분</small></td><td>10/28(수)</td></tr>
 <tr><td><b>11/7(토)~8(일)</b></td><td><a href="/univ/kangnam/">강남대</a></td><td>학교생활우수자2<br><small>유아교육·특수교육 등 · 70+30 · 15분</small></td><td>10/30(금)</td></tr>
+<tr><td><b>11/7(토)</b></td><td><a href="/univ/nsu/">남서울대</a></td><td>학생부종합 면접형<br><small>디자인·스포츠비즈니스 등 43명 · 70+30 · 10분</small></td><td>10/22(목)</td></tr>
 </table>
 <h3>수능 직후 면접 <small>11월 21일(토) ~ 22일(일) · 수능 이틀·사흘 뒤</small></h3>
 <table class="tbl"><tr><th>면접일</th><th>대학</th><th>전형 · 모집단위</th><th>1단계 발표</th></tr>
@@ -29,6 +32,7 @@ description: 2027학년도 수시 30개 대학 면접 날짜와 1단계 발표�
 <tr><td><b>11/21(토)</b></td><td><a href="/univ/kookmin/">국민대</a></td><td>국민프런티어<br><small>자연계 · 70+30 · 10분</small></td><td>11/17(화)</td></tr>
 <tr><td><b>11/21(토)</b></td><td><a href="/univ/sejong/">세종대</a></td><td>세종인재(면접형)<br><small>창의소프트학부</small></td><td>11/13(금)</td></tr>
 <tr><td><b>11/21(토)~</b></td><td><a href="/univ/sungshin/">성신여대</a></td><td>자기주도인재<br><small>11/21~22·28~29 중 지정 · 60+40 · 10분</small></td><td>11/13(금)</td></tr>
+<tr><td><b>11/21(토)</b></td><td><a href="/univ/ulsan/">울산대</a></td><td>지역교과·지역의사제<br><small>의예과 · 80+20 · 15분</small></td><td>11/17(화)</td></tr>
 <tr><td><b>11/22(일)</b></td><td><a href="/univ/duksung/">덕성여대</a></td><td>덕성인재Ⅱ<br><small>인문사회·과학기술·약학과 · 60+40 · 10분</small></td><td>11/12(목)</td></tr>
 <tr><td><b>11/22(일)</b></td><td><a href="/univ/inha/">인하대</a></td><td>인하미래인재(면접형)<br><small>공과·자연과학·의과·간호 등 · 70+30</small></td><td>11/17(화)</td></tr>
 <tr><td><b>11/22(일)</b></td><td><a href="/univ/kookmin/">국민대</a></td><td>국민프런티어<br><small>인문계·예체능계 · 70+30 · 10분</small></td><td>11/17(화)</td></tr>
@@ -48,16 +52,19 @@ description: 2027학년도 수시 30개 대학 면접 날짜와 1단계 발표�
 </table>
 <h3>12월 면접 <small>12월 2일 ~ 14일 · 의약·수의 계열과 경희·중앙·동국</small></h3>
 <table class="tbl"><tr><th>면접일</th><th>대학</th><th>전형 · 모집단위</th><th>1단계 발표</th></tr>
+<tr><td><b>12/1(화)</b></td><td><a href="/univ/cnu/">충남대</a></td><td>학생부종합Ⅰ(면접)<br><small>인문·사회과학·경상대학</small></td><td>11/20(금)</td></tr>
 <tr><td><b>12/2(수)</b></td><td><a href="/univ/jnu/">전남대</a></td><td>고교생활우수자Ⅰ<br><small>수의예과 등 · 최저 있음</small></td><td>11/13(금)</td></tr>
-<tr><td><b>12/2(수)</b></td><td><a href="/univ/cnu/">충남대</a></td><td>학생부종합Ⅰ(면접)<br><small>수의과대학 등 · 최저 있음</small></td><td>11/20(금)</td></tr>
+<tr><td><b>12/2(수)</b></td><td><a href="/univ/cnu/">충남대</a></td><td>학생부종합Ⅰ(면접)<br><small>자연과학·약학·의과·간호·수의과대학 등 · 최저 있음(일부)</small></td><td>11/20(금)</td></tr>
+<tr><td><b>12/3(목)</b></td><td><a href="/univ/cnu/">충남대</a></td><td>학생부종합Ⅰ(면접)<br><small>공과대학·AI대학·지식융합학부</small></td><td>11/20(금)</td></tr>
 <tr><td><b>12/4(금)</b></td><td><a href="/univ/jejunu/">제주대</a></td><td>학생부종합(일반)<br><small>초등교육·수의예 등 · 15분 · 과락</small></td><td>11/13(금)</td></tr>
+<tr><td><b>12/4(금)</b></td><td><a href="/univ/cnu/">충남대</a></td><td>학생부종합Ⅰ(면접)<br><small>농업생명과학대학·사범대학</small></td><td>11/20(금)</td></tr>
 <tr><td><b>12/5(토)~6(일)</b></td><td><a href="/univ/khu/">경희대</a></td><td>네오르네상스<br><small>대학·캠퍼스별 시간 지정 · 70+30 · 10분</small></td><td>11/25(수)</td></tr>
 <tr><td><b>12/5(토)~6(일)</b></td><td><a href="/univ/cau/">중앙대</a></td><td>탐구형인재<br><small>모집단위별 지정일 · 70+30 · 10분</small></td><td>11/26(목)</td></tr>
 <tr><td><b>12/5(토)</b></td><td><a href="/univ/konkuk/">건국대</a></td><td>KU자기추천<br><small>이과·공과·사범 등 · 70+30 · 10분</small></td><td>11/20(금)</td></tr>
-<tr><td><b>12/6(일)</b></td><td><a href="/univ/konkuk/">건국대</a></td><td>KU자기추천<br><small>수의과대학 등 · 70+30 · 10분</small></td><td>11/20(금)</td></tr>
 <tr><td><b>12/5(토)</b></td><td><a href="/univ/pnu/">부산대</a></td><td>학생부종합<br><small>특수교육·식품영양 등 · 80+20</small></td><td>12/1(화)</td></tr>
 <tr><td><b>12/5(토)</b></td><td><a href="/univ/ulsan/">울산대</a></td><td>잠재역량<br><small>의예과(MMI) · 30분</small></td><td>11/20(금)</td></tr>
 <tr><td><b>12/5(토)~6(일)</b></td><td><a href="/univ/kyonggi/">경기대</a></td><td>KGU학생부종합<br><small>인문·관광·공과·사회과학 등(수원) · 70+30</small></td><td>11/20(금)</td></tr>
+<tr><td><b>12/6(일)</b></td><td><a href="/univ/konkuk/">건국대</a></td><td>KU자기추천<br><small>수의과대학 등 · 70+30 · 10분</small></td><td>11/20(금)</td></tr>
 <tr><td><b>12/11(금)~13(일)</b></td><td><a href="/univ/dongguk/">동국대</a></td><td>Do Dream<br><small>모집단위별 지정일 · 70+30 · 10분</small></td><td>11/13(금) 예정</td></tr>
 <tr><td><b>12/14(월)</b></td><td><a href="/univ/ajou/">아주대</a></td><td>ACE<br><small>의학과·약학과 · 최저 있음</small></td><td>12/12(토)</td></tr>
 </table>

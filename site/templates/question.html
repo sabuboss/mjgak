@@ -8,7 +8,14 @@
 <h2>왜 이 질문을 할까</h2>
 <p>{{ q.why }}</p>
 
+{% if q.example %}
+<h2>완성 답변 예시</h2>
+<div class="answer ex"><span class="exlabel">답변 예시</span>{{ q.example }}</div>
+<p class="note">가상의 학생이 아래 틀을 채운 예시입니다. 그대로 외우지 말고 내 경험으로 바꾸세요.</p>
+<h2>내 답변 틀</h2>
+{% else %}
 <h2>표준 답변 예시</h2>
+{% endif %}
 <div class="answer">{{ answer_html }}</div>
 <p class="note">{{ notice }}</p>
 
@@ -33,6 +40,7 @@
 
 <h2>같은 묶음의 다른 질문</h2>
 <ol class="qlist">{% for r in same_cat %}<li><a href="{{ r.url }}">{{ r.question }}</a></li>{% endfor %}</ol>
+<div class="practice-cta"><b>소리 내어 답해 보세요.</b> 질문을 무작위로 뽑아 60초 타이머로 연습할 수 있습니다. <a class="btn" href="/practice/?set=common">모의 면접 연습하기</a></div>
 <nav class="pn">{% if prev_q %}<a href="{{ prev_q.url }}">‹ {{ prev_q.question }}</a>{% endif %}{% if next_q %}<a class="next" href="{{ next_q.url }}">{{ next_q.question }} ›</a>{% endif %}</nav>
 <div class="author"><div class="av">{{ site.author_initial }}</div><p><b>{{ site.author }}</b>{{ site.author_bio }}</p></div>
 {% endblock %}

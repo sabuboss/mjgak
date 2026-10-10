@@ -29,6 +29,7 @@ DIST = ROOT / "dist"
 TODAY = datetime.date.today()
 
 site = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
+site["ver"] = datetime.datetime.now().strftime("%Y%m%d%H%M")  # CSS·JS 캐시 무효화
 env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=False)
 
 KIND_LABEL = {"actual": "실제 기출", "example": "대학 공개 예시", "predicted": "예상 질문", "none": "문항 미공개"}
@@ -113,8 +114,44 @@ def load_actual():
             r = json.loads(line)
             if not r.get("text", "").strip():
                 continue
+            r = clean_actual(r)
+            if r is None:
+                continue
             by.setdefault(r["university_code"], []).append(r)
     return by
+
+
+RICH = ROOT / "content" / "rich"
+PUA = re.compile("[\ue000-\uf8ff]+")  # PDF 수식 폰트가 깨진 문자(사용자 영역)
+
+
+def load_rich(kind: str) -> dict:
+    d = RICH / kind
+    return {p.stem: load(p) for p in sorted(d.glob("*.json"))} if d.exists() else {}
+
+
+def load_examples() -> dict:
+    p = RICH / "examples.json"
+    return load(p) if p.exists() else {"common": {}, "majors": {}, "types": {}}
+
+
+def clean_actual(r: dict) -> dict | None:
+    """깨진 수식 문자 정리, 제목만 있는 문항은 제시문 앞부분을 붙이고, 출제 근거 같은 비문항은 뺀다."""
+    t = (r.get("text") or "").strip()
+    if "출제 근거" in t:
+        return None
+    for k in ("text", "presented_material", "intent"):
+        if r.get(k):
+            if PUA.search(r[k]):
+                r["has_glyph"] = True
+            r[k] = PUA.sub("□", r[k])
+    core = re.sub(r"^(\[[^\]]*\]\s*)+", "", r["text"]).strip()
+    pm = (r.get("presented_material") or "").strip()
+    if not core:
+        if not pm:
+            return None
+        r["text"] = r["text"].strip() + " (제시문) " + (pm[:140] + "…" if len(pm) > 140 else pm)
+    return r
 
 
 def load_univ_seed():
@@ -187,7 +224,7 @@ def load_profiles_univ():
 def jsonld_faq(title: str, desc: str, url_path: str, qa: list):
     url = f"{site['url']}{url_path}"
     ents = [{"@type": "Question", "name": q["question"],
-             "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"\[([^\]]+)\]", r"(\1)", q["answer"])}} for q in qa]
+             "acceptedAnswer": {"@type": "Answer", "text": q.get("example") or re.sub(r"\[([^\]]+)\]", r"(\1)", q["answer"])}} for q in qa]
     return json.dumps({"@context": "https://schema.org", "@graph": [
         {"@type": "Article", "headline": title, "description": desc,
          "author": {"@type": "Person", "name": site["author"], "url": f"{site['url']}/about/"},
@@ -250,7 +287,7 @@ def jsonld_question(q):
 def write_sitemap(urls):
     L = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
-        L.append(f"  <url><loc>{site['url']}{u}</loc><lastmod>{site['publish_date']}</lastmod></url>")
+        L.append(f"  <url><loc>{site['url']}{u}</loc><lastmod>{TODAY.isoformat()}</lastmod></url>")
     L.append("</urlset>")
     write("sitemap.xml", "\n".join(L) + "\n")
 
@@ -339,6 +376,31 @@ def main():
     newd = load_new_departments()
     dept_by = {d["slug"]: d for d in depts}
 
+    # rich 데이터 (학과·대학 2027 보강, 완성 예시)
+    rich_dept, rich_univ, examples = load_rich("dept"), load_rich("univ"), load_examples()
+    all_dept_url = {d["slug"]: (d["url"], d["label"]) for d in depts}
+    all_dept_url.update({d["slug"]: (d["url"], d["label"]) for d in newd["departments"]})
+    for d in depts + newd["departments"]:
+        r = rich_dept.get(d["slug"])
+        if r:
+            for row in ((r.get("y2027") or {}).get("rows") or []):
+                row["url"] = prep_link.get(row.get("code") or "", "")
+            d["rich"] = r
+    for code, r in rich_univ.items():
+        if code in prof_by:
+            r["dept_links"] = [{"url": all_dept_url[x["slug"]][0], "label": all_dept_url[x["slug"]][1]}
+                               for x in r.get("depts", []) if x.get("slug") in all_dept_url]
+            prof_by[code]["rich"] = r
+    for q in common["questions"]:
+        q["example"] = examples.get("common", {}).get(q["slug"])
+    for m in majors["majors"]:
+        exs = examples.get("majors", {}).get(m["code"], [])
+        for i, q in enumerate(m["questions"]):
+            q["example"] = exs[i] if i < len(exs) else None
+    for p_ in profiles:
+        for q in p_["seed_questions"]:
+            q["example"] = examples.get("types", {}).get(q["id"])
+
     # 홈
     n_videos = sum(len(d.get("videos", [])) for d in depts) + sum(len(d.get("videos", [])) for d in newd["departments"]) + sum(len(u.get("videos", [])) for u in uprof["universities"])
     stats = {"questions": len(common["questions"]), "depts": len(depts), "univs": len(prof_by), "actual": sum(len(v) for v in actual_by.values()),
@@ -359,9 +421,10 @@ def main():
     for d in newd["departments"]:
         for q in d["questions"]:
             q["answer_html"] = ph(q["answer"])
-        page(f"new/{d['slug']}", "new_dept.html", d=d, siblings=newd["departments"], notice=newd["notice"],
+        qa = d["rich"]["questions"] if d.get("rich") else d["questions"]
+        page(f"new/{d['slug']}", "new_dept.html", d=d, siblings=newd["departments"], notice=newd["notice"], og_custom=True,
              related=[dept_by[s] for s in d.get("related", []) if s in dept_by],
-             jsonld=jsonld_faq(f"{d['label']} 면접 질문과 답변", d["summary"], d["url"], d["questions"]),
+             jsonld=jsonld_faq(f"{d['label']} 면접 질문과 답변", d["summary"], d["url"], qa),
              title=f"{d['label']} 면접 질문 {len(d['questions'])}개와 답변 · 개설 대학", description=f"{d['summary']} 왜 생겼는지, 어디서 뽑는지, 어떻게 뽑는지와 면접 질문·답변 예시.")
         urls.append(d["url"])
         rss.append((f"{d['label']} 면접 질문과 답변 (신설학과)", d["url"], d["summary"]))
@@ -374,10 +437,16 @@ def main():
         for q in d["questions"]:
             q["answer_html"] = ph(q["answer"])
         g = major_by[d["group"]]
+        r = d.get("rich")
+        qa = r["questions"] if r else d["questions"]
+        y_univs = [re.sub("대학교$", "대", re.sub("교육대학교$", "교대", re.sub("여자대학교$", "여대", x["univ"]))) for x in ((r or {}).get("y2027") or {}).get("rows", [])][:4] if r else []
+        title = (f"{d['label']} 면접 질문 {len(qa)}개와 답변 예시 · 2027 " + "·".join(dict.fromkeys(y_univs)) + " 면접 방식") if y_univs \
+            else (f"{d['label']} 면접 질문 {len(qa)}개와 답변 예시" if r else f"{d['label']} 면접 질문 {len(qa)}개와 답변")
+        desc = (r["hook"][:110] + " 2027 대학별 면접 방식과 완성 답변 예시.") if r else f"{d['desc']} 자주 나오는 질문과 표준 답변, 준비 팁."
         page(f"dept/{d['slug']}", "dept.html", d=d, group=g, siblings=g["depts"], notice=majors["notice"],
              related=related_by_keywords(tokens(d["label"] + " " + d["desc"]), actual_by, univ_names),
-             jsonld=jsonld_faq(f"{d['label']} 면접 질문과 답변", d["desc"], d["url"], d["questions"]),
-             title=f"{d['label']} 면접 질문 {len(d['questions'])}개와 답변", description=f"{d['desc']} 자주 나오는 질문과 표준 답변, 준비 팁.")
+             jsonld=jsonld_faq(f"{d['label']} 면접 질문과 답변", d["desc"], d["url"], qa),
+             title=title, description=desc)
         urls.append(d["url"])
         rss.append((f"{d['label']} 면접 질문과 답변", d["url"], d["desc"]))
 
@@ -452,7 +521,8 @@ def main():
         page(f"univ/{code}", "univ_prep.html", p=p, home=p.get("home") or s.get("admission_url", "#"),
              report_url=reports[0]["url"] if reports else None, report_year=reports[0]["year"] if reports else None,
              common_questions=uprof["common_questions"], notice=uprof["notice"],
-             title=f"{p['name']} 면접 준비 가이드 — 특징·면접 방식·예상 질문", description=f"{p['blurb']} 면접 방식과 준비 포인트, 맞춤 예상 질문 {len(p['questions'])}개.")
+             title=(f"{p['name']} 면접 2027 — 전형별 면접 방식·일정·공개 질문" if p.get("rich") else f"{p['name']} 면접 준비 가이드 — 특징·면접 방식·예상 질문"),
+             description=(p["rich"]["summary"][:150] if p.get("rich") else f"{p['blurb']} 면접 방식과 준비 포인트, 맞춤 예상 질문 {len(p['questions'])}개."))
         urls.append(p["url"])
         rss.append((f"{p['name']} 면접 준비 가이드", p["url"], p["blurb"]))
     for u in univ_cards:
@@ -468,7 +538,8 @@ def main():
             a["years"] = sorted(a["years"], reverse=True)
         years = u["years"]
         page(f"univ/{u['code']}", "univ.html", u=u, seed=s, years=years, admissions=list(adm.values()), sample=[r for r in recs if r["year"] == years[0]][:6],
-             p=prof_by.get(u["code"]), kind_label=KIND_LABEL, title=f"{u['name']} 면접 기출문항 {years[-1]}~{years[0]}학년도",
+             p=prof_by.get(u["code"]), kind_label=KIND_LABEL,
+             title=(f"{u['name']} 면접 2027 — 전형별 면접 방식·일정 · 기출문항 {years[0]}학년도" if (prof_by.get(u["code"]) or {}).get("rich") else f"{u['name']} 면접 기출문항 {years[-1]}~{years[0]}학년도"),
              description=f"{u['name']} 입학처가 공개한 면접·구술고사 문항 {u['n']}개를 연도·전형별로 정리했습니다. 출제 의도와 출처 링크 포함.")
         urls.append(u["url"])
         for y in years:
@@ -480,6 +551,23 @@ def main():
                  title=f"{u['name']} {y}학년도 면접 기출문항 {len(yr)}개",
                  description=f"{u['name']} {y}학년도 면접·구술고사 공개 문항 {len(yr)}개. 제시문·출제 의도 요약과 입학처 출처 링크.")
             urls.append(f"/univ/{u['code']}/{y}/")
+
+    # 모의 면접
+    sets = [{"id": "common", "label": "자주 나오는 공통 질문",
+             "items": [{"q": q["question"], "ex": q.get("example") or "", "tip": q.get("tips", ""), "u": q["url"]} for q in common["questions"]]}]
+    for d in depts + newd["departments"]:
+        r = d.get("rich")
+        qa = r["questions"] if r else d["questions"]
+        sets.append({"id": f"dept:{d['slug']}", "label": f"학과 · {d['label']}",
+                     "items": [{"q": q["question"], "ex": q.get("example") or "", "tip": q.get("caution") or q.get("tips", ""), "u": d["url"]} for q in qa]})
+    for code, r in sorted(rich_univ.items(), key=lambda kv: kv[1].get("name", "")):
+        if r.get("published_questions") and code in prof_by:
+            sets.append({"id": f"univ:{code}", "label": f"대학 공개 질문 · {r.get('name', code)}",
+                         "items": [{"q": q["q"], "ex": "", "tip": q.get("area", ""), "u": prof_by[code]["url"]} for q in r["published_questions"]]})
+    write("practice/questions.json", json.dumps({"sets": sets}, ensure_ascii=False))
+    page("practice", "practice.html", title="모의 면접 연습 — 무작위 질문·60초 타이머·녹음",
+         description="학과별·공통·대학 공개 면접 질문을 무작위로 뽑아 생각 15초, 답변 60초로 연습합니다. 녹음은 내 기기 안에서만 재생되고 서버로 보내지 않습니다.")
+    urls.append("/practice/")
 
     # 고정 페이지
     for name in ("guide", "schedule", "about", "privacy", "contact"):
@@ -495,7 +583,8 @@ def main():
     search = [{"t": q["question"], "u": q["url"], "c": q["cat_label"]} for q in common["questions"]]
     search += [{"t": f"{m['label']} · {q['question']}", "u": m["url"], "c": "계열별"} for m in majors["majors"] for q in m["questions"]]
     search += [{"t": f"{p['label']} · {q['text']}", "u": p["url"], "c": "유형별"} for p in profiles for q in p["seed_questions"]]
-    search += [{"t": f"{d['label']} · {q['question']}", "u": d["url"], "c": "학과별"} for d in depts for q in d["questions"]]
+    search += [{"t": f"{d['label']} · {q['question']}", "u": d["url"], "c": "학과별"} for d in depts for q in (d["rich"]["questions"] if d.get("rich") else d["questions"])]
+    search += [{"t": "모의 면접 연습 (무작위 질문·타이머·녹음)", "u": "/practice/", "c": "도구", "p": 1}]
     search += [{"t": f"{d['label']} · {q['question']}", "u": d["url"], "c": "신설학과"} for d in newd["departments"] for q in d["questions"]]
     search += [{"t": f"{d['label']} (신설학과)", "u": d["url"], "c": "신설학과"} for d in newd["departments"]]
     search += [{"t": f"{u['name']} · {q['question']}", "u": u["url"], "c": "대학별"} for u in uprof["universities"] for q in u["questions"]]

@@ -18,7 +18,8 @@
 <section class="qsec" id="{{ q.id }}">
   <h2>{{ loop.index }}. {{ q.text }}{% if q.tags and '필수' in q.tags %} <span class="must">거의 반드시</span>{% endif %}</h2>
   <p class="why"><b>왜 묻나</b> {{ q.why_asked }}</p>
-  {% if q.answer_html %}<div class="answer">{{ q.answer_html }}</div>{% endif %}
+  {% if q.example %}<div class="answer ex"><span class="exlabel">답변 예시</span>{{ q.example }}</div>{% endif %}
+  {% if q.answer_html %}{% if q.example %}<details class="more"><summary>빈칸 답변 틀 보기</summary><div class="answer">{{ q.answer_html }}</div></details>{% else %}<div class="answer">{{ q.answer_html }}</div>{% endif %}{% endif %}
   <p class="tip"><b>준비 팁</b> {{ q.tips }}</p>
 </section>
 {% endfor %}

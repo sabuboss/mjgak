@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › 모의 면접</p>
+<h1>모의 면접 연습</h1>
+<p class="lead">질문을 무작위로 뽑아 <b>생각 15초 → 답변 60초</b>로 소리 내어 연습합니다. 녹음하면 바로 다시 들을 수 있고, 녹음 파일은 <b>이 기기 브라우저 안에서만</b> 재생되며 서버로 보내지 않습니다.</p>
+
+<div class="pr">
+  <div class="pr-set">
+    <label>연습할 질문 <select id="prSet" aria-label="질문 묶음 선택"></select></label>
+    <label class="pr-opt"><input type="checkbox" id="prRec"> 답변 녹음하기</label>
+  </div>
+  <div class="pr-card" id="prCard">
+    <p class="pr-meta" id="prMeta">질문 묶음을 고르고 시작을 누르세요.</p>
+    <p class="pr-q" id="prQ">준비되면 <b>질문 뽑기</b>를 누르세요.</p>
+    <div class="pr-timer"><span id="prPhase">대기</span><b id="prTime">0:15</b></div>
+    <div class="pr-bar"><i id="prBar"></i></div>
+    <div class="pr-btns">
+      <button class="btn" id="prNext" type="button">질문 뽑기</button>
+      <button class="btn ghost" id="prStart" type="button" disabled>바로 답변 시작</button>
+      <button class="btn ghost" id="prStop" type="button" disabled>답변 끝</button>
+    </div>
+    <audio id="prAudio" controls hidden></audio>
+    <details class="pr-ex" id="prExWrap" hidden><summary>답변 예시와 주의할 점 보기 (답한 뒤에 보세요)</summary><div id="prEx"></div></details>
+  </div>
+  <p class="note" id="prMicNote" hidden>마이크를 쓸 수 없어 녹음 없이 진행합니다. 휴대폰이라면 브라우저의 마이크 권한을 확인하세요.</p>
+</div>
+
+<h2>이렇게 연습하세요</h2>
+<ol>
+  <li><b>생각 15초</b> 동안 결론 한 문장만 정합니다. 답을 외워 둔 문장을 떠올리는 시간이 아닙니다.</li>
+  <li><b>답변 60초</b>는 결론 → 경험 → 배운 점 → 연결 순서로 말합니다. <a href="/guide/">답변 구조 자세히</a></li>
+  <li>녹음을 다시 들으며 세 가지만 확인합니다. 60초를 넘겼는지, "음…"이 몇 번 나왔는지, 학교 이름·성적·수상처럼 블라인드 면접에서 말하면 안 되는 말이 있었는지.</li>
+  <li>답한 뒤에 예시를 열어 내 답과 비교합니다. 예시를 먼저 보면 내 말이 아니라 예시를 따라 하게 됩니다.</li>
+</ol>
+<p class="note">질문은 이 사이트의 학과별·공통 질문과, 대학이 모집요강에 공개한 면접 질문 예시에서 뽑습니다. 녹음은 페이지를 닫으면 사라집니다.</p>
+<script>window.PRACTICE_URL="/practice/questions.json";</script>
+<script src="/static/practice.js?v={{ site.ver }}" defer></script>
+{% endblock %}

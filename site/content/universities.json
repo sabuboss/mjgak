@@ -183,6 +183,41 @@
           "code": "kcu",
           "name": "강서대학교",
           "url": "https://www.gangseo.ac.kr"
+        },
+        {
+          "code": "swu",
+          "name": "서울여자대학교",
+          "url": "https://www.swu.ac.kr"
+        },
+        {
+          "code": "hansung",
+          "name": "한성대학교",
+          "url": "https://www.hansung.ac.kr"
+        },
+        {
+          "code": "skuniv",
+          "name": "서경대학교",
+          "url": "https://www.skuniv.ac.kr"
+        },
+        {
+          "code": "skhu",
+          "name": "성공회대학교",
+          "url": "https://www.skhu.ac.kr"
+        },
+        {
+          "code": "chongshin",
+          "name": "총신대학교",
+          "url": "https://www.csu.ac.kr"
+        },
+        {
+          "code": "scu",
+          "name": "서울기독대학교",
+          "url": "https://www.scu.ac.kr"
+        },
+        {
+          "code": "shyu",
+          "name": "서울한영대학교",
+          "url": "https://www.shyu.ac.kr"
         }
       ]
     },
@@ -278,6 +313,76 @@
           "code": "sjs",
           "name": "서울장신대학교",
           "url": "https://www.sjs.ac.kr"
+        },
+        {
+          "code": "tukorea",
+          "name": "한국공학대학교",
+          "url": "https://www.tukorea.ac.kr"
+        },
+        {
+          "code": "hknu",
+          "name": "한경국립대학교",
+          "url": "https://www.hknu.ac.kr"
+        },
+        {
+          "code": "kangnam",
+          "name": "강남대학교",
+          "url": "https://www.kangnam.ac.kr"
+        },
+        {
+          "code": "suwon",
+          "name": "수원대학교",
+          "url": "https://www.suwon.ac.kr"
+        },
+        {
+          "code": "uhs",
+          "name": "협성대학교",
+          "url": "https://www.uhs.ac.kr"
+        },
+        {
+          "code": "daejin",
+          "name": "대진대학교",
+          "url": "https://www.daejin.ac.kr"
+        },
+        {
+          "code": "shinhan",
+          "name": "신한대학교",
+          "url": "https://www.shinhan.ac.kr"
+        },
+        {
+          "code": "yongin",
+          "name": "용인대학교",
+          "url": "https://www.yongin.ac.kr"
+        },
+        {
+          "code": "eulji",
+          "name": "을지대학교",
+          "url": "https://www.eulji.ac.kr"
+        },
+        {
+          "code": "hs",
+          "name": "한신대학교",
+          "url": "https://www.hs.ac.kr"
+        },
+        {
+          "code": "anyang",
+          "name": "안양대학교",
+          "url": "https://www.anyang.ac.kr"
+        },
+        {
+          "code": "sungkyul",
+          "name": "성결대학교",
+          "url": "https://www.sungkyul.ac.kr"
+        },
+        {
+          "code": "suwoncatholic",
+          "name": "수원가톨릭대학교",
+          "url": "https://www.suwoncatholic.ac.kr"
+        },
+        {
+          "code": "hsmu",
+          "name": "화성의과학대학교",
+          "url": "https://www.hsmu.ac.kr"
         }
       ]
     },
@@ -468,6 +573,76 @@
           "code": "daejeon-theo",
           "name": "대전신학대학교",
           "url": "https://www.daejeon.ac.kr"
+        },
+        {
+          "code": "korea-sejong",
+          "name": "고려대학교(세종)",
+          "url": "https://sejong.korea.ac.kr"
+        },
+        {
+          "code": "hongik-sejong",
+          "name": "홍익대학교(세종)",
+          "url": "https://sejong.hongik.ac.kr"
+        },
+        {
+          "code": "dankook-cheonan",
+          "name": "단국대학교(천안)",
+          "url": "https://www.dankook.ac.kr"
+        },
+        {
+          "code": "sangmyung-cheonan",
+          "name": "상명대학교(천안)",
+          "url": "https://www.smu.ac.kr"
+        },
+        {
+          "code": "yonsei-mirae",
+          "name": "연세대학교(미래)",
+          "url": "https://mirae.yonsei.ac.kr"
+        },
+        {
+          "code": "knue",
+          "name": "한국교원대학교",
+          "url": "https://www.knue.ac.kr"
+        },
+        {
+          "code": "cju",
+          "name": "청주대학교",
+          "url": "https://www.cju.ac.kr"
+        },
+        {
+          "code": "sch",
+          "name": "순천향대학교",
+          "url": "https://www.sch.ac.kr"
+        },
+        {
+          "code": "hoseo",
+          "name": "호서대학교",
+          "url": "https://www.hoseo.ac.kr"
+        },
+        {
+          "code": "bu",
+          "name": "백석대학교",
+          "url": "https://www.bu.ac.kr"
+        },
+        {
+          "code": "nsu",
+          "name": "남서울대학교",
+          "url": "https://www.nsu.ac.kr"
+        },
+        {
+          "code": "kornu",
+          "name": "나사렛대학교",
+          "url": "https://www.kornu.ac.kr"
+        },
+        {
+          "code": "dcatholic",
+          "name": "대전가톨릭대학교",
+          "url": "https://www.dcatholic.ac.kr"
+        },
+        {
+          "code": "knuh",
+          "name": "한국전통문화대학교",
+          "url": "https://www.knuh.ac.kr"
         }
       ]
     },
@@ -578,6 +753,11 @@
           "code": "dgau",
           "name": "대구예술대학교",
           "url": "https://www.dgau.ac.kr"
+        },
+        {
+          "code": "sgu",
+          "name": "신경주대학교",
+          "url": "https://www.sgu.ac.kr"
         }
       ]
     },
@@ -853,6 +1033,21 @@
           "code": "gjc",
           "name": "광주가톨릭대학교",
           "url": "https://www.gjc.ac.kr"
+        },
+        {
+          "code": "jesus",
+          "name": "예수대학교",
+          "url": "https://www.jesus.ac.kr"
+        },
+        {
+          "code": "youngsan",
+          "name": "영산선학대학교",
+          "url": "https://www.youngsan.ac.kr"
+        },
+        {
+          "code": "jeju-intl",
+          "name": "제주국제대학교",
+          "url": "https://www.jeju.ac.kr"
         }
       ]
     },

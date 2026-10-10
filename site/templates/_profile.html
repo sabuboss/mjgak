@@ -1,7 +1,7 @@
 <h2>면접 방식과 특징</h2>
 <p>{{ p.interview }}</p>
 <ul>{% for f in p.focus %}<li>{{ f }}</li>{% endfor %}</ul>
-<h2>{{ p.name }} 맞춤 예상 질문 {{ p.questions|length }}개</h2>
+{% if p.rich %}<details class="more"><summary>{{ p.name }} 맞춤 예상 질문 {{ p.questions|length }}개 (답변 틀) 펼치기</summary>{% else %}<h2>{{ p.name }} 맞춤 예상 질문 {{ p.questions|length }}개</h2>{% endif %}
 <p class="note">이 사이트가 대학 특성에 맞춰 만든 예상 질문입니다. 실제 기출이 아니며, [대괄호]는 본인 경험으로 바꾸세요.</p>
 {% for q in p.questions %}
 <section class="qsec" id="p{{ loop.index }}">
@@ -11,6 +11,7 @@
   <p class="tip"><b>준비 팁</b> {{ q.tips }}</p>
 </section>
 {% endfor %}
+{% if p.rich %}</details>{% endif %}
 
 {% if p.videos %}
 <h2>{{ p.name }} 공식 소개 영상</h2>

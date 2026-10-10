@@ -4,6 +4,7 @@
 <h1>{{ p.name }} 면접 준비 가이드</h1>
 <p class="meta"><a href="{{ home }}" target="_blank" rel="noopener">입학처↗</a>{% if report_url %} · <a href="{{ report_url }}" target="_blank" rel="noopener">{{ report_year }} 선행학습 영향평가 보고서↗</a>{% endif %}</p>
 <p class="lead">{{ p.blurb }}</p>
+{% if p.rich %}{% include "_rich_univ.html" %}{% endif %}
 {% include "_profile.html" %}
 <h2>이 대학 면접에서 자주 묻는 공통 질문</h2>
 {% for q in common_questions %}
@@ -20,5 +21,5 @@
   <li><a href="/category/intro/">자주 나오는 공통 질문 48개</a> — 서류 기반 면접의 기본.</li>
   <li><a href="/type/general/">지원자 유형별 질문</a> — 검정고시·특성화고·재수 등.</li>
 </ul>
-<p class="note">{{ notice }} 이 대학은 면접 문항을 공개하지 않았거나 이 사이트가 아직 정리하지 못했습니다. 공개 문항이 확인되면 추가합니다. 잘못된 내용은 <a href="/contact/">문의</a>로 알려 주세요.</p>
+<p class="note">{{ notice }}{% if not p.rich %} 이 대학은 면접 문항을 공개하지 않았거나 이 사이트가 아직 정리하지 못했습니다. 공개 문항이 확인되면 추가합니다.{% endif %} 잘못된 내용은 <a href="/contact/">문의</a>로 알려 주세요.</p>
 {% endblock %}

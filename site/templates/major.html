@@ -16,7 +16,7 @@
 <section class="qsec" id="q{{ loop.index }}">
   <h2>{{ loop.index }}. {{ q.question }}</h2>
   <p class="why"><b>왜 묻나</b> {{ q.why }}</p>
-  <div class="answer">{{ q.answer_html }}</div>
+  {% if q.example %}<div class="answer ex"><span class="exlabel">답변 예시</span>{{ q.example }}</div><details class="more"><summary>빈칸 답변 틀 보기</summary><div class="answer">{{ q.answer_html }}</div></details>{% else %}<div class="answer">{{ q.answer_html }}</div>{% endif %}
   <p class="tip"><b>준비 팁</b> {{ q.tips }}</p>
 </section>
 {% endfor %}

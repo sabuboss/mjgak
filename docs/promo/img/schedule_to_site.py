@@ -3,7 +3,13 @@
 import sys, json, glob, html
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
-from schedule_data import SECTIONS
+from schedule_data import SECTIONS, SITE_EXTRA
+import re as _re
+
+
+def _key(row):
+    m = _re.match(r"(\d+)/(\d+)", row[0])
+    return (int(m.group(1)), int(m.group(2))) if m else (99, 99)
 
 ROOT = Path(__file__).resolve().parents[3]
 PAGE = ROOT / "site" / "pages" / "schedule.md"
@@ -35,6 +41,7 @@ def build():
            '<p>각 대학 <b>2027학년도 수시모집요강</b>에서 직접 확인한 면접일과 1단계 발표일입니다. '
            '같은 대학도 계열·단과대학에 따라 날짜가 다르니 내 모집단위를 확인하고, 시간·장소는 1단계 발표 때 입학처 공지를 보세요.</p>']
     for title, sub, rows in SECTIONS:
+        rows = sorted(rows + SITE_EXTRA.get(title, []), key=_key)
         out.append(f"<h3>{html.escape(title)} <small>{html.escape(sub)}</small></h3>")
         out.append('<table class="tbl"><tr><th>면접일</th><th>대학</th><th>전형 · 모집단위</th><th>1단계 발표</th></tr>')
         for date, univ, track, unit, first, memo in rows:

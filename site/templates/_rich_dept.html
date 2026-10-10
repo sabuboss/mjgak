@@ -1,0 +1,58 @@
+{# 학과 rich 데이터(content/rich/dept/<slug>.json) 본문. dept.html 과 new_dept.html 이 함께 쓴다. #}
+{% set r = d.rich %}
+<div class="hook"><p>{{ r.hook }}</p>
+{% if r.looks_for %}<b>면접관이 보는 것</b><ol>{% for x in r.looks_for %}<li>{{ x }}</li>{% endfor %}</ol>{% endif %}
+</div>
+{% if r.y2027 and r.y2027.rows %}
+<h2 id="y2027">2027학년도 수시, 대학별 {{ d.label }} 면접 방식</h2>
+<p class="lead">{{ r.y2027.intro }} 숫자와 날짜는 각 대학 <b>2027학년도 수시모집요강</b>에서 직접 확인한 것입니다.</p>
+<div class="ytbl">
+{% for x in r.y2027.rows %}
+<div class="yrow">
+  <div class="yhead">{% if x.url %}<a href="{{ x.url }}">{{ x.univ }}</a>{% else %}{{ x.univ }}{% endif %} <span>{{ x.track }}</span></div>
+  <dl>
+    {% if x.unit %}<dt>모집</dt><dd>{{ x.unit }}</dd>{% endif %}
+    {% if x.method %}<dt>선발</dt><dd>{{ x.method }}</dd>{% endif %}
+    {% if x.interview %}<dt>면접</dt><dd>{{ x.interview }}</dd>{% endif %}
+    {% if x.criteria %}<dt>평가</dt><dd>{{ x.criteria }}</dd>{% endif %}
+    {% if x.first %}<dt>1단계 발표</dt><dd>{{ x.first }}</dd>{% endif %}
+    {% if x.date %}<dt>면접일</dt><dd><b>{{ x.date }}</b></dd>{% endif %}
+    {% if x.min %}<dt>수능 최저</dt><dd>{{ x.min }}</dd>{% endif %}
+  </dl>
+  {% if x.source %}<p class="ysrc">출처: {{ x.univ }} 2027학년도 수시모집요강 {{ x.source }}</p>{% endif %}
+</div>
+{% endfor %}
+</div>
+{% if r.y2027.note %}<p class="note">{{ r.y2027.note }}</p>{% endif %}
+<p class="note">전체 대학의 면접 날짜는 <a href="/schedule/#dates">면접 일정 페이지</a>에 모아 두었습니다.</p>
+{% endif %}
+
+<h2>{{ d.label }} 면접 질문 {{ r.questions|length }}개와 답변 예시</h2>
+{% if r.principle %}<div class="callout"><b>공통 원칙</b> {{ r.principle }}</div>{% endif %}
+<p class="note">예시 답변은 답변 구조를 보여 주기 위한 가상의 예시입니다. 그대로 외우면 면접관이 알아봅니다. 반드시 본인 경험으로 바꾸세요.</p>
+<div class="toc"><b>이 페이지의 질문</b><ol>{% for q in r.questions %}<li><a href="#q{{ loop.index }}">{{ q.question }}</a></li>{% endfor %}</ol></div>
+{% for q in r.questions %}
+<section class="qsec" id="q{{ loop.index }}">
+  <h2>{{ loop.index }}. {{ q.question }}</h2>
+  <p class="why"><b>왜 묻나</b> {{ q.why }}</p>
+  {% if q.structure %}<p class="struct"><b>답변 구조</b> {{ q.structure }}</p>{% endif %}
+  <div class="answer ex"><span class="exlabel">답변 예시</span>{{ q.example }}</div>
+  {% if q.caution %}<p class="tip"><b>주의</b> {{ q.caution }}</p>{% endif %}
+</section>
+{% endfor %}
+
+<div class="practice-cta"><b>읽기만 하면 말이 안 나옵니다.</b> 이 질문들을 무작위로 뽑아 60초 타이머로 연습해 보세요. <a class="btn" href="/practice/?set=dept:{{ d.slug }}">모의 면접 연습하기</a></div>
+
+{% if r.plan %}
+<h2>{{ d.label }} 면접 준비 순서 (2주 계획)</h2>
+<ul class="plan">{% for x in r.plan %}<li>{{ x }}</li>{% endfor %}</ul>
+{% endif %}
+{% if r.faq %}
+<h2>{{ d.label }} 면접 자주 묻는 것들</h2>
+{% for f in r.faq %}<details class="faq"><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}
+{% endif %}
+{% if r.checklist %}
+<h2>면접 전날 체크리스트</h2>
+<ul class="check">{% for x in r.checklist %}<li>{{ x }}</li>{% endfor %}</ul>
+{% endif %}
+{% if r.sources %}<p class="note">이 페이지의 대학별 면접 정보는 {{ r.sources }}에서 인용했습니다. 면접 방식과 일정은 바뀔 수 있으니 지원 대학 입학처 공지를 꼭 확인하세요.</p>{% endif %}

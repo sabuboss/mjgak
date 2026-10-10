@@ -32,6 +32,9 @@
 <h2>어떻게 뽑나</h2>
 <div class="callout">{{ d.selection }}</div>
 
+{% if d.rich %}
+{% include "_rich_dept.html" %}
+{% else %}
 <h2>면접 질문 {{ d.questions|length }}개와 답변</h2>
 <div class="toc"><b>이 페이지의 질문</b><ol>{% for q in d.questions %}<li><a href="#q{{ loop.index }}">{{ q.question }}</a></li>{% endfor %}</ol></div>
 {% for q in d.questions %}
@@ -42,6 +45,7 @@
   <p class="tip"><b>준비 팁</b> {{ q.tips }}</p>
 </section>
 {% endfor %}
+{% endif %}
 
 <h2>함께 보면 좋은 페이지</h2>
 <ul>
@@ -50,5 +54,5 @@
   <li><a href="/category/major/">전공·학업 관련 공통 질문</a></li>
   <li><a href="/schedule/">면접 일정과 시기별 준비</a></li>
 </ul>
-<p class="note">{{ notice }} [대괄호]는 본인 경험으로 바꾸세요.</p>
+<p class="note">{{ notice }}{% if not d.rich %} [대괄호]는 본인 경험으로 바꾸세요.{% endif %}</p>
 {% endblock %}
