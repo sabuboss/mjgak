@@ -220,3 +220,4 @@ details.more summary{cursor:pointer;color:var(--muted);font-size:14px}
 .pr-ex{margin-top:12px}
 .pr-ex summary{cursor:pointer;font-weight:600;color:var(--accent)}
 @media (max-width:560px){.top .in{gap:10px}.top nav{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}.top nav::-webkit-scrollbar{display:none}.yrow dl{grid-template-columns:72px 1fr}.pr-q{font-size:18px}}
+@media (max-width:560px){.tbl{font-size:13px}.tbl th,.tbl td{padding:6px 7px;overflow-wrap:anywhere;word-break:normal}.pr-set label:first-child{flex:1 1 100%;min-width:0}.pr-set select{display:block;width:100%;margin-top:4px}}
