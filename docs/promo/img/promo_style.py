@@ -32,7 +32,7 @@ def font(size, bold=False):
 
 # 맑은 고딕 일반체(malgun.ttf)는 "싶" 글자 윤곽이 깨져 그려진다(PIL/FreeType). 이런 글자만 Semilight 로 대신 그린다.
 FSL = "C:/Windows/Fonts/malgunsl.ttf"
-BROKEN = set("싶")
+BROKEN = set("싶믿")
 
 
 def text_fixed(d, xy, text, fnt, fill):
