@@ -61,7 +61,7 @@ def jobs_xxx():
 - 썸네일: `make_thumb(out, "학과명")`. 도식: 질문 1 답변 예시를 4문장(결론·경험·배운 점·연결)으로.
 - 파일 이름: `<대학약자>-2027-<code>-<내용>.png` (kw=광운, mju=명지, ssu=숭실, khu=경희, ajou=아주, cau=중앙, duksung=덕성, sm=숙명, ewha=이화, kookmin=국민, dongguk=동국, konkuk=건국, sejong=세종, inha=인하, kangnam=강남, baekseok=백석, hoseo=호서, namseoul=남서울, sunmoon=선문, cheongju=청주, eulji=을지, sungshin=성신, yongin=용인, kyonggi=경기, hansei=한세, hufs=외대, uos=시립, syu=삼육, kangwon=강원, cnu=충남, jbnu=전북, jnu=전남, jeju=제주, pusan=부산, kyungnam=경남, nambu=남부). **이미 있는 파일 이름과 겹치지 않게** code 를 학과마다 고유하게.
 - 실행: `cd ROOT/docs/promo/img && PYTHONIOENCODING=utf-8 python jobs_b5_<그룹>.py 2>&1 | grep -v "MuPDF error"`.
-- PDF 가 더 필요하면 CDN 에서 받는다(회사망이라 verify=False): `https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/<대학명>/<대학명>_2027학년도_수시모집요강.pdf` → `src/m_<대학명>.pdf` 로 저장.
+- PDF 가 더 필요하면 CDN 에서 받는다(TLS 검증을 끄지 않는다. 실패하면 보고만 한다): `https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/<대학명>/<대학명>_2027학년도_수시모집요강.pdf` → `src/m_<대학명>.pdf` 로 저장.
 
 ## 5. 붙여넣기 페이지
 
