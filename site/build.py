@@ -521,10 +521,12 @@ def main():
         page(f"univ/{code}", "univ_prep.html", p=p, home=p.get("home") or s.get("admission_url", "#"),
              report_url=reports[0]["url"] if reports else None, report_year=reports[0]["year"] if reports else None,
              common_questions=uprof["common_questions"], notice=uprof["notice"],
+             robots=None if p.get("rich") else "noindex,follow",  # 2027 정보 없는 템플릿 페이지는 색인 제외 (얇은 콘텐츠)
              title=(f"{p['name']} 면접 2027 — 전형별 면접 방식·일정·공개 질문" if p.get("rich") else f"{p['name']} 면접 준비 가이드 — 특징·면접 방식·예상 질문"),
              description=(p["rich"]["summary"][:150] if p.get("rich") else f"{p['blurb']} 면접 방식과 준비 포인트, 맞춤 예상 질문 {len(p['questions'])}개."))
-        urls.append(p["url"])
-        rss.append((f"{p['name']} 면접 준비 가이드", p["url"], p["blurb"]))
+        if p.get("rich"):
+            urls.append(p["url"])
+            rss.append((f"{p['name']} 면접 2027", p["url"], p["rich"]["summary"][:120]))
     for u in univ_cards:
         recs = actual_by[u["code"]]
         s = seed[u["code"]]
