@@ -391,8 +391,14 @@ def main():
             r["dept_links"] = [{"url": all_dept_url[x["slug"]][0], "label": all_dept_url[x["slug"]][1]}
                                for x in r.get("depts", []) if x.get("slug") in all_dept_url]
             prof_by[code]["rich"] = r
+    rich_common = load_rich("common")
     for q in common["questions"]:
         q["example"] = examples.get("common", {}).get(q["slug"])
+        rc = rich_common.get(q["slug"])
+        if rc:
+            for ex in rc.get("univ_examples", []):
+                ex["url"] = prof_by[ex["code"]]["url"] if ex.get("code") in prof_by else ""
+        q["rich"] = rc
     for m in majors["majors"]:
         exs = examples.get("majors", {}).get(m["code"], [])
         for i, q in enumerate(m["questions"]):
@@ -464,8 +470,12 @@ def main():
         rss.append((q["question"], q["url"], q["why"]))
 
     # 카테고리
+    cat_guide = load(RICH / "category.json") if (RICH / "category.json").exists() else {}
+    q_by_slug = {q["slug"]: q for q in common["questions"]}
     for k, meta in common["categories"].items():
+        g = cat_guide.get(k) or {}
         page(f"category/{k}", "category.html", cat=meta, key=k, questions=by_cat[k], categories=common["categories"],
+             guide=g.get("guide", []), first=[q_by_slug[x] for x in g.get("first", []) if x in q_by_slug],
              title=f"{meta['label']} 면접 질문 {len(by_cat[k])}개", description=meta["desc"])
         urls.append(meta["url"])
 

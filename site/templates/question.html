@@ -19,6 +19,32 @@
 <div class="answer">{{ answer_html }}</div>
 <p class="note">{{ notice }}</p>
 
+{% set rc = q.rich %}
+{% if rc %}
+<h2>면접관이 실제로 확인하는 것</h2>
+<p>{{ rc.deep }}</p>
+
+<h2>나쁜 답과 고친 답</h2>
+{% for bg in rc.bad_good %}
+<div class="bg">
+  <p class="bg-bad"><b>이렇게 답하면</b>{{ bg.bad }}</p>
+  <p class="bg-good"><b>이렇게 고치세요</b>{{ bg.good }}</p>
+  <p class="bg-why">{{ bg.why }}</p>
+</div>
+{% endfor %}
+
+<h2>이어서 나오는 꼬리질문</h2>
+<ol class="fu">{% for f in rc.followups %}<li><b>{{ f.q }}</b><br>{{ f.tip }}</li>{% endfor %}</ol>
+
+<h2>계열별로 이렇게 바꾸세요</h2>
+<dl class="bym">{% for m in rc.by_major %}<dt>{{ m.group }}</dt><dd>{{ m.point }}</dd>{% endfor %}</dl>
+
+{% if rc.univ_examples %}
+<h2>대학이 공개한 비슷한 질문</h2>
+<ul class="pubq">{% for e in rc.univ_examples %}<li>{% if e.url %}<a href="{{ e.url }}">{{ e.univ }}</a>{% else %}{{ e.univ }}{% endif %} — {{ e.q }} <small>({{ e.source }})</small></li>{% endfor %}</ul>
+{% endif %}
+{% endif %}
+
 <h2>답변 구조</h2>
 <ol class="frame">{% for f in q.frame %}<li>{{ f }}</li>{% endfor %}</ol>
 
@@ -27,6 +53,10 @@
 
 <h2>피해야 할 답</h2>
 <ul class="avoid">{% for a in q.avoid %}<li>{{ a }}</li>{% endfor %}</ul>
+{% if q.rich and q.rich.check %}
+<h2>답하기 전 체크</h2>
+<ul class="check">{% for c in q.rich.check %}<li>{{ c }}</li>{% endfor %}</ul>
+{% endif %}
 
 {% if related %}
 <h2>비슷한 실제 기출</h2>

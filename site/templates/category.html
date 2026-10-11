@@ -4,6 +4,12 @@
 <h1>{{ cat.label }}</h1>
 <p class="lead">{{ cat.desc }}</p>
 <div class="tnav">{% for k, c in categories.items() %}{% if k == key %}<span class="tchip on">{{ c.label }} <i>{{ c.n }}</i></span>{% else %}<a class="tchip" href="{{ c.url }}">{{ c.label }} <i>{{ c.n }}</i></a>{% endif %}{% endfor %}</div>
+{% if guide %}
+<h2>이 질문들은 이렇게 준비하세요</h2>
+{% for p in guide %}<p>{{ p }}</p>{% endfor %}
+{% if first %}<p><b>먼저 준비할 세 질문:</b> {% for q in first %}<a href="{{ q.url }}">{{ q.question }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+<h2>질문 {{ questions|length }}개</h2>
+{% endif %}
 <div class="qcards">
 {% for q in questions %}
 <a class="qcard" href="{{ q.url }}"><b>{{ q.question }}</b><p>{{ q.why }}</p></a>
