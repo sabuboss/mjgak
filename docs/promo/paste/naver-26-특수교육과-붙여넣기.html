@@ -193,6 +193,7 @@ button{border:0;border-radius:8px;padding:10px 16px;font-size:15px;font-weight:b
 </div></div>
 <div class="box"><p class="lbl">태그 (#은 에디터가 자동으로 붙이므로 그대로 붙여 넣어도 됩니다)</p><div id="tags">#특수교육과면접 #특교과면접 #특수교육과면접질문 #특수교육과면접준비 #특수교육과면접답변 #특수교육과수시 #초등특수교육과 #중등특수교육과 #유아특수교육과 #백석대특수교육과 #강남대특수교육과 #부산대특수교육과 #백석인재전형 #학교생활우수자전형 #학생부종합면접 #2027수시 #대입면접</div></div>
 <div class="box"><p class="lbl">넣을 이미지 목록 (docs/promo/img 폴더)</p><ol><li>썸네일 — thumb-sped.png (대표 이미지로 지정)</li><li>캡처 1 — 백석대학교 2027학년도 수시모집요강 17쪽: baekseok-2027-sped-track.png</li><li>캡처 2 — 백석대학교 2027학년도 수시모집요강 18쪽: baekseok-2027-sped-interview.png</li><li>캡처 3 — 강남대학교 2027학년도 수시모집요강 26쪽: kangnam-2027-sped-track.png</li><li>캡처 4 — 강남대학교 2027학년도 수시모집요강 27쪽: kangnam-2027-sped-schedule.png</li><li>캡처 5 — 강남대학교 2027학년도 수시모집요강 49쪽: kangnam-2027-sped-interview.png</li><li>캡처 6 — 부산대학교 2027학년도 수시모집요강 35쪽: pusan-2027-sped-method.png</li><li>캡처 7 — 부산대학교 2027학년도 수시모집요강 36쪽: pusan-2027-sped-schedule.png</li><li>캡처 8 — 부산대학교 2027학년도 수시모집요강 64쪽: pusan-2027-sped-interview.png</li><li>이미지 1 — 제미나이 생성: 통합학급에서 그림 카드와 시각 일정표로 수업을 함께 진행하는 예비 특수교사 / &quot;제미나이 프롬프트 1&quot;</li><li>도식 — structure-sped.png</li></ol></div>
+<div class="box"><p class="lbl">제미나이 프롬프트 1 — 통합학급에서 그림 카드와 시각 일정표로 수업을 함께 진행하는 예비 특수교사 (4:3) — 제미나이에 그대로 붙여 넣어 이미지를 만드세요</p><div id="gem1" style="font-size:14px;line-height:1.6;white-space:pre-wrap">A warm, bright inclusive classroom: a young Korean student teacher kneels beside a desk at eye level with a boy, showing him a row of simple picture cards (a book, a pencil, a group of children, a clock drawn as plain shapes, no words) while a visual schedule strip made of colored picture squares hangs on the board behind them; nearby, a classmate sits in a wheelchair at the same group table, smiling and joining the activity, and the homeroom teacher stands in the background nodding. The scene conveys &quot;changing the lesson so every child can join&quot;: patience, respect, teamwork. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.</div><div class="row"><button class="b2" onclick="cp(&quot;gem1&quot;)">프롬프트 복사</button></div></div>
 <div id="toast"></div>
 <script>
 async function cp(id, rich){
@@ -204,6 +205,6 @@ async function cp(id, rich){
   }catch(e){
     const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand("copy"); s.removeAllRanges();
   }
-  const t=document.getElementById("toast"); t.textContent=({title:"제목",body:"본문",tags:"태그"})[id]+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
+  const t=document.getElementById("toast"); t.textContent=(({title:"제목",body:"본문",tags:"태그"})[id]||"프롬프트")+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
 }
 </script></body></html>

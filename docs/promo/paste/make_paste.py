@@ -7,7 +7,11 @@ import html, re, sys
 from pathlib import Path
 
 src = Path(sys.argv[1])
-raw = src.read_text(encoding="utf-8").split("=" * 20)[0].strip().splitlines()
+full = src.read_text(encoding="utf-8")
+raw = full.split("=" * 20)[0].strip().splitlines()
+# 작업 메모의 제미나이 프롬프트: "[제미나이 프롬프트 N — 장면 (4:3)]" 다음 줄들이 영문 프롬프트
+memo = full.split("=" * 20, 1)[1] if "=" * 20 in full else ""
+gem = re.findall(r"^\[(제미나이 프롬프트[^\]]*)\]\s*\n(.+?)(?=\n\s*\n|\n\[|\Z)", memo, flags=re.M | re.S)
 title = raw[0].replace("제목:", "").strip()
 lines = raw[1:]
 
@@ -51,6 +55,11 @@ for ln in lines:
 
 body = "\n".join(out)
 imgs = "".join(f"<li>{E(x)}</li>" for x in img_list)
+gem_html = "".join(
+    f'<div class="box"><p class="lbl">{E(lbl)} — 제미나이에 그대로 붙여 넣어 이미지를 만드세요</p>'
+    f'<div id="gem{k}" style="font-size:14px;line-height:1.6;white-space:pre-wrap">{E(txt.strip())}</div>'
+    f'<div class="row"><button class="b2" onclick="cp(&quot;gem{k}&quot;)">프롬프트 복사</button></div></div>'
+    for k, (lbl, txt) in enumerate(gem, 1))
 page = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>붙여넣기용 · {E(title)}</title>
 <style>
 body{{margin:0;background:#f3f5f8;font-family:"Malgun Gothic",sans-serif;color:#1c2430}}
@@ -82,6 +91,7 @@ button{{border:0;border-radius:8px;padding:10px 16px;font-size:15px;font-weight:
 </div></div>
 <div class="box"><p class="lbl">태그 (#은 에디터가 자동으로 붙이므로 그대로 붙여 넣어도 됩니다)</p><div id="tags">{E(tags)}</div></div>
 <div class="box"><p class="lbl">넣을 이미지 목록 (docs/promo/img 폴더)</p><ol>{imgs}</ol></div>
+{gem_html}
 <div id="toast"></div>
 <script>
 async function cp(id, rich){{
@@ -93,7 +103,7 @@ async function cp(id, rich){{
   }}catch(e){{
     const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand("copy"); s.removeAllRanges();
   }}
-  const t=document.getElementById("toast"); t.textContent=({{title:"제목",body:"본문",tags:"태그"}})[id]+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
+  const t=document.getElementById("toast"); t.textContent=(({{title:"제목",body:"본문",tags:"태그"}})[id]||"프롬프트")+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
 }}
 </script></body></html>"""
 dst = Path(__file__).parent / (src.stem.replace("-v2", "") + "-붙여넣기.html")

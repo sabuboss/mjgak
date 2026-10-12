@@ -197,6 +197,7 @@ button{border:0;border-radius:8px;padding:10px 16px;font-size:15px;font-weight:b
 </div></div>
 <div class="box"><p class="lbl">태그 (#은 에디터가 자동으로 붙이므로 그대로 붙여 넣어도 됩니다)</p><div id="tags">#디자인학과면접 #디자인과면접 #디자인학과면접질문 #디자인학과면접준비 #디자인학과면접답변 #디자인학과수시 #시각디자인학과면접 #산업디자인학과면접 #경희대디자인 #국민대시각디자인 #이화여대디자인학부 #명지대공간디자인 #네오르네상스 #명지인재면접전형 #학생부종합면접 #2027수시 #대입면접</div></div>
 <div class="box"><p class="lbl">넣을 이미지 목록 (docs/promo/img 폴더)</p><ol><li>썸네일 — thumb-design.png (대표 이미지로 지정)</li><li>캡처 1 — 경희대학교 2027학년도 수시모집요강 37쪽: khu-2027-design-count.png</li><li>캡처 2 — 경희대학교 2027학년도 수시모집요강 40쪽: khu-2027-design-schedule.png</li><li>캡처 3 — 경희대학교 2027학년도 수시모집요강 62쪽: khu-2027-design-interview.png</li><li>캡처 4 — 국민대학교 2027학년도 수시모집요강 17쪽: kookmin-2027-design-method.png</li><li>캡처 5 — 국민대학교 2027학년도 수시모집요강 15쪽: kookmin-2027-design-interview.png</li><li>캡처 6 — 이화여자대학교 2027학년도 수시모집요강 35쪽: ewha-2027-design-method.png</li><li>캡처 7 — 이화여자대학교 2027학년도 수시모집요강 9쪽: ewha-2027-design-schedule.png</li><li>캡처 8 — 명지대학교 2027학년도 수시모집요강 47쪽: mju-2027-design-track.png</li><li>캡처 9 — 명지대학교 2027학년도 수시모집요강 48쪽: mju-2027-design-interview.png</li><li>이미지 1 — 제미나이 생성: 디자인 실습실에서 친구들에게 안내판 시안을 보여 주며 의견을 듣는 학생 / &quot;제미나이 프롬프트 1&quot;</li><li>도식 — structure-design.png</li></ol></div>
+<div class="box"><p class="lbl">제미나이 프롬프트 1 — 디자인 실습실에서 친구들에게 안내판 시안을 보여 주며 의견을 듣는 학생 (4:3) — 제미나이에 그대로 붙여 넣어 이미지를 만드세요</p><div id="gem1" style="font-size:14px;line-height:1.6;white-space:pre-wrap">A bright design studio classroom: a Korean student stands at a large table and holds up two simple sign mock-ups made only of colored shapes and pictograms (a blue circle, a yellow square, simple arrows; no readable text), while two classmates point at the one they understand faster and one of them marks it with a small sticky note. Sketchbooks, color swatches and a cutting mat lie on the table. The scene conveys &quot;designing by observing people and revising&quot;: listening, curiosity, iteration. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.</div><div class="row"><button class="b2" onclick="cp(&quot;gem1&quot;)">프롬프트 복사</button></div></div>
 <div id="toast"></div>
 <script>
 async function cp(id, rich){
@@ -208,6 +209,6 @@ async function cp(id, rich){
   }catch(e){
     const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand("copy"); s.removeAllRanges();
   }
-  const t=document.getElementById("toast"); t.textContent=({title:"제목",body:"본문",tags:"태그"})[id]+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
+  const t=document.getElementById("toast"); t.textContent=(({title:"제목",body:"본문",tags:"태그"})[id]||"프롬프트")+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
 }
 </script></body></html>

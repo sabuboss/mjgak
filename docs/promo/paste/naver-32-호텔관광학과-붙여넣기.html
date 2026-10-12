@@ -189,6 +189,7 @@ button{border:0;border-radius:8px;padding:10px 16px;font-size:15px;font-weight:b
 </div></div>
 <div class="box"><p class="lbl">태그 (#은 에디터가 자동으로 붙이므로 그대로 붙여 넣어도 됩니다)</p><div id="tags">#호텔관광학과면접 #관광학과면접 #호텔경영학과면접 #호텔관광학과면접질문 #호텔관광학과면접준비 #호텔관광학과면접답변 #관광경영학과면접 #세종대호텔관광외식경영학부 #경기대관광문화대학 #경희대호텔관광대학 #세종인재전형 #KGU학생부종합 #네오르네상스 #학생부종합면접 #수시면접 #2027수시 #대입면접</div></div>
 <div class="box"><p class="lbl">넣을 이미지 목록 (docs/promo/img 폴더)</p><ol><li>썸네일 — thumb-tour.png (대표 이미지로 지정)</li><li>캡처 1 — 세종대학교 2027학년도 수시모집요강 13쪽: sejong-2027-tour-track.png</li><li>캡처 2 — 세종대학교 2027학년도 수시모집요강 14쪽: sejong-2027-tour-schedule.png</li><li>캡처 3 — 경기대학교 2027학년도 수시모집요강 42쪽(PDF 46쪽): kyonggi-2027-tour-interview.png</li><li>캡처 4 — 경기대학교 2027학년도 수시모집요강 9쪽(PDF 13쪽): kyonggi-2027-tour-schedule.png</li><li>캡처 5 — 경희대학교 2027학년도 수시모집요강 38쪽(PDF 40쪽): khu-2027-tour-method.png</li><li>캡처 6 — 경희대학교 2027학년도 수시모집요강 40쪽(PDF 42쪽): khu-2027-tour-detail.png</li><li>이미지 1 — 제미나이 생성: 호텔 실습실 프런트 데스크에서 손님 응대를 연습하는 학생들 / &quot;제미나이 프롬프트 1&quot;</li><li>도식 — structure-tour.png</li></ol></div>
+<div class="box"><p class="lbl">제미나이 프롬프트 1 — 호텔 실습실 프런트 데스크에서 손님 응대를 연습하는 학생들 (4:3) — 제미나이에 그대로 붙여 넣어 이미지를 만드세요</p><div id="gem1" style="font-size:14px;line-height:1.6;white-space:pre-wrap">A bright hotel practice room at a university: a Korean student in a neat navy uniform vest stands behind a small wooden front desk, smiling and pointing to a simple paper map while explaining directions to a classmate who plays a traveler with a small suitcase; another student holds a clipboard and observes the role-play, and a plain bell, a key card tray and a small potted plant sit on the desk. Behind them, a window shows a soft city view with a few distant buildings. The scene conveys &quot;welcoming guests and solving their problems&quot;: warmth, attentiveness, teamwork. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.</div><div class="row"><button class="b2" onclick="cp(&quot;gem1&quot;)">프롬프트 복사</button></div></div>
 <div id="toast"></div>
 <script>
 async function cp(id, rich){
@@ -200,6 +201,6 @@ async function cp(id, rich){
   }catch(e){
     const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand("copy"); s.removeAllRanges();
   }
-  const t=document.getElementById("toast"); t.textContent=({title:"제목",body:"본문",tags:"태그"})[id]+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
+  const t=document.getElementById("toast"); t.textContent=(({title:"제목",body:"본문",tags:"태그"})[id]||"프롬프트")+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
 }
 </script></body></html>

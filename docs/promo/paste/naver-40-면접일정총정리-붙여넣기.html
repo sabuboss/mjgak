@@ -142,6 +142,7 @@ button{border:0;border-radius:8px;padding:10px 16px;font-size:15px;font-weight:b
 </div></div>
 <div class="box"><p class="lbl">태그 (#은 에디터가 자동으로 붙이므로 그대로 붙여 넣어도 됩니다)</p><div id="tags">#수시면접일정 #2027수시면접일정 #대학면접일정 #면접일정총정리 #수능후면접 #수능전면접 #1단계합격자발표 #수시면접 #학생부종합면접 #교과면접 #대입면접 #2027수시 #광운대면접 #숭실대면접 #경희대면접 #명지대면접 #아주대면접</div></div>
 <div class="box"><p class="lbl">넣을 이미지 목록 (docs/promo/img 폴더)</p><ol><li>썸네일 — thumb-schedule.png (대표 이미지로 지정)</li><li>이미지 1 — schedule-2027-timeline.png</li><li>이미지 2 — schedule-2027-pre.png</li><li>이미지 3 — schedule-2027-1121.png</li><li>이미지 4 — schedule-2027-1127.png</li><li>이미지 5 — schedule-2027-dec.png</li><li>이미지 6 — 제미나이 생성: 책상 위 달력에 면접 날짜를 표시하는 학생 / &quot;제미나이 프롬프트 1&quot;</li></ol></div>
+<div class="box"><p class="lbl">제미나이 프롬프트 1 — 책상 위 달력에 면접 날짜를 표시하는 학생 (4:3) — 제미나이에 그대로 붙여 넣어 이미지를 만드세요</p><div id="gem1" style="font-size:14px;line-height:1.6;white-space:pre-wrap">A calm evening study desk: a Korean high school student sits at a tidy desk, circling a few dates on a large plain monthly wall-style desk calendar with a colored marker, while sticky notes in three colors are lined up beside it and an open notebook shows a simple hand-drawn timeline (no readable text or numbers anywhere); a phone on the desk shows only a plain bell icon reminder. The scene conveys &quot;seeing the whole schedule and planning ahead&quot;: calm, organized, focused. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.</div><div class="row"><button class="b2" onclick="cp(&quot;gem1&quot;)">프롬프트 복사</button></div></div>
 <div id="toast"></div>
 <script>
 async function cp(id, rich){
@@ -153,6 +154,6 @@ async function cp(id, rich){
   }catch(e){
     const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand("copy"); s.removeAllRanges();
   }
-  const t=document.getElementById("toast"); t.textContent=({title:"제목",body:"본문",tags:"태그"})[id]+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
+  const t=document.getElementById("toast"); t.textContent=(({title:"제목",body:"본문",tags:"태그"})[id]||"프롬프트")+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
 }
 </script></body></html>

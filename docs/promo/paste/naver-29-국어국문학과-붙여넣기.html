@@ -191,6 +191,7 @@ button{border:0;border-radius:8px;padding:10px 16px;font-size:15px;font-weight:b
 </div></div>
 <div class="box"><p class="lbl">태그 (#은 에디터가 자동으로 붙이므로 그대로 붙여 넣어도 됩니다)</p><div id="tags">#국어국문학과면접 #국문과면접 #국어국문학과면접질문 #국어국문학과면접준비 #국어국문학과면접답변 #국어국문학과수시 #문예창작 #숭실대국어국문학과 #경희대국어국문학과 #동국대국어국문문예창작학부 #SSU미래인재 #네오르네상스 #DoDream전형 #학생부종합면접 #수시면접 #2027수시 #대입면접</div></div>
 <div class="box"><p class="lbl">넣을 이미지 목록 (docs/promo/img 폴더)</p><ol><li>썸네일 — thumb-kor.png (대표 이미지로 지정)</li><li>캡처 1 — 숭실대학교 2027학년도 수시모집요강 13쪽: ssu-2027-kor-method.png</li><li>캡처 2 — 숭실대학교 2027학년도 수시모집요강 57쪽: ssu-2027-kor-interview.png</li><li>캡처 3 — 경희대학교 2027학년도 수시모집요강 38쪽: khu-2027-kor-method.png</li><li>캡처 4 — 경희대학교 2027학년도 수시모집요강 62쪽: khu-2027-kor-interview.png</li><li>캡처 5 — 경희대학교 2027학년도 수시모집요강 40쪽: khu-2027-kor-schedule.png</li><li>캡처 6 — 동국대학교 2027학년도 수시모집요강 17쪽: dongguk-2027-kor-method.png</li><li>캡처 7 — 동국대학교 2027학년도 수시모집요강 19쪽: dongguk-2027-kor-schedule.png</li><li>이미지 1 — 제미나이 생성: 교실 창가에서 시집의 한 구절에 서로 다른 해석 메모를 붙여 비교하는 학생 / &quot;제미나이 프롬프트 1&quot;</li><li>도식 — structure-kor.png</li></ol></div>
+<div class="box"><p class="lbl">제미나이 프롬프트 1 — 교실 창가에서 시집의 한 구절에 서로 다른 해석 메모를 붙여 비교하는 학생 (4:3) — 제미나이에 그대로 붙여 넣어 이미지를 만드세요</p><div id="gem1" style="font-size:14px;line-height:1.6;white-space:pre-wrap">A calm literature classroom by a sunny window: a Korean high school student sits at a desk with an open poetry book whose pages show only soft gray lines, three small sticky notes in different colors attached next to the same line, and points from one note to another while a classmate leans in to listen with a thoughtful look; on the desk, an old-style thread-bound book and a modern paperback sit side by side to suggest classic and modern literature, with a cup of tea and a pencil nearby. The scene conveys &quot;one line, many readings&quot;: curiosity, careful reading, friendly discussion. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.</div><div class="row"><button class="b2" onclick="cp(&quot;gem1&quot;)">프롬프트 복사</button></div></div>
 <div id="toast"></div>
 <script>
 async function cp(id, rich){
@@ -202,6 +203,6 @@ async function cp(id, rich){
   }catch(e){
     const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand("copy"); s.removeAllRanges();
   }
-  const t=document.getElementById("toast"); t.textContent=({title:"제목",body:"본문",tags:"태그"})[id]+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
+  const t=document.getElementById("toast"); t.textContent=(({title:"제목",body:"본문",tags:"태그"})[id]||"프롬프트")+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
 }
 </script></body></html>

@@ -218,6 +218,7 @@ button{border:0;border-radius:8px;padding:10px 16px;font-size:15px;font-weight:b
 </div></div>
 <div class="box"><p class="lbl">태그 (#은 에디터가 자동으로 붙이므로 그대로 붙여 넣어도 됩니다)</p><div id="tags">#한국외대면접 #한국외대면접형 #외대면접 #한국외대학생부종합 #한국외대수시 #한국외대면접질문 #외대학종면접형 #진로개발역량 #협력적소통역량 #한국외대경영학부 #한국외대스페인어과 #학생부종합면접 #블라인드면접 #2027수시 #대입면접</div></div>
 <div class="box"><p class="lbl">넣을 이미지 목록 (docs/promo/img 폴더)</p><ol><li>썸네일 — thumb-hufs.png (대표 이미지로 지정)</li><li>캡처 1 — 한국외국어대학교 2027학년도 수시모집요강 14쪽(PDF 16쪽): hufs-2027-int-summary.png</li><li>캡처 2 — 한국외국어대학교 2027학년도 수시모집요강 23쪽(PDF 25쪽): hufs-2027-int-method.png</li><li>캡처 3 — 한국외국어대학교 2027학년도 수시모집요강 25쪽(PDF 27쪽): hufs-2027-int-tie.png</li><li>캡처 4 — 한국외국어대학교 2027학년도 수시모집요강 19쪽(PDF 21쪽): hufs-2027-int-schedule.png</li><li>캡처 5 — 한국외국어대학교 2027학년도 수시모집요강 14쪽(PDF 16쪽): hufs-2027-int-change.png</li><li>캡처 6 — 한국외국어대학교 2027학년도 수시모집요강 23쪽(PDF 25쪽): hufs-2027-int-eval.png</li><li>캡처 7 — 한국외국어대학교 2027학년도 수시모집요강 24쪽(PDF 26쪽): hufs-2027-int-blind.png</li><li>이미지 1 — 제미나이 생성: 수능을 마친 다음 날 학생부 사본에 질문을 적어 보며 답변을 연습하는 학생 / &quot;제미나이 프롬프트 1&quot;</li><li>도식 — structure-hufs.png</li></ol></div>
+<div class="box"><p class="lbl">제미나이 프롬프트 1 — 수능을 마친 다음 날 학생부 사본에 질문을 적어 보며 답변을 연습하는 학생 (4:3) — 제미나이에 그대로 붙여 넣어 이미지를 만드세요</p><div id="gem1" style="font-size:14px;line-height:1.6;white-space:pre-wrap">A tidy study desk at home in the late afternoon: a Korean high school student in a plain sweater (not a school uniform) sits with a few printed pages spread out, writing small question marks and short notes in the margins with a pen (no readable text), a closed exam-prep workbook pushed to the side, a small smartphone propped up showing a simple timer icon (no numbers), and a desk lamp casting warm light; the student is speaking softly as if rehearsing an answer, calm and focused. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.</div><div class="row"><button class="b2" onclick="cp(&quot;gem1&quot;)">프롬프트 복사</button></div></div>
 <div id="toast"></div>
 <script>
 async function cp(id, rich){
@@ -229,6 +230,6 @@ async function cp(id, rich){
   }catch(e){
     const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand("copy"); s.removeAllRanges();
   }
-  const t=document.getElementById("toast"); t.textContent=({title:"제목",body:"본문",tags:"태그"})[id]+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
+  const t=document.getElementById("toast"); t.textContent=(({title:"제목",body:"본문",tags:"태그"})[id]||"프롬프트")+" 복사됨"; t.style.display="block"; setTimeout(()=>t.style.display="none",1500);
 }
 </script></body></html>
