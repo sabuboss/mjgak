@@ -10,7 +10,9 @@ import pymupdf
 
 HERE = Path(__file__).parent
 SRC = HERE / "src"
-F = "C:/Windows/Fonts/malgun.ttf"
+# 맑은 고딕 일반체(malgun.ttf)는 PIL/FreeType 에서 같·싶·믿 등 받침 글자 상당수를 깨뜨려 그린다(2026-10-12 확인).
+# 일반체는 Noto Sans KR 로 그린다. 굵은 글씨(malgunbd)는 정상.
+F = "C:/Windows/Fonts/NotoSansKR-Regular.ttf"
 FB = "C:/Windows/Fonts/malgunbd.ttf"
 
 # ---- 팔레트 (모든 이미지 공통) ----
@@ -32,7 +34,7 @@ def font(size, bold=False):
 
 # 맑은 고딕 일반체(malgun.ttf)는 "싶" 글자 윤곽이 깨져 그려진다(PIL/FreeType). 이런 글자만 Semilight 로 대신 그린다.
 FSL = "C:/Windows/Fonts/malgunsl.ttf"
-BROKEN = set("싶믿")
+BROKEN = set()  # Noto 로 바꾼 뒤로는 대체가 필요 없음
 
 
 def text_fixed(d, xy, text, fnt, fill):
@@ -195,7 +197,7 @@ def make_structure(out, examples, W=1200):
     y += 28
     d.text((PAD, y), "이렇게 쓰세요", font=font(23, True), fill=CORAL); y += 36
     for t in ["숫자와 고유명사를 넣으면 진짜 경험으로 들립니다.",
-              "예시는 본인 경험으로 바꾸세요. 그대로 외우면 면접관이 알아봅니다.",
+              "예시는 본인 경험으로 바꾸세요. 그대로 외워 말하지 마세요.",
               "한 답변이 60초를 넘기면 잘라내세요. 녹음해서 확인."]:
         d.ellipse([PAD + 4, y + 10, PAD + 12, y + 18], fill=NAVY)
         text_fixed(d, (PAD + 24, y), t, font(20), TEXT); y += 30
