@@ -196,7 +196,7 @@ def make_structure(out, examples, W=1200):
             y += 34
     y += 28
     d.text((PAD, y), "이렇게 쓰세요", font=font(23, True), fill=CORAL); y += 36
-    for t in ["숫자와 고유명사를 넣으면 진짜 경험으로 들립니다.",
+    for t in ["숫자와 과목·활동 이름을 넣으면 진짜 경험으로 들립니다(학교·대회 이름은 빼기).",
               "예시는 본인 경험으로 바꾸세요. 그대로 외워 말하지 마세요.",
               "한 답변이 60초를 넘기면 잘라내세요. 녹음해서 확인."]:
         d.ellipse([PAD + 4, y + 10, PAD + 12, y + 18], fill=NAVY)
