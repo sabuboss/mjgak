@@ -32,6 +32,13 @@ site = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
 site["ver"] = datetime.datetime.now().strftime("%Y%m%d%H%M")  # CSS·JS 캐시 무효화
 env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=False)
 
+# 원문에 상업적 이용·발췌 금지 문구가 있는 대학: 문항 원문은 싣지 않고 공개 현황과 원문 링크만 안내한다.
+RESTRICTED = {
+    "snu": "이 문서는 상업적인 목적으로 사용할 수 없으며, 문서의 변형 및 발췌를 금지합니다.",
+    "skku": "이 문서는 상업적인 목적으로 사용할 수 없으며, 문서의 변형 및 발췌를 금지합니다.",
+    "yonsei": "이 보고서의 저작권은 연세대학교에 있습니다. 상업적인 사용을 금합니다.",
+    "yonsei-mirae": "이 보고서의 저작권은 연세대학교에 있습니다. 상업적인 사용을 금합니다.",
+}
 KIND_LABEL = {"actual": "실제 기출", "example": "대학 공개 예시", "predicted": "예상 질문", "none": "문항 미공개"}
 CATEGORY_LABEL = {
     "student_record": "서류(학생부) 기반 면접", "essay_based": "제시문 기반 면접", "personality": "인성면접",
@@ -236,6 +243,8 @@ def jsonld_faq(title: str, desc: str, url_path: str, qa: list):
 def related_by_keywords(kw: set[str], actual_by, univ_names, limit=3):
     scored = []
     for code, recs in actual_by.items():
+        if code in RESTRICTED:
+            continue
         for r in recs:
             if r["kind"] not in ("actual", "example") or len(r["text"]) > 220:
                 continue
@@ -253,6 +262,8 @@ def related_actual(q, actual_by, univ_names, limit=3):
     kw = set(q.get("keywords", [])) | tokens(q["question"])
     scored = []
     for code, recs in actual_by.items():
+        if code in RESTRICTED:
+            continue
         for r in recs:
             if r["kind"] not in ("actual", "example") or len(r["text"]) > 220:
                 continue
@@ -314,8 +325,10 @@ def md_page(name: str):
 # ---------- 메인 ----------
 def main():
     if DIST.exists():
-        shutil.rmtree(DIST)
-    DIST.mkdir()
+        # 폴더 자체가 다른 프로세스에 잡혀 있어도 되도록 안의 내용만 비운다
+        for child in DIST.iterdir():
+            shutil.rmtree(child) if child.is_dir() else child.unlink()
+    DIST.mkdir(exist_ok=True)
     shutil.copytree(ROOT / "static", DIST / "static")
     js = DIST / "static" / "site.js"
     js.write_text(with_base(js.read_text(encoding="utf-8")), encoding="utf-8")
@@ -409,7 +422,7 @@ def main():
 
     # 홈
     n_videos = sum(len(d.get("videos", [])) for d in depts) + sum(len(d.get("videos", [])) for d in newd["departments"]) + sum(len(u.get("videos", [])) for u in uprof["universities"])
-    stats = {"questions": len(common["questions"]), "depts": len(depts) + len(newd["departments"]), "univs": sum(1 for p in prof_by.values() if p.get("rich")), "actual": sum(len(v) for v in actual_by.values()),
+    stats = {"questions": len(common["questions"]), "depts": len(depts) + len(newd["departments"]), "univs": sum(1 for p in prof_by.values() if p.get("rich")), "actual": sum(len(v) for c, v in actual_by.items() if c not in RESTRICTED),
              "videos": n_videos, "updated": TODAY.strftime("%Y.%m.%d")}
     page("", "home.html", common=common, by_cat=by_cat, majors=majors["majors"], profiles=profiles, univ_cards=univ_cards, stats=stats,
          depts=depts, newd=newd["departments"], prep_n=len(prof_by), top=common["questions"][:8], description=site["description"])
@@ -549,12 +562,26 @@ def main():
         for a in adm.values():
             a["years"] = sorted(a["years"], reverse=True)
         years = u["years"]
-        page(f"univ/{u['code']}", "univ.html", u=u, seed=s, years=years, admissions=list(adm.values()), sample=[r for r in recs if r["year"] == years[0]][:6],
+        restricted = RESTRICTED.get(u["code"])
+        year_src = {}
+        for r in recs:
+            year_src.setdefault(r["year"], {})
+            year_src[r["year"]].setdefault(r["admission_name"], r.get("source_url") or "")
+        rich_p = (prof_by.get(u["code"]) or {}).get("rich")
+        if restricted:
+            title_u = (f"{u['name']} 면접 2027 — 전형별 면접 방식·일정 · 기출 공개 현황" if rich_p else f"{u['name']} 면접 기출 공개 현황 {years[-1]}~{years[0]}학년도")
+            desc_u = f"{u['name']} 입학처가 공개한 면접·구술고사 문항의 학년도·전형별 현황과 원문 링크. 대학의 이용 조건에 따라 문항 원문은 이 사이트에 싣지 않습니다."
+        else:
+            title_u = (f"{u['name']} 면접 2027 — 전형별 면접 방식·일정 · 기출문항 {years[0]}학년도" if rich_p else f"{u['name']} 면접 기출문항 {years[-1]}~{years[0]}학년도")
+            desc_u = f"{u['name']} 입학처가 공개한 면접·구술고사 문항 {u['n']}개를 연도·전형별로 정리했습니다. 출제 의도와 출처 링크 포함."
+        page(f"univ/{u['code']}", "univ.html", u=u, seed=s, years=years, admissions=list(adm.values()), sample=([] if restricted else [r for r in recs if r["year"] == years[0]][:6]),
+             restricted=restricted, year_src=year_src,
+             robots=("noindex,follow" if (restricted and not rich_p) else None),
              p=prof_by.get(u["code"]), kind_label=KIND_LABEL,
-             title=(f"{u['name']} 면접 2027 — 전형별 면접 방식·일정 · 기출문항 {years[0]}학년도" if (prof_by.get(u["code"]) or {}).get("rich") else f"{u['name']} 면접 기출문항 {years[-1]}~{years[0]}학년도"),
-             description=f"{u['name']} 입학처가 공개한 면접·구술고사 문항 {u['n']}개를 연도·전형별로 정리했습니다. 출제 의도와 출처 링크 포함.")
-        urls.append(u["url"])
-        for y in years:
+             title=title_u, description=desc_u)
+        if not (restricted and not rich_p):
+            urls.append(u["url"])
+        for y in ([] if restricted else years):
             yr = [r for r in recs if r["year"] == y]
             by_adm: dict[str, list] = {}
             for r in yr:
