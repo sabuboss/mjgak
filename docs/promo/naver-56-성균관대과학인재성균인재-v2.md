@@ -68,7 +68,7 @@
 
 주의: 법칙 이름만 말하면 근거가 되지 않습니다. 이 상황에서 무엇이 변하는지를 한 문장으로 붙이세요.
 
-[이미지 1 — 제미나이 생성: 면접 전날 작은 화이트보드에 풀이를 적으며 소리 내어 설명하는 학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 자석과 코일, 비커, DNA, 원자 상징물로 빛나는 화이트보드 앞에서 신나게 풀이를 설명하는 학생 / "제미나이 프롬프트 1"]
 
 ▶ 화학: 양적 관계를 식으로 세우고 단위까지 말하기
 
@@ -199,5 +199,5 @@ A. 과학인재와 성균인재 모두 수능최저학력기준이 없습니다(
 - 성균인재 스포츠과학과는 10/20 발표, 10/25 면접이라 이 글이 발행될 때는 이미 지났거나 직전입니다. 본문에는 날짜만 적었습니다.
 - 성균관대 기출 문항 원문 문서에 "상업적인 목적으로 사용할 수 없으며, 문서의 변형 및 발췌를 금지" 문구가 있어 이 글에는 기출 문항의 내용·요지·수치·풀이를 싣지 않았습니다. 수정할 때도 기출 내용을 다시 넣지 마세요.
 
-[제미나이 프롬프트 1 — 면접 전날 작은 화이트보드에 풀이를 적으며 소리 내어 설명하는 학생 (4:3)]
-A quiet study room at home in the evening: a Korean high school student in a plain hoodie (not a school uniform) stands beside a small whiteboard on a desk, holding a marker and pointing at simple hand-drawn diagrams of a bar magnet next to a wire coil, a smooth graph curve, and a few arrows (no readable text, no numbers), while speaking as if explaining a solution to an imaginary interviewer; a closed textbook, a pencil case, and a simple desk timer without numbers sit on the desk, and a desk lamp casts warm light; the student looks focused and confident. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 자석과 코일, 비커, DNA, 원자 상징물로 빛나는 화이트보드 앞에서 신나게 풀이를 설명하는 학생 (4:3)]
+An excited Korean high school student stands beside a large glowing whiteboard, pointing with a marker while explaining, surrounded by bright floating science icons: a bar magnet and wire coil with colorful field lines, a bubbling beaker with color-changing liquid, a twisting DNA double helix, a spinning atom, a smooth graph curve, and a beam of light bending through water. Vivid lab-like background with sparkles of discovery. Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

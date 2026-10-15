@@ -90,7 +90,7 @@
 
 주의: "선생님이 하라고 하셔서"로 끝내지 마세요. 내가 판단한 이유와 한계를 하나씩 말하세요.
 
-[이미지 1 — 제미나이 생성: 면접 전날 가족이 면접위원 역할을 맡아 꼬리 질문을 던지고 학생이 답하는 연습 장면 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 문헌정보·화학·AI·행정·건축·청소년지도·경영 상징물로 가득한 거실에서 가족과 면접 연습을 하는 학생 / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 누가 시키지 않았는데 스스로 계획해서 끝까지 해 본 일이 있나요? (발전가능성: 자기주도성)
 
@@ -216,5 +216,5 @@ A. 없습니다. 모집요강에 "수시모집 모든 전형은 수능최저학�
 [발행 메모]
 - 1단계 발표가 수능 다음 날(11/20 금) 오후 3시이고 면접이 11/28(토)·29(일)이라, 검색은 수능 직후부터 면접 전까지 이어질 것으로 봅니다. 수능 전에 읽고 초안을 만들 수 있도록 11월 13~17일 사이에 발행되도록 예약하세요. 본문 준비 순서의 첫 단계가 11/18(수)까지라 늦어도 11/17(화)까지.
 
-[제미나이 프롬프트 1 — 면접 전날 가족이 면접위원 역할을 맡아 꼬리 질문을 던지고 학생이 답하는 연습 장면 (4:3)]
-A cozy living room in the evening: a Korean high school student in a plain sweater (not a school uniform) sits upright on a chair, answering with a calm, thoughtful expression, while an older sibling sits across a small table holding a few printed pages (no readable text) and leaning forward as if asking a follow-up question; a small hourglass timer and a glass of water on the table, a soft floor lamp casting warm light. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 문헌정보·화학·AI·행정·건축·청소년지도·경영 상징물로 가득한 거실에서 가족과 면접 연습을 하는 학생 (4:3)]
+A Korean high school student answers enthusiastically in a bright, colorful living room while an older sibling asks a follow-up question with a notebook, both smiling. Floating around them are vivid icons of majors: towering colorful bookshelves (library and information science), bubbling flasks (chemical engineering), a glowing robot head (AI and computer engineering), a government building shape without text (public administration), a house blueprint (architecture), a group of cheerful young people icons (youth guidance), and an upward graph arrow (business). Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

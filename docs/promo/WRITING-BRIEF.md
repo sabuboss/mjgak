@@ -24,7 +24,7 @@
 9. `■ <학과> 면접 자주 묻는 것들` — Q/A 5개 (문제 풀이 여부, 학과 차이, 경험 부족, 수능 최저, 복장).
 10. `■ 면접 전날 체크리스트` — □ 7개.
 11. 마무리 한 문장("…를 보는 자리입니다.") → `※ 이 글의 모집요강 내용은 … 인용했습니다 …` → 사이트 소개 문단 → `→ https://mjgak.com/<경로>/?utm_source=naver_blog&utm_medium=post` → 해시태그 15~17개.
-12. `=====` 구분선 아래 작업용 메모: `[이미지 배치 요약 — 총 N장]` 목록, `[제미나이 프롬프트 1 — <장면> (4:3)]` 영문 프롬프트. 프롬프트 끝은 견본과 **똑같은** 스타일 문장(Style: clean flat vector … No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.)으로 끝낸다.
+12. `=====` 구분선 아래 작업용 메모: `[이미지 배치 요약 — 총 N장]` 목록, `[제미나이 프롬프트 1 — <장면> (4:3)]` 영문 프롬프트. 장면은 **그 글의 학과(예시 학과들)를 상징하는 사물·아이콘**(예: 경제=상승 그래프·동전, 기계=톱니·로봇팔, 간호=간호모·청진기, 법=저울)에 둘러싸여 자신 있게 답하는 한국 고등학생으로 그린다(교복·로고·글자·대학 상징 금지). 책상에 앉은 차분한 장면만 쓰지 않는다. 프롬프트 끝은 다음 스타일 문장을 **그대로** 붙인다: "Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3." (견본: naver-48~57)
 
 분량: 견본과 비슷하게(공백 포함 9,000~12,000자). 문체: "~입니다/~하세요" 존댓말, 짧은 문장.
 

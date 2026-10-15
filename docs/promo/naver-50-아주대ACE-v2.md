@@ -85,7 +85,7 @@ ACE전형은 학생부종합전형으로, 25개 모집단위에서 519명을 뽑
 
 주의: 직책을 나열하지 말고 장면 하나로 답하세요. 학교 이름이 드러나는 행사명은 빼세요.
 
-[이미지 1 — 제미나이 생성: 수능이 끝난 뒤 학생부 사본을 펼쳐 놓고 면접 답변을 소리 내어 연습하는 학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 기계·미디어·간호·과학·영문 상징물이 빛나는 연구실 같은 공간에서 답변을 연습하는 학생 / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. "지속적으로 ○○봉사 활동을 해왔는데, 이 경험을 통해 자신이 성장한 점에 대해 설명해 주세요." (대학 공개, 공동체역량)
 
@@ -218,5 +218,5 @@ A. 의학과(국어·수학·영어·탐구 등급합 6 이내)와 약학과(4�
 - 1단계 발표일(11/17 화) 전에 읽히도록 11월 14일(토)까지 발행되게 예약하세요.
 - 본문 쪽수는 인쇄 쪽수입니다(PDF 쪽수 = 인쇄 쪽수 + 2).
 
-[제미나이 프롬프트 1 — 수능이 끝난 뒤 학생부 사본을 펼쳐 놓고 면접 답변을 소리 내어 연습하는 학생 (4:3)]
-A calm study desk at home in the late afternoon: a Korean high school student in a plain sweater (not a school uniform) sits with a few printed pages spread out, pointing at one line with a pen while speaking softly as if rehearsing an answer (no readable text on the pages), a closed exam-prep workbook pushed to the side, a small smartphone propped up showing a simple microphone icon (no numbers), a mug and a desk lamp casting warm light; the student looks relieved and focused. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 기계·미디어·간호·과학·영문 상징물이 빛나는 연구실 같은 공간에서 답변을 연습하는 학생 (4:3)]
+A Korean high school student practices an interview answer with energy in a bright, colorful maker space, surrounded by glowing icons of majors: spinning gears and a small engine (mechanical engineering), a camera and play button (digital media), a nurse's cap and stethoscope with a heart (nursing), a microscope and atom (frontier science), a balance scale and speech bubbles (economics, politics and society), and an open storybook (English literature). Warm sunlight and colorful sparks fill the room. Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

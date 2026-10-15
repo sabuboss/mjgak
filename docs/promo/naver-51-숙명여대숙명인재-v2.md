@@ -81,7 +81,7 @@
 
 주의: "선생님이 하라고 하셔서"로 끝내지 마세요. 내가 판단한 이유와 한계를 하나씩 말하세요.
 
-[이미지 1 — 제미나이 생성: 면접 전날 학생부 사본에 질문을 적어 보며 답변을 연습하는 학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 통계·화학·법·일본·아동·식품영양 상징물이 꽃처럼 피어나는 공간에서 웃으며 답하는 여학생 / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 그 주제를 반대 입장에서 보면 어떤 주장이 가능할까요? (진로역량: 다양한 시각 및 관점)
 
@@ -214,5 +214,5 @@ A. 없습니다(14쪽). 대신 1단계 발표가 수능 당일 저녁이고, 다
 [발행 메모]
 - 1단계 발표가 수능 당일(11/19 목) 저녁이라, 검색은 수능 직후부터 면접(11/28~29) 전까지 이어질 것으로 봅니다. 수능 전에 읽고 초안을 만들 수 있도록 11월 6~13일 사이에 발행되도록 예약하세요. 본문 준비 순서의 첫 단계가 11/13(금)까지라 늦어도 11/13(금)까지.
 
-[제미나이 프롬프트 1 — 면접 전날 학생부 사본에 질문을 적어 보며 답변을 연습하는 학생 (4:3)]
-A quiet study desk at home in the evening: a Korean female high school student in a plain knit sweater (not a school uniform) sits with a few printed pages spread out, drawing small arrows and question marks in the margins with a pen (no readable text), a sticky note pad and a simple analog desk clock without numbers beside her, and a desk lamp casting warm light; she is speaking softly toward an empty chair across the desk as if answering a follow-up question, calm and focused. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 통계·화학·법·일본·아동·식품영양 상징물이 꽃처럼 피어나는 공간에서 웃으며 답하는 여학생 (4:3)]
+A smiling Korean female high school student answers confidently, surrounded by blooming flower-like circles each holding a colorful symbol of a major: a bar chart (business and statistics), a bubbling flask with leaves (chemical and biological engineering), a balance scale (law), cherry blossoms with a paper fan (Japanese studies), building blocks and a small teddy bear (child welfare), and a colorful bento box with fruits (food and nutrition). Pastel-to-vivid gradient background with sparkles. Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

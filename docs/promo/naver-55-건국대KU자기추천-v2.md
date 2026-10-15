@@ -90,7 +90,7 @@ KU자기추천은 학생부종합전형으로 903명을 뽑습니다. 인원이 
 
 주의: "책을 더 찾아봤습니다"로 끝내지 말고 무엇을 바꿔 다시 했는지 말하세요.
 
-[이미지 1 — 제미나이 생성: 면접 답변 메모에서 대회 이름·기관 이름에 줄을 긋고 활동 과정으로 고쳐 쓰는 학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 미디어·화공·통계·수의·지리·건축·수학교육 상징물 사이에서 대회 이름 대신 활동 과정을 말하는 학생 / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. ○○ 과목을 선택한 이유와, 그 과목을 듣기 위해 따로 노력한 것이 있다면 말해 보세요. (진로역량: 전공(계열) 관련 교과 이수 노력)
 
@@ -227,5 +227,5 @@ KU자기추천 면접은 자랑거리를 늘어놓는 자리가 아닙니다. �
 [발행 메모]
 - 1단계 발표가 수능 다음 날(11/20 금) 오후 2시이고, 발표 뒤 11/23(월) 오후 2시까지 2단계 전형료를 내야 합니다. 발표 전에 읽고 기재금지 표현 정리와 가이드북 확인을 해 둘 수 있도록 11월 13~17일 사이에 발행되도록 예약하세요. 본문 준비 순서의 첫 단계가 11/18(수)까지라 늦어도 11/17(화)까지.
 
-[제미나이 프롬프트 1 — 면접 답변 메모에서 대회 이름·기관 이름에 줄을 긋고 활동 과정으로 고쳐 쓰는 학생 (4:3)]
-A bright study desk at home in the late afternoon: a Korean male high school student in a plain gray hoodie (not a school uniform) sits with a printed page and a small open notebook, crossing out a few short lines with a red pen and rewriting brief notes beside them with a blue pen (no readable text), a few sticky notes on the desk edge, a simple analog desk clock without numbers, and a mug of tea; he looks thoughtful and calm, as if choosing his words carefully before rehearsing an answer. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 미디어·화공·통계·수의·지리·건축·수학교육 상징물 사이에서 대회 이름 대신 활동 과정을 말하는 학생 (4:3)]
+A confident Korean male high school student speaks with an open palm, while colorful process-step icons flow from his hand like a path (magnifying glass, lightbulb, notebook, checkmark), surrounded by vivid symbols of majors: a camera and broadcast waves (media communication), a flask with green energy leaves (chemical and energy engineering), a scatter plot (applied statistics), a friendly puppy with a stethoscope (veterinary medicine), a colorful globe and map pin (geography), a building blueprint (architecture), and geometric shapes on a chalkboard (mathematics education). Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

@@ -80,7 +80,7 @@
 
 주의: "잘 안 됐지만 열심히 했습니다"로 끝내지 마세요. 무엇을 의심했고 어떻게 확인했는지가 이 항목의 핵심입니다.
 
-[이미지 1 — 제미나이 생성: 면접 전날 학생부 사본에 질문을 적어 보며 답변을 연습하는 학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 기계·전기·환경·컴퓨터·문예창작·건축·스포츠 상징물이 펼쳐진 작업대에서 답하는 학생 / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 여러 방법 중에서 왜 그 방법을 골랐나요? 다른 방법은 생각해 보지 않았나요? (진로역량: 창의적 사고력과 판단력)
 
@@ -210,5 +210,5 @@ A. 없습니다(26쪽). 대신 1단계 발표가 수능 다음 날이니 수능 
 [발행 메모]
 - 1단계 발표가 수능 다음 날(11/20 금) 오후 2시라, 검색은 수능 직후부터 면접(11/28 토) 전까지 이어질 것으로 봅니다. 수능 전에 읽고 답변 초안을 만들 수 있도록 11월 13~17일 사이에 발행되도록 예약하세요. 본문 준비 순서의 첫 단계가 11/18(수)까지라 늦어도 11/17(화)까지.
 
-[제미나이 프롬프트 1 — 면접 전날 학생부 사본에 질문을 적어 보며 답변을 연습하는 학생 (4:3)]
-A quiet study desk at home in the evening: a Korean male high school student in a plain hooded sweatshirt (not a school uniform) sits with a few printed pages spread out, circling lines and drawing small arrows and question marks in the margins with a pen (no readable text), a simple hand-drawn diagram of gears on a scrap of paper, a small stopwatch without numbers, and a desk lamp casting warm light; he is speaking softly toward an empty chair across the desk as if explaining an idea to an interviewer, calm and focused. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 기계·전기·환경·컴퓨터·문예창작·건축·스포츠 상징물이 펼쳐진 작업대에서 답하는 학생 (4:3)]
+An energetic Korean male high school student leans forward explaining an idea at a colorful workbench, with vivid icons of majors bursting out like a pop-up book: gears and a wrench (mechanical engineering), a lightning bolt and power plug (electrical engineering), a wind turbine and green leaf (environmental engineering), a laptop with code brackets shapes (computer science), a fountain pen with flowing ink swirls (creative writing), a blueprint and building model (architecture), and a basketball with a heart-rate line (sports science). Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

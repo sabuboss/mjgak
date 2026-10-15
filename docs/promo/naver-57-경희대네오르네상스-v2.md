@@ -85,7 +85,7 @@
 
 주의: "저희 모둠은"으로 시작하면 내 역할이 흐려집니다. "저는 ○○을 맡았습니다"로 시작하세요.
 
-[이미지 1 — 제미나이 생성: 학생부 사본을 펴 놓고 공통질문 답변과 서류확인 답변을 나눠 정리하는 학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 간호·국제·화학·경제·호텔·컴퓨터·미디어 상징물이 꽃잎처럼 둘러싼 캠퍼스 정원에서 답하는 여학생 / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 그 탐구의 결론이 맞다고 볼 근거는 무엇이고, 한계는 무엇이었나요? (논리적 사고력: 논리력, 사고력)
 
@@ -221,5 +221,5 @@ A. 의예과, 한의예과(인문/자연), 치의예과, 약학과만 있고, �
 [발행 메모]
 - 1단계 발표가 11/25(수) 오후 6시이고, 발표 뒤 면접(12/5~6)까지 열흘 남짓입니다. 수능 직후부터 검색이 늘 것으로 보고, 발표 전에 읽고 공통질문 초안을 만들 수 있도록 11월 18~22일 사이에 발행되도록 예약하세요. 본문 준비 순서의 두 번째 단계가 11/20(금)~24(화)라 늦어도 11/22(일)까지.
 
-[제미나이 프롬프트 1 — 학생부 사본을 펴 놓고 공통질문 답변과 서류확인 답변을 나눠 정리하는 학생 (4:3)]
-A tidy study desk at home in the late afternoon: a Korean female high school student in a plain cream cardigan (not a school uniform) sits with a few printed pages spread out on the left and two small open notebooks on the right, sorting short notes into the two notebooks with colored sticky tabs (no readable text), a simple analog desk clock without numbers and a glass of water nearby; she looks focused and calm, quietly rehearsing an answer to herself. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 간호·국제·화학·경제·호텔·컴퓨터·미디어 상징물이 꽃잎처럼 둘러싼 캠퍼스 정원에서 답하는 여학생 (4:3)]
+A cheerful Korean female high school student answers with a bright smile in a colorful spring campus garden, surrounded by petal-shaped bubbles each holding a vivid symbol of a major: a nurse's cap with a heart (nursing), a globe with paper planes (international studies), a bubbling flask (chemical engineering), coins and a rising graph (economics), a hotel bell and suitcase (hospitality management), a laptop with glowing code shapes (computer science), and a camera with a play button (media). Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

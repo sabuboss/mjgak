@@ -83,7 +83,7 @@ Do Dream전형은 학생부종합전형으로, 49개 모집단위에서 655명�
 
 주의: 작은 활동이라도 "내가 먼저", "끝까지"가 드러나면 됩니다. 교외 수상을 근거로 들면 불이익을 받을 수 있습니다.
 
-[이미지 1 — 제미나이 생성: 친구 두 명이 면접위원 역할을 맡아 질문하고 학생이 답하며 모의 면접을 하는 장면 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 경제·로봇·광고·AI·경찰·사회복지·영어 상징물에 둘러싸여 자신 있게 답하는 학생 / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 활동하다 막혔던 문제를 어떻게 해결했나요? (발전가능성: 문제해결능력)
 
@@ -209,5 +209,5 @@ A. 없습니다. Do Dream전형은 수능최저학력기준을 적용하지 않�
 [발행 메모]
 - 검색이 몰리는 때는 1단계 발표일(11/13 금)과 2단계 전형료 마감(11/16 월 16:00) 전후입니다. 11월 3~9일 사이에 발행되도록 예약하세요. 늦어도 11/10(화)까지.
 
-[제미나이 프롬프트 1 — 친구 두 명이 면접위원 역할을 맡아 질문하고 학생이 답하며 모의 면접을 하는 장면 (4:3)]
-A bright classroom after school: two Korean high school students in plain casual clothes sit side by side at a desk playing the role of interviewers, one holding a few printed pages (no readable text) and the other holding a small notebook, while a third student in a neat plain sweater (not a school uniform) sits across from them answering calmly with a slight smile, hands resting on the knees; a simple analog clock without numbers on the wall, soft afternoon light through the window. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 경제·로봇·광고·AI·경찰·사회복지·영어 상징물에 둘러싸여 자신 있게 답하는 학생 (4:3)]
+A confident Korean high school student stands in the center of a sunny open campus plaza, gesturing mid-answer, surrounded by large floating colorful icons that symbolize different majors: a rising bar chart with coins (economics), a friendly robot arm with gears (mechanical and robotics engineering), a megaphone with sparkles (advertising), a glowing laptop with an AI chip (computer science and AI), a police badge shape without any letters (police administration), two hands holding a heart (social welfare), and an open book with a globe (English). Two classmates cheer from the side. Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

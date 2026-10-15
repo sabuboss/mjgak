@@ -85,7 +85,7 @@
 
 주의: "책을 읽고 더 알아봤습니다"로 끝내지 마세요. 누가 시키지 않았는데 무엇을 바꿔서 다시 해 봤는지가 자기주도성입니다.
 
-[이미지 1 — 제미나이 생성: 수능을 마친 다음 날 학생부 사본에 질문을 적어 보며 답변을 연습하는 학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 여러 나라 말풍선과 지구본, 통계·스포츠·경영 상징물 사이에서 발표하듯 답하는 학생 / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 그렇게 판단한 근거는 무엇인가요? 반대 의견이 있다면 어떻게 답하겠습니까? (진로개발역량: 논리적 사고력)
 
@@ -211,5 +211,5 @@ A. 없습니다. 모집요강에 "학생부종합전형(면접형)은 대학수�
 [발행 메모]
 - 1단계 발표일(11/16 월)보다 먼저 읽히도록 11월 13일(금)까지 발행되게 예약하세요.
 
-[제미나이 프롬프트 1 — 수능을 마친 다음 날 학생부 사본에 질문을 적어 보며 답변을 연습하는 학생 (4:3)]
-A tidy study desk at home in the late afternoon: a Korean high school student in a plain sweater (not a school uniform) sits with a few printed pages spread out, writing small question marks and short notes in the margins with a pen (no readable text), a closed exam-prep workbook pushed to the side, a small smartphone propped up showing a simple timer icon (no numbers), and a desk lamp casting warm light; the student is speaking softly as if rehearsing an answer, calm and focused. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 여러 나라 말풍선과 지구본, 통계·스포츠·경영 상징물 사이에서 발표하듯 답하는 학생 (4:3)]
+A lively Korean high school student speaks with open hands in front of a giant colorful globe, while speech bubbles in many bright colors float around (each with only simple symbols, no letters), together with icons for majors: a flamenco fan and guitar (Spanish), a podium with flags without any emblems (political science and diplomacy), a pie chart and dice (statistics), a soccer ball and running shoe (global sports industry), and a briefcase with an upward arrow (business). Paper planes fly across a bright blue sky. Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

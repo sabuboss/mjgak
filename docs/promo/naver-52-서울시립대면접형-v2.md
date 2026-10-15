@@ -82,7 +82,7 @@
 
 주의: "관련 책을 읽었습니다"로 끝내지 마세요. 무엇을 바꿔 다시 해 봤는지가 심화입니다.
 
-[이미지 1 — 제미나이 생성: 친구가 면접위원 역할을 맡아 학생부 사본으로 12분 모의 면접을 하는 두 학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 행정·화학·전자·환경·사회복지·스포츠·영문 상징물 사이에서 친구와 모의 면접을 하는 두 학생 / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 전공과 관련된 문제를 직접 찾아 대안을 내 본 경험이 있나요? (잠재역량: 통합적인 문제해결 역량)
 
@@ -215,5 +215,5 @@ A. 없습니다(15쪽). 대신 면접에 결시하면 서류 점수와 관계없
 - 1단계 발표(11/20 금 예정)가 수능 다음 날이라, 수능 전에 읽고 답변 초안을 만들 수 있도록 11월 13~17일 사이에 발행되게 예약하세요. 본문 준비 순서의 첫 단계가 "수능 전(~11월 18일 수)"이라 늦어도 11/17(화)까지.
 - 본문 쪽수는 인쇄 쪽수입니다(PDF 쪽수 = 인쇄 쪽수 + 2).
 
-[제미나이 프롬프트 1 — 친구가 면접위원 역할을 맡아 학생부 사본으로 12분 모의 면접을 하는 두 학생 (4:3)]
-A small study room in the late afternoon: two Korean high school students in plain casual clothes (not school uniforms) sit facing each other across a simple table; one holds a few printed pages and a pen as if asking a follow-up question, while the other sits upright with hands lightly folded, answering calmly; a simple analog clock without numbers and a smartphone lying face down on the table suggest timed practice, a closed notebook and a glass of water beside them, soft window light. Style: clean flat vector illustration with soft rounded shapes and gentle shadows. Color palette limited to deep navy blue (#23406e), pale blue (#e8eef8), cream white, with small accents of warm yellow (#ffd166) and coral (#e8795a). Simple uncluttered background. Characters are Korean with friendly, natural expressions. No text, no letters, no numbers, no logos, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 행정·화학·전자·환경·사회복지·스포츠·영문 상징물 사이에서 친구와 모의 면접을 하는 두 학생 (4:3)]
+Two Korean high school students do an upbeat mock interview at a round table on a bright rooftop with a city skyline, one asking with a notebook and the other answering with a confident smile. Around them float colorful icons of majors: a city hall-like building shape without text (public administration), bubbling flasks (chemical engineering), a circuit board with a light bulb (electrical and computer engineering), a green leaf with a water drop and wind turbine (environmental engineering), hands holding a heart (social welfare), a running figure with a stopwatch (sports science), and an open book (English). Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
