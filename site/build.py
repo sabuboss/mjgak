@@ -409,7 +409,7 @@ def main():
 
     # 홈
     n_videos = sum(len(d.get("videos", [])) for d in depts) + sum(len(d.get("videos", [])) for d in newd["departments"]) + sum(len(u.get("videos", [])) for u in uprof["universities"])
-    stats = {"questions": len(common["questions"]), "depts": len(depts), "univs": len(prof_by), "actual": sum(len(v) for v in actual_by.values()),
+    stats = {"questions": len(common["questions"]), "depts": len(depts) + len(newd["departments"]), "univs": sum(1 for p in prof_by.values() if p.get("rich")), "actual": sum(len(v) for v in actual_by.values()),
              "videos": n_videos, "updated": TODAY.strftime("%Y.%m.%d")}
     page("", "home.html", common=common, by_cat=by_cat, majors=majors["majors"], profiles=profiles, univ_cards=univ_cards, stats=stats,
          depts=depts, newd=newd["departments"], prep_n=len(prof_by), top=common["questions"][:8], description=site["description"])
