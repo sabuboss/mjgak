@@ -23,6 +23,8 @@ from xml.sax.saxutils import escape
 
 from jinja2 import Environment, FileSystemLoader
 
+import datesparse
+
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parent
 DIST = ROOT / "dist"
@@ -404,6 +406,40 @@ def main():
             r["dept_links"] = [{"url": all_dept_url[x["slug"]][0], "label": all_dept_url[x["slug"]][1]}
                                for x in r.get("depts", []) if x.get("slug") in all_dept_url]
             prof_by[code]["rich"] = r
+    # 면접 일정: 트랙별 면접일·1단계 발표일을 뽑아 '같은 날 면접 대학'·내 면접 일정표에 쓴다
+    WD = "월화수목금토일"
+    dlabel = lambda iso: f"{int(iso[5:7])}/{int(iso[8:])}({WD[datetime.date.fromisoformat(iso).weekday()]})"
+    SHORT = {"한국외국어대학교": "한국외대", "서울과학기술대학교": "서울과기대", "한국기술교육대학교": "한국기술교육대"}
+    short = lambda n: SHORT.get(n) or re.sub("대학교", "대", re.sub("교육대학교", "교대", re.sub("여자대학교", "여대", n)))
+    planner, by_day = [], {}
+    for code, r in sorted(rich_univ.items(), key=lambda kv: kv[1].get("name", "")):
+        if code not in prof_by:
+            continue
+        tr = []
+        for i, t in enumerate(r.get("tracks", [])):
+            days = [x for x in datesparse.parse(t.get("date")) if x >= TODAY.isoformat()]
+            if not days:
+                continue
+            f = datesparse.first(t.get("first"))
+            tr.append({"id": f"{code}:{i}", "n": t["name"], "d": days, "dt": t.get("date", ""), "f": f, "ft": t.get("first", "")})
+            for x in days:
+                by_day.setdefault(x, {}).setdefault(code, []).append(t["name"])
+        if tr:
+            planner.append({"c": code, "u": prof_by[code]["url"], "n": short(r.get("name") or prof_by[code]["name"]), "t": tr})
+    for code, r in rich_univ.items():
+        if code not in prof_by:
+            continue
+        mine = sorted({x for t in r.get("tracks", []) for x in datesparse.parse(t.get("date")) if x >= TODAY.isoformat()})
+        r["same_day"] = [{"label": dlabel(x), "univs": [{"name": short(rich_univ[c].get("name") or prof_by[c]["name"]), "url": prof_by[c]["url"]}
+                                                       for c in sorted(by_day[x], key=lambda c: rich_univ[c].get("name", "")) if c != code]}
+                         for x in mine]
+        r["same_day"] = [g for g in r["same_day"] if g["univs"]]
+        pr = []
+        if r.get("published_questions") and code not in RESTRICTED:
+            pr.append({"set": f"univ:{code}", "label": f"{short(r.get('name', code))} 공개 질문"})
+        pr += [{"set": f"dept:{x['slug']}", "label": all_dept_url[x["slug"]][1]} for x in r.get("depts", []) if x.get("slug") in all_dept_url][:5]
+        pr.append({"set": "common", "label": "자주 나오는 공통"})
+        r["practice"] = pr
     rich_common = load_rich("common")
     for q in common["questions"]:
         q["example"] = examples.get("common", {}).get(q["slug"])
@@ -608,6 +644,13 @@ def main():
          description="학과별·공통·대학 공개 면접 질문을 무작위로 뽑아 생각 15초, 답변 60초로 연습합니다. 녹음은 내 기기 안에서만 재생되고 서버로 보내지 않습니다.")
     urls.append("/practice/")
 
+    # 내 면접 일정표
+    write("planner/data.json", json.dumps({"today": TODAY.isoformat(), "csat": "2026-11-19", "univs": planner}, ensure_ascii=False))
+    page("planner", "planner.html", n_univ=len(planner), n_track=sum(len(u["t"]) for u in planner),
+         title="내 면접 일정표 — 지원한 대학의 1단계 발표일·면접일 한눈에",
+         description=f"지원한 대학과 전형을 고르면 1단계 발표일과 면접일을 날짜순으로 보여 주고, 같은 날 겹치는 면접을 표시합니다. {len(planner)}개 대학 2027학년도 수시모집요강 기준.")
+    urls.append("/planner/")
+
     # 고정 페이지
     for name in ("guide", "schedule", "about", "privacy", "contact"):
         meta, body = md_page(name)
@@ -624,6 +667,7 @@ def main():
     search += [{"t": f"{p['label']} · {q['text']}", "u": p["url"], "c": "유형별"} for p in profiles for q in p["seed_questions"]]
     search += [{"t": f"{d['label']} · {q['question']}", "u": d["url"], "c": "학과별"} for d in depts for q in (d["rich"]["questions"] if d.get("rich") else d["questions"])]
     search += [{"t": "모의 면접 연습 (무작위 질문·타이머·녹음)", "u": "/practice/", "c": "도구", "p": 1}]
+    search += [{"t": "내 면접 일정표 (1단계 발표일·면접일·겹침 확인)", "u": "/planner/", "c": "도구", "p": 1}]
     search += [{"t": f"{d['label']} · {q['question']}", "u": d["url"], "c": "신설학과"} for d in newd["departments"] for q in d["questions"]]
     search += [{"t": f"{d['label']} (신설학과)", "u": d["url"], "c": "신설학과"} for d in newd["departments"]]
     search += [{"t": f"{u['name']} · {q['question']}", "u": u["url"], "c": "대학별"} for u in uprof["universities"] for q in u["questions"]]

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="/schedule/">면접 일정</a> › 내 면접 일정표</p>
+<h1>내 면접 일정표</h1>
+<p class="lead">지원한 대학의 전형을 고르면 <b>1단계 발표일과 면접일을 날짜순</b>으로 보여 주고, 같은 날 면접이 겹치면 표시합니다. {{ n_univ }}개 대학 {{ n_track }}개 전형의 2027학년도 수시모집요강 날짜를 담았습니다.</p>
+
+<div class="pl">
+  <div class="pl-pick">
+    <label class="pl-search">대학 찾기 <input id="plQ" type="search" placeholder="예: 이화, 국민, 세종" autocomplete="off"></label>
+    <div id="plList" class="pl-list" aria-label="대학·전형 목록"><p class="note">일정 데이터를 불러오는 중입니다…</p></div>
+  </div>
+  <div class="pl-out">
+    <div class="pl-head"><b>고른 전형 <span id="plN">0</span>개</b>
+      <span class="pl-btns"><button class="btn ghost" id="plCopy" type="button">링크 복사</button><button class="btn ghost" id="plPrint" type="button">인쇄</button><button class="btn ghost" id="plClear" type="button">모두 지우기</button></span></div>
+    <div id="plWarn" class="callout" hidden></div>
+    <ol id="plTimeline" class="pl-tl"><li class="note">왼쪽에서 지원한 대학의 전형을 고르세요.</li></ol>
+  </div>
+</div>
+
+<h2>이 일정표를 쓸 때 알아 둘 것</h2>
+<ul>
+  <li>날짜는 각 대학 <b>2027학년도 수시모집요강</b>에서 옮겼습니다. 면접일이 모집단위(학과·계열)별로 나뉘는 대학은 가능한 날짜를 모두 보여 줍니다. 내 모집단위가 어느 날인지는 대학 페이지의 상세 일정으로 확인하세요.</li>
+  <li><b>"겹침"</b>은 같은 날짜가 후보에 있다는 뜻입니다. 실제로 겹치는지는 1단계 발표 때 나오는 개인별 고사 시간으로 최종 확인해야 합니다.</li>
+  <li>대학 사정으로 날짜·시간이 바뀔 수 있습니다. 1단계 발표일에 입학처 공지를 꼭 확인하세요.</li>
+  <li>고른 전형은 이 기기의 브라우저에만 저장됩니다. 다른 기기에서 보려면 <b>링크 복사</b>로 주소를 옮기세요.</li>
+</ul>
+<p>대학별 상세 일정은 <a href="/schedule/#dates">면접 일정 페이지</a>와 <a href="/univ/">대학별 면접 정리</a>에서 볼 수 있습니다. 면접일이 정해졌다면 <a href="/practice/">모의 면접</a>으로 소리 내어 연습해 보세요.</p>
+<script>window.PLANNER_URL="/planner/data.json";</script>
+<script src="/static/planner.js?v={{ site.ver }}" defer></script>
+{% endblock %}

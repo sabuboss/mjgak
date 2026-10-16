@@ -223,3 +223,40 @@ details.more summary{cursor:pointer;color:var(--muted);font-size:14px}
 @media (max-width:560px){.tbl{font-size:13px}.tbl th,.tbl td{padding:6px 7px;overflow-wrap:anywhere;word-break:normal}.pr-set label:first-child{flex:1 1 100%;min-width:0}.pr-set select{display:block;width:100%;margin-top:4px}}
 .bg{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 12px}.bg p{margin:0 0 8px}.bg b{display:block;font-size:13px;margin-bottom:2px}.bg-bad b{color:var(--warn)}.bg-good b{color:var(--ok)}.bg-why{color:var(--muted);font-size:14px;margin:0!important}
 .fu li{margin-bottom:10px}.bym dt{font-weight:700;margin-top:10px}.bym dd{margin:2px 0 0}
+/* 같은 날 면접 대학 */
+.sameday{list-style:none;padding:0;margin:10px 0}
+.sameday li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line)}
+.sameday li>b{flex:0 0 74px;font-size:14px;padding-top:5px}
+.sameday li>span{display:flex;flex-wrap:wrap;gap:6px}
+.sameday i{font-style:normal;font-size:12px;color:var(--muted);padding-top:6px}
+.practice-cta .tnav{margin:10px 0 0}
+/* 내 면접 일정표 */
+.pl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px;margin:18px 0}
+.pl-search{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:14px}
+.pl-search input{font:inherit;font-weight:400;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.pl-list{max-height:560px;overflow:auto;margin-top:10px;border:1px solid var(--line);border-radius:12px;padding:4px 12px}
+.pl-list details{border-bottom:1px solid var(--line);padding:8px 0}
+.pl-list details:last-child{border-bottom:0}
+.pl-list summary{cursor:pointer;font-weight:600}
+.pl-list summary i{font-style:normal;font-weight:500;font-size:12px;color:var(--accent);margin-left:6px}
+.pl-list label{display:flex;gap:8px;align-items:flex-start;font-size:14px;padding:6px 0 0 4px;line-height:1.45}
+.pl-list label small{display:block;color:var(--muted);font-size:12px}
+.pl-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.pl-btns{display:flex;gap:6px;flex-wrap:wrap}
+.pl-btns .btn{padding:7px 12px;font-size:13px}
+.pl-tl{list-style:none;padding:0;margin:12px 0}
+.pl-tl>li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.pl-tl .pl-d{font-weight:700;font-size:15px}
+.pl-tl .pl-d small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+.pl-tl .ev{margin:0 0 6px;font-size:14px;line-height:1.5}
+.pl-tl .ev:last-child{margin-bottom:0}
+.pl-tl .tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;margin-right:6px;background:var(--accent-soft);color:var(--accent)}
+.pl-tl .tag.iv{background:#ffe1d6;color:#a63b17}
+.pl-tl .tag.cs{background:#e9e2ff;color:#4b2fa6}
+.pl-tl .ev small{display:block;color:var(--muted);font-size:12px}
+.pl-tl li.clash{background:linear-gradient(90deg,rgba(232,121,90,.12),transparent)}
+.pl-tl li.past{opacity:.5}
+.pl-tl .clashnote{font-size:12px;font-weight:700;color:#a63b17}
+@media (max-width:760px){.pl{grid-template-columns:1fr}.pl-list{max-height:340px}.pl-tl>li{grid-template-columns:74px minmax(0,1fr)}}
+@media print{.top,.pl-pick,.pl-btns,footer,.crumb,ins{display:none!important}.pl{grid-template-columns:1fr}}
+.practice-cta .tchip{background:var(--paper);border-color:var(--line)}
