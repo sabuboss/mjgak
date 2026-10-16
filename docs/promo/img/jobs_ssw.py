@@ -32,5 +32,17 @@ def jobs_ssw():
     ])
 
 
-if __name__ == "__main__":
+if __name__ == "__main__" and "dates" not in sys.argv:
     jobs_ssw()
+
+
+def jobs_ssw_dates():
+    # 입학처 공지(2026-07-14) 「2027학년도 수시모집 학생부종합전형 면접고사 사전 안내」 2쪽 모집단위별 면접일자
+    make_capture(HERE / "ssw-2027-unit-dates.png", pdf("성신여자대학교_면접안내"), 2, "모집단위별 면접일자", ("after", "사범"),
+                 "성신여자대학교", "입학처 공지 「2027학년도 수시모집 학생부종합전형 면접고사 사전 안내」(2026.07.14) 2쪽",
+                 "자기주도인재 모집단위별 면접일 · 11월 21·22·28·29일 중 하루",
+                 start_pad=12, end_pad=12, end_idx=-1)
+
+
+if __name__ == "__main__" and "dates" in sys.argv:
+    jobs_ssw_dates()
