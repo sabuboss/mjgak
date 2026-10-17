@@ -40,6 +40,9 @@ for ln in lines:
         n_sec += 1
         p(f"<b>{n_sec}. {E(s[2:])}</b>", "font-size:24px;color:#23406e;")
         continue
+    m = re.match(r"^▷\s*(.+?)\s*\|\s*(https?://\S+)$", s)
+    if m:  # 같이 볼 글: "▷ 제목 | 블로그 URL" → 제목에 링크
+        p(f'▷ <a href="{E(m.group(2))}" style="color:#23406e;"><b>{E(m.group(1))}</b></a>'); continue
     if s.startswith("▶ ") or s.startswith("Q. "):
         p(f'<span style="background-color:#fff8b2;">{E(s)}</span>')
         continue
@@ -60,6 +63,11 @@ gem_html = "".join(
     f'<div id="gem{k}" style="font-size:14px;line-height:1.6;white-space:pre-wrap">{E(txt.strip())}</div>'
     f'<div class="row"><button class="b2" onclick="cp(&quot;gem{k}&quot;)">프롬프트 복사</button></div></div>'
     for k, (lbl, txt) in enumerate(gem, 1))
+gem_btns = "".join(f'<button class="b3" onclick="cp(&quot;gem{k}&quot;)">제미나이 프롬프트{"" if len(gem) == 1 else " " + str(k)} 복사</button>' for k in range(1, len(gem) + 1))
+# 이미지 목록에 미리보기(로컬 폴더에서 열 때 보임)
+imgs = "".join(
+    f"<li>{E(x)}" + "".join(f'<br><img src="../img/{E(f)}" alt="" style="max-width:220px;margin-top:6px;border:1px solid #cfd6de" onerror="this.remove()">'
+                             for f in re.findall(r"([A-Za-z0-9_.-]+\.png)", x)) + "</li>" for x in img_list)
 page = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>붙여넣기용 · {E(title)}</title>
 <style>
 body{{margin:0;background:#f3f5f8;font-family:"Malgun Gothic",sans-serif;color:#1c2430}}
@@ -67,7 +75,7 @@ body{{margin:0;background:#f3f5f8;font-family:"Malgun Gothic",sans-serif;color:#
 .guide b{{color:#ffd166}} .guide ol{{margin:8px 0 0 18px;padding:0}} .guide code{{background:#172c4d;padding:2px 6px;border-radius:4px}}
 .row{{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}}
 button{{border:0;border-radius:8px;padding:10px 16px;font-size:15px;font-weight:bold;cursor:pointer}}
-.b1{{background:#ffd166;color:#172c4d}} .b2{{background:#e8eef8;color:#172c4d}}
+.b1{{background:#ffd166;color:#172c4d}} .b2{{background:#e8eef8;color:#172c4d}} .b3{{background:#e8795a;color:#fff}}
 .box{{max-width:860px;margin:16px auto;background:#fff;border:1px solid #cfd6de;border-radius:12px;padding:28px 36px}}
 .lbl{{font-size:13px;color:#66717f;margin:0 0 6px}}
 #title{{font-size:22px;font-weight:bold}}
@@ -82,8 +90,9 @@ button{{border:0;border-radius:8px;padding:10px 16px;font-size:15px;font-weight:
 <li>본문의 <b>분홍 칸 "📷 여기에 이미지 넣기"</b>를 지우고 그 자리에 해당 이미지 삽입 (목록은 맨 아래)</li>
 <li>"1. ~ 6." 굵은 제목 줄은 선택 후 툴바의 <b>소제목</b>으로 바꾸면 1편과 똑같아집니다</li>
 <li><b>[태그 복사]</b> → 에디터 하단 태그 칸에 붙여넣기 → 썸네일을 대표 이미지로 지정 → 발행</li>
+<li><b>[제미나이 프롬프트 복사]</b> → 제미나이에 붙여 넣어 본문 이미지 생성 (프롬프트 전문은 맨 아래에도 있음)</li>
 </ol>
-<div class="row"><button class="b1" onclick="cp('title')">제목 복사</button><button class="b1" onclick="cp('body',true)">본문 복사</button><button class="b2" onclick="cp('tags')">태그 복사</button></div>
+<div class="row"><button class="b1" onclick="cp('title')">제목 복사</button><button class="b1" onclick="cp('body',true)">본문 복사</button><button class="b2" onclick="cp('tags')">태그 복사</button>{gem_btns}</div>
 </div>
 <div class="box"><p class="lbl">제목</p><div id="title">{E(title)}</div></div>
 <div class="box"><p class="lbl">본문 (이 영역 전체가 복사됩니다)</p><div id="body">
