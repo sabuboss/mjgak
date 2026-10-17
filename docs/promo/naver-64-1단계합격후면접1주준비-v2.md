@@ -64,7 +64,7 @@
 
 발표부터 면접까지 4~5일뿐이라면 이틀 치를 하루에 합칩니다. 발표 당일에 확인과 서류 다시 읽기, 다음 날에 질문 뽑기와 녹음, 그다음 날에 모의면접과 꼬리질문, 전날은 그대로입니다. 광운대 자연계열처럼 3일(10/28 발표 → 10/31 면접)이면 '그다음 날'이 곧 전날이라 모의면접 한 번으로 마무리해야 합니다. 그래서 간격이 짧은 대학에 지원했다면 1일차~3일차 일은 발표 전에 끝내 두기를 권합니다. 1단계에 떨어지더라도 서류를 다시 읽고 질문을 뽑아 둔 준비는 다른 대학 면접에 그대로 씁니다.
 
-[이미지 2 — 제미나이 생성: 달력·체크리스트·스톱워치·녹음기와 여러 학과 상징물에 둘러싸여 면접을 준비하는 학생 / "제미나이 프롬프트 1"]
+[이미지 2 — 제미나이 생성: 공부방에서 스마트폰으로 녹음하며 답변을 연습하는 학생, 벽에 달력과 체크리스트·스톱워치·학과 소품(실사) / "제미나이 프롬프트 1"]
 
 ■ 자주 하는 실수, 모집요강에 적힌 것만
 
@@ -170,5 +170,5 @@
 - 가장 이른 1단계 발표가 10/27(동덕여대)이라 그 전에 올려야 수능 전 면접 지원자에게 닿습니다. 11/12~11/20(수능 직후·수능 후 면접 대학 발표)에 다시 읽히는 글이라 발행 후 수정은 최소로.
 - 본문에 "오늘/이번 주" 같은 상대 날짜는 쓰지 않았습니다.
 
-[제미나이 프롬프트 1 — 달력·체크리스트·스톱워치·녹음기와 여러 학과 상징물에 둘러싸여 면접을 준비하는 학생 (4:3)]
-A Korean teenage student stands in the center mid-practice, one hand raised in a confident speaking gesture and the other holding a smartphone recording their answer, with a bright, determined smile. Around them, oversized objects float and swirl along a dynamic diagonal: a big wall calendar page with a few days circled by a marker (no numbers), a clipboard checklist with tick marks, a large stopwatch, a retro handheld voice recorder with sound waves, and an open notebook with abstract scribbles. Mixed in are symbols of many university majors: a gear and robot arm, a stethoscope, a balance scale, a rising bar chart with coins, a test tube and DNA helix, a paint palette with brush, a laptop with abstract shapes on screen, a stack of books and a globe. The scene conveys "one focused week of preparation after passing the first round": energy, momentum, readiness. Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 공부방에서 스마트폰으로 녹음하며 답변을 연습하는 학생, 벽에 달력과 체크리스트·스톱워치·학과 소품(실사) (4:3)]
+A Korean teenage student practices interview answers in a bright, tidy study room at golden hour, standing and speaking with a confident gesture toward a smartphone on a small tripod that is recording. On the wall and desk: a paper wall calendar with a few days circled in red marker (no visible numbers), a clipboard checklist with tick marks, a stopwatch, an open notebook and colorful sticky notes, plus small objects hinting at many majors: a stethoscope, a small brass balance scale, a test tube rack, a paint palette, a globe and a stack of books. Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

@@ -97,7 +97,7 @@
 
 주의: 성적이 떨어진 학기를 숨기거나 남 탓을 하지 마세요. 원인 하나와 바꾼 방법 하나면 충분합니다.
 
-[이미지 1 — 제미나이 생성: 바이오·화학에너지·통계·미디어·AI·간호·법·유아교육 상징물이 이어진 징검다리 위에서 답하는 여학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 가을 캠퍼스 벤치 옆에서 약 캡슐·플라스크·노트북·캠코더·로봇 장난감·청진기·저울·블록 소품을 두고 웃으며 설명하는 여학생(실사) / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 처음 관심 있던 진로에서 지금의 지원 학과로 어떻게 이어졌나요? (진로역량: 진로탐색역량)
 
@@ -240,5 +240,5 @@ A. 없습니다(16쪽). 대신 면접에 결시하면 불합격입니다(17쪽).
 [발행 메모]
 - 1단계·고사장 발표가 수능 전인 11/13(금) 오전 10시이고, 11/21 면접인 모집단위는 수능 뒤 준비할 날이 11/20(금) 하루뿐입니다(11/22는 이틀). 발표 전에 읽고 초안을 만들 수 있도록 11월 2~6일 사이에 발행되도록 예약하세요. 본문 준비 순서의 첫 단계가 11/12(목)까지라 늦어도 11/6(금)까지.
 
-[제미나이 프롬프트 1 — 바이오·화학에너지·통계·미디어·AI·간호·법·유아교육 상징물이 이어진 징검다리 위에서 답하는 여학생 (4:3)]
-A confident Korean female high school student strides forward across a winding path of glowing stepping stones, one hand raised as she explains with a bright smile, and each stepping stone holds a colorful symbol of a major: a medicine capsule with a DNA helix (biopharmaceutical science), a bubbling flask beside a battery and a small solar panel (chemistry and energy), a rising bar chart with data dots (statistics and big data), a video camera with broadcast waves (media communication), a friendly robot head with a microchip (AI convergence), a nurse cap with a stethoscope (nursing), a golden balance scale (law), and stacked toy building blocks with crayons (early childhood education). The path curves upward toward a bright horizon. Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 가을 캠퍼스 벤치 옆에서 약 캡슐·플라스크·노트북·캠코더·로봇 장난감·청진기·저울·블록 소품을 두고 웃으며 설명하는 여학생(실사) (4:3)]
+A confident Korean female high school student stands beside a wooden bench on a sunlit campus path lined with colorful autumn trees, explaining with one hand raised and a bright smile. On the bench are real objects that represent majors: medicine capsules and a DNA model (biopharmaceutical science), a glass flask next to a small solar panel and a battery (chemistry and energy), a laptop showing a colorful chart with no labels (statistics and big data), a video camera (media communication), a small friendly robot toy (AI convergence), a stethoscope (nursing), a brass balance scale (law), and colorful toy building blocks with crayons (early childhood education). Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

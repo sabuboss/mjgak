@@ -92,7 +92,7 @@
 
 주의: "책을 더 찾아봤습니다"로 끝내지 말고 무엇을 바꿔 다시 했는지 말하세요.
 
-[이미지 1 — 제미나이 생성: 경영·기계·바이오·소프트웨어·역사·자동차·스포츠재활 상징물 사이에서 자기 활동을 설명하는 학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 도서관 스터디룸에서 기어·현미경·노트북·청자 모형·전기차 모형·운동화 옆에서 자기 활동을 설명하는 여학생(실사) / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 그 탐구에서 왜 그 방법을 골랐나요? 한계는 없었나요? (학업역량: 탐구력)
 
@@ -232,5 +232,5 @@ A. 없습니다(17쪽). 대신 면접에 결시하거나 F 판정을 받으면 �
 [발행 메모]
 - 1단계 발표가 수능 이틀 전(11/17 화) 오후 2시이고, 면접은 수능 직후 주말(자연계 11/21 토, 인문·예체능계 11/22 일)입니다. 수능 전에 답변 초안을 만들 수 있도록 11월 2~10일 사이에 발행되도록 예약하세요. 본문 준비 순서의 첫 단계가 11/16(월)까지라 늦어도 11/10(화)까지.
 
-[제미나이 프롬프트 1 — 경영·기계·바이오·소프트웨어·역사·자동차·스포츠재활 상징물 사이에서 자기 활동을 설명하는 학생 (4:3)]
-A confident Korean female high school student explains her own activity with lively hand gestures, as colorful symbols of majors swirl around her along a dynamic diagonal path: a rising bar chart with golden coins (business administration), interlocking gears and a small robotic arm (mechanical engineering), a microscope with a glowing DNA double helix and a petri dish (biomedical science), a laptop showing colorful abstract code blocks (software), an ancient Korean celadon vase beside an old rolled scroll map (Korean history), a sleek electric car with a charging plug (automotive and mobility), and a jump rope with running shoes and a heartbeat line (sports health and rehabilitation). Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 도서관 스터디룸에서 기어·현미경·노트북·청자 모형·전기차 모형·운동화 옆에서 자기 활동을 설명하는 여학생(실사) (4:3)]
+A confident Korean female high school student explains her own school activity with lively hand gestures in a bright modern library study room. Around her on the table and shelves are real objects that represent majors: coins with a simple paper bar chart with no labels (business administration), metal gears and a small robotic arm (mechanical engineering), a microscope with a petri dish (biomedical science), a laptop showing abstract colorful blocks on the screen (software), a celadon vase replica beside a rolled old paper map (Korean history), a toy model of an electric car with a charging cable (automotive and mobility), and a jump rope with running shoes (sports health and rehabilitation). Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

@@ -84,7 +84,7 @@
 
 주의: 내 단과대학의 전공 이름을 모집요강 25쪽에서 먼저 확인하세요.
 
-[이미지 1 — 제미나이 생성: 인공지능·물류·우주공학·기계·항공교통·로봇·항공운항 상징물이 하늘길처럼 펼쳐진 공간에서 자신 있게 답하는 학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 활주로가 보이는 창가에서 비행기 이륙 장면을 배경으로 항공·우주·로봇·물류 소품 옆에서 답하는 학생(실사) / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 가장 열심히 공부한 과목은 무엇이고, 어떻게 공부했나요? (학업역량: 학업능력 및 학습태도)
 
@@ -237,5 +237,5 @@ A. 없습니다(25쪽). 대신 일반면접에 결시하면 불합격이고(26�
 [발행 메모]
 - 1단계 발표가 10/30(금) 오전 9시이고 면접이 그다음 주 토요일(11/7)이라, 발표 뒤 준비 기간이 짧습니다. 발표 전에 읽고 질문 1·2·3 초안과 전공 계획을 만들 수 있도록 10월 20~23일 사이에 발행되도록 예약하세요. 본문 준비 순서의 첫 단계가 10/29(목)까지라 늦어도 10/27(화)까지.
 
-[제미나이 프롬프트 1 — 인공지능·물류·우주공학·기계·항공교통·로봇·항공운항 상징물이 하늘길처럼 펼쳐진 공간에서 자신 있게 답하는 학생 (4:3)]
-A confident Korean high school student strides forward and answers with one hand raised, as a curving sky path of glowing dotted flight lines sweeps diagonally across the scene, carrying vivid symbols of majors: a friendly AI chip with a neural network pattern (artificial intelligence), stacked cargo boxes on a conveyor with a cargo plane (logistics), a rocket and an orbiting satellite (space engineering), interlocking gears (mechanical engineering), an airport control tower with a radar sweep (air traffic), a small robot arm (AI robotics), and a passenger airplane with a pilot headset (flight operation). Fluffy clouds and a sunrise gradient sky in the background. Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 활주로가 보이는 창가에서 비행기 이륙 장면을 배경으로 항공·우주·로봇·물류 소품 옆에서 답하는 학생(실사) (4:3)]
+A confident Korean high school student stands by a large window overlooking an airport runway at sunrise, answering with one hand raised, while a passenger airplane takes off in the background. On the table beside the student: a laptop with a glowing abstract neural-network pattern on the screen (artificial intelligence), small cardboard cargo boxes (logistics), a rocket model and a satellite model (space engineering), shiny metal gears (mechanical engineering), a small robot arm kit (AI robotics), and an aviation headset (flight operation). Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

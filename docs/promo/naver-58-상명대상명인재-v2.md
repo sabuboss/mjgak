@@ -93,7 +93,7 @@
 
 주의: "찾아봤습니다"로 끝내지 말고 직접 관찰하거나 바꿔 본 것을 말하세요.
 
-[이미지 1 — 제미나이 생성: 스포츠건강·영화영상·디자인·스포츠융합·만화·무대미술·조형예술 상징물 사이에서 자신 있게 답하는 학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 예체능 실습실에서 덤벨·클래퍼보드·색상 견본·축구공·드로잉 태블릿·무대 모형·조소 작품에 둘러싸여 답하는 학생(실사) / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 스스로 목표를 세우고 꾸준히 실천한 경험을 말해 보세요. (진로역량: 자기주도성 및 실천능력)
 
@@ -237,5 +237,5 @@ A. 두 캠퍼스 모두 없습니다(서울 15쪽, 천안 11쪽). 면접(11월 7
 [발행 메모]
 - 1단계 발표가 천안 10/29(목)·서울 10/30(금) 오후 2시이고 면접은 11/7(토)~8(일)로 수능 전입니다. 발표 전에 답변 초안을 만들 수 있도록 10월 20~24일 사이에 발행되도록 예약하세요. 본문 준비 순서의 첫 단계가 10/28(수)까지라 늦어도 10/26(월)까지.
 
-[제미나이 프롬프트 1 — 스포츠건강·영화영상·디자인·스포츠융합·만화·무대미술·조형예술 상징물 사이에서 자신 있게 답하는 학생 (4:3)]
-A confident Korean high school student gestures energetically while answering, standing at the center of a swirling diagonal burst of vivid symbols of arts and sports majors: a dumbbell with a glowing heart-rate line (sports health management), a film clapperboard and a movie camera (film and video directing), a color palette with a ruler and fabric swatches (design), running shoes and a soccer ball in motion (sports convergence), blank comic panels with a drawing tablet and stylus (digital comics), a miniature stage set with a spotlight and red curtains (stage art), and a clay sculpture with a paintbrush (fine arts). Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 예체능 실습실에서 덤벨·클래퍼보드·색상 견본·축구공·드로잉 태블릿·무대 모형·조소 작품에 둘러싸여 답하는 학생(실사) (4:3)]
+A confident Korean high school student sits at a table in a bright, sunlit university art and sports studio, answering with an open-hand gesture and a natural smile. Real objects that represent arts and sports majors are placed around the room: a pair of dumbbells and a heart-rate smartwatch (sports health management), a film clapperboard and a cinema camera on a tripod (film directing and production), color swatch cards, a metal ruler and fabric samples (design), running shoes and a soccer ball (sports convergence), a drawing tablet with a stylus (digital comics), a small stage model with a tiny spotlight and red curtains (stage art), and a clay sculpture with paintbrushes (fine arts). Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

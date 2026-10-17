@@ -88,7 +88,7 @@
 
 주의: "열심히 했습니다"로 끝내지 말고 막혔던 지점과 바꾼 공부 방법을 말하세요.
 
-[이미지 1 — 제미나이 생성: 경제·화학·컴퓨터·국제·수학교육·뇌과학·간호 상징물이 대각선으로 펼쳐진 공간에서 자신 있게 답하는 여학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 햇살 드는 캠퍼스 라운지에서 동전·분자 모형·노트북·지구본·컴퍼스·뇌 모형·청진기 옆에서 웃으며 답하는 여학생(실사) / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 입학하면 무엇을 공부하고 싶고, 그것을 위해 지금까지 무엇을 준비했나요? (진로역량: 준비 정도)
 
@@ -232,5 +232,5 @@ A. 없습니다(20쪽). 이름이 비슷한 미래인재전형-서류형에는 �
 - 인하대 인하미래인재: naver-46-인하대인하미래인재-v2.md 발행 글
 - 국민대 국민프런티어: naver-61-국민대국민프런티어-v2.md 발행 글 (같은 묶음에서 작성 중일 수 있음, 발행 후 연결)
 
-[제미나이 프롬프트 1 — 경제·화학·컴퓨터·국제·수학교육·뇌과학·간호 상징물이 대각선으로 펼쳐진 공간에서 자신 있게 답하는 여학생 (4:3)]
-A confident Korean female high school student answers with a bright smile and an open hand gesture, while a diagonal stream of colorful symbols of majors swirls around her: a rising bar graph with golden coins (economics), a glowing molecule model with tiny nano particles and a flask (chemistry and nanoscience), a laptop with a glowing circuit pattern (computer science), a colorful globe with paper planes circling it (international studies), a compass and ruler with geometric shapes (mathematics education), a sparkling brain with light connections (brain and cognitive sciences), and a nurse cap with a stethoscope (nursing). Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 햇살 드는 캠퍼스 라운지에서 동전·분자 모형·노트북·지구본·컴퍼스·뇌 모형·청진기 옆에서 웃으며 답하는 여학생(실사) (4:3)]
+A confident Korean female high school student answers with a bright smile and an open-hand gesture in a sunny campus lounge with green plants. On the wooden table in front of her are real objects that represent majors: a stack of coins next to a simple paper bar chart with no labels (economics), a colorful molecular model kit and a glass flask (chemistry and nanoscience), an open laptop with an abstract glowing pattern on the screen (computer science), a small globe with paper airplanes (international studies), a drawing compass and geometric rulers (mathematics education), a brain anatomy model (brain and cognitive sciences), and a stethoscope (nursing). Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

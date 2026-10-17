@@ -90,7 +90,7 @@
 
 주의: 모르는 부분은 아는 척하지 말고, 아는 데까지 말한 뒤 "더 공부하고 싶습니다"로 끝내도 됩니다.
 
-[이미지 1 — 제미나이 생성: 호텔관광·생명·천문·미디어·로봇·국제·교육·애니메이션 상징물이 소용돌이치는 공간에서 자신 있게 답하는 학생 / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 햇살 좋은 캠퍼스 테라스에서 호텔 벨·새싹 화분·망원경·캠코더·로봇 키트·지구본·책·스케치북 옆에서 답하는 여학생(실사) / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. ○○ 분야로 진로를 정하기까지 스스로 찾아본 것은 무엇인가요? (성장역량: 진로 탐색과정의 자기주도성)
 
@@ -239,5 +239,5 @@ A. 없습니다(13쪽). 대신 서류평가나 면접고사 점수가 기준 점
 - ▷ 한국외대 학생부종합전형(면접형) → naver-49-한국외대면접형 발행 글
 - ▷ 아주대 ACE전형 → naver-50-아주대ACE 발행 글
 
-[제미나이 프롬프트 1 — 호텔관광·생명·천문·미디어·로봇·국제·교육·애니메이션 상징물이 소용돌이치는 공간에서 자신 있게 답하는 학생 (4:3)]
-A confident Korean female high school student gestures with both hands as she answers, standing at the center of a swirling ribbon of colorful symbols of majors: a shiny hotel service bell with a travel suitcase and a chef hat (hotel, tourism and food service management), a glowing DNA helix with green sprouts (life science), a telescope pointing at ringed planets and stars (physics and astronomy), a video camera with a microphone and sound waves (media communication), a friendly robot arm with circuit lines (AI robotics), a globe circled by paper airplanes (international studies), a chalkboard with stacked books and an apple (education), and a sketchbook with animation storyboard frames and a pencil (design and animation). Style: vibrant, colorful flat vector illustration with bold saturated colors (coral, sunny yellow, turquoise, violet, fresh green and sky blue), dynamic diagonal composition, small confetti-like shapes and soft glowing highlights, cheerful and energetic mood. Characters are Korean teenagers with bright, confident, natural expressions, wearing colorful casual clothes (not school uniforms). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
+[제미나이 프롬프트 1 — 햇살 좋은 캠퍼스 테라스에서 호텔 벨·새싹 화분·망원경·캠코더·로봇 키트·지구본·책·스케치북 옆에서 답하는 여학생(실사) (4:3)]
+A confident Korean female high school student gestures with both hands as she answers on a sunny campus terrace with blue sky. Real objects that represent majors are arranged on the outdoor table and around her: a shiny hotel service bell, a small travel suitcase and a chef hat (hotel, tourism and food service), a potted green sprout and a DNA model (life science), a small telescope (physics and astronomy), a video camera with a microphone (media communication), a small robot arm kit (AI robotics), a globe (international studies), a stack of books with a red apple (education), and an open sketchbook with pencil drawings (design and animation). Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
