@@ -37,9 +37,10 @@
     var s = DATA.sets.filter(function (x) { return x.id === sel.value; })[0];
     pool = s ? s.items.slice() : [];
     meta.textContent = s ? s.label + " · " + pool.length + "문항 중 무작위" : "";
-    try { history.replaceState(null, "", "?set=" + encodeURIComponent(sel.value)); } catch (e) {}
+    try { history.replaceState(null, "", "?set=" + encodeURIComponent(sel.value) + location.hash); } catch (e) {}
   }
   function nextQ() {
+    stopRec();
     if (!pool.length) pickSet();
     var i = Math.floor(Math.random() * pool.length);
     cur = pool.splice(i, 1)[0];
@@ -58,7 +59,7 @@
   }
   function stopAnswer() {
     clearInterval(timer); phase = "done";
-    phaseEl.textContent = "끝 — 다시 들어 보세요"; btnStop.disabled = true;
+    phaseEl.textContent = recBox.checked ? "끝 — ▶ 눌러 내 답변 다시 듣기" : "끝"; btnStop.disabled = true;
     stopRec();
     if (cur && (cur.ex || cur.tip || cur.u)) exWrap.hidden = false;
   }
@@ -71,9 +72,12 @@
       rec.onstop = function () {
         if (lastUrl) URL.revokeObjectURL(lastUrl);
         lastUrl = URL.createObjectURL(new Blob(chunks, { type: rec.mimeType || "audio/webm" }));
-        audio.src = lastUrl; audio.hidden = false;
+        audio.src = lastUrl; audio.hidden = phase !== "done";
+        // 녹음이 끝나면 마이크를 바로 놓는다(다음 녹음 때 다시 켬)
+        if (stream) { stream.getTracks().forEach(function (t) { t.stop(); }); stream = null; }
       };
       rec.start();
+      if (phase === "answer") phaseEl.innerHTML = '답변 중 · <span class="pr-rec">● 녹음 중</span>';
     };
     if (stream) go(stream);
     else navigator.mediaDevices.getUserMedia({ audio: true }).then(go).catch(function () { micNote.hidden = false; recBox.checked = false; });
