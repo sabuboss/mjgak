@@ -260,3 +260,10 @@ details.more summary{cursor:pointer;color:var(--muted);font-size:14px}
 @media (max-width:760px){.pl{grid-template-columns:1fr}.pl-list{max-height:340px}.pl-tl>li{grid-template-columns:74px minmax(0,1fr)}}
 @media print{.top,.pl-pick,.pl-btns,footer,.crumb,ins{display:none!important}.pl{grid-template-columns:1fr}}
 .practice-cta .tchip{background:var(--paper);border-color:var(--line)}
+.pr-rec{color:#d93025;font-weight:700}
+/* 모의 면접 그림 사용법 */
+.howto{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:14px 0 8px}
+.howto figure{margin:0;border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--paper)}
+.howto img{display:block;width:100%;max-width:348px;height:auto;margin:0 auto 10px;border-radius:10px;border:1px solid var(--line)}
+.howto figcaption{font-size:14px;line-height:1.65}
+@media (max-width:560px){.howto{grid-template-columns:1fr}}
