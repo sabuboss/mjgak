@@ -92,7 +92,7 @@
 
 주의: "저희 모둠은"으로 시작하면 내 역할이 흐려집니다. "저는 ○○을 맡았습니다"로 시작하세요.
 
-[이미지 1 — 제미나이 생성: 은행나무가 보이는 늦가을 캠퍼스 라운지에서 금속 기어·나무 팔 모형·비커·바퀴 달린 로봇 키트·청진기와 강아지 인형·동전과 막대그래프·혈압계 옆에서 답하는 여학생(실사) / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 은행나무가 보이는 늦가을 캠퍼스 라운지에서 금속 기어·나무 팔 모형·비커·바퀴 달린 로봇 키트·청진기와 강아지 인형·동전과 막대그래프·혈압계 옆에서 답하는 여학생(실사), 전남대 교목 느티나무·교색 녹색 / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 수업에서 생긴 궁금증을 스스로 해결해 본 경험이 있나요? (진로·학업역량: 학업 관련 활동 참여 및 노력)
 
@@ -246,5 +246,8 @@ A. 면접 미응시자는 불합격입니다(62쪽). 1단계 합격자가 면접
 - ▷ 수의예과 면접 질문 6가지와 답변 예시 총정리 → naver-11
 - ▷ 기계공학과 면접 질문 6가지와 답변 예시 총정리 → naver-10
 
-[제미나이 프롬프트 1 — 은행나무가 보이는 늦가을 캠퍼스 라운지에서 금속 기어·나무 팔 모형·비커·바퀴 달린 로봇 키트·청진기와 강아지 인형·동전과 막대그래프·혈압계 옆에서 답하는 여학생(실사) (4:3)]
-A confident Korean female high school student smiles and gestures with one open hand as she answers, seated at a wooden table in a bright campus lounge in late autumn, with tall windows showing ginkgo trees with golden yellow leaves outside. Real objects that represent majors are arranged on the table and a nearby shelf: a few shiny metal gears next to a small wooden lever-arm model held together with rubber bands (mechanical engineering), glass beakers and a flask with orange and blue liquids (chemical engineering), a small wheeled robot kit with an exposed green circuit board and colorful wires (artificial intelligence), a stethoscope resting beside a soft plush puppy toy (veterinary medicine), a small stack of coins beside a simple paper bar chart with no labels (economics and business), and a blood pressure cuff with a rolled bandage (nursing). Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
+[학교 상징 근거]
+전남대 교목 느티나무(jnu.ac.kr/MainIntro/Symbol/JnuTree), 교색 녹색(jnu.ac.kr/MainIntro/Symbol/jnuUI)
+
+[제미나이 프롬프트 1 — 은행나무가 보이는 늦가을 캠퍼스 라운지에서 금속 기어·나무 팔 모형·비커·바퀴 달린 로봇 키트·청진기와 강아지 인형·동전과 막대그래프·혈압계 옆에서 답하는 여학생(실사), 전남대 교목 느티나무·교색 녹색 (4:3)]
+A confident Korean female high school student smiles and gestures with one open hand as she answers, seated at a wooden table in a bright campus lounge in late autumn, with tall windows showing ginkgo trees with golden yellow leaves outside. Real objects that represent majors are arranged on the table and a nearby shelf: a few shiny metal gears next to a small wooden lever-arm model held together with rubber bands (mechanical engineering), glass beakers and a flask with orange and blue liquids (chemical engineering), a small wheeled robot kit with an exposed green circuit board and colorful wires (artificial intelligence), a stethoscope resting beside a soft plush puppy toy (veterinary medicine), a small stack of coins beside a simple paper bar chart with no labels (economics and business), and a blood pressure cuff with a rolled bandage (nursing). To hint at the university without any logo, a huge old zelkova tree with a wide green canopy stands in the background, and fresh green tones are used as accent colors in the props and clothes. Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

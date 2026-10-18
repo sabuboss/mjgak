@@ -86,7 +86,7 @@
 
 주의: "책을 많이 읽었습니다"보다 무엇을 하고 무엇을 알게 됐는지 하나를 말하세요.
 
-[이미지 1 — 제미나이 생성: 겨울 햇살이 드는 캠퍼스 테라스 카페에서 금속 기어·채소 그릇과 주방 저울·동전과 라벨 없는 막대그래프·그림 카드·청진기·배 모형 옆에서 답하는 여학생(실사) / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 겨울 햇살이 드는 캠퍼스 테라스 카페에서 금속 기어·채소 그릇과 주방 저울·동전과 라벨 없는 막대그래프·그림 카드·청진기·배 모형 옆에서 답하는 여학생(실사), 부산대 상징 독수리·금정산·교색 블루·그린 / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 모둠 활동에서 의견이 갈렸을 때 본인은 어떤 역할을 했나요? (사회역량: 협업능력과 리더십, 의사소통능력)
 
@@ -246,5 +246,8 @@ A. 결시하면 불합격이고(64쪽), 타 대학과 전형 날짜가 겹쳐 �
 - ▷ 특수교육과 면접 질문 6가지와 답변 예시 총정리 → naver-26
 - ▷ 기계공학과 면접 질문 6가지와 답변 예시 총정리 → naver-10
 
-[제미나이 프롬프트 1 — 겨울 햇살이 드는 캠퍼스 테라스 카페에서 금속 기어·채소 그릇과 주방 저울·동전과 라벨 없는 막대그래프·그림 카드·청진기·배 모형 옆에서 답하는 여학생(실사) (4:3)]
-A confident Korean female high school student answers with a warm smile and an open-hand gesture while seated at a wooden table on a bright campus terrace cafe with large glass windows and soft winter sunlight. Real objects that represent majors are arranged on the table and a nearby shelf: a set of shiny metal gears and a small pulley with a spring scale (mechanical engineering), a bowl of colorful fresh vegetables beside a small kitchen scale (food and nutrition), a stack of coins next to a simple paper bar chart with no labels (economics), a set of colorful picture cards and soft building blocks (special education), a stethoscope beside a small first-aid kit (nursing), and a small wooden model ship (naval architecture and ocean engineering). Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
+[학교 상징 근거]
+부산대 상징동물 독수리·금정산 배경, 교색 #005baa·보조색 #00A651(pusan.ac.kr 상징&UI 컬러시스템). 마스코트 캐릭터는 쓰지 않음
+
+[제미나이 프롬프트 1 — 겨울 햇살이 드는 캠퍼스 테라스 카페에서 금속 기어·채소 그릇과 주방 저울·동전과 라벨 없는 막대그래프·그림 카드·청진기·배 모형 옆에서 답하는 여학생(실사), 부산대 상징 독수리·금정산·교색 블루·그린 (4:3)]
+A confident Korean female high school student answers with a warm smile and an open-hand gesture while seated at a wooden table on a bright campus terrace cafe with large glass windows and soft winter sunlight. Real objects that represent majors are arranged on the table and a nearby shelf: a set of shiny metal gears and a small pulley with a spring scale (mechanical engineering), a bowl of colorful fresh vegetables beside a small kitchen scale (food and nutrition), a stack of coins next to a simple paper bar chart with no labels (economics), a set of colorful picture cards and soft building blocks (special education), a stethoscope beside a small first-aid kit (nursing), and a small wooden model ship (naval architecture and ocean engineering). To hint at the university without any logo, a real eagle soars in the sky over a forested mountain in the background, and deep blue and fresh green appear as accent colors in the props and clothes. Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.

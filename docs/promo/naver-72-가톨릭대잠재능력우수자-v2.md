@@ -89,7 +89,7 @@
 
 주의: "저희 모둠은"으로 시작하면 내 역할이 흐려집니다. "저는 ○○을 맡았습니다"로 시작하고, 학생부에 없는 내용을 부풀리지 마세요.
 
-[이미지 1 — 제미나이 생성: 겨울 햇살이 드는 캠퍼스 도서관 라운지에서 뇌 모형·주사위와 노트북·페트리 접시와 피펫·영어 소설책·동전과 계산기·화이트보드와 색 마커 옆에서 답하는 여학생(실사) / "제미나이 프롬프트 1"]
+[이미지 1 — 제미나이 생성: 겨울 햇살이 드는 캠퍼스 도서관 라운지에서 뇌 모형·주사위와 노트북·페트리 접시와 피펫·영어 소설책·동전과 계산기·화이트보드와 색 마커 옆에서 답하는 여학생(실사), 가톨릭대 상징색 블루·화이트 / "제미나이 프롬프트 1"]
 
 ▶ 질문 4. 고등학교에서 가장 어려웠던 과목은 무엇이고, 어떻게 공부했나요? (학업역량: 학업태도)
 
@@ -246,5 +246,8 @@ A. 없습니다(30쪽).
 - ▷ 2027 수시 면접 일정 총정리 → naver-40
 - ▷ AI·데이터사이언스학과 면접 질문 6가지와 답변 예시 총정리 → naver-27
 
-[제미나이 프롬프트 1 — 겨울 햇살이 드는 캠퍼스 도서관 라운지에서 뇌 모형·주사위와 노트북·페트리 접시와 피펫·영어 소설책·동전과 계산기·화이트보드와 색 마커 옆에서 답하는 여학생(실사) (4:3)]
-A confident Korean female high school student answers with a warm smile and an open-hand gesture while seated at a wooden table in a bright campus library lounge with tall windows, bookshelves softly blurred behind her, and soft winter sunlight. Real objects that represent majors are arranged on the table and a nearby shelf: an anatomical brain model (psychology), a pair of colorful dice beside an open laptop showing an abstract colorful scatter plot with no labels (data science), clear petri dishes and a pipette next to a small rack of test tubes with pink and blue liquids (biomedical science), a stack of paperback novels with plain colored covers (English language and literature), neat stacks of coins beside a calculator with a blank screen (accounting), a small potted plant next to a cup of warm tea (social welfare), and a small blank whiteboard with colorful markers (special education). Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
+[학교 상징 근거]
+가톨릭대 UI 기본색 블루·화이트(catholic.ac.kr 교표 해설 PDF). 마스코트 '하양이'는 대학 지식재산이라 쓰지 않음
+
+[제미나이 프롬프트 1 — 겨울 햇살이 드는 캠퍼스 도서관 라운지에서 뇌 모형·주사위와 노트북·페트리 접시와 피펫·영어 소설책·동전과 계산기·화이트보드와 색 마커 옆에서 답하는 여학생(실사), 가톨릭대 상징색 블루·화이트 (4:3)]
+A confident Korean female high school student answers with a warm smile and an open-hand gesture while seated at a wooden table in a bright campus library lounge with tall windows, bookshelves softly blurred behind her, and soft winter sunlight. Real objects that represent majors are arranged on the table and a nearby shelf: an anatomical brain model (psychology), a pair of colorful dice beside an open laptop showing an abstract colorful scatter plot with no labels (data science), clear petri dishes and a pipette next to a small rack of test tubes with pink and blue liquids (biomedical science), a stack of paperback novels with plain colored covers (English language and literature), neat stacks of coins beside a calculator with a blank screen (accounting), a small potted plant next to a cup of warm tea (social welfare), and a small blank whiteboard with colorful markers (special education). To hint at the university without any logo, the room uses a clean color scheme of bright intelligent blue and white, with a few blue and white props. Style: photorealistic photograph that looks like a real candid photo, taken with a full-frame camera and a 35mm lens, soft natural daylight, shallow depth of field, vivid but natural colors with colorful props, warm and lively atmosphere, realistic skin texture and natural proportions. The person is a fictional Korean teenager, not a real or famous person, wearing colorful casual clothes (not a school uniform). No text, no letters, no numbers, no logos, no university emblems, no watermark. Aspect ratio 4:3.
