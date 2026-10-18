@@ -43,3 +43,12 @@
   });
   document.addEventListener("click", function (e) { if (!e.target.closest(".search")) boxes.forEach(function (b) { var l = b.querySelector("ul"); if (l) l.hidden = true; }); });
 })();
+
+// 수정·요청 보내기: 메일 주소 복사
+document.addEventListener("click", function (e) {
+  var b = e.target.closest && e.target.closest(".fixreq-copy");
+  if (!b) return;
+  var t = b.getAttribute("data-copy"), done = function () { b.textContent = "복사됨"; setTimeout(function () { b.textContent = "주소 복사"; }, 1500); };
+  if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, function () { prompt("이 주소를 복사하세요", t); });
+  else prompt("이 주소를 복사하세요", t);
+});
