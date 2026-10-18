@@ -267,3 +267,8 @@ details.more summary{cursor:pointer;color:var(--muted);font-size:14px}
 .howto img{display:block;width:100%;max-width:348px;height:auto;margin:0 auto 10px;border-radius:10px;border:1px solid var(--line)}
 .howto figcaption{font-size:14px;line-height:1.65}
 @media (max-width:560px){.howto{grid-template-columns:1fr}}
+/* 페이지별 수정·요청 보내기 */
+.fixreq{margin:36px 0 8px;padding:18px 20px;border:1px dashed var(--line);border-radius:14px;background:var(--field)}
+.fixreq-q{margin:0 0 12px;font-size:15px;line-height:1.6}
+.fixreq .note{margin:10px 0 0}
+.fixreq-copy{font:inherit;font-size:12px;padding:2px 8px;border:1px solid var(--line);border-radius:6px;background:var(--paper);cursor:pointer}
