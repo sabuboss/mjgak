@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="/schedule/">면접 일정</a> › 수능최저 모아보기</p>
+<h1>2027 수시 수능최저 모아보기 <small>면접 있는 전형</small></h1>
+<p class="lead">면접각이 2027학년도 수시모집요강을 확인한 {{ checked_n }}개 대학의 면접 전형 중, <b>수능최저학력기준이 있는 {{ rows|length }}개 전형({{ n_univ }}개 대학)</b>을 모았습니다. 수능 가채점 뒤 내 등급으로 최저를 맞췄는지 보고, 남은 면접 준비 순서를 정하는 데 쓰세요.</p>
+<div class="callout"><b>꼭 확인하세요</b> 같은 전형이라도 모집단위마다 최저가 다르거나 없을 수 있습니다. 탐구 과목 수, 수학·과탐 지정, 한국사 조건 같은 세부 기준은 아래 문구와 각 대학 모집요강 원문으로 다시 확인하세요. 면접이 없는 전형(교과·서류형 등)은 이 표에 없습니다.</div>
+<label class="pl-search" style="margin:16px 0 8px">대학·학과 찾기 <input id="minQ" type="search" placeholder="예: 의예, 약학, 간호, 부산" autocomplete="off"></label>
+<table class="tbl" id="minTbl"><tr><th>대학 · 전형</th><th>수능최저학력기준</th><th>면접일</th></tr>
+{% for x in rows %}<tr data-k="{{ x.name }} {{ x.track }} {{ x.min }}"><td><a href="{{ x.url }}">{{ x.name }}</a><br><small>{{ x.track }}</small></td><td>{{ x.min }}{% if x.source %}<br><small>출처: {{ x.source }}</small>{% endif %}</td><td>{{ x.date[:60] }}{% if x.date|length > 60 %}…{% endif %}</td></tr>
+{% endfor %}</table>
+<p class="note" id="minNone" hidden>찾는 대학이나 학과가 없습니다. 이 표에는 면접각이 모집요강을 확인한 대학의 면접 전형만 있습니다.</p>
+<h2>가채점 뒤에 할 일</h2>
+<ol>
+  <li><b>최저를 맞췄는지</b> 지원한 전형마다 표시합니다. 등급 컷은 수능 성적표가 나오기 전까지 확정이 아니니, 경계에 걸린 전형도 면접은 준비해 둡니다.</li>
+  <li><b>면접 날짜순으로</b> 준비 순서를 다시 정합니다. <a href="/planner/">내 면접 일정표</a>에 지원한 전형을 담으면 날짜순으로 보입니다.</li>
+  <li>각 대학 페이지의 <b>면접 방식과 공개 질문</b>을 보고, <a href="/practice/">모의 면접</a>으로 소리 내어 연습합니다.</li>
+</ol>
+<script>
+(function(){var q=document.getElementById("minQ"),rows=[].slice.call(document.querySelectorAll("#minTbl tr[data-k]")),none=document.getElementById("minNone");
+q.addEventListener("input",function(){var v=q.value.trim(),n=0;rows.forEach(function(r){var ok=!v||r.getAttribute("data-k").indexOf(v)>=0;r.hidden=!ok;if(ok)n++;});none.hidden=n>0;});})();
+</script>
+{% endblock %}

@@ -52,3 +52,17 @@ document.addEventListener("click", function (e) {
   if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, function () { prompt("이 주소를 복사하세요", t); });
   else prompt("이 주소를 복사하세요", t);
 });
+
+// 수능 등 주요 일정 D-day 띠: site.json 의 milestones 중 오늘 이후 가장 가까운 것 하나(이용자 기기 날짜 기준)
+(function () {
+  var el = document.getElementById("dday"); if (!el) return;
+  var ms = []; try { ms = JSON.parse(el.getAttribute("data-ms") || "[]"); } catch (e) { return; }
+  var now = new Date(), today = new Date(now.getFullYear(), now.getMonth(), now.getDate()), WD = "일월화수목금토";
+  for (var i = 0; i < ms.length; i++) {
+    var p = ms[i].date.split("-"), d = new Date(+p[0], +p[1] - 1, +p[2]), n = Math.round((d - today) / 864e5);
+    if (n < 0) continue;
+    var when = (d.getMonth() + 1) + "월 " + d.getDate() + "일(" + WD[d.getDay()] + ")";
+    el.innerHTML = '<a href="' + ms[i].url + '"><b>' + (n === 0 ? "오늘" : "D-" + n) + "</b> " + ms[i].label + " · " + when + ' <span>필요한 정보 보기 ›</span></a>';
+    el.hidden = false; return;
+  }
+})();

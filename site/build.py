@@ -644,6 +644,33 @@ def main():
          description="학과별·공통·대학 공개 면접 질문을 무작위로 뽑아 생각 15초, 답변 60초로 연습합니다. 녹음은 내 기기 안에서만 재생되고 서버로 보내지 않습니다.")
     urls.append("/practice/")
 
+    # 수능최저 모아보기: 면접 있는 전형 중 수능최저학력기준이 있는 것만
+    minrows = []
+    for code, r in sorted(rich_univ.items(), key=lambda kv: kv[1].get("name", "")):
+        if code not in prof_by:
+            continue
+        for t in r.get("tracks", []):
+            v = (t.get("min") or "").strip()
+            if not v or v.startswith("없음") or v in ("미적용", "-"):
+                continue
+            minrows.append({"code": code, "name": short(r.get("name") or prof_by[code]["name"]), "url": prof_by[code]["url"],
+                            "track": t["name"], "min": v, "date": t.get("date", ""), "first": t.get("first", ""), "source": t.get("source", "")})
+    page("minimum", "minimum.html", rows=minrows, n_univ=len({x["code"] for x in minrows}), checked_n=len(prof_by),
+         title=f"2027 수시 수능최저 모아보기 — 면접 전형 {len(minrows)}개",
+         description=f"면접이 있는 2027학년도 수시 전형 중 수능최저학력기준이 있는 {len(minrows)}개 전형을 대학별로 모았습니다. 수능 가채점 뒤 최저 충족 여부를 확인하고, 면접 준비 순서를 정하는 데 쓰세요.")
+    urls.append("/minimum/")
+
+    # 수능 정보 페이지: 수능 뒤 날짜별 면접 대학(내 면접 일정표와 같은 데이터)
+    after = []
+    for x in sorted(by_day):
+        if "2026-11-20" <= x <= "2026-12-17":  # 수능 다음 날 ~ 수시 전형기간 끝
+            us = [short(rich_univ[c].get("name") or prof_by[c]["name"]) for c in sorted(by_day[x], key=lambda c: rich_univ[c].get("name", ""))]
+            after.append({"label": dlabel(x), "univs": us})
+    page("suneung", "suneung.html", after=after,
+         title="2027 수능 D-day와 꼭 알아야 할 것 — 시간표·준비물·가채점·성적 통지·대입 일정",
+         description="2027학년도 수능(2026년 11월 19일) 시간표, 반입 금지 물품과 준비물, 4교시 탐구 주의사항, 수험표 뒷면 가채점표, 정답 확정·성적 통지일, 수능 뒤 면접 대학과 정시 일정을 평가원·교육부·대교협 공식 자료로 정리했습니다.")
+    urls.append("/suneung/")
+
     # 내 면접 일정표
     write("planner/data.json", json.dumps({"today": TODAY.isoformat(), "csat": "2026-11-19", "univs": planner}, ensure_ascii=False))
     page("planner", "planner.html", n_univ=len(planner), n_track=sum(len(u["t"]) for u in planner),
@@ -668,6 +695,8 @@ def main():
     search += [{"t": f"{d['label']} · {q['question']}", "u": d["url"], "c": "학과별"} for d in depts for q in (d["rich"]["questions"] if d.get("rich") else d["questions"])]
     search += [{"t": "모의 면접 연습 (무작위 질문·타이머·녹음)", "u": "/practice/", "c": "도구", "p": 1}]
     search += [{"t": "내 면접 일정표 (1단계 발표일·면접일·겹침 확인)", "u": "/planner/", "c": "도구", "p": 1}]
+    search += [{"t": "수능최저 모아보기 (면접 있는 전형)", "u": "/minimum/", "c": "도구", "p": 1}]
+    search += [{"t": "2027 수능 D-day·시간표·준비물·성적 통지일", "u": "/suneung/", "c": "수능", "p": 1}]
     search += [{"t": f"{d['label']} · {q['question']}", "u": d["url"], "c": "신설학과"} for d in newd["departments"] for q in d["questions"]]
     search += [{"t": f"{d['label']} (신설학과)", "u": d["url"], "c": "신설학과"} for d in newd["departments"]]
     search += [{"t": f"{u['name']} · {q['question']}", "u": u["url"], "c": "대학별"} for u in uprof["universities"] for q in u["questions"]]

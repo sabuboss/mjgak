@@ -272,3 +272,12 @@ details.more summary{cursor:pointer;color:var(--muted);font-size:14px}
 .fixreq-q{margin:0 0 12px;font-size:15px;line-height:1.6}
 .fixreq .note{margin:10px 0 0}
 .fixreq-copy{font:inherit;font-size:12px;padding:2px 8px;border:1px solid var(--line);border-radius:6px;background:var(--paper);cursor:pointer}
+/* D-day 띠 */
+.dday{background:#fff3bf;border-bottom:1px solid #f3dd8a;font-size:14px}
+.dday a{display:block;max-width:760px;margin:0 auto;padding:8px 16px;color:#5c4400;text-decoration:none}
+.dday b{color:#c0392b;font-size:15px;margin-right:4px}
+.dday span{float:right;color:#8a6d00}
+@media (max-width:560px){.dday span{float:none;display:block;font-size:12px}}
+.sn-dday{display:inline-block;margin:0 0 12px;padding:8px 14px;border-radius:12px;background:#fff3bf;color:#5c4400;font-size:15px}
+.sn-dday b{color:#c0392b;font-size:22px;margin-right:6px}
+.sameday i.tchip{font-style:normal}
