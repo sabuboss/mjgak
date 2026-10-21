@@ -4,4 +4,4 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from promo_style import HERE, make_thumb
 
-make_thumb(HERE / "thumb-hub.png", "대학별 면접", line2="면접일 순 21개 대학", line3="글 모음 · 목차")
+make_thumb(HERE / "thumb-hub.png", "대학별 면접", line2="면접일 순 31개 대학", line3="글 모음 · 목차")
