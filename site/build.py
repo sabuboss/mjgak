@@ -672,7 +672,7 @@ def main():
     urls.append("/suneung/")
 
     # 내 면접 일정표
-    write("planner/data.json", json.dumps({"today": TODAY.isoformat(), "csat": "2026-11-19", "univs": planner}, ensure_ascii=False))
+    write("planner/data.json", json.dumps({"today": TODAY.isoformat(), "csat": "2026-11-19", "events": [m for m in site.get("milestones", []) if m["date"] != "2026-11-19"], "univs": planner}, ensure_ascii=False))
     page("planner", "planner.html", n_univ=len(planner), n_track=sum(len(u["t"]) for u in planner),
          title="내 면접 일정표 — 지원한 대학의 1단계 발표일·면접일 한눈에",
          description=f"지원한 대학과 전형을 고르면 1단계 발표일과 면접일을 날짜순으로 보여 주고, 같은 날 겹치는 면접을 표시합니다. {len(planner)}개 대학 2027학년도 수시모집요강 기준.")

@@ -57,6 +57,7 @@
     });
     if (!picked.length) { tl.innerHTML = '<li class="note">왼쪽에서 지원한 대학의 전형을 고르세요.</li>'; warn.hidden = true; return; }
     add(DATA.csat, { k: "cs" });
+    (DATA.events || []).forEach(function (m) { add(m.date, { k: "ev", m: m }); });
     var clashes = [];
     tl.innerHTML = Object.keys(ev).sort().map(function (iso) {
       var list = ev[iso], ivU = {};
@@ -68,6 +69,7 @@
         (clash ? '<p class="clashnote">같은 날 면접 후보 ' + names.length + "곳 — 내 모집단위 날짜를 확인하세요</p>" : "") +
         list.map(function (e) {
           if (e.k === "cs") return '<p class="ev"><span class="tag cs">수능</span>2027학년도 대학수학능력시험</p>';
+          if (e.k === "ev") return '<p class="ev"><span class="tag cs">일정</span><a href="' + e.m.url + '">' + esc(e.m.label) + "</a></p>";
           var multi = e.k === "iv" && e.tr.d.length > 1;
           return '<p class="ev"><span class="tag' + (e.k === "iv" ? " iv" : "") + '">' + (e.k === "iv" ? "면접" : "1단계 발표") + "</span>" +
             '<a href="' + e.u.u + '">' + esc(e.u.n) + "</a> " + esc(e.tr.n) +

@@ -54,7 +54,8 @@ for ln in lines:
     m = re.match(r"^→\s*(https?://\S+)", s)
     if m:
         p(f'<b><a href="{E(m.group(1))}" style="color:#23406e;">→면접각 바로가기</a></b>'); continue
-    p(E(s))
+    # 문장 안의 주소도 눌러지게 링크로
+    p(re.sub(r"(https?://[A-Za-z0-9._~:/?#@!$&*+=%;-]*[A-Za-z0-9/_~#=-])", lambda m: f'<a href="{m.group(1)}" style="color:#23406e;">{m.group(1)}</a>', E(s)))
 
 body = "\n".join(out)
 imgs = "".join(f"<li>{E(x)}</li>" for x in img_list)
