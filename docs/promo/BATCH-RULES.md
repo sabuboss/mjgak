@@ -13,3 +13,7 @@
 8. 분량: 구분선 위 본문 공백 제외 8,000자 이하.
 금지: git commit/push, site/ 수정, promo_style.py·make_paste.py·fill_links.py·다른 원고 수정, TLS 검증 끄기, 네이버 접속, 대학 홈페이지 사진. 긴 한글은 Write 도구로.
 보고: 파일 목록(이미지 파일 이름 전부), 핵심 사실과 PDF 쪽수(인쇄/PDF 쪽 관계), 확인 못 해서 뺀 것, 걱정거리.
+
+[코디네이터 전용, 작성·검수 에이전트는 하지 않음] 검수 → 수정 → fill_links → make_paste → 사용자에게 전달까지 끝나면 마지막에 오토포스트 앱에 비공개 발행 대기로 등록한다(2026-10-24 사용자 결정):
+  "C:/Users/nkkim/my-html-project/naver-autopost-web/.venv/Scripts/python.exe" "C:/Users/nkkim/my-html-project/naver-autopost-web/scripts/mjgak_push.py" naver-NN-*-v2.md --private
+  --auto-publish·--publish-at 은 쓰지 않는다. 보고에 출력 JSON의 url·missing_images 를 적는다.
