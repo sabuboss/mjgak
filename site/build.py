@@ -686,6 +686,15 @@ def main():
 
     # 404, robots, sitemap, rss, search
     write("404.html", env.get_template("404.html").render(site=site, year=TODAY.year, title="페이지를 찾을 수 없습니다", description="", path="/404"))
+    # AI 검색(ChatGPT 등)이 사이트 구조를 쉽게 파악하도록 llms.txt
+    lines = [f"# {site['name']}", "", f"> {site['description']}", "",
+             "모든 대학 정보는 각 대학 2027학년도 수시모집요강 원문을 대조해 정리했고, 페이지마다 원문 쪽수를 적었습니다.", "",
+             "## 도구", f"- [내 면접 일정표]({site['url']}/planner/): 지원 대학의 1단계 발표일·면접일을 날짜순으로",
+             f"- [모의 면접]({site['url']}/practice/): 무작위 질문·60초 타이머·녹음", f"- [2027 수능 정보]({site['url']}/suneung/): 시간표·준비물·성적 통지일",
+             f"- [수능최저 모아보기]({site['url']}/minimum/): 면접 전형의 수능최저학력기준", "", "## 대학별 2027 면접 정보"]
+    lines += [f"- [{(r.get('name') or c)} 면접 2027]({site['url']}{prof_by[c]['url']}): {(r.get('summary') or '')[:90]}" for c, r in sorted(rich_univ.items(), key=lambda kv: kv[1].get('name', '')) if c in prof_by]
+    lines += ["", "## 학과별 면접 질문", f"- [학과별 목록]({site['url']}/dept/)", f"- [공통 질문]({site['url']}/category/intro/)"]
+    write("llms.txt", chr(10).join(lines) + chr(10))
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {site['url']}/sitemap.xml\n")
     write_sitemap(urls)
     write_rss(rss)

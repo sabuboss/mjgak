@@ -281,3 +281,13 @@ details.more summary{cursor:pointer;color:var(--muted);font-size:14px}
 .sn-dday{display:inline-block;margin:0 0 12px;padding:8px 14px;border-radius:12px;background:#fff3bf;color:#5c4400;font-size:15px}
 .sn-dday b{color:#c0392b;font-size:22px;margin-right:6px}
 .sameday i.tchip{font-style:normal}
+/* 대학 페이지 한눈에 보기 */
+.quick{border:1.5px solid var(--accent);border-radius:14px;padding:14px 16px;margin:12px 0 22px;background:var(--accent-soft)}
+.quick-h{margin:0 0 8px;font-size:15px}.quick-h span{color:var(--muted);font-size:12px;margin-left:6px}
+.quick-t{background:var(--paper);font-size:13px;margin:0 0 10px}
+.quick-act{display:flex;flex-wrap:wrap;gap:8px}.quick-act .btn{padding:8px 12px;font-size:13px}
+.quick .note{margin:8px 0 0}
+.quick-c{display:grid;gap:8px;margin:0 0 10px}
+.qc{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.55}
+.qc>b{display:block;font-size:14px;margin-bottom:2px}
+.qc span{display:block}.qc i{font-style:normal;display:inline-block;min-width:44px;color:var(--muted);font-size:12px}
