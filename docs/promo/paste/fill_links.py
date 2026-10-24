@@ -46,6 +46,12 @@ for b in blocks[1:]:
     res.append(b)
 body = "\n■ ".join(res)
 body = re.sub(r"\n{3,}", "\n\n", body)
+# 사이트 링크에 글 번호 캠페인을 붙여 GA 에서 글별 클릭을 본다 (utm_campaign=post-84)
+num = re.match(r"naver-(\d+)", src.name)
+if num:
+    body = re.sub(r"(https://mjgak\.com/[^\s)]*utm_source=naver_blog[^\s)]*?)(?=[\s)]|$)",
+                  lambda m: m.group(1) if "utm_campaign=" in m.group(1) else m.group(1) + "&utm_campaign=post-" + num.group(1),
+                  body, flags=re.M)
 text = body + sep + memo
 src.write_text(text.replace("\n", "\r\n") if crlf else text, encoding="utf-8", newline="")
 print("linked:", kept)
