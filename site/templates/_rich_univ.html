@@ -37,6 +37,9 @@
 <p class="note">대학이 직접 공개한 질문 예시(또는 전년도 실제 문항)입니다. "○○" 자리에는 내 학생부의 과목·활동이 들어간다고 보면 됩니다.</p>
 <ol class="pubq">{% for q in r.published_questions %}<li>{% if q.area %}<span class="chip">{{ q.area }}</span> {% endif %}{{ q.q }}</li>{% endfor %}</ol>
 <p><a class="btn" href="/practice/?set=univ:{{ p.code }}">이 질문으로 모의 면접 연습하기</a></p>
+{% elif r.qnote %}
+<h3>{{ p.name }} 면접 기출 안내</h3>
+<p class="callout">{{ r.qnote }}</p>
 {% endif %}
 {% if r.practice %}
 <div class="practice-cta"><b>{{ p.name }} 면접, 소리 내어 연습해 보세요.</b> 질문을 무작위로 뽑아 생각 15초, 답변 60초로 연습합니다. 녹음은 내 기기 안에서만 재생됩니다.
