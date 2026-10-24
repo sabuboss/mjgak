@@ -44,6 +44,12 @@
   document.addEventListener("click", function (e) { if (!e.target.closest(".search")) boxes.forEach(function (b) { var l = b.querySelector("ul"); if (l) l.hidden = true; }); });
 })();
 
+// 수정·요청 보내기: 메일 버튼 클릭을 GA 이벤트(fixreq_click)로 남긴다 (몇 명이 눌렀는지 보려고)
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest(".fixreq a.btn");
+  if (a && window.gtag) gtag("event", "fixreq_click", { page_path: location.pathname });
+});
+
 // 수정·요청 보내기: 메일 주소 복사
 document.addEventListener("click", function (e) {
   var b = e.target.closest && e.target.closest(".fixreq-copy");
