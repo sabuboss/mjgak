@@ -330,7 +330,8 @@ def write_sitemap(urls):
     new = {}
     for u in urls:
         f = DIST / (u.strip("/") + "/index.html" if u.strip("/") else "index.html")
-        h = re.sub(r"\?v=\d+", "", f.read_text(encoding="utf-8")) if f.exists() else u
+        # 줄바꿈(Windows CRLF / 배포 서버 LF)과 공백 차이는 지문에서 뺀다
+        h = re.sub(r"\s+", " ", re.sub(r"\?v=\d+", "", f.read_text(encoding="utf-8"))) if f.exists() else u
         digest = hashlib.sha1(h.encode("utf-8")).hexdigest()[:16]
         prev = old.get(u)
         new[u] = prev if prev and prev[0] == digest else [digest, TODAY.isoformat()]
