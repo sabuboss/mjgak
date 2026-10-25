@@ -7,8 +7,16 @@ from pathlib import Path
 TSV = Path(__file__).parent.parent / "blog-urls.tsv"
 RSS = "https://rss.blog.naver.com/sabuboss.xml"
 
-xml = subprocess.run(["curl", "-s", "--max-time", "30", RSS], capture_output=True).stdout.decode("utf-8", "replace")
-items = re.findall(r"<item>(.*?)</item>", xml, re.S)
+items = []
+# Windows 기본 curl(schannel)이 회사망에서 실패할 때가 있어 Git 의 curl 도 시도한다
+for exe in ("curl", r"C:\Program Files\Git\mingw64\bin\curl.exe"):
+    try:
+        xml = subprocess.run([exe, "-s", "--max-time", "30", RSS], capture_output=True).stdout.decode("utf-8", "replace")
+    except OSError:
+        continue
+    items = re.findall(r"<item>(.*?)</item>", xml, re.S)
+    if items:
+        break
 if not items:
     sys.exit("RSS 를 읽지 못했습니다")
 
