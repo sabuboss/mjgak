@@ -45,6 +45,7 @@
 <div class="practice-cta"><b>{{ p.name }} 면접, 소리 내어 연습해 보세요.</b> 질문을 무작위로 뽑아 생각 15초, 답변 60초로 연습합니다. 녹음은 내 기기 안에서만 재생됩니다.
 <div class="tnav">{% for x in r.practice %}<a class="tchip" href="/practice/?set={{ x.set|urlencode }}">{{ x.label }} 질문으로 연습</a>{% endfor %}</div></div>
 {% endif %}
+{% if r.changes %}<h3>2027학년도에 달라진 점</h3><ul>{% for x in r.changes %}<li>{{ x }}</li>{% endfor %}</ul>{% endif %}
 {% if r.tips %}<h3>준비 포인트</h3><ul>{% for x in r.tips %}<li>{{ x }}</li>{% endfor %}</ul>{% endif %}
 {% if r.dress %}<p class="callout"><b>복장</b> {{ r.dress }}</p>{% endif %}
 {% if r.dept_links %}<h3>이 대학이 나오는 학과별 면접 정리</h3><div class="tnav">{% for x in r.dept_links %}<a class="tchip" href="{{ x.url }}">{{ x.label }}</a>{% endfor %}</div>{% endif %}
