@@ -13,6 +13,7 @@
 from __future__ import annotations
 
 import datetime
+import hashlib
 import html
 import json
 import re
@@ -33,6 +34,30 @@ TODAY = datetime.date.today()
 site = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
 site["ver"] = datetime.datetime.now().strftime("%Y%m%d%H%M")  # CSS·JS 캐시 무효화
 env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=False)
+
+
+def blog_links() -> dict:
+    """페이지 경로 → 그 대학·학과를 다룬 발행 블로그 글 [(제목, 주소)]. 발행 목록은 docs/promo/blog-urls.tsv."""
+    tsv, alias_f = REPO / "docs" / "promo" / "blog-urls.tsv", ROOT / "content" / "blog_alias.json"
+    if not (tsv.exists() and alias_f.exists()):
+        return {}
+    alias = json.loads(alias_f.read_text(encoding="utf-8"))
+    posts = []
+    for ln in tsv.read_text(encoding="utf-8").splitlines():
+        if ln.startswith("#") or ln.count("\t") < 3:
+            continue
+        _, _, url, title = ln.split("\t", 3)
+        posts.append((title.split(" (")[0].strip(), url))
+    out = {}
+    for kind, key in (("univ", "면접 총정리"), ("dept", "면접 질문")):
+        for code, name in alias[kind].items():
+            hit = [(t, u) for t, u in posts if t.startswith(name + " ") and key in t]
+            if hit:
+                out[f"/{kind}/{code}/"] = hit
+    return out
+
+
+env.globals["blog_links"] = blog_links()
 
 # 원문에 상업적 이용·발췌 금지 문구가 있는 대학: 문항 원문은 싣지 않고 공개 현황과 원문 링크만 안내한다.
 RESTRICTED = {
@@ -298,9 +323,21 @@ def jsonld_question(q):
 
 
 def write_sitemap(urls):
+    # lastmod 는 페이지 내용이 실제로 바뀐 날만 갱신한다(매일 오늘 날짜를 찍으면 구글이 lastmod 를 믿지 않는다).
+    # 내용 지문은 CSS·JS 캐시용 ?v= 값을 빼고 계산해 sitemap-dates.json 에 둔다.
+    dates_f = ROOT / "sitemap-dates.json"
+    old = json.loads(dates_f.read_text(encoding="utf-8")) if dates_f.exists() else {}
+    new = {}
+    for u in urls:
+        f = DIST / (u.strip("/") + "/index.html" if u.strip("/") else "index.html")
+        h = re.sub(r"\?v=\d+", "", f.read_text(encoding="utf-8")) if f.exists() else u
+        digest = hashlib.sha1(h.encode("utf-8")).hexdigest()[:16]
+        prev = old.get(u)
+        new[u] = prev if prev and prev[0] == digest else [digest, TODAY.isoformat()]
+    dates_f.write_text(json.dumps(new, ensure_ascii=False, indent=0, sort_keys=True) + "\n", encoding="utf-8")
     L = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
-        L.append(f"  <url><loc>{site['url']}{u}</loc><lastmod>{TODAY.isoformat()}</lastmod></url>")
+        L.append(f"  <url><loc>{site['url']}{u}</loc><lastmod>{new[u][1]}</lastmod></url>")
     L.append("</urlset>")
     write("sitemap.xml", "\n".join(L) + "\n")
 
