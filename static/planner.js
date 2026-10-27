@@ -55,7 +55,7 @@
       if (tr.f) add(tr.f, { k: "f", u: u, tr: tr });
       tr.d.forEach(function (d) { add(d, { k: "iv", u: u, tr: tr }); });
     });
-    if (!picked.length) { tl.innerHTML = '<li class="note">왼쪽에서 지원한 대학의 전형을 고르세요.</li>'; warn.hidden = true; return; }
+    if (!picked.length) { tl.innerHTML = upcoming(); warn.hidden = true; return; }
     add(DATA.csat, { k: "cs" });
     (DATA.events || []).forEach(function (m) { add(m.date, { k: "ev", m: m }); });
     var clashes = [];
@@ -79,6 +79,35 @@
     warn.hidden = !clashes.length;
     warn.innerHTML = clashes.length ? "<b>겹칠 수 있는 날</b> " + esc(clashes.join(" / ")) + ". 같은 날이라도 모집단위·시간이 다르면 둘 다 볼 수 있으니, 1단계 발표 때 개인별 고사 시간을 꼭 확인하세요." : "";
   }
+  // 아직 고른 전형이 없을 때: 오늘부터 2주 안의 1단계 발표·면접을 날짜별로 미리 보여 준다(바로 담기 가능)
+  function upcoming() {
+    var end = new Date(day(DATA.today_local).getTime() + 14 * 864e5), ev = {};
+    function add(iso, o) { if (iso >= DATA.today_local && day(iso) <= end) (ev[iso] = ev[iso] || []).push(o); }
+    DATA.univs.forEach(function (u) {
+      u.t.forEach(function (tr) {
+        if (tr.f) add(tr.f, { k: "f", u: u, tr: tr });
+        tr.d.forEach(function (d) { add(d, { k: "iv", u: u, tr: tr }); });
+      });
+    });
+    var days = Object.keys(ev).sort();
+    if (!days.length) return '<li class="note">왼쪽에서 지원한 대학의 전형을 고르세요.</li>';
+    return '<li class="note pl-up-head"><b>앞으로 2주 동안의 1단계 발표·면접</b> — 지원한 전형의 <b>담기</b>를 누르거나 왼쪽에서 고르면 내 일정표가 만들어집니다.</li>' +
+      days.map(function (iso) {
+        var seen = {};
+        var items = ev[iso].filter(function (e) { var k = e.k + e.tr.id; if (seen[k]) return false; seen[k] = 1; return true; });
+        return '<li><div class="pl-d">' + label(iso) + "<small>" + dleft(iso) + "</small></div><div>" +
+          items.map(function (e) {
+            return '<p class="ev"><span class="tag' + (e.k === "iv" ? " iv" : "") + '">' + (e.k === "iv" ? "면접" : "1단계 발표") + "</span>" +
+              '<a href="' + e.u.u + '">' + esc(e.u.n) + "</a> " + esc(e.tr.n) +
+              ' <button type="button" class="pl-add" data-id="' + e.tr.id + '">담기</button></p>';
+          }).join("") + "</div></li>";
+      }).join("");
+  }
+  tl.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".pl-add"); if (!b) return;
+    var id = b.getAttribute("data-id");
+    if (byId[id] && picked.indexOf(id) < 0) { picked.push(id); save(); refresh(); }
+  });
   function refresh() { renderList(); renderTimeline(); }
 
   listEl.addEventListener("change", function (e) {

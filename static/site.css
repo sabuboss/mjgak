@@ -257,7 +257,9 @@ details.more summary{cursor:pointer;color:var(--muted);font-size:14px}
 .pl-tl li.clash{background:linear-gradient(90deg,rgba(232,121,90,.12),transparent)}
 .pl-tl li.past{opacity:.5}
 .pl-tl .clashnote{font-size:12px;font-weight:700;color:#a63b17}
-@media (max-width:760px){.pl{grid-template-columns:1fr}.pl-list{max-height:340px}.pl-tl>li{grid-template-columns:74px minmax(0,1fr)}}
+.pl-tl li.pl-up-head{display:block;border-top:0;padding:4px 0 8px;font-size:14px}
+.pl-add{font:inherit;font-size:12px;padding:1px 8px;margin-left:4px;border:1px solid var(--accent);border-radius:6px;background:var(--paper);color:var(--accent);cursor:pointer}
+@media (max-width:760px){.pl{grid-template-columns:1fr}.pl-out{order:-1}.pl-list{max-height:340px}.pl-tl>li{grid-template-columns:74px minmax(0,1fr)}}
 @media print{.top,.pl-pick,.pl-btns,footer,.crumb,ins{display:none!important}.pl{grid-template-columns:1fr}}
 .practice-cta .tchip{background:var(--paper);border-color:var(--line)}
 .pr-rec{color:#d93025;font-weight:700}
