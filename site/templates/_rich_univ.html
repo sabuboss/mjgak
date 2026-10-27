@@ -4,7 +4,7 @@
 <h2>2027학년도 {{ p.name }} 면접 핵심 <span class="badge">모집요강 확인</span></h2>
 <p class="lead">{{ r.summary }}</p>
 <div class="quick" id="quick">
-<p class="quick-h"><b>한눈에 보기</b> <span>{{ p.name }} 2027학년도 수시모집요강 기준 · {{ r.checked }} 확인</span></p>
+<p class="quick-h"><b>한눈에 보기</b> <span>{{ p.name }} {{ r.basis or "2027학년도 수시모집요강" }} 기준 · {{ r.checked }} 확인</span></p>
 <div class="quick-c">{% for t in r.tracks %}<div class="qc"><b>{{ t.name }}</b>
 <span><i>1단계</i>{{ (t.first or "-")[:30] }}</span><span><i>면접</i><b>{{ (t.date or "-")[:60] }}{% if t.date and t.date|length > 60 %}…{% endif %}</b></span><span><i>선발</i>{{ (t.method or "-")[:70] }}{% if t.method and t.method|length > 70 %}…{% endif %}</span></div>{% endfor %}</div>
 <div class="quick-act"><a class="btn" href="/planner/?u={{ p.code }}">내 면접 일정표에 담기</a>{% if r.published_questions and r.practice and r.practice[0].set.startswith("univ:") %}<a class="btn ghost" href="/practice/?set={{ r.practice[0].set|urlencode }}">이 대학 공개 질문으로 모의면접</a>{% else %}<a class="btn ghost" href="/practice/">모의 면접 연습</a>{% endif %}{% if r.same_day %}<a class="btn ghost" href="#sameday">같은 날 면접 대학</a>{% endif %}<a class="btn ghost" href="/minimum/">수능최저 모아보기</a><a class="btn ghost" href="/suneung/">수능 일정·준비물</a></div>
@@ -49,5 +49,5 @@
 {% if r.tips %}<h3>준비 포인트</h3><ul>{% for x in r.tips %}<li>{{ x }}</li>{% endfor %}</ul>{% endif %}
 {% if r.dress %}<p class="callout"><b>복장</b> {{ r.dress }}</p>{% endif %}
 {% if r.dept_links %}<h3>이 대학이 나오는 학과별 면접 정리</h3><div class="tnav">{% for x in r.dept_links %}<a class="tchip" href="{{ x.url }}">{{ x.label }}</a>{% endfor %}</div>{% endif %}
-<p class="note">{{ r.checked }} 기준으로 {{ p.name }} 2027학년도 수시모집요강에서 확인한 내용입니다. 면접 시간·장소는 1단계 합격자 발표 때 입학처 공지를 꼭 확인하세요. <a href="/schedule/#dates">전체 대학 면접 날짜 보기</a></p>
+<p class="note">{{ r.checked }} 기준으로 {{ p.name }} {{ r.basis or "2027학년도 수시모집요강" }}에서 확인한 내용입니다. 면접 시간·장소는 1단계 합격자 발표 때 입학처 공지를 꼭 확인하세요. <a href="/schedule/#dates">전체 대학 면접 날짜 보기</a></p>
 </section>
