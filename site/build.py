@@ -448,7 +448,8 @@ def main():
     WD = "월화수목금토일"
     dlabel = lambda iso: f"{int(iso[5:7])}/{int(iso[8:])}({WD[datetime.date.fromisoformat(iso).weekday()]})"
     SHORT = {"한국외국어대학교": "한국외대", "서울과학기술대학교": "서울과기대", "한국기술교육대학교": "한국기술교육대"}
-    short = lambda n: SHORT.get(n) or re.sub("대학교", "대", re.sub("교육대학교", "교대", re.sub("여자대학교", "여대", n)))
+    # "KAIST(한국과학기술원)" 같은 영문 약칭 학교는 괄호 앞 약칭만 쓴다
+    short = lambda n: SHORT.get(n) or (re.match(r"^([A-Z]{3,})\(", n) or [None, None])[1] or re.sub("대학교", "대", re.sub("교육대학교", "교대", re.sub("여자대학교", "여대", n)))
     planner, by_day = [], {}
     for code, r in sorted(rich_univ.items(), key=lambda kv: kv[1].get("name", "")):
         if code not in prof_by:
