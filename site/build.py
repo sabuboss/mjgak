@@ -533,7 +533,7 @@ def main():
         g = major_by[d["group"]]
         r = d.get("rich")
         qa = r["questions"] if r else d["questions"]
-        y_univs = [re.sub("대학교$", "대", re.sub("교육대학교$", "교대", re.sub("여자대학교$", "여대", x["univ"]))) for x in ((r or {}).get("y2027") or {}).get("rows", [])][:4] if r else []
+        y_univs = [re.sub("대학교$", "대", re.sub("과학기술대학교$", "과기대", re.sub("외국어대학교$", "외대", re.sub("교육대학교$", "교대", re.sub("여자대학교$", "여대", x["univ"]))))) for x in ((r or {}).get("y2027") or {}).get("rows", [])][:4] if r else []
         title = (f"{d['label']} 면접 질문 {len(qa)}개와 답변 예시 · 2027 " + "·".join(dict.fromkeys(y_univs)) + " 면접 방식") if y_univs \
             else (f"{d['label']} 면접 질문 {len(qa)}개와 답변 예시" if r else f"{d['label']} 면접 질문 {len(qa)}개와 답변")
         desc = (r["hook"][:110] + " 2027 대학별 면접 방식과 완성 답변 예시.") if r else f"{d['desc']} 자주 나오는 질문과 표준 답변, 준비 팁."

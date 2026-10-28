@@ -58,6 +58,10 @@
   {
    "slug": "emergency-medical",
    "label": "응급구조학과"
+  },
+  {
+   "slug": "health-administration",
+   "label": "보건행정학과"
   }
  ],
  "checked": "2026-10-14"

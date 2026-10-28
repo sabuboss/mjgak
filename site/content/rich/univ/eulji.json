@@ -162,6 +162,14 @@
   {
    "slug": "k-beauty",
    "label": "K-뷰티학과 · 뷰티산업학과"
+  },
+  {
+   "slug": "health-administration",
+   "label": "보건행정학과·의료경영학과"
+  },
+  {
+   "slug": "optometry",
+   "label": "안경광학과"
   }
  ],
  "checked": "2026-10-14"
