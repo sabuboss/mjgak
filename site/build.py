@@ -208,7 +208,7 @@ def load_departments():
 NICK = {"고려대학교": ["고대"], "연세대학교": ["연대"], "성균관대학교": ["성대"], "중앙대학교": ["중대"], "이화여자대학교": ["이대"],
         "숙명여자대학교": ["숙대"], "한국외국어대학교": ["외대", "한국외대"], "서울시립대학교": ["시립대"], "건국대학교": ["건대"],
         "동국대학교": ["동대"], "홍익대학교": ["홍대"], "한양대학교": ["한대"], "경북대학교": ["경대"], "한양대학교(ERICA)": ["한양에리카", "에리카", "한대 에리카"], "한양대학교 ERICA": ["한양에리카", "에리카", "한대 에리카", "한양대 안산"],
-        "한국교원대학교": ["교원대"], "서울과학기술대학교": ["서울과기대", "과기대"], "한국과학기술원(KAIST)": ["카이스트"], "KAIST": ["카이스트", "한국과학기술원"],
+        "한국교원대학교": ["교원대"], "국립경국대학교": ["경국대", "안동대", "국립안동대", "안동대학교", "국립안동대학교"],"서울과학기술대학교": ["서울과기대", "과기대"], "한국과학기술원(KAIST)": ["카이스트"], "KAIST": ["카이스트", "한국과학기술원"],
         "POSTECH(포항공과대학교)": ["포스텍", "포항공대"], "UNIST(울산과학기술원)": ["유니스트", "울산과기원"], "GIST(광주과학기술원)": ["지스트"], "DGIST(대구경북과학기술원)": ["디지스트"]}
 
 
@@ -620,7 +620,7 @@ def main():
              report_url=reports[0]["url"] if reports else None, report_year=reports[0]["year"] if reports else None,
              common_questions=uprof["common_questions"], notice=uprof["notice"],
              robots=None if p.get("rich") else "noindex,follow",  # 2027 정보 없는 템플릿 페이지는 색인 제외 (얇은 콘텐츠)
-             title=((f"{p['name']} 면접 2027 — 전형별 면접 방식·일정·공개 질문" if p["rich"].get("tracks") else f"{p['name']} 2027 수시 — 면접 없는 서류평가 전형 안내") if p.get("rich") else f"{p['name']} 면접 준비 가이드 — 특징·면접 방식·예상 질문"),
+             title=((f"{p['name']} 면접 2027 — 전형별 면접 방식·일정" + ("·공개 질문" if p["rich"].get("published_questions") else "") if p["rich"].get("tracks") else f"{p['name']} 2027 수시 — 면접 없는 서류평가 전형 안내") if p.get("rich") else f"{p['name']} 면접 준비 가이드 — 특징·면접 방식·예상 질문"),
              description=(p["rich"]["summary"][:150] if p.get("rich") else f"{p['blurb']} 면접 방식과 준비 포인트, 맞춤 예상 질문 {len(p['questions'])}개."))
         if p.get("rich"):
             urls.append(p["url"])
