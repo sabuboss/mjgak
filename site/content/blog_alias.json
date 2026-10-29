@@ -21,6 +21,8 @@
   "public-administration": "행정학과", "tourism-hospitality": "호텔관광학과", "chemical-engineering": "화학공학과",
   "biomedical-lab": "임상병리학과", "nursing": "간호학과", "business": "경영학과", "computer-science": "컴퓨터공학과",
   "medicine": "의예과", "elementary-education": "교대", "psychology": "심리학과", "social-welfare": "사회복지학과",
-  "early-childhood-education": "유아교육과", "electrical-engineering": "전기전자공학과"
+  "early-childhood-education": "유아교육과", "electrical-engineering": "전기전자공학과",
+  "speech-therapy": "언어치료학과", "health-administration": "보건행정학과", "optometry": "안경광학과",
+  "dental-technology": "치기공학과", "sports-rehabilitation": "스포츠재활학과", "animal-health": "동물보건학과"
  }
 }
