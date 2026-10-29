@@ -1,0 +1,231 @@
+/* 홈 — 정돈된 파스텔 블록. home.html 에서만 불러온다. 모든 규칙은 .ha- 접두어(또는 .ha-wrap 이 있는 문서) 안에서만 동작. */
+.ha-wrap{--ha-ink:#1c2430;--ha-text:#3e4856;--ha-muted:#566170;--ha-line:#dbe2ec;--ha-navy:#1f3157;--ha-blue:#3b5ea8;--ha-pblue:#dfe6f3;--ha-sage:#dce8dd;--ha-coral:#fadcd3;--ha-yellow:#f8edc2;--ha-chip:#eef2f8;--ha-r:20px;max-width:1120px;padding-top:22px;color:var(--ha-ink)}
+body:has(.ha-wrap) .top .in,body:has(.ha-wrap) .dday a{max-width:1120px}
+.ha-wrap a{color:var(--ha-navy)}
+.ha-wrap h2{font-size:22px;letter-spacing:-.02em;margin:0}
+
+/* 히어로 */
+.ha-hero{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:28px;align-items:center;padding:34px 36px 30px;border-radius:28px;background:radial-gradient(circle,#c9d5eb 1.3px,transparent 1.5px) 0 0/20px 20px,var(--ha-pblue);background-blend-mode:normal}
+.ha-hero-main{min-width:0}
+.ha-eyebrow{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.ha-pill{display:inline-block;font-size:12.5px;font-weight:700;line-height:1.3;padding:6px 12px;border-radius:999px;background:#fff;color:var(--ha-navy)}
+.ha-pill-navy{background:var(--ha-navy);color:#fff}
+.ha-h1{font-size:40px;line-height:1.22;letter-spacing:-.035em;font-weight:800;margin:0 0 12px;color:var(--ha-navy)}
+.ha-sub{font-size:15.5px;line-height:1.7;color:var(--ha-text);margin:0 0 18px;max-width:600px}
+.ha-search{margin:0 0 16px}
+.ha-search input{border:0;border-radius:999px;padding:15px 22px;font-size:16px;background:#fff;box-shadow:0 6px 20px rgba(31,49,87,.10)}
+.ha-search input:focus{outline:2px solid var(--ha-navy);outline-offset:2px}
+.ha-quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 16px}
+.ha-q{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:14px 14px 12px;border-radius:18px;background:#fff;text-decoration:none;color:var(--ha-ink)!important;box-shadow:0 1px 0 rgba(31,49,87,.06);border:1.5px solid transparent;min-width:0}
+.ha-q:hover{border-color:var(--ha-navy)}
+.ha-q svg{flex:none;width:38px;height:38px;padding:8px;border-radius:50%;fill:none;stroke:var(--ha-navy);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ha-q-blue svg{background:var(--ha-pblue)}.ha-q-sage svg{background:var(--ha-sage)}.ha-q-coral svg{background:var(--ha-coral)}.ha-q-yellow svg{background:var(--ha-yellow)}
+.ha-q span{min-width:0}
+.ha-q b{display:block;font-size:15px;line-height:1.3;white-space:nowrap}
+.ha-q small{display:block;font-size:12px;line-height:1.35;color:var(--ha-muted);margin-top:2px}
+.ha-first{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.ha-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 20px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;line-height:1.2;border:1.5px solid var(--ha-navy);white-space:nowrap}
+.ha-btn-navy{background:var(--ha-navy);color:#fff!important}
+.ha-btn-navy:hover{background:#15233f}
+.ha-btn-line{background:#fff;color:var(--ha-navy)!important}
+.ha-btn-line:hover{background:var(--ha-chip)}
+.ha-btn-sm{padding:8px 16px;font-size:13.5px}
+.ha-frame{background:#fff;border-radius:22px;padding:20px 20px 16px;box-shadow:0 14px 34px rgba(31,49,87,.12)}
+.ha-frame-q{font-weight:800;font-size:15px;line-height:1.5;margin:0 0 12px;padding:10px 12px;border-radius:12px;background:var(--ha-yellow);color:#3d3000}
+.ha-frame ol{list-style:none;padding:0;margin:0 0 10px;counter-reset:ha;display:grid;gap:6px}
+.ha-frame li{counter-increment:ha;position:relative;margin:0;padding:8px 10px 8px 42px;border-radius:12px;background:#f5f7fb;font-size:13px;color:var(--ha-muted);line-height:1.45}
+.ha-frame li::before{content:counter(ha);position:absolute;left:10px;top:9px;width:22px;height:22px;border-radius:50%;background:var(--ha-navy);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ha-frame li b{display:block;color:var(--ha-ink);font-size:14px}
+.ha-frame-foot{font-size:12.5px;color:var(--ha-muted);margin:0}
+
+/* 숫자 */
+.ha-stats{list-style:none;padding:0;margin:18px 0 6px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.ha-stats li{margin:0;padding:14px 12px;border-radius:18px;border:1px solid var(--ha-line);font-size:13px;color:var(--ha-muted);text-align:center;line-height:1.4}
+.ha-stats b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;color:var(--ha-navy);line-height:1.15}
+.ha-stats li:nth-child(1){background:var(--ha-pblue);border-color:transparent;color:var(--ha-text)}
+.ha-stats li:nth-child(2){background:var(--ha-sage);border-color:transparent;color:var(--ha-text)}
+.ha-stats li:nth-child(3){background:var(--ha-coral);border-color:transparent;color:var(--ha-text)}
+.ha-src{font-size:12px;color:var(--ha-muted);text-align:center;margin:0 0 6px}
+
+/* 필터 칩 줄 */
+.ha-filters{margin:22px 0 0;padding:16px 18px;border:1px solid var(--ha-line);border-radius:var(--ha-r);display:grid;gap:10px}
+.ha-frow{display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+.ha-flabel{flex:0 0 104px;font-size:13px;font-weight:800;color:var(--ha-navy)}
+.ha-chip{display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:999px;background:var(--ha-chip);color:var(--ha-navy)!important;text-decoration:none;font-size:13px;font-weight:600;line-height:1.2;border:1px solid transparent}
+.ha-chip:hover{border-color:var(--ha-navy);background:#fff}
+.ha-chip i,.ha-tag i,.ha-topic h3 i{font-style:normal;font-weight:600;font-size:11.5px;color:var(--ha-muted)}
+
+/* 섹션 머리 */
+.ha-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:44px 0 6px}
+.ha-lead{font-size:15px;color:var(--ha-muted);margin:0 0 14px}
+
+/* 다가오는 일정 카드 */
+.ha-up .ha-head{margin-top:36px}
+.ha-upc{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.ha-uc{margin:0;padding:16px 16px 14px;border-radius:var(--ha-r);background:#fff;border:1px solid var(--ha-line);color:var(--ha-ink);min-width:0;display:flex;flex-direction:column}
+.ha-uc p{margin:0}
+.ha-uc-d{font-size:14px;font-weight:700;line-height:1.35}
+.ha-uc-d b{display:block;font-size:24px;font-weight:800;letter-spacing:-.02em}
+.ha-uc-c{font-size:12.5px;color:var(--ha-muted);margin:2px 0 8px!important}
+.ha-uc ul{list-style:none;padding:0;margin:0 0 6px;font-size:13.5px}
+.ha-uc li{margin:0 0 5px;line-height:1.4}
+.ha-uc li a{font-weight:700;text-decoration:none}
+.ha-uc li a:hover{text-decoration:underline}
+.ha-uc li small{font-size:11.5px;color:var(--ha-muted)}
+.ha-uc-k{display:inline-block;font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;margin-right:5px;background:#e3eaf6;color:#23406e}
+.ha-uc-iv{background:#fde1d8;color:#8f2f0f}
+.ha-uc-more{margin-top:auto;font-size:12.5px;font-weight:700;text-decoration:none}
+.ha-uc-0{background:var(--ha-navy);border-color:var(--ha-navy);color:#fff}
+.ha-uc-1{background:var(--ha-blue);border-color:var(--ha-blue);color:#fff}
+.ha-uc-0 a,.ha-uc-1 a{color:#fff!important}
+.ha-uc-0 .ha-uc-c,.ha-uc-1 .ha-uc-c,.ha-uc-0 li small,.ha-uc-1 li small{color:#dfe6f3}
+.ha-uc-0 .ha-uc-k,.ha-uc-1 .ha-uc-k{background:rgba(10,20,45,.32);color:#fff}
+.ha-uc-empty{grid-column:1/-1;text-decoration:none;flex-direction:row;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.ha-uc-empty b{font-size:17px}
+.ha-uc-empty span{font-size:14px;color:#dfe6f3}
+
+/* 파스텔 2×2 블록 */
+.ha-blocks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:40px 0 0}
+.ha-block{border-radius:24px;padding:24px 26px 24px;display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.ha-block>p{font-size:14.5px;color:var(--ha-text);margin:0 0 12px;line-height:1.65}
+.ha-block h2{font-size:23px;margin:0 0 8px}
+.ha-block h2 a{color:var(--ha-navy);text-decoration:none}
+.ha-block h2 a:hover{text-decoration:underline}
+.ha-block .ha-btn{margin-top:auto}
+.ha-bk{display:inline-block;font-size:12px!important;font-weight:800;letter-spacing:.04em;color:var(--ha-navy)!important;background:rgba(255,255,255,.7);padding:4px 10px;border-radius:999px;margin:0 0 10px!important}
+.ha-b-blue{background:var(--ha-pblue)}.ha-b-sage{background:var(--ha-sage)}.ha-b-coral{background:var(--ha-coral)}.ha-b-yellow{background:var(--ha-yellow)}
+.ha-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.ha-tag{display:inline-flex;align-items:center;gap:4px;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.82);color:var(--ha-ink)!important;text-decoration:none;font-size:13px;font-weight:600;line-height:1.2;border:1px solid transparent}
+.ha-tag:hover{border-color:var(--ha-navy);background:#fff}
+.ha-tag i{color:var(--ha-text)}
+.ha-small{font-size:13px!important;color:var(--ha-text)!important}
+.ha-more{margin:-6px 0 14px;font-size:13.5px}
+.ha-more summary{cursor:pointer;font-weight:700;color:var(--ha-navy);margin-bottom:8px}
+.ha-mini{margin:0 0 14px;padding-left:20px;font-size:14px;color:var(--ha-text)}
+.ha-mini li{margin:0 0 3px}
+
+/* 자주 나오는 질문 */
+.ha-topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:10px}
+.ha-topic{border:1px solid var(--ha-line);border-radius:var(--ha-r);padding:18px 18px 10px;min-width:0}
+.ha-topic h3{font-size:17px;margin:0 0 4px}
+.ha-topic h3 a{text-decoration:none}
+.ha-topic>p{font-size:13px;color:var(--ha-muted);line-height:1.6;margin:0 0 10px}
+.ha-topic ol{padding-left:20px;margin:0 0 6px;font-size:14px}
+.ha-topic li{margin:0 0 5px;line-height:1.5}
+.ha-topic li a{text-decoration:none;color:var(--ha-ink)}
+.ha-topic li a:hover{text-decoration:underline;color:var(--ha-navy)}
+.ha-topic:nth-child(4n+1){border-top:5px solid #a9bce0}.ha-topic:nth-child(4n+2){border-top:5px solid #a9c8ab}.ha-topic:nth-child(4n+3){border-top:5px solid #f0ad99}.ha-topic:nth-child(4n){border-top:5px solid #e7cf6e}
+
+/* 신설학과 카드 */
+.ha-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ha-card{display:block;padding:18px;border-radius:var(--ha-r);border:1px solid var(--ha-line);text-decoration:none;color:var(--ha-ink)!important;min-width:0}
+.ha-card:hover{border-color:var(--ha-navy)}
+.ha-ctag{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--ha-pblue);color:var(--ha-navy);margin-bottom:8px}
+.ha-card:nth-child(3n+2) .ha-ctag{background:var(--ha-sage)}.ha-card:nth-child(3n) .ha-ctag{background:var(--ha-coral)}
+.ha-card b{display:block;font-size:16.5px;line-height:1.4;margin-bottom:4px}
+.ha-card p{margin:0;font-size:13.5px;color:var(--ha-muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+/* 유형·계열 목록 */
+.ha-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.ha-list{list-style:none;padding:0;margin:0;border:1px solid var(--ha-line);border-radius:var(--ha-r);overflow:hidden}
+.ha-list li{margin:0;border-top:1px solid var(--ha-line)}
+.ha-list li:first-child{border-top:0}
+.ha-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;padding:12px 16px;text-decoration:none;color:var(--ha-ink)!important}
+.ha-list a:hover{background:#f5f7fb}
+.ha-list b{font-size:15px}
+.ha-list span{grid-column:1;font-size:13px;color:var(--ha-muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.ha-list i{grid-column:2;grid-row:1/3;align-self:center;font-style:normal;font-size:12px;font-weight:700;color:var(--ha-navy);background:var(--ha-chip);padding:4px 10px;border-radius:999px}
+
+/* 신뢰·시기·순서·마음체크·작성자 */
+.ha-trust{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ha-trust li{margin:0;padding:16px 18px;border-radius:var(--ha-r);background:#f5f7fb;font-size:13.5px;color:var(--ha-muted);line-height:1.6}
+.ha-trust b{display:block;font-size:15px;color:var(--ha-ink);margin-bottom:4px}
+.ha-season{margin:40px 0 0;padding:22px 24px;border-radius:24px;background:var(--ha-pblue)}
+.ha-season h2{margin:0 0 8px}
+.ha-season p{font-size:15px;color:var(--ha-text);margin:0 0 8px}
+.ha-season p:last-child{margin:0}
+.ha-steps{list-style:none;padding:0;margin:10px 0 0;counter-reset:hs;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ha-steps li{counter-increment:hs;margin:0;padding:52px 16px 16px;border-radius:var(--ha-r);border:1px solid var(--ha-line);position:relative;font-size:13.5px;color:var(--ha-muted);line-height:1.6}
+.ha-steps li::before{content:counter(hs);position:absolute;left:16px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--ha-navy);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.ha-steps b{display:block;color:var(--ha-ink);font-size:15px;margin-bottom:4px}
+.ha-sister{margin:36px 0 0;padding:20px 24px;border-radius:24px;background:var(--ha-sage)}
+.ha-sister p{margin:0;font-size:15px;color:var(--ha-text)}
+.ha-sister ul{margin:10px 0 0;padding-left:20px;font-size:14.5px;columns:2;column-gap:28px}
+.ha-sister li{margin:0 0 4px;break-inside:avoid}
+.ha-author{display:flex;gap:14px;align-items:flex-start;margin:28px 0 0;padding:18px 20px;border-radius:24px;border:1px solid var(--ha-line)}
+.ha-av{flex:none;width:52px;height:52px;border-radius:50%;background:var(--ha-yellow);color:var(--ha-navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.ha-author p{margin:0;font-size:14px;color:var(--ha-text)}
+.ha-author b{display:block;font-size:15px;color:var(--ha-ink);margin-bottom:2px}
+
+/* 반응형 */
+@media (max-width:1000px){.ha-hero{grid-template-columns:1fr}.ha-frame{max-width:520px}.ha-upc{grid-template-columns:repeat(3,minmax(0,1fr))}.ha-topics,.ha-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.ha-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.ha-quick{grid-template-columns:repeat(2,minmax(0,1fr))}.ha-blocks,.ha-two,.ha-trust{grid-template-columns:1fr}.ha-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.ha-flabel{flex-basis:100%}}
+@media (max-width:560px){
+  .ha-wrap{padding-top:12px}
+  .ha-hero{padding:20px 16px 18px;border-radius:22px;gap:18px}
+  .ha-eyebrow{margin-bottom:10px}.ha-pill{font-size:11.5px;padding:4px 10px}
+  .ha-h1{font-size:27px;margin-bottom:12px}
+  .ha-sub{font-size:14px;line-height:1.65;margin-bottom:14px}
+  .ha-search{margin-bottom:12px}.ha-search input{padding:13px 18px}
+  .ha-quick{gap:8px;margin-bottom:12px}
+  .ha-q{flex-direction:row;align-items:center;padding:10px;gap:8px;border-radius:16px}
+  .ha-q svg{width:32px;height:32px;padding:6px}
+  .ha-q b{font-size:14px}.ha-q small{font-size:11.5px}
+  .ha-first .ha-btn{flex:1 1 0;padding:10px 12px;font-size:13.5px}
+  .ha-stats{gap:8px}.ha-stats li{padding:10px 6px;font-size:12px}.ha-stats b{font-size:22px}
+  .ha-upc{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding-bottom:6px;margin:0 -16px;padding-left:16px;padding-right:16px;scrollbar-width:thin}
+  .ha-uc{flex:0 0 72%;scroll-snap-align:start}
+  .ha-uc-empty{flex-basis:100%}
+  .ha-topics,.ha-cards,.ha-steps{grid-template-columns:1fr}
+  .ha-block{padding:20px 18px}
+  .ha-sister ul{columns:1}
+  .ha-wrap h2,.ha-block h2{font-size:20px}
+}
+
+/* A2: 히어로 안 큰 수능 D-day + 마음 풀기 칸 (답변 구조 카드는 아래 '정리 방식' 줄로 옮김) */
+.ha-hero{grid-template-areas:"main dd" "main relax";gap:16px 28px;align-items:stretch}
+.ha-hero-main{grid-area:main;align-self:center}
+.ha-dd{grid-area:dd;position:relative;overflow:hidden;margin:0;padding:20px 22px 18px;border-radius:22px;background:var(--ha-navy);color:#fff}
+.ha-dd[hidden]{display:none}
+.ha-dd::after{content:"";position:absolute;right:-34px;top:-34px;width:120px;height:120px;border-radius:50%;background:rgba(250,220,211,.16)}
+.ha-dd>*{position:relative;z-index:1}
+.ha-dd p{margin:0}
+.ha-dd-k{font-size:13.5px;font-weight:800;color:#fadcd3;letter-spacing:.02em}
+.ha-dd-n{margin:2px 0 8px!important;font-size:68px;line-height:1;font-weight:800;letter-spacing:-.045em;color:#fff;font-variant-numeric:tabular-nums}
+.ha-dd-l{margin:0 0 10px!important;font-size:14.5px;font-weight:600;color:#dfe6f3;line-height:1.45}
+.ha-dd-a{display:inline-block;padding:7px 14px;border-radius:999px;background:var(--ha-coral);color:var(--ha-navy)!important;font-weight:800;font-size:13.5px;line-height:1.2;text-decoration:none}
+.ha-dd-a:hover{background:#fff}
+.ha-dd-date{white-space:nowrap}
+.ha-relax{grid-area:relax;margin:0;padding:18px 20px;border-radius:22px;background:var(--ha-sage)}
+.ha-relax-h{display:flex;gap:8px;align-items:flex-start;margin:0 0 6px;font-size:15.5px;font-weight:800;line-height:1.45;color:var(--ha-ink)}
+.ha-relax-h svg{flex:none;width:22px;height:22px;margin-top:1px;fill:none;stroke:#2f6446;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.ha-relax-p{margin:0 0 10px;font-size:13px;line-height:1.6;color:var(--ha-text)}
+.ha-relax ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.ha-relax li{margin:0}
+.ha-relax li a{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,.78);font-size:14px;font-weight:700;line-height:1.35;text-decoration:none;color:var(--ha-navy)}
+.ha-relax li a::after{content:"↗";font-weight:400;color:var(--ha-text)}
+.ha-relax li a:hover{background:#fff}
+.ha-relax-more{margin:8px 0 0;font-size:12px;line-height:1.6;color:var(--ha-text)}
+.ha-how{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:16px;margin:40px 0 0;align-items:stretch}
+.ha-how .ha-frame{background:var(--ha-pblue);box-shadow:none}
+.ha-how .ha-frame li{background:#fff}
+.ha-how .ha-trust{margin:0;grid-template-columns:1fr;gap:10px}
+@media (max-width:1000px){
+  .ha-hero{grid-template-areas:"dd" "main" "relax";gap:16px}
+  .ha-dd{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:center;padding:14px 18px}
+  .ha-dd-k{grid-column:2}
+  .ha-dd-n{grid-column:1;grid-row:1/3;margin:0!important;font-size:60px}
+  .ha-dd-t{grid-column:2}
+  .ha-dd-l{margin:0 0 6px!important}
+  .ha-dd::after{top:auto;bottom:-70px;right:-50px}
+}
+@media (max-width:760px){.ha-how{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .ha-hero{gap:14px}
+  .ha-dd{padding:12px 16px;column-gap:12px;border-radius:18px}
+  .ha-dd-k{font-size:12.5px}
+  .ha-dd-n{font-size:56px}
+  .ha-dd-l{font-size:13px}
+  .ha-dd-a{padding:5px 11px;font-size:12.5px}
+  .ha-relax{padding:16px}
+}
