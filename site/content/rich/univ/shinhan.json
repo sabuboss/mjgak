@@ -52,6 +52,14 @@
   {
    "slug": "optometry",
    "label": "안경광학과"
+  },
+  {
+   "slug": "dental-technology",
+   "label": "치기공학과"
+  },
+  {
+   "slug": "sports-rehabilitation",
+   "label": "스포츠의학과"
   }
  ],
  "checked": "2026-10-14"

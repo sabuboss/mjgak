@@ -60,6 +60,14 @@
   {
    "slug": "radiologic-technology",
    "label": "방사선학과"
+  },
+  {
+   "slug": "sports-rehabilitation",
+   "label": "스포츠재활학과"
+  },
+  {
+   "slug": "animal-health",
+   "label": "동물보건복지학과"
   }
  ],
  "checked": "2026-10-14"

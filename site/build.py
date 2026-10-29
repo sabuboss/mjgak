@@ -441,7 +441,8 @@ def main():
             d["rich"] = r
     for code, r in rich_univ.items():
         if code in prof_by:
-            r["dept_links"] = [{"url": all_dept_url[x["slug"]][0], "label": all_dept_url[x["slug"]][1]}
+            # 대학 쪽 label(그 대학의 실제 모집단위 이름)이 있으면 그것을 쓴다 — 예: 신한대 '스포츠의학과' → 스포츠재활학과 페이지
+            r["dept_links"] = [{"url": all_dept_url[x["slug"]][0], "label": x.get("label") or all_dept_url[x["slug"]][1]}
                                for x in r.get("depts", []) if x.get("slug") in all_dept_url]
             prof_by[code]["rich"] = r
     # 면접 일정: 트랙별 면접일·1단계 발표일을 뽑아 '같은 날 면접 대학'·내 면접 일정표에 쓴다
