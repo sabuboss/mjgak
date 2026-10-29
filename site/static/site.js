@@ -44,6 +44,12 @@
   document.addEventListener("click", function (e) { if (!e.target.closest(".search")) boxes.forEach(function (b) { var l = b.querySelector("ul"); if (l) l.hidden = true; }); });
 })();
 
+// 발행일이 정해진 외부 글 링크: data-from 날짜(이용자 기기 날짜)부터 보인다 — 그 전에는 상대 사이트가 404
+(function () {
+  var now = new Date(), today = now.getFullYear() + "-" + ("0" + (now.getMonth() + 1)).slice(-2) + "-" + ("0" + now.getDate()).slice(-2);
+  document.querySelectorAll(".extlink[data-from]").forEach(function (el) { if (today >= el.getAttribute("data-from")) el.hidden = false; });
+})();
+
 // 수정·요청 보내기: 메일 버튼 클릭을 GA 이벤트(fixreq_click)로 남긴다 (몇 명이 눌렀는지 보려고)
 document.addEventListener("click", function (e) {
   var a = e.target.closest && e.target.closest(".fixreq a.btn");
