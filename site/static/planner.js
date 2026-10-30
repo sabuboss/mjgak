@@ -3,7 +3,7 @@
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var KEY = "mjgak-planner", WD = "일월화수목금토";
-  var listEl = $("plList"), qEl = $("plQ"), tl = $("plTimeline"), nEl = $("plN"), warn = $("plWarn");
+  var listEl = $("plList"), qEl = $("plQ"), tl = $("plTimeline"), nEl = $("plN"), warn = $("plWarn"), go = $("plGo"), goN = $("plGoN");
   var DATA = null, byId = {}, picked = [];
 
   function esc(s) { var d = document.createElement("div"); d.textContent = s || ""; return d.innerHTML; }
@@ -44,10 +44,12 @@
             "<small>면접 " + tr.d.map(label).join(" · ") + (tr.f ? " · 1단계 " + label(tr.f) : "") + "</small></span></label>";
         }).join("") + "</details>";
     }).join("");
-    listEl.innerHTML = html || '<p class="note">찾는 대학이 없습니다. 이 일정표에는 2027 모집요강을 확인한 대학만 있습니다.</p>';
+    var hint = !q && !picked.length ? '<p class="note pl-hint">위 칸에 대학 이름을 적거나, 아래 대학 이름을 눌러 전형을 펼치세요.</p>' : "";
+    listEl.innerHTML = html ? hint + html : '<p class="note">찾는 대학이 없습니다. 이 일정표에는 2027 모집요강을 확인한 대학만 있습니다.</p>';
   }
   function renderTimeline() {
-    nEl.textContent = picked.length;
+    nEl.textContent = goN.textContent = picked.length;
+    go.hidden = !picked.length;
     var ev = {};
     function add(iso, o) { (ev[iso] = ev[iso] || []).push(o); }
     picked.forEach(function (id) {
@@ -90,8 +92,8 @@
       });
     });
     var days = Object.keys(ev).sort();
-    if (!days.length) return '<li class="note">왼쪽에서 지원한 대학의 전형을 고르세요.</li>';
-    return '<li class="note pl-up-head"><b>앞으로 2주 동안의 1단계 발표·면접</b> — 지원한 전형의 <b>담기</b>를 누르거나 왼쪽에서 고르면 내 일정표가 만들어집니다.</li>' +
+    if (!days.length) return '<li class="note">대학 목록에서 지원한 전형을 고르세요.</li>';
+    return '<li class="note pl-up-head"><b>앞으로 2주 동안의 1단계 발표·면접</b> — 지원한 전형의 <b>담기</b>를 누르거나 대학 목록에서 고르면 내 일정표가 만들어집니다.</li>' +
       days.map(function (iso) {
         var seen = {};
         var items = ev[iso].filter(function (e) { var k = e.k + e.tr.id; if (seen[k]) return false; seen[k] = 1; return true; });

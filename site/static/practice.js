@@ -4,6 +4,7 @@
   var sel = $("prSet"), qEl = $("prQ"), meta = $("prMeta"), phaseEl = $("prPhase"), timeEl = $("prTime"), bar = $("prBar");
   var btnNext = $("prNext"), btnStart = $("prStart"), btnStop = $("prStop"), recBox = $("prRec"), audio = $("prAudio");
   var exWrap = $("prExWrap"), exEl = $("prEx"), micNote = $("prMicNote");
+  var findEl = $("prFind"), findNote = $("prFindNote"), chipEl = $("prChips");
   var DATA = null, pool = [], cur = null, timer = null, left = 0, total = 0, phase = "idle";
   var stream = null, rec = null, chunks = [], lastUrl = null;
   var PREP = 15, ANSWER = 60;
@@ -23,13 +24,48 @@
     bar.className = name === "answer" ? "ans" : "";
     timer = setInterval(tick, 1000);
   }
+  // 질문 묶음: 공통 / 대학 공개 질문 / 학과(가나다순) 세 갈래로 묶고, 이름 검색·바로가기 칩으로 고른다
+  var GROUPS = [["common", "공통"], ["univ", "대학이 공개한 질문"], ["dept", "학과별 질문"]];
+  var CHIPS = ["공통", "간호학과", "경영학과", "컴퓨터", "유아교육", "의예과", "심리학과", "기계공학"];
+  function kind(s) { return s.id === "common" ? "common" : s.id.split(":")[0]; }
+  function short(s) { return s.label.replace(/^학과 · /, "").replace(/^대학 공개 질문 · /, ""); }
+  function fill(list) {
+    var keep = sel.value;
+    sel.innerHTML = "";
+    GROUPS.forEach(function (g) {
+      var xs = list.filter(function (s) { return kind(s) === g[0]; });
+      if (!xs.length) return;
+      if (g[0] === "dept") xs.sort(function (a, b) { return short(a).localeCompare(short(b), "ko"); });
+      var og = document.createElement("optgroup"); og.label = g[1] + " (" + xs.length + ")";
+      xs.forEach(function (s) {
+        var o = document.createElement("option"); o.value = s.id; o.textContent = short(s) + " · " + s.items.length + "문항";
+        og.appendChild(o);
+      });
+      sel.appendChild(og);
+    });
+    if (list.some(function (s) { return s.id === keep; })) sel.value = keep;
+  }
+  function find() {
+    var q = findEl.value.trim().replace(/\s+/g, "");
+    var list = !q ? DATA.sets : DATA.sets.filter(function (s) { return s.label.replace(/\s+/g, "").indexOf(q) >= 0; });
+    if (!list.length) {
+      findNote.innerHTML = "‘" + esc(findEl.value.trim()) + "’ 묶음이 없습니다. 대학이 질문을 공개하지 않았다면 <b>공통 질문</b>이나 지원 학과 질문으로 연습하세요.";
+      fill(DATA.sets); return;
+    }
+    findNote.textContent = q ? list.length + "개 찾음" + (list.length > 1 ? " — 아래 목록에서 고르세요" : "") : "";
+    fill(list);
+    if (q && list.every(function (s) { return s.id !== sel.value; })) sel.value = list[0].id;
+    pickSet();
+  }
+  function chips() {
+    chipEl.innerHTML = CHIPS.map(function (k) {
+      var s = DATA.sets.filter(function (x) { return x.label.indexOf(k) >= 0; })[0];
+      return s ? '<button type="button" class="pr-chip" data-id="' + s.id + '">' + esc(k === "공통" ? "공통 질문" : short(s)) + "</button>" : "";
+    }).join("");
+  }
   function setOptions() {
     var params = new URLSearchParams(location.search), want = params.get("set");
-    sel.innerHTML = "";
-    DATA.sets.forEach(function (s) {
-      var o = document.createElement("option"); o.value = s.id; o.textContent = s.label + " (" + s.items.length + "문항)";
-      sel.appendChild(o);
-    });
+    fill(DATA.sets); chips();
     if (want && DATA.sets.some(function (s) { return s.id === want; })) sel.value = want;
     pickSet();
   }
@@ -88,6 +124,11 @@
   btnStart.addEventListener("click", function () { if (phase === "prep") startAnswer(); });
   btnStop.addEventListener("click", function () { if (phase === "answer") stopAnswer(); });
   sel.addEventListener("change", pickSet);
+  findEl.addEventListener("input", find);
+  chipEl.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".pr-chip"); if (!b) return;
+    findEl.value = ""; findNote.textContent = ""; fill(DATA.sets); sel.value = b.getAttribute("data-id"); pickSet();
+  });
   fetch(window.PRACTICE_URL).then(function (r) { return r.json(); }).then(function (d) { DATA = d; setOptions(); })
     .catch(function () { qEl.textContent = "질문을 불러오지 못했습니다. 새로고침해 주세요."; });
 })();
