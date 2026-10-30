@@ -10,7 +10,7 @@ img/gem-<slug>-<N>.png 로 저장한다. slug 는 원고의 "썸네일: img/thum
 돈을 더 쓰지 않는다: 월 장부(../gen-ledger.json)에 장당 비용을 넉넉히 잡아 쌓고,
 MONTHLY_CAP_KRW(../.env)에 닿으면 생성하지 않고 멈춘다. 콘솔의 Vertex AI 지출 한도(₩10,000)가 두 번째 안전장치.
 """
-import base64, datetime, json, re, sys, urllib.error, urllib.request
+import base64, datetime, json, re, sys, time, urllib.error, urllib.request
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -80,8 +80,17 @@ def generate(key, text, ratio):
             "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": {"aspectRatio": ratio}}}
     req = urllib.request.Request(URL, data=json.dumps(body).encode(), method="POST",
                                  headers={"Content-Type": "application/json", "x-goog-api-key": key})
-    with urllib.request.urlopen(req, timeout=180) as r:
-        res = json.load(r)
+    for i in range(3):  # 연결 단계 끊김(SSLEOF 등)만 다시 시도 — HTTP 오류는 그대로 올린다
+        try:
+            with urllib.request.urlopen(req, timeout=180) as r:
+                res = json.load(r)
+            break
+        except urllib.error.HTTPError:
+            raise
+        except urllib.error.URLError:
+            if i == 2:
+                raise
+            time.sleep(5 * (i + 1))
     for c in res.get("candidates", []):
         for p in c.get("content", {}).get("parts", []):
             if "inlineData" in p:
