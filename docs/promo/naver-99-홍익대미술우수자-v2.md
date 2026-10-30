@@ -212,6 +212,8 @@ A. 서울캠퍼스 미술우수자전형은 3개 영역 등급 합 9 이내와 �
 
 홍익대를 포함한 76개 대학의 2027학년도 면접 정보와 71개 학과별 면접 질문·답변 예시, 대학이 공개한 실제 면접 기출을 무료로 정리한 사이트입니다. 회원가입 없이 바로 볼 수 있고, 질문을 무작위로 뽑아 60초 타이머로 연습하는 모의 면접도 있습니다.
 → https://mjgak.com/univ/hongik/?utm_source=naver_blog&utm_medium=post&utm_campaign=post-99
+→ 이 대학 면접일 내 일정표에 담기 | https://mjgak.com/planner/?u=hongik&utm_source=naver_blog&utm_medium=post&utm_campaign=post-99
+→ 60초 모의면접으로 소리 내어 연습 | https://mjgak.com/practice/?set=common&utm_source=naver_blog&utm_medium=post&utm_campaign=post-99
 
 #홍익대면접 #홍익대미술우수자 #미술우수자전형 #홍대미대 #홍익대수시 #홍익대세종 #미술활동보고서 #미대면접 #미대수시 #홍익대디자인학부 #홍익대회화과 #디자인컨버전스학부 #영상애니메이션학부 #2027수시 #대입면접
 

@@ -212,6 +212,8 @@ A. 잠재능력우수자전형은 수능 면제입니다(40쪽). 의예과 지�
 
 동아대를 포함한 76개 대학의 2027학년도 면접 정보와 71개 학과별 면접 질문·답변 예시, 대학이 공개한 실제 면접 기출을 무료로 정리한 사이트입니다. 회원가입 없이 바로 볼 수 있고, 질문을 무작위로 뽑아 60초 타이머로 연습하는 모의 면접도 있습니다.
 → https://mjgak.com/univ/dau/?utm_source=naver_blog&utm_medium=post&utm_campaign=post-102
+→ 이 대학 면접일 내 일정표에 담기 | https://mjgak.com/planner/?u=dau&utm_source=naver_blog&utm_medium=post&utm_campaign=post-102
+→ 60초 모의면접으로 소리 내어 연습 | https://mjgak.com/practice/?set=common&utm_source=naver_blog&utm_medium=post&utm_campaign=post-102
 
 #동아대면접 #동아대잠재능력우수자 #잠재능력우수자전형 #동아대면접질문 #동아대학생부종합 #동아대수시 #동아대경영학과 #동아대기계공학과 #동아대간호학과 #동아대의예과 #지역의사제 #학생부종합면접 #면접예상질문 #2027수시 #대입면접
 

@@ -210,6 +210,8 @@ A. 자율전공학부·간호학과는 없고, 의예과는 있습니다(24쪽).
 
 울산대를 포함한 76개 대학의 2027학년도 면접 정보와 71개 학과별 면접 질문·답변 예시, 대학이 공개한 실제 면접 기출을 무료로 정리한 사이트입니다. 회원가입 없이 바로 볼 수 있고, 질문을 무작위로 뽑아 60초 타이머로 연습하는 모의 면접도 있습니다.
 → https://mjgak.com/univ/ulsan/?utm_source=naver_blog&utm_medium=post&utm_campaign=post-100
+→ 이 대학 면접일 내 일정표에 담기 | https://mjgak.com/planner/?u=ulsan&utm_source=naver_blog&utm_medium=post&utm_campaign=post-100
+→ 60초 모의면접으로 소리 내어 연습 | https://mjgak.com/practice/?set=common&utm_source=naver_blog&utm_medium=post&utm_campaign=post-100
 
 #울산대면접 #울산대잠재역량 #잠재역량전형 #울산대면접질문 #울산대학생부종합 #울산대수시 #울산대간호학과 #울산대자율전공학부 #울산대의예과 #간호학과면접 #학생부종합면접 #서류기반면접 #면접예상질문 #2027수시 #대입면접
 

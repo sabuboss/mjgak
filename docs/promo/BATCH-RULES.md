@@ -11,6 +11,9 @@
 6. 제미나이 프롬프트에 학교 상징 요소(공식 상징 페이지에서 확인한 교목·교화·교색·상징동물, 일반적인 주변 자연) 1~2개 — WRITING-BRIEF 12번. 로고·교표·마스코트·학교 이름 글자·특정 건물 재현 금지. 작업용 메모에 `[학교 상징 근거]` 출처 URL.
 7. 공식 상징 페이지에 대표 조형물(예: 부산대 웅비의 탑 독수리, 충남대 백마상)이 있으면 이름·글자 없이 "떠올리게 하는" 일반 묘사로 1개 더할 수 있다. 제미나이 이미지 자리 바로 다음 줄에 `(AI로 만든 이미지로, 실제 캠퍼스와 다를 수 있습니다)` 를 넣는다. 대학 홈페이지 사진은 쓰지 않는다(2026-10-18 조사: 충남대 갤러리는 공공누리 제4유형, 부산대·전남대·강원대는 표시 없음).
 8. 분량: 구분선 위 본문 공백 제외 8,000자 이하.
+9. 사이트 도구 바로가기(2026-10-31, 블로그→사이트 이동률 1.8% 개선용): 사이트 소개 문단의 `→ https://mjgak.com/univ/<code>/?utm_source=naver_blog&utm_medium=post` 줄 바로 아래에 두 줄을 그대로 넣는다.
+   `→ 이 대학 면접일 내 일정표에 담기 | https://mjgak.com/planner/?u=<code>&utm_source=naver_blog&utm_medium=post` (site/dist/planner/data.json 의 univs[].c 에 code 가 있을 때만)
+   `→ 60초 모의면접으로 소리 내어 연습 | https://mjgak.com/practice/?set=<set>&utm_source=naver_blog&utm_medium=post` (set = site/dist/practice/questions.json 에 `univ:<code>` 가 있으면 그것, 없으면 `common`; 학과 글은 `dept:<slug>`)
 금지: git commit/push, site/ 수정, promo_style.py·make_paste.py·fill_links.py·다른 원고 수정, TLS 검증 끄기, 네이버 접속, 대학 홈페이지 사진. 긴 한글은 Write 도구로.
 보고: 파일 목록(이미지 파일 이름 전부), 핵심 사실과 PDF 쪽수(인쇄/PDF 쪽 관계), 확인 못 해서 뺀 것, 걱정거리.
 

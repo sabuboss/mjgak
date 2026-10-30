@@ -51,9 +51,9 @@ for ln in lines:
     m = re.match(r"^(\d+~\d+일차:|\d+일차:|전날:)(.*)$", s)
     if m:
         p(f'<b><span style="color:#ff0010;">{E(m.group(1))}</span>{E(m.group(2))}</b>'); continue
-    m = re.match(r"^→\s*(https?://\S+)", s)
+    m = re.match(r"^→\s*(?:(.+?)\s*\|\s*)?(https?://\S+)$", s)  # "→ URL" 또는 "→ 라벨 | URL"(사이트 도구 바로가기)
     if m:
-        p(f'<b><a href="{E(m.group(1))}" style="color:#23406e;">→면접각 바로가기</a></b>'); continue
+        p(f'<b><a href="{E(m.group(2))}" style="color:#23406e;">→{E(m.group(1) or "면접각 바로가기")}</a></b>'); continue
     # 문장 안의 주소도 눌러지게 링크로
     p(re.sub(r"(https?://[A-Za-z0-9._~:/?#@!$&*+=%;-]*[A-Za-z0-9/_~#=-])", lambda m: f'<a href="{m.group(1)}" style="color:#23406e;">{m.group(1)}</a>', E(s)))
 
