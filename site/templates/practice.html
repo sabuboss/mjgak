@@ -2,15 +2,17 @@
 {% block body %}
 <p class="crumb"><a href="/">홈</a> › 모의 면접</p>
 <h1>모의 면접 연습</h1>
-<p class="lead">질문을 무작위로 뽑아 <b>생각 15초 → 답변 60초</b>로 소리 내어 연습합니다. 녹음하면 바로 다시 들을 수 있고, 녹음 파일은 <b>이 기기 브라우저 안에서만</b> 재생되며 서버로 보내지 않습니다. 처음이라면 <a href="#howto">그림으로 보는 사용법</a>부터 보세요.</p>
+<p class="lead">질문을 무작위로 뽑아 <b>생각 15초 → 답변 60초</b>로 소리 내어 연습합니다.<span class="pr-lead2"> 녹음은 <b>이 기기 안에서만</b> 재생되고 서버로 보내지 않습니다.</span> <a href="#howto">사용법</a></p>
 
 <div class="pr">
   <div class="pr-set">
-    <label class="pr-find">학과·대학 이름으로 찾기 <input id="prFind" type="search" placeholder="예: 간호, 경영, 동덕" autocomplete="off" enterkeyhint="search"></label>
-    <p class="pr-findnote" id="prFindNote" aria-live="polite"></p>
-    <div class="pr-chips" id="prChips" aria-label="자주 찾는 질문 묶음"></div>
-    <label>연습할 질문 <select id="prSet" aria-label="질문 묶음 선택"></select></label>
-    <label class="pr-opt"><input type="checkbox" id="prRec"> 답변 녹음하기</label>
+    <label class="pr-pick">연습할 질문 <select id="prSet" aria-label="질문 묶음 선택"></select></label>
+    <details class="pr-findbox" id="prFindBox">
+      <summary>학과·대학 이름으로 찾기</summary>
+      <input id="prFind" type="search" placeholder="예: 간호, 컴공, 인제대" autocomplete="off" enterkeyhint="search" aria-label="학과·대학 이름으로 찾기">
+      <p class="pr-findnote" id="prFindNote" aria-live="polite"></p>
+      <div class="pr-chips" id="prChips" aria-label="자주 찾는 질문 묶음"></div>
+    </details>
   </div>
   <div class="pr-card" id="prCard">
     <p class="pr-meta" id="prMeta">질문 묶음을 고르고 시작을 누르세요.</p>
@@ -22,6 +24,7 @@
       <button class="btn ghost" id="prStart" type="button" disabled>바로 답변 시작</button>
       <button class="btn ghost" id="prStop" type="button" disabled>답변 끝</button>
     </div>
+    <label class="pr-opt"><input type="checkbox" id="prRec"> 답변 녹음하기 <small>(이 기기에서만 재생 · 서버 전송 없음)</small></label>
     <audio id="prAudio" controls hidden></audio>
     <details class="pr-ex" id="prExWrap" hidden><summary>답변 예시와 주의할 점 보기 (답한 뒤에 보세요)</summary><div id="prEx"></div></details>
   </div>
