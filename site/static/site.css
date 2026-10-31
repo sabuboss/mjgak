@@ -228,7 +228,8 @@ details.more summary{cursor:pointer;color:var(--muted);font-size:14px}
 .pr-btns{display:flex;flex-wrap:wrap;gap:8px}
 .pr-btns .btn[disabled]{opacity:.45}
 #prAudio{width:100%;margin-top:12px}
-.pr-card .pr-opt{display:flex;align-items:center;gap:6px;margin:12px 0 0;font-size:14px;color:var(--muted)}
+.pr-card .pr-opt{display:block;margin:12px 0 0;font-size:14px;color:var(--muted)}
+.pr-card .pr-opt input{margin:0 6px 0 0;vertical-align:-2px}.pr-card .pr-opt small{font-size:12px}
 .pr-ex{margin-top:12px}
 .pr-ex summary{cursor:pointer;font-weight:600;color:var(--accent)}
 @media (max-width:560px){.top .in{gap:10px}.top nav{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}.top nav::-webkit-scrollbar{display:none}.yrow dl{grid-template-columns:72px 1fr}.pr-q{font-size:18px}}
