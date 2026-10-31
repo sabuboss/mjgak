@@ -4,7 +4,7 @@
   var $ = function (id) { return document.getElementById(id); };
   var KEY = "mjgak-planner", WD = "일월화수목금토";
   var listEl = $("plList"), qEl = $("plQ"), tl = $("plTimeline"), nEl = $("plN"), warn = $("plWarn"), go = $("plGo"), goN = $("plGoN");
-  var DATA = null, byId = {}, picked = [];
+  var DATA = null, byId = {}, picked = [], hintU = null;
 
   function esc(s) { var d = document.createElement("div"); d.textContent = s || ""; return d.innerHTML; }
   function day(iso) { var p = iso.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
@@ -29,13 +29,20 @@
     if (t) ids = t.split(",");
     else {
       try { ids = (localStorage.getItem(KEY) || "").split(","); } catch (e) { ids = []; }
-      if (u) DATA.univs.forEach(function (x) { if (x.c === u) x.t.forEach(function (tr) { if (ids.indexOf(tr.id) < 0) ids.push(tr.id); }); });
+      // 블로그·대학 페이지에서 ?u= 로 오면 전형이 하나뿐일 때만 바로 담고, 여럿이면 펼쳐서 지원한 전형을 고르게 한다
+      if (u) DATA.univs.forEach(function (x) {
+        if (x.c !== u) return;
+        if (x.t.length === 1) { if (ids.indexOf(x.t[0].id) < 0) ids.push(x.t[0].id); }
+        else hintU = x;
+      });
     }
     picked = ids.filter(function (id) { return byId[id]; });
     if (u) qEl.value = (DATA.univs.filter(function (x) { return x.c === u; })[0] || {}).n || "";
   }
   function renderList() {
     var q = qEl.value.trim().replace(/\s+/g, "");
+    // 안내는 그 대학 전형을 아직 하나도 안 골랐을 때만
+    var x0 = function (x) { return x.t.every(function (tr) { return picked.indexOf(tr.id) < 0; }) && x.n.replace(/\s+/g, "").indexOf(q) >= 0; };
     var html = DATA.univs.filter(function (x) { return !q || x.n.replace(/\s+/g, "").indexOf(q) >= 0; }).map(function (x) {
       var on = x.t.filter(function (tr) { return picked.indexOf(tr.id) >= 0; }).length;
       return '<details' + (q || on ? " open" : "") + '><summary>' + esc(x.n) + (on ? "<i>" + on + "개 고름</i>" : "") + "</summary>" +
@@ -44,7 +51,9 @@
             "<small>면접 " + tr.d.map(label).join(" · ") + (tr.f ? " · 1단계 " + label(tr.f) : "") + "</small></span></label>";
         }).join("") + "</details>";
     }).join("");
-    var hint = !q && !picked.length ? '<p class="note pl-hint">위 칸에 대학 이름을 적거나, 아래 대학 이름을 눌러 전형을 펼치세요.</p>' : "";
+    var hu = hintU && x0(hintU) ? hintU : null;
+    var hint = hu ? '<p class="note pl-hint"><b>' + esc(hu.n) + '</b> 전형이 ' + hu.t.length + '개입니다. 지원한 전형에 체크하세요.</p>' :
+      !q && !picked.length ? '<p class="note pl-hint">위 칸에 대학 이름을 적거나, 아래 대학 이름을 눌러 전형을 펼치세요.</p>' : "";
     listEl.innerHTML = html ? hint + html : '<p class="note">찾는 대학이 없습니다. 이 일정표에는 2027 모집요강을 확인한 대학만 있습니다.</p>';
   }
   function renderTimeline() {
@@ -65,8 +74,8 @@
       var list = ev[iso], ivU = {};
       list.forEach(function (e) { if (e.k === "iv") ivU[e.u.c] = e.u.n; });
       var names = Object.keys(ivU).map(function (c) { return ivU[c]; }), clash = names.length > 1;
-      if (clash) clashes.push(label(iso) + " " + names.join("·"));
       var past = iso < DATA.today_local;
+      if (clash && !past) clashes.push(label(iso) + " " + names.join("·"));  // 지난 날짜 겹침은 위 경고에서 뺀다
       return '<li class="' + (clash ? "clash " : "") + (past ? "past" : "") + '"><div class="pl-d">' + label(iso) + "<small>" + dleft(iso) + "</small></div><div>" +
         (clash ? '<p class="clashnote">같은 날 면접 후보 ' + names.length + "곳 — 내 모집단위 날짜를 확인하세요</p>" : "") +
         list.map(function (e) {
@@ -75,11 +84,15 @@
           var multi = e.k === "iv" && e.tr.d.length > 1;
           return '<p class="ev"><span class="tag' + (e.k === "iv" ? " iv" : "") + '">' + (e.k === "iv" ? "면접" : "1단계 발표") + "</span>" +
             '<a href="' + e.u.u + '">' + esc(e.u.n) + "</a> " + esc(e.tr.n) +
-            (e.k === "iv" ? "<small>" + (multi ? "이날: " : "") + esc(multi ? seg(e.tr.dt, iso) : e.tr.dt) + "</small>" : (e.tr.ft ? "<small>" + esc(e.tr.ft) + "</small>" : "")) + "</p>";
+            (e.k === "iv" ? more((multi ? "이날: " : "") + (multi ? seg(e.tr.dt, iso) : e.tr.dt)) : (e.tr.ft ? "<small>" + esc(e.tr.ft) + "</small>" : "")) + "</p>";
         }).join("") + "</div></li>";
     }).join("");
     warn.hidden = !clashes.length;
     warn.innerHTML = clashes.length ? "<b>겹칠 수 있는 날</b> " + esc(clashes.join(" / ")) + ". 같은 날이라도 모집단위·시간이 다르면 둘 다 볼 수 있으니, 1단계 발표 때 개인별 고사 시간을 꼭 확인하세요." : "";
+  }
+  // 모집단위가 길게 늘어선 설명은 두 줄만 보이고 눌러서 펼친다(휴대폰에서 같은 목록이 날마다 반복돼 길어지는 것 방지)
+  function more(t) {
+    return t.length > 70 ? '<small class="pl-more">' + esc(t) + '</small><button type="button" class="pl-more-btn" aria-expanded="false">전체 보기 ▾</button>' : "<small>" + esc(t) + "</small>";
   }
   // 아직 고른 전형이 없을 때: 오늘부터 2주 안의 1단계 발표·면접을 날짜별로 미리 보여 준다(바로 담기 가능)
   function upcoming() {
@@ -106,6 +119,11 @@
       }).join("");
   }
   tl.addEventListener("click", function (e) {
+    var mb = e.target.closest && e.target.closest(".pl-more-btn");
+    if (mb) {
+      var open = mb.previousElementSibling.classList.toggle("open");
+      mb.setAttribute("aria-expanded", open); mb.textContent = open ? "접기 ▴" : "전체 보기 ▾"; return;
+    }
     var b = e.target.closest && e.target.closest(".pl-add"); if (!b) return;
     var id = b.getAttribute("data-id");
     if (byId[id] && picked.indexOf(id) < 0) { picked.push(id); save(); refresh(); }
