@@ -80,7 +80,7 @@ def generate(key, text, ratio):
             "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": {"aspectRatio": ratio}}}
     req = urllib.request.Request(URL, data=json.dumps(body).encode(), method="POST",
                                  headers={"Content-Type": "application/json", "x-goog-api-key": key})
-    for i in range(3):  # 연결 단계 끊김(SSLEOF 등)만 다시 시도 — HTTP 오류는 그대로 올린다
+    for i in range(6):  # 연결 단계 끊김(SSLEOF 등)만 다시 시도 — HTTP 오류는 그대로 올린다
         try:
             with urllib.request.urlopen(req, timeout=180) as r:
                 res = json.load(r)
@@ -88,9 +88,9 @@ def generate(key, text, ratio):
         except urllib.error.HTTPError:
             raise
         except urllib.error.URLError:
-            if i == 2:
+            if i == 5:
                 raise
-            time.sleep(5 * (i + 1))
+            time.sleep(15 * (i + 1))
     for c in res.get("candidates", []):
         for p in c.get("content", {}).get("parts", []):
             if "inlineData" in p:
