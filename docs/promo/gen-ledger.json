@@ -1,14 +1,18 @@
 {
  "2026-10": {
-  "krw": 420,
-  "count": 6,
+  "krw": 700,
+  "count": 10,
   "items": [
    "gem-animalhealth-1.png",
    "gem-hongik-1.png",
    "gem-ulsan-1.png",
    "gem-ulsan-1.png",
    "gem-dau-1.png",
-   "gem-keimyung-1.png"
+   "gem-keimyung-1.png",
+   "gem-daejin-1.png",
+   "gem-hanbat-1.png",
+   "gem-yeungnam-1.png",
+   "gem-mokpo-1.png"
   ]
  }
 }
