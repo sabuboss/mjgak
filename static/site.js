@@ -78,3 +78,21 @@ document.addEventListener("click", function (e) {
     el.hidden = false; return;
   }
 })();
+
+// 대학 페이지: 넓은 화면에선 전형별 상세를 펼치고, 면접일이 이용자 기기 날짜로 지났으면 '면접 끝남'(여러 날 중 일부만 지났으면 '면접 진행 중')을 붙인다
+(function () {
+  if (window.matchMedia && matchMedia("(min-width:561px)").matches)
+    document.querySelectorAll("details.yfold").forEach(function (d) { d.open = true; });
+  var els = document.querySelectorAll("[data-days]"); if (!els.length) return;
+  var now = new Date(), t = now.getFullYear() + "-" + ("0" + (now.getMonth() + 1)).slice(-2) + "-" + ("0" + now.getDate()).slice(-2);
+  els.forEach(function (el) {
+    var ds = el.getAttribute("data-days").split(",").filter(Boolean).sort(); if (!ds.length) return;
+    var all = ds[ds.length - 1] < t, some = ds[0] < t;
+    if (!some) return;
+    var tag = document.createElement("span"); tag.className = "ypast" + (all ? "" : " ypart");
+    tag.textContent = all ? "면접 끝남" : "면접 진행 중";
+    var h = el.querySelector(".yhead, b"), k = h && h.querySelector(".yfold-k");
+    if (k) h.insertBefore(tag, k); else if (h) h.appendChild(tag);
+    if (all) el.classList.add("is-past");
+  });
+})();
