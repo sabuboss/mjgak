@@ -457,7 +457,8 @@ def main():
             continue
         tr = []
         for i, t in enumerate(r.get("tracks", [])):
-            days = [x for x in datesparse.parse(t.get("date")) if x >= TODAY.isoformat()]
+            t["_days"] = datesparse.parse(t.get("date"))  # 대학 페이지의 '면접 끝남' 표시용(이용자 기기 날짜로 비교)
+            days = [x for x in t["_days"] if x >= TODAY.isoformat()]
             if not days:
                 continue
             f = datesparse.first(t.get("first"))

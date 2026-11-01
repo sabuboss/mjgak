@@ -346,3 +346,16 @@ details.more summary{cursor:pointer;color:var(--muted);font-size:14px}
   .cards-compact .card .chip{font-size:11px;padding:2px 7px}
   .cards-compact .card b{font-size:15px;margin:4px 0 0}
 }
+
+/* 대학 페이지: 전형 상세 접기 · 지난 면접 표시 */
+.yfold>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;margin:0}
+.yfold>summary::-webkit-details-marker{display:none}
+.yfold[open]>summary{margin-bottom:8px}
+.yhead .yfold-k{flex:none;font-size:12.5px;font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:4px 10px;min-height:28px;display:inline-flex;align-items:center;margin-left:auto}
+.yhead .yfold-k::after{content:" ▾";margin-left:2px}
+.yfold[open] .yhead .yfold-k::after{content:" ▴"}
+.yfold[open] .yhead .yfold-k{font-size:0;padding:4px 8px}.yfold[open] .yfold-k::after{font-size:12.5px}
+.yhead .ypast,.qc .ypast{display:inline-block;margin-left:0;padding:1px 7px;line-height:1.6;border-radius:6px;background:#eceff3;color:#5b6573;font-size:11.5px;font-weight:700;vertical-align:2px}
+.yhead .ypast.ypart,.qc .ypast.ypart{background:#fff1d6;color:#8a5a00}
+.qc.is-past{opacity:.6}
+.qc .ypast{margin-left:6px}
