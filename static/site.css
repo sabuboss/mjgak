@@ -359,3 +359,14 @@ details.more summary{cursor:pointer;color:var(--muted);font-size:14px}
 .yhead .ypast.ypart,.qc .ypast.ypart{background:#fff1d6;color:#8a5a00}
 .qc.is-past{opacity:.6}
 .qc .ypast{margin-left:6px}
+
+/* 대학 페이지: 면접 당일 안내·면접 이후 일정 / 생기부 질문 틀 */
+.quick-final{margin:0 0 10px;padding:9px 12px;border-radius:10px;background:#fff;border:1px solid var(--line);font-size:14px;line-height:1.55}
+.quick-final b{color:var(--accent);margin-right:4px}
+.quick-final a{white-space:nowrap;margin-left:4px;font-size:13px}
+.ylist{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;margin:8px 0 4px;font-size:14.5px;line-height:1.6}
+.ylist dt{color:var(--muted);font-weight:700}
+.ylist dd{margin:0}
+@media (max-width:560px){.ylist{grid-template-columns:1fr;gap:0}.ylist dt{font-size:12.5px;margin-top:8px}.ylist dt:first-child{margin-top:0}}
+pre.prompt{white-space:pre-wrap;word-break:keep-all;background:var(--field);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font:inherit;font-size:14px;line-height:1.7}
+.copy-prompt{margin:0 0 14px}
