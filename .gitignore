@@ -60,3 +60,4 @@ __pycache__/
 
 # 자동 감시 결과(실행 때마다 생성)
 monitor/report.md
+.secrets/
