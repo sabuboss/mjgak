@@ -229,3 +229,14 @@ body:has(.ha-wrap) .top .in,body:has(.ha-wrap) .dday a{max-width:1120px}
   .ha-dd-a{padding:5px 11px;font-size:12.5px}
   .ha-relax{padding:16px}
 }
+
+/* 다가오는 일정 뒤로 옮긴 마음 풀기(1000px 이하) · 접은 목록 */
+.ha-relax.ha-relax-out{margin:22px 0 0}
+.ha-fold{margin:0}
+.ha-fold>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ha-fold>summary::-webkit-details-marker{display:none}
+.ha-fold>summary h2{margin:0}
+.ha-fold-k{flex:none;font-size:13px;font-weight:700;color:var(--ha-navy);border:1.5px solid var(--ha-navy);border-radius:999px;padding:6px 12px}
+.ha-fold-k::after{content:" ▾"}
+.ha-fold[open] .ha-fold-k{display:none}
+@media (max-width:560px){.ha-fold>summary h2{font-size:19px}}
