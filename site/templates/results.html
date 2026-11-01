@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="/schedule/">면접 일정</a> › 합격자 발표·등록·충원 일정</p>
+<h1>2027 수시 합격자 발표·등록·충원 일정 <small>{{ rows|length }}개 대학</small></h1>
+<p class="lead">면접을 마쳤다면 다음은 <b>최종 합격자 발표 → 합격자 등록 → 충원(추가) 합격</b>입니다. 면접각이 2027학년도 수시모집요강에서 확인한 {{ rows|length }}개 대학의 날짜를 모았습니다. 대학 이름을 누르면 전형별 면접 정보와 면접 당일 안내가 있습니다.</p>
+<div class="callout"><b>꼭 확인하세요</b> 날짜는 모집요강 기준이고, 대학 사정으로 바뀔 수 있습니다. 발표 당일에는 입학처 공지를 먼저 확인하세요. 수시에 최종 합격(충원 합격 포함)하면 등록하지 않아도 정시·추가모집에 지원할 수 없습니다(과학기술원·경찰대학·사관학교 등은 예외가 있으니 각 모집요강 확인). 충원 합격 연락을 받을 수 있게 전화는 꼭 받으세요.</div>
+<label class="pl-search" style="margin:16px 0 8px">대학 찾기 <input id="rsQ" type="search" placeholder="예: 가천, 인제, 부산" autocomplete="off"></label>
+<table class="tbl" id="rsTbl"><tr><th>대학</th><th>최종 합격자 발표</th><th>등록 · 충원 합격</th></tr>
+{% for x in rows %}<tr data-k="{{ x.name }} {{ x.full }}"><td><a href="{{ x.url }}#after">{{ x.name }}</a></td><td>{{ x.final or "-" }}</td><td>{% if x.register %}<b>등록</b> {{ x.register }}{% endif %}{% if x.extra %}{% if x.register %}<br>{% endif %}<b>충원</b> {{ x.extra }}{% endif %}{% if x.source %}<br><small>출처: {{ x.source }}</small>{% endif %}</td></tr>
+{% endfor %}</table>
+<p class="note" id="rsNone" hidden>찾는 대학이 없습니다. 이 표에는 면접각이 모집요강에서 발표 일정을 확인한 대학만 있습니다.</p>
+<h2>면접 뒤부터 등록까지 할 일</h2>
+<ol>
+  <li><b>수능최저가 있는 전형</b>이면 수능 뒤 가채점으로 충족 여부를 먼저 봅니다. <a href="/minimum/">수능최저 모아보기</a></li>
+  <li><b>최종 발표일</b>을 <a href="/planner/">내 면접 일정표</a>와 함께 적어 두고, 발표 당일 입학처 홈페이지에서 확인합니다.</li>
+  <li><b>등록 기간</b> 안에 등록(예치금 납부 또는 문서 등록 — 대학마다 다름)을 하지 않으면 합격이 취소됩니다. 여러 곳에 붙었다면 한 곳만 등록합니다.</li>
+  <li><b>충원 합격</b>은 차수마다 홈페이지 발표나 전화로 옵니다. 모르는 번호도 받고, 등록 마감 시각을 지킵니다.</li>
+</ol>
+<script>
+(function(){var q=document.getElementById("rsQ"),rows=[].slice.call(document.querySelectorAll("#rsTbl tr[data-k]")),none=document.getElementById("rsNone");
+q.addEventListener("input",function(){var v=q.value.trim(),n=0;rows.forEach(function(r){var ok=!v||r.getAttribute("data-k").indexOf(v)>=0;r.hidden=!ok;if(ok)n++;});none.hidden=n>0;});})();
+</script>
+{% endblock %}

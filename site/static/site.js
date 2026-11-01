@@ -96,3 +96,16 @@ document.addEventListener("click", function (e) {
     if (all) el.classList.add("is-past");
   });
 })();
+
+// 질문 틀(pre.prompt) 아래 '복사' 버튼
+(function () {
+  document.querySelectorAll("pre.prompt").forEach(function (pre) {
+    var b = document.createElement("button"); b.type = "button"; b.className = "btn ghost copy-prompt"; b.textContent = "질문 틀 복사";
+    b.addEventListener("click", function () {
+      var done = function () { b.textContent = "복사됨"; setTimeout(function () { b.textContent = "질문 틀 복사"; }, 1500); };
+      if (navigator.clipboard) navigator.clipboard.writeText(pre.textContent).then(done, function () {}); 
+      if (window.gtag) gtag("event", "prompt_copy", { page_path: location.pathname });
+    });
+    pre.parentNode.insertBefore(b, pre.nextSibling);
+  });
+})();

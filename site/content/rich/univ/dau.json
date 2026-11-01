@@ -70,38 +70,147 @@
  ],
  "dress": "모집요강의 전형일정·지원자 유의사항·전형별 면접 안내(29·34·35·40·48·50쪽)에는 면접 복장 규정이 따로 없습니다. 면접고사 유의사항에는 '수험생은 면접·실기고사일에 수험표와 신분증 및 필기도구를 반드시 지참하여 지정된 시간까지 고사장에 입실하여야 하며, 지각자는 입실할 수 없습니다'라고 적혀 있고, 휴대폰·스마트워치 등 전자기기는 일체 소지할 수 없습니다(35쪽).",
  "depts": [
-  {"slug": "medicine", "label": "의예과"},
-  {"slug": "nursing", "label": "간호학과"},
-  {"slug": "occupational-therapy", "label": "작업치료학과"},
-  {"slug": "philosophy", "label": "철학윤리학과"},
-  {"slug": "history", "label": "역사고고미술사학과"},
-  {"slug": "korean-literature", "label": "한국어문학과"},
-  {"slug": "education", "label": "교육학과"},
-  {"slug": "child-family", "label": "아동학과"},
-  {"slug": "political-science", "label": "정치외교학전공"},
-  {"slug": "sociology", "label": "사회학전공"},
-  {"slug": "public-administration", "label": "행정학과"},
-  {"slug": "social-welfare", "label": "사회복지학과"},
-  {"slug": "media-communication", "label": "미디어커뮤니케이션학과"},
-  {"slug": "economics", "label": "경제학과"},
-  {"slug": "police-administration", "label": "경찰학과"},
-  {"slug": "business", "label": "경영학과 · 경영정보학과"},
-  {"slug": "tourism-hospitality", "label": "관광경영학과"},
-  {"slug": "english-literature", "label": "영미학과"},
-  {"slug": "semiconductor", "label": "반도체학과"},
-  {"slug": "chemistry", "label": "화학과"},
-  {"slug": "architecture", "label": "건축공학과 · 건축학과"},
-  {"slug": "civil-engineering", "label": "건설시스템공학과"},
-  {"slug": "electrical-engineering", "label": "전기공학과 · 전자공학과"},
-  {"slug": "mechanical-engineering", "label": "기계공학과"},
-  {"slug": "industrial-engineering", "label": "산업경영공학과"},
-  {"slug": "chemical-engineering", "label": "화학공학과"},
-  {"slug": "materials-engineering", "label": "신소재공학과"},
-  {"slug": "food-nutrition", "label": "식품영양학과"},
-  {"slug": "computer-science", "label": "컴퓨터공학과"},
-  {"slug": "ai-data", "label": "AI학과"},
-  {"slug": "design", "label": "산업디자인학과 · 패션디자인학과"},
-  {"slug": "physical-education", "label": "체육학과"}
+  {
+   "slug": "medicine",
+   "label": "의예과"
+  },
+  {
+   "slug": "nursing",
+   "label": "간호학과"
+  },
+  {
+   "slug": "occupational-therapy",
+   "label": "작업치료학과"
+  },
+  {
+   "slug": "philosophy",
+   "label": "철학윤리학과"
+  },
+  {
+   "slug": "history",
+   "label": "역사고고미술사학과"
+  },
+  {
+   "slug": "korean-literature",
+   "label": "한국어문학과"
+  },
+  {
+   "slug": "education",
+   "label": "교육학과"
+  },
+  {
+   "slug": "child-family",
+   "label": "아동학과"
+  },
+  {
+   "slug": "political-science",
+   "label": "정치외교학전공"
+  },
+  {
+   "slug": "sociology",
+   "label": "사회학전공"
+  },
+  {
+   "slug": "public-administration",
+   "label": "행정학과"
+  },
+  {
+   "slug": "social-welfare",
+   "label": "사회복지학과"
+  },
+  {
+   "slug": "media-communication",
+   "label": "미디어커뮤니케이션학과"
+  },
+  {
+   "slug": "economics",
+   "label": "경제학과"
+  },
+  {
+   "slug": "police-administration",
+   "label": "경찰학과"
+  },
+  {
+   "slug": "business",
+   "label": "경영학과 · 경영정보학과"
+  },
+  {
+   "slug": "tourism-hospitality",
+   "label": "관광경영학과"
+  },
+  {
+   "slug": "english-literature",
+   "label": "영미학과"
+  },
+  {
+   "slug": "semiconductor",
+   "label": "반도체학과"
+  },
+  {
+   "slug": "chemistry",
+   "label": "화학과"
+  },
+  {
+   "slug": "architecture",
+   "label": "건축공학과 · 건축학과"
+  },
+  {
+   "slug": "civil-engineering",
+   "label": "건설시스템공학과"
+  },
+  {
+   "slug": "electrical-engineering",
+   "label": "전기공학과 · 전자공학과"
+  },
+  {
+   "slug": "mechanical-engineering",
+   "label": "기계공학과"
+  },
+  {
+   "slug": "industrial-engineering",
+   "label": "산업경영공학과"
+  },
+  {
+   "slug": "chemical-engineering",
+   "label": "화학공학과"
+  },
+  {
+   "slug": "materials-engineering",
+   "label": "신소재공학과"
+  },
+  {
+   "slug": "food-nutrition",
+   "label": "식품영양학과"
+  },
+  {
+   "slug": "computer-science",
+   "label": "컴퓨터공학과"
+  },
+  {
+   "slug": "ai-data",
+   "label": "AI학과"
+  },
+  {
+   "slug": "design",
+   "label": "산업디자인학과 · 패션디자인학과"
+  },
+  {
+   "slug": "physical-education",
+   "label": "체육학과"
+  }
  ],
- "checked": "2026-10-29"
+ "checked": "2026-10-29",
+ "after": {
+  "final": "학생부종합(잠재능력우수자·지역인재종합·지역의사제): 12/18(금) 14:00 · 홈페이지 공지(개별 통보 없음)",
+  "register": "12/21(월) 09:00~12/23(수) 15:30 · 온라인 등록, 등록금 납부 2027 2/10(수) 10:00~2/12(금) 15:30",
+  "extra": "충원합격자 발표 12/24(목) 09:00~12/29(화) 18:00 · 홈페이지 공지 또는 전화 개별 통보(3회 이상 연락 안 되면 등록 의사 없음으로 간주) · 온라인 등록 12/30(수) 15:30까지",
+  "source": "2027학년도 수시모집요강 29쪽(전형일정)·35쪽(지원자 유의사항)"
+ },
+ "dayof": {
+  "arrive": "면접고사 세부사항 11/20(금) 홈페이지 공지 · 지정된 시간까지 고사장 입실, 지각자는 입실 불가",
+  "bring": "수험표, 신분증(주민등록증·운전면허증·기간 만료 전 여권·생년월일 표기 학생증·청소년증 등), 필기도구",
+  "phone": "휴대폰·스마트워치·블루투스이어폰 등 모든 전자기기 소지 불가 · 고사 시작 후 소지 시 부정행위로 불합격 · 아날로그 시계만 가능",
+  "other": "면접고사 순서에 따라 개인별 고사 시작 시각 다름 · 면접 결시자·중도포기자는 불합격",
+  "source": "2027학년도 수시모집요강 29쪽(전형일정)·35쪽(실기고사 및 면접고사 유의사항)"
+ }
 }

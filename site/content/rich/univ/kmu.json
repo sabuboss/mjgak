@@ -94,37 +94,140 @@
  ],
  "dress": "모집요강의 전형별 면접 안내(16·21·27쪽)와 지원자 유의사항(45~47쪽)에는 면접 복장 규정이 따로 적혀 있지 않습니다.",
  "depts": [
-  {"slug": "medicine", "label": "의예과"},
-  {"slug": "pharmacy", "label": "약학부"},
-  {"slug": "nursing", "label": "간호학과"},
-  {"slug": "free-major", "label": "자율전공부"},
-  {"slug": "korean-literature", "label": "국어국문학과 · 문예창작학과"},
-  {"slug": "english-literature", "label": "영어영문학과"},
-  {"slug": "history", "label": "사학과"},
-  {"slug": "early-childhood-education", "label": "유아교육과"},
-  {"slug": "korean-language-education", "label": "국어교육과"},
-  {"slug": "business", "label": "경영학과"},
-  {"slug": "tourism-hospitality", "label": "관광경영학과"},
-  {"slug": "economics", "label": "경제금융학과"},
-  {"slug": "public-administration", "label": "행정학과"},
-  {"slug": "political-science", "label": "정치외교학과"},
-  {"slug": "media-communication", "label": "언론영상학과 · 광고홍보학과"},
-  {"slug": "sociology", "label": "사회학과"},
-  {"slug": "psychology", "label": "심리학과"},
-  {"slug": "social-welfare", "label": "사회복지학과"},
-  {"slug": "law", "label": "법학과"},
-  {"slug": "police-administration", "label": "경찰행정학과"},
-  {"slug": "mathematics", "label": "수학과"},
-  {"slug": "statistics", "label": "통계학과"},
-  {"slug": "chemistry", "label": "화학과"},
-  {"slug": "biology", "label": "생명과학과"},
-  {"slug": "food-nutrition", "label": "식품영양학과"},
-  {"slug": "civil-engineering", "label": "토목공학과"},
-  {"slug": "architecture", "label": "건축학과 · 건축공학과"},
-  {"slug": "electrical-engineering", "label": "전기공학과 · 전자공학과"},
-  {"slug": "computer-science", "label": "컴퓨터공학과 · 게임소프트웨어학과"},
-  {"slug": "mechanical-engineering", "label": "기계공학과"},
-  {"slug": "chemical-engineering", "label": "화학공학과"}
+  {
+   "slug": "medicine",
+   "label": "의예과"
+  },
+  {
+   "slug": "pharmacy",
+   "label": "약학부"
+  },
+  {
+   "slug": "nursing",
+   "label": "간호학과"
+  },
+  {
+   "slug": "free-major",
+   "label": "자율전공부"
+  },
+  {
+   "slug": "korean-literature",
+   "label": "국어국문학과 · 문예창작학과"
+  },
+  {
+   "slug": "english-literature",
+   "label": "영어영문학과"
+  },
+  {
+   "slug": "history",
+   "label": "사학과"
+  },
+  {
+   "slug": "early-childhood-education",
+   "label": "유아교육과"
+  },
+  {
+   "slug": "korean-language-education",
+   "label": "국어교육과"
+  },
+  {
+   "slug": "business",
+   "label": "경영학과"
+  },
+  {
+   "slug": "tourism-hospitality",
+   "label": "관광경영학과"
+  },
+  {
+   "slug": "economics",
+   "label": "경제금융학과"
+  },
+  {
+   "slug": "public-administration",
+   "label": "행정학과"
+  },
+  {
+   "slug": "political-science",
+   "label": "정치외교학과"
+  },
+  {
+   "slug": "media-communication",
+   "label": "언론영상학과 · 광고홍보학과"
+  },
+  {
+   "slug": "sociology",
+   "label": "사회학과"
+  },
+  {
+   "slug": "psychology",
+   "label": "심리학과"
+  },
+  {
+   "slug": "social-welfare",
+   "label": "사회복지학과"
+  },
+  {
+   "slug": "law",
+   "label": "법학과"
+  },
+  {
+   "slug": "police-administration",
+   "label": "경찰행정학과"
+  },
+  {
+   "slug": "mathematics",
+   "label": "수학과"
+  },
+  {
+   "slug": "statistics",
+   "label": "통계학과"
+  },
+  {
+   "slug": "chemistry",
+   "label": "화학과"
+  },
+  {
+   "slug": "biology",
+   "label": "생명과학과"
+  },
+  {
+   "slug": "food-nutrition",
+   "label": "식품영양학과"
+  },
+  {
+   "slug": "civil-engineering",
+   "label": "토목공학과"
+  },
+  {
+   "slug": "architecture",
+   "label": "건축학과 · 건축공학과"
+  },
+  {
+   "slug": "electrical-engineering",
+   "label": "전기공학과 · 전자공학과"
+  },
+  {
+   "slug": "computer-science",
+   "label": "컴퓨터공학과 · 게임소프트웨어학과"
+  },
+  {
+   "slug": "mechanical-engineering",
+   "label": "기계공학과"
+  },
+  {
+   "slug": "chemical-engineering",
+   "label": "화학공학과"
+  }
  ],
- "checked": "2026-10-29"
+ "checked": "2026-10-29",
+ "after": {
+  "final": "학생부교과(면접·지역의사광역·의예과)·학생부종합(의예과): 12/18(금)(예정) · 입학처 홈페이지 통합지원서비스",
+  "register": "12/21(월)~12/23(수) · 온라인 문서 등록(예치금 납부 없음) · 등록금 납부 2027.2/10(수)~2/12(금)",
+  "extra": "충원 합격자 발표 12/24(목)~12/29(화) 18:00 · 통합지원서비스, 등록 임박 시 전화 통보 가능(3회 불통 시 등록 의사 없음) · 충원 문서 등록 12/24(목)~12/30(수) 차수별 지정기간",
+  "source": "2027학년도 신입생 수시모집요강 15쪽(전형일정 안내)·47쪽(합격자 발표 및 등록)"
+ },
+ "dayof": {
+  "other": "면접 결시자는 불합격 · 지원인원에 따라 오전·오후 등으로 분반 진행 · 개인별 일자·시간 변경 불가",
+  "source": "2027학년도 신입생 수시모집요강 14쪽(원서접수 유의사항)·15쪽(전형일정 안내)"
+ }
 }

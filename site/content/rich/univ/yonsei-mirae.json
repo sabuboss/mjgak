@@ -85,18 +85,67 @@
  ],
  "dress": "모집요강 면접 유의사항은 \"개인신상 언급 및 고등학교를 확인할 수 있는 복장(교복, 명찰 등) 금지, 제복(군복 등) 금지\"라고 정했습니다(80쪽). 응시표와 신분증을 모두 지참해야 하며 모바일 신분증은 인정하지 않습니다.",
  "depts": [
-  {"slug": "medicine", "label": "의예과"},
-  {"slug": "nursing", "label": "간호학과"},
-  {"slug": "physical-therapy", "label": "물리치료학과·작업치료학과"},
-  {"slug": "radiologic-technology", "label": "방사선학과"},
-  {"slug": "dental-hygiene", "label": "치위생학과"},
-  {"slug": "biomedical-lab", "label": "임상병리학과·방사선학과·치위생학과"},
-  {"slug": "computer-science", "label": "컴퓨터공학과·소프트웨어학과"},
-  {"slug": "ai-data", "label": "인공지능학과·데이터과학과"},
-  {"slug": "semiconductor", "label": "반도체공학과 · 지능형반도체"},
-  {"slug": "design", "label": "디자인학과(시각·산업·패션)"},
-  {"slug": "liberal-studies", "label": "자유전공학부·무전공(전공자율선택)"},
-  {"slug": "international-studies", "label": "국제학부·국제통상학과"}
+  {
+   "slug": "medicine",
+   "label": "의예과"
+  },
+  {
+   "slug": "nursing",
+   "label": "간호학과"
+  },
+  {
+   "slug": "physical-therapy",
+   "label": "물리치료학과·작업치료학과"
+  },
+  {
+   "slug": "radiologic-technology",
+   "label": "방사선학과"
+  },
+  {
+   "slug": "dental-hygiene",
+   "label": "치위생학과"
+  },
+  {
+   "slug": "biomedical-lab",
+   "label": "임상병리학과·방사선학과·치위생학과"
+  },
+  {
+   "slug": "computer-science",
+   "label": "컴퓨터공학과·소프트웨어학과"
+  },
+  {
+   "slug": "ai-data",
+   "label": "인공지능학과·데이터과학과"
+  },
+  {
+   "slug": "semiconductor",
+   "label": "반도체공학과 · 지능형반도체"
+  },
+  {
+   "slug": "design",
+   "label": "디자인학과(시각·산업·패션)"
+  },
+  {
+   "slug": "liberal-studies",
+   "label": "자유전공학부·무전공(전공자율선택)"
+  },
+  {
+   "slug": "international-studies",
+   "label": "국제학부·국제통상학과"
+  }
  ],
- "checked": "2026-10-29"
+ "checked": "2026-10-29",
+ "after": {
+  "final": "12/18(금) 17:00 · 미래입학처 홈페이지(개별 연락 없음)",
+  "register": "12/21(월) 10:00~12/23(수) 16:00 · 온라인 문서등록(납부금액 없음) · 등록금 2/10(수) 10:00~2/12(금) 16:00",
+  "extra": "충원 1차 12/24(목) 09:00~4차 12/29(화) 14:00 발표, 4차 등록 12/30(수) 16:00까지 · 홈페이지로만 발표, 전화충원 없음",
+  "source": "2027학년도 연세대학교 미래캠퍼스 수시모집요강 14~15쪽(전형일정 및 합격자 발표/등록)"
+ },
+ "dayof": {
+  "arrive": "면접대상자 발표 때 안내하는 시각까지 면접 대기장소 건물 입실, 이후 절대 불가 · 대상자·장소 공개 10/27(화)·의예과 11/24(화) 17:00",
+  "bring": "응시표(홈페이지 출력, A4 단면, 기재 금지), 신분증(주민등록증·운전면허증·여권·청소년증, 모바일 불가) · 미지참 시 입실 불가",
+  "blind": "개인신상 언급 금지 · 교복·명찰 등 고교를 알 수 있는 복장, 군복 등 제복 금지",
+  "other": "면접 미응시 시 불합격 · 면접점수 기준 미달 시 선발하지 않음",
+  "source": "2027학년도 연세대학교 미래캠퍼스 수시모집요강 80쪽(면접 관련 수험생 유의사항)"
+ }
 }

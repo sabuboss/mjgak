@@ -88,19 +88,72 @@
  ],
  "dress": "모집요강은 학생부종합 면접을 \"블라인드 면접 운영: 수험생 개인정보 음영처리 및 교복착용 금지\"로 정했습니다(28·30·32·51·54·56쪽). 면접고사 당일 휴대폰·통신기기·녹음기·카메라는 대기실과 고사실에서 소지할 수 없습니다(69쪽).",
  "depts": [
-  {"slug": "mechanical-engineering", "label": "기계공학과"},
-  {"slug": "materials-engineering", "label": "신소재공학과·재료공학과"},
-  {"slug": "chemical-engineering", "label": "화학공학과"},
-  {"slug": "semiconductor", "label": "반도체공학과 · 지능형반도체"},
-  {"slug": "electrical-engineering", "label": "전기전자공학과"},
-  {"slug": "computer-science", "label": "컴퓨터공학과·소프트웨어학과"},
-  {"slug": "ai-data", "label": "인공지능학과·데이터과학과"},
-  {"slug": "civil-engineering", "label": "토목공학과·건설환경공학과"},
-  {"slug": "architecture", "label": "건축학과·건축공학과"},
-  {"slug": "industrial-engineering", "label": "산업공학과"},
-  {"slug": "english-literature", "label": "영어영문학과"},
-  {"slug": "economics", "label": "경제학과"},
-  {"slug": "public-administration", "label": "행정학과"}
+  {
+   "slug": "mechanical-engineering",
+   "label": "기계공학과"
+  },
+  {
+   "slug": "materials-engineering",
+   "label": "신소재공학과·재료공학과"
+  },
+  {
+   "slug": "chemical-engineering",
+   "label": "화학공학과"
+  },
+  {
+   "slug": "semiconductor",
+   "label": "반도체공학과 · 지능형반도체"
+  },
+  {
+   "slug": "electrical-engineering",
+   "label": "전기전자공학과"
+  },
+  {
+   "slug": "computer-science",
+   "label": "컴퓨터공학과·소프트웨어학과"
+  },
+  {
+   "slug": "ai-data",
+   "label": "인공지능학과·데이터과학과"
+  },
+  {
+   "slug": "civil-engineering",
+   "label": "토목공학과·건설환경공학과"
+  },
+  {
+   "slug": "architecture",
+   "label": "건축학과·건축공학과"
+  },
+  {
+   "slug": "industrial-engineering",
+   "label": "산업공학과"
+  },
+  {
+   "slug": "english-literature",
+   "label": "영어영문학과"
+  },
+  {
+   "slug": "economics",
+   "label": "경제학과"
+  },
+  {
+   "slug": "public-administration",
+   "label": "행정학과"
+  }
  ],
- "checked": "2026-10-29"
+ "checked": "2026-10-29",
+ "after": {
+  "final": "12/18(금) 15:00 이후 · 본교 입학안내 홈페이지(개별 통지 없음)",
+  "register": "12/21(월) 10:00~12/23(수) 16:00 · 문서등록(별도 예치금 없음), 등록금 납부 2027 2/10(수) 10:00~2/12(금) 16:00",
+  "extra": "충원 1차 12/24(목) 10:00~5차(최종) 12/29(화) 18:00까지 · 1·2차 홈페이지, 3~5차 전화 개별 연락(3회 연결 안 되면 차순위)",
+  "source": "2027학년도 신입생 수시 모집요강 8쪽(전형일정)·72~73쪽(합격자 발표 및 등록)"
+ },
+ "dayof": {
+  "arrive": "지정된 시간까지 면접고사 장소 입실, 입실시간 미준수 시 입실 불가 · 장소·시간은 입학안내 홈페이지 공지 · 유성덕명캠퍼스",
+  "bring": "수험표, 국가공인신분증(주민등록증·여권·청소년증·운전면허증 또는 발급신청확인서)",
+  "phone": "휴대폰·통신기기·녹음기·카메라 대기실·고사실 소지 금지 · 고사 종료 후라도 사용 확인 시 불합격",
+  "blind": "수험생 개인정보 음영처리 · 교복 착용 금지",
+  "other": "면접 마친 뒤 대기실 재입실 불가 · 진행요원 지시 불응 시 사정 제외 가능 · 미응시자는 선발 제외",
+  "source": "2027학년도 신입생 수시 모집요강 8쪽(전형일정)·28쪽(블라인드 면접)·69쪽(면접고사 유의사항)"
+ }
 }

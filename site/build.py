@@ -701,6 +701,39 @@ def main():
          description=f"면접이 있는 2027학년도 수시 전형 중 수능최저학력기준이 있는 {len(minrows)}개 전형을 대학별로 모았습니다. 수능 가채점 뒤 최저 충족 여부를 확인하고, 면접 준비 순서를 정하는 데 쓰세요.")
     urls.append("/minimum/")
 
+    # 합격자 발표·등록·충원 일정 모아보기: 대학 rich 의 after(모집요강 확인분)
+    rsrows = []
+    for code, r in sorted(rich_univ.items(), key=lambda kv: kv[1].get("name", "")):
+        a = r.get("after") or {}
+        if code not in prof_by or not (a.get("final") or a.get("register") or a.get("extra")):
+            continue
+        rsrows.append({"name": short(r.get("name") or prof_by[code]["name"]), "url": prof_by[code]["url"], "final": a.get("final", ""),
+                       "register": a.get("register", ""), "extra": a.get("extra", ""), "source": a.get("source", ""),
+                       "full": r.get("name", "")})
+    if rsrows:
+        page("results", "results.html", rows=rsrows,
+             title=f"2027 수시 합격자 발표일·등록·충원 일정 — {len(rsrows)}개 대학",
+             description=f"2027학년도 수시 최종 합격자 발표일, 합격자 등록 기간, 충원(추가) 합격 일정을 {len(rsrows)}개 대학 수시모집요강에서 확인해 모았습니다. 면접을 마친 수험생이 다음 날짜를 한눈에 볼 수 있습니다.")
+        urls.append("/results/")
+
+    # 제시문·MMI 면접 안내: 면접 설명에 제시문·MMI(다중미니면접)가 나오는 전형을 모집요강 데이터에서 골라 붙인다
+    mmirows = []
+    for code, r in sorted(rich_univ.items(), key=lambda kv: kv[1].get("name", "")):
+        if code not in prof_by:
+            continue
+        for t in r.get("tracks", []):
+            iv = t.get("interview") or ""
+            # "별도 제시문 없음", "제시문 기반 교과형 면접 아님" 같은 부정 표현은 빼고 센다
+            pos = re.sub(r"[^·,(]*제시문[^·,)]{0,14}(없음|없이|아님)[^·,)]*", "", iv)
+            kind = "MMI" if re.search(r"MMI|다중\s*미니", pos) else ("제시문" if "제시문" in pos else "")
+            if kind:
+                mmirows.append({"name": short(r.get("name") or prof_by[code]["name"]), "url": prof_by[code]["url"], "track": t["name"],
+                                "kind": kind, "interview": iv, "date": t.get("date", ""), "source": t.get("source", "")})
+    page("mmi", "mmi.html", rows=mmirows, n_univ=len({x["url"] for x in mmirows}),
+         title=f"제시문 면접·MMI(다중미니면접) 준비법 — 2027 실시 전형 {len(mmirows)}개",
+         description="제시문 기반 면접과 의약 계열 MMI(다중미니면접)가 무엇을 보는지, 읽기·생각·답변 시간을 어떻게 쓰는지, 2027학년도 모집요강에서 확인한 실시 대학·전형과 연습 방법을 정리했습니다.")
+    urls.append("/mmi/")
+
     # 수능 정보 페이지: 수능 뒤 날짜별 면접 대학(내 면접 일정표와 같은 데이터)
     after = []
     for x in sorted(by_day):
@@ -720,7 +753,7 @@ def main():
     urls.append("/planner/")
 
     # 고정 페이지
-    for name in ("guide", "schedule", "about", "privacy", "contact"):
+    for name in ("guide", "schedule", "about", "privacy", "contact", "record"):
         meta, body = md_page(name)
         page(name, "page.html", body=body, title=meta["title"], description=meta.get("description", ""))
         urls.append(f"/{name}/")
@@ -732,7 +765,14 @@ def main():
              "모든 대학 정보는 각 대학 2027학년도 수시모집요강 원문을 대조해 정리했고, 페이지마다 원문 쪽수를 적었습니다.", "",
              "## 도구", f"- [내 면접 일정표]({site['url']}/planner/): 지원 대학의 1단계 발표일·면접일을 날짜순으로",
              f"- [모의 면접]({site['url']}/practice/): 무작위 질문·60초 타이머·녹음", f"- [2027 수능 정보]({site['url']}/suneung/): 시간표·준비물·성적 통지일",
-             f"- [수능최저 모아보기]({site['url']}/minimum/): 면접 전형의 수능최저학력기준", "", "## 대학별 2027 면접 정보"]
+             f"- [수능최저 모아보기]({site['url']}/minimum/): 면접 전형의 수능최저학력기준",
+             f"- [합격자 발표·등록·충원 일정]({site['url']}/results/): 대학별 수시 최종 합격자 발표일·등록 기간·충원 합격 일정(모집요강 확인)",
+             "", "## 면접 준비 안내",
+             f"- [내 생기부로 면접 예상 질문 만들기]({site['url']}/record/): 활동별 질문 3개 틀, ChatGPT 질문 틀, 개인정보 지우기",
+             f"- [제시문 면접·MMI 준비법]({site['url']}/mmi/): 시간 나눠 쓰기, 실시 대학·전형(모집요강)",
+             f"- [면접 준비 2주 순서]({site['url']}/guide/)", "",
+             "대학 페이지마다 '면접 당일 안내'(입실·준비물·휴대폰·블라인드 규정)와 '면접 이후 일정'(최종 발표·등록·충원)을 모집요강 쪽수와 함께 적었습니다.",
+             "", "## 대학별 2027 면접 정보"]
     lines += [f"- [{(r.get('name') or c)} 면접 2027]({site['url']}{prof_by[c]['url']}): {(r.get('summary') or '')[:90]}" for c, r in sorted(rich_univ.items(), key=lambda kv: kv[1].get('name', '')) if c in prof_by]
     lines += ["", "## 학과별 면접 질문", f"- [학과별 목록]({site['url']}/dept/)", f"- [공통 질문]({site['url']}/category/intro/)"]
     write("llms.txt", chr(10).join(lines) + chr(10))

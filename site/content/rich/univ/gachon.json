@@ -70,36 +70,139 @@
  ],
  "dress": "학생부종합 면접은 블라인드 면접이라 교복을 입을 수 없습니다(모집요강 54쪽). 요강 FAQ는 그 밖의 옷차림이나 면접 자세 자체는 평가 대상이 아니라고 안내합니다(57쪽).",
  "depts": [
-  {"slug": "medicine", "label": "의예과"},
-  {"slug": "pharmacy", "label": "약학과"},
-  {"slug": "nursing", "label": "간호학과"},
-  {"slug": "business", "label": "경영학과"},
-  {"slug": "computer-science", "label": "컴퓨터공학과·소프트웨어학과"},
-  {"slug": "ai-data", "label": "인공지능학과·데이터과학과"},
-  {"slug": "semiconductor", "label": "반도체공학과 · 지능형반도체"},
-  {"slug": "electrical-engineering", "label": "전기전자공학과"},
-  {"slug": "chemical-engineering", "label": "화학공학과"},
-  {"slug": "mechanical-engineering", "label": "기계공학과"},
-  {"slug": "materials-engineering", "label": "신소재공학과·재료공학과"},
-  {"slug": "architecture", "label": "건축학과·건축공학과"},
-  {"slug": "civil-engineering", "label": "토목공학과·건설환경공학과"},
-  {"slug": "chemistry", "label": "화학과"},
-  {"slug": "biology", "label": "생명과학과·생명공학과"},
-  {"slug": "food-nutrition", "label": "식품영양학과·식품공학과"},
-  {"slug": "physical-therapy", "label": "물리치료학과·작업치료학과"},
-  {"slug": "radiologic-technology", "label": "방사선학과"},
-  {"slug": "dental-hygiene", "label": "치위생학과"},
-  {"slug": "emergency-medical", "label": "응급구조학과"},
-  {"slug": "media-communication", "label": "미디어커뮤니케이션·언론정보학과"},
-  {"slug": "economics", "label": "경제학과"},
-  {"slug": "statistics", "label": "통계학과·데이터사이언스학과"},
-  {"slug": "social-welfare", "label": "사회복지학과"},
-  {"slug": "early-childhood-education", "label": "유아교육과"},
-  {"slug": "psychology", "label": "심리학과"},
-  {"slug": "law", "label": "법학과·공공인재·법학부"},
-  {"slug": "police-administration", "label": "경찰행정학과·경찰학부"},
-  {"slug": "public-administration", "label": "행정학과"},
-  {"slug": "liberal-studies", "label": "자유전공학부·무전공(전공자율선택)"}
+  {
+   "slug": "medicine",
+   "label": "의예과"
+  },
+  {
+   "slug": "pharmacy",
+   "label": "약학과"
+  },
+  {
+   "slug": "nursing",
+   "label": "간호학과"
+  },
+  {
+   "slug": "business",
+   "label": "경영학과"
+  },
+  {
+   "slug": "computer-science",
+   "label": "컴퓨터공학과·소프트웨어학과"
+  },
+  {
+   "slug": "ai-data",
+   "label": "인공지능학과·데이터과학과"
+  },
+  {
+   "slug": "semiconductor",
+   "label": "반도체공학과 · 지능형반도체"
+  },
+  {
+   "slug": "electrical-engineering",
+   "label": "전기전자공학과"
+  },
+  {
+   "slug": "chemical-engineering",
+   "label": "화학공학과"
+  },
+  {
+   "slug": "mechanical-engineering",
+   "label": "기계공학과"
+  },
+  {
+   "slug": "materials-engineering",
+   "label": "신소재공학과·재료공학과"
+  },
+  {
+   "slug": "architecture",
+   "label": "건축학과·건축공학과"
+  },
+  {
+   "slug": "civil-engineering",
+   "label": "토목공학과·건설환경공학과"
+  },
+  {
+   "slug": "chemistry",
+   "label": "화학과"
+  },
+  {
+   "slug": "biology",
+   "label": "생명과학과·생명공학과"
+  },
+  {
+   "slug": "food-nutrition",
+   "label": "식품영양학과·식품공학과"
+  },
+  {
+   "slug": "physical-therapy",
+   "label": "물리치료학과·작업치료학과"
+  },
+  {
+   "slug": "radiologic-technology",
+   "label": "방사선학과"
+  },
+  {
+   "slug": "dental-hygiene",
+   "label": "치위생학과"
+  },
+  {
+   "slug": "emergency-medical",
+   "label": "응급구조학과"
+  },
+  {
+   "slug": "media-communication",
+   "label": "미디어커뮤니케이션·언론정보학과"
+  },
+  {
+   "slug": "economics",
+   "label": "경제학과"
+  },
+  {
+   "slug": "statistics",
+   "label": "통계학과·데이터사이언스학과"
+  },
+  {
+   "slug": "social-welfare",
+   "label": "사회복지학과"
+  },
+  {
+   "slug": "early-childhood-education",
+   "label": "유아교육과"
+  },
+  {
+   "slug": "psychology",
+   "label": "심리학과"
+  },
+  {
+   "slug": "law",
+   "label": "법학과·공공인재·법학부"
+  },
+  {
+   "slug": "police-administration",
+   "label": "경찰행정학과·경찰학부"
+  },
+  {
+   "slug": "public-administration",
+   "label": "행정학과"
+  },
+  {
+   "slug": "liberal-studies",
+   "label": "자유전공학부·무전공(전공자율선택)"
+  }
  ],
- "checked": "2026-10-27"
+ "checked": "2026-10-27",
+ "after": {
+  "final": "수능일 이전 11/14(토) · 수능일 이후 12/18(금) · 입학처 홈페이지(전형별 구분은 모집요강에 없음)",
+  "register": "12/21(월)~12/23(수) 16:00 · 홈페이지 문서등록(등록예치금 없음), 최종 등록금 납부 2027 2/10(수)~2/12(금) 16:00",
+  "extra": "충원합격자 발표 12/24(목)~12/29(화) 18:00 · 입학처 홈페이지 · 연락 두절 시 충원 제외 · 문서등록 12/30(수) 16:00까지",
+  "source": "2027학년도 수시모집요강 34쪽(전형일정)·37쪽(합격자 발표 및 등록)"
+ },
+ "dayof": {
+  "arrive": "세부 고사 일정은 입학처 홈페이지에서 직접 확인(개별 통지 없음)",
+  "bring": "신분증(주민등록증·운전면허증·기간 만료 전 여권 등), 수험표",
+  "blind": "학생부종합: 교복 착용 금지 · 성명·고교명·수험번호, 교외 수상·자격증, 부모(친인척 포함) 실명·직업 언급 금지",
+  "other": "면접 결시자는 불합격 · 고사를 고의로 방해하거나 태도가 지극히 불량하면 불합격 처리 가능",
+  "source": "2027학년도 수시모집요강 34쪽(전형일정)·54쪽(학생부종합 전형 가이드)·89쪽(대학별 유의사항)"
+ }
 }
