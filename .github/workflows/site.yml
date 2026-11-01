@@ -15,6 +15,8 @@ jobs:
         with: { python-version: "3.12" }
       - run: pip install jinja2
       - run: TZ=Asia/Seoul python site/build.py
+      - name: 배포 전 sitemap 받아 두기(IndexNow 로 바뀐 페이지만 알리려고)
+        run: curl -sfL https://mjgak.com/sitemap.xml -o old-sitemap.xml || true
       - name: dist 브랜치로 배포 (Cloudflare Pages 가 이 브랜치를 서빙)
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -22,3 +24,6 @@ jobs:
           publish_dir: ./site/dist
           publish_branch: dist
           cname: mjgak.com
+      - name: 바뀐 페이지를 IndexNow 로 알리기(빙 등, 무료)
+        continue-on-error: true
+        run: sleep 90 && python site/indexnow.py old-sitemap.xml

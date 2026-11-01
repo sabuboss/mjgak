@@ -737,6 +737,8 @@ def main():
     lines += ["", "## 학과별 면접 질문", f"- [학과별 목록]({site['url']}/dept/)", f"- [공통 질문]({site['url']}/category/intro/)"]
     write("llms.txt", chr(10).join(lines) + chr(10))
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {site['url']}/sitemap.xml\n")
+    if site.get("indexnow_key"):  # IndexNow 소유 확인 파일(https://mjgak.com/<key>.txt)
+        write(f"{site['indexnow_key']}.txt", site["indexnow_key"])
     write_sitemap(urls)
     write_rss(rss)
     search = [{"t": q["question"], "u": q["url"], "c": q["cat_label"]} for q in common["questions"]]
