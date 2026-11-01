@@ -10,7 +10,7 @@
     <p class="ha-sub">대학 입학처가 공개한 실제 기출과 2027학년도 모집요강을 읽고 정리했습니다. 질문마다 '왜 묻는지'와 답변 구조, 준비 팁까지. 외우는 답이 아니라 내 경험으로 만드는 답입니다.</p>
     <div class="search ha-search"><input id="q" type="search" placeholder="대학·학과·질문 검색 — 예: 아주대, 간호학과, 지원동기" autocomplete="off" aria-label="사이트 검색"><ul id="qr" hidden></ul></div>
     <nav class="ha-quick" aria-label="핵심 바로가기">
-      <a class="ha-q ha-q-blue" href="/univ/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10 12 4l9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg><span><b>대학별 면접</b><small>{{ stats.univs }}개 대학</small></span></a>
+      <a class="ha-q ha-q-blue" href="/univ/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10 12 4l9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg><span><b>대학별 면접</b><small>{{ prep_n }}개 대학</small></span></a>
       <a class="ha-q ha-q-sage" href="/dept/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C6.5 4 9.5 4 12 5.5v14C9.5 18 6.5 18 4 19.5zM20 5.5C17.5 4 14.5 4 12 5.5v14c2.5-1.5 5.5-1.5 8 0z"/></svg><span><b>학과별 질문</b><small>{{ stats.depts }}개 학과</small></span></a>
       <a class="ha-q ha-q-coral" href="/planner/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v13H4zM4 11h16M8 4v5M16 4v5"/></svg><span><b>내 면접 일정표</b><small>발표·면접일</small></span></a>
       <a class="ha-q ha-q-yellow" href="/practice/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3zM6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg><span><b>모의 면접</b><small>60초 답변 연습</small></span></a>
@@ -56,7 +56,22 @@
   }
   el.hidden = true;
 })();
+/* 한 줄 화면(1000px 이하)에선 마음 풀기를 '다가오는 1단계 발표·면접' 뒤로 옮겨 면접 시즌에 일정이 먼저 보이게 하고, 넓은 화면에선 접어 둔 목록을 펼친다 */
+document.addEventListener("DOMContentLoaded", function () {
+  var mm = window.matchMedia && matchMedia("(max-width:1000px)");
+  var rx = document.querySelector(".ha-relax"), up = document.querySelector(".ha-up");
+  if (mm && mm.matches && rx && up) { rx.classList.add("ha-relax-out"); up.parentNode.insertBefore(rx, up.nextSibling); }
+  if (mm && !mm.matches) document.querySelectorAll("details.ha-fold").forEach(function (d) { d.open = true; });
+});
 </script>
+
+<section class="ha-up" aria-labelledby="ha-up-h">
+  <div class="ha-head"><h2 id="ha-up-h">다가오는 1단계 발표·면접</h2><a class="ha-btn ha-btn-line ha-btn-sm" href="/planner/">일정표 보기</a></div>
+  <p class="ha-lead">오늘부터 2주 안의 일정입니다(이 기기 날짜 기준). 지원한 대학만 모아 보려면 내 면접 일정표에서 고르세요.</p>
+  <div id="upc" class="ha-upc" data-pfx="ha" data-src="{{ base }}/planner/data.json">
+    <a class="ha-uc ha-uc-0 ha-uc-empty" href="/planner/"><b>내 면접 일정표 보기</b><span>대학·전형을 고르면 1단계 발표일과 면접일을 날짜순으로 모아 줍니다.</span></a>
+  </div>
+</section>
 
 <ul class="ha-stats" aria-label="면접각에 정리된 자료">
   <li><b>{{ stats.univs }}</b>대학 2027 면접 정보</li>
@@ -76,13 +91,7 @@
     {% for p in profiles %}<a class="ha-chip" href="{{ p.url }}">{{ p.label }} <i>{{ p.seed_questions|length }}</i></a>{% endfor %}</div>
 </section>
 
-<section class="ha-up" aria-labelledby="ha-up-h">
-  <div class="ha-head"><h2 id="ha-up-h">다가오는 1단계 발표·면접</h2><a class="ha-btn ha-btn-line ha-btn-sm" href="/planner/">일정표 보기</a></div>
-  <p class="ha-lead">오늘부터 2주 안의 일정입니다(이 기기 날짜 기준). 지원한 대학만 모아 보려면 내 면접 일정표에서 고르세요.</p>
-  <div id="upc" class="ha-upc" data-pfx="ha" data-src="{{ base }}/planner/data.json">
-    <a class="ha-uc ha-uc-0 ha-uc-empty" href="/planner/"><b>내 면접 일정표 보기</b><span>대학·전형을 고르면 1단계 발표일과 면접일을 날짜순으로 모아 줍니다.</span></a>
-  </div>
-</section>
+
 
 <section class="ha-blocks" aria-label="주제별 묶음">
   <div class="ha-block ha-b-blue">
@@ -90,7 +99,7 @@
     <h2><a href="/univ/">대학별 2027 면접 정보 {{ stats.univs }}곳</a></h2>
     <p>「공교육정상화법」에 따라 매년 3월 입학처가 공개하는 면접 문항을 구조화했습니다. 원문은 출처 링크에서. 실제 기출을 공개한 대학:</p>
     <div class="ha-tags">{% for u in univ_cards %}<a class="ha-tag" href="{{ u.url }}" title="{{ u.years[-1] }}~{{ u.years[0] }}학년도 · 문항 {{ u.n }}개">{{ u.name }} <i>기출 {{ u.actual }}</i></a>{% endfor %}</div>
-    <p class="ha-small">서류(학생부) 기반 면접과 인성면접은 문항 공개 의무가 없어 대부분의 대학이 공개하지 않습니다. 그 경우 공통·유형별·학과별 질문으로 준비하세요. 주요 대학 {{ prep_n }}곳은 대학 특성과 면접 방식, 맞춤 예상 질문을 정리한 <a href="/univ/">준비 가이드</a>가 있습니다.</p>
+    <p class="ha-small">서류(학생부) 기반 면접과 인성면접은 문항 공개 의무가 없어 대부분의 대학이 공개하지 않습니다. 그 경우 공통·유형별·학과별 질문으로 준비하세요. <a href="/univ/">대학 페이지</a> {{ prep_n }}곳에 대학 특성·면접 방식·맞춤 예상 질문을 정리했고, 그중 {{ stats.univs }}곳은 2027학년도 모집요강의 면접 일정·방식까지 담았습니다.</p>
     <a class="ha-btn ha-btn-navy ha-btn-sm" href="/univ/">내 지원 대학 찾기</a>
   </div>
   <div class="ha-block ha-b-sage">
@@ -121,8 +130,8 @@
   </div>
 </section>
 
-<section aria-labelledby="ha-qh">
-  <div class="ha-head"><h2 id="ha-qh">자주 나오는 질문 {{ common.questions|length }}개</h2></div>
+<details class="ha-fold" aria-labelledby="ha-qh">
+  <summary class="ha-head"><h2 id="ha-qh">자주 나오는 질문 {{ common.questions|length }}개 전체 목록</h2><span class="ha-fold-k">펼치기</span></summary>
   <div class="ha-topics">
   {% for k, c in common.categories.items() %}
     <section class="ha-topic">
@@ -132,7 +141,7 @@
     </section>
   {% endfor %}
   </div>
-</section>
+</details>
 
 <section aria-labelledby="ha-nh">
   <div class="ha-head"><h2 id="ha-nh">새로 생긴 학과 {{ newd|length }}개</h2><a class="ha-btn ha-btn-line ha-btn-sm" href="/new/">신설학과 전체 보기</a></div>
@@ -142,6 +151,8 @@
   </div>
 </section>
 
+<details class="ha-fold">
+<summary class="ha-head"><h2>지원자 유형별 · 계열별 질문 전체</h2><span class="ha-fold-k">펼치기</span></summary>
 <div class="ha-two">
   <section aria-labelledby="ha-th">
     <div class="ha-head"><h2 id="ha-th">지원자 유형별 질문</h2></div>
@@ -154,6 +165,7 @@
     <ul class="ha-list">{% for m in majors %}<li><a href="{{ m.url }}"><b>{{ m.label }}</b><span>{{ m.desc }}</span><i>{{ m.questions|length }}문항</i></a></li>{% endfor %}</ul>
   </section>
 </div>
+</details>
 
 <section class="ha-how" aria-label="면접각의 정리 방식">
   <div class="ha-frame" aria-label="답변 구조 미리보기">
@@ -175,7 +187,7 @@
 
 <section class="ha-season" aria-labelledby="ha-sh">
   <h2 id="ha-sh">지금은 어느 시기?</h2>
-  <p>수시 면접은 10월 중순부터 12월 중순까지, 수능(11월 19일) 전후로 나뉩니다. <a href="/schedule/#dates">30개 대학 면접 날짜와 1단계 발표일</a>, 시기별 준비 순서와 D-7 체크리스트를 면접 일정 페이지에 정리했습니다. 지원한 대학을 고르면 날짜순으로 모아 주는 <a href="/planner/">내 면접 일정표</a>도 있습니다.</p>
+  <p>수시 면접은 10월 중순부터 12월 중순까지, 수능(11월 19일) 전후로 나뉩니다. <a href="/schedule/#dates">대학별 면접 날짜와 1단계 발표일</a>, 시기별 준비 순서와 D-7 체크리스트를 면접 일정 페이지에 정리했습니다. 지원한 대학을 고르면 날짜순으로 모아 주는 <a href="/planner/">내 면접 일정표</a>도 있습니다.</p>
   <p>수능이 다가오면 <a href="/suneung/">수능 시간표·준비물·성적 통지일</a>과 <a href="/minimum/">면접 전형 수능최저 모아보기</a>도 함께 보세요.</p>
 </section>
 
