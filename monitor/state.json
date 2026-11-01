@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-07",
+ "checked": "2026-11-01",
  "pdfs": {
   "guide_year": 2028,
   "guides": {},
@@ -8,10 +8,52 @@
  },
  "dead_videos": {},
  "bad_sites": {
+  "hanyang": {
+   "code": "hanyang",
+   "name": "한양대학교",
+   "url": "https://www.hanyang.ac.kr",
+   "status": 403
+  },
+  "ajou": {
+   "code": "ajou",
+   "name": "아주대학교",
+   "url": "https://www.ajou.ac.kr",
+   "status": "ConnectTimeout"
+  },
+  "daejin": {
+   "code": "daejin",
+   "name": "대진대학교",
+   "url": "https://www.daejin.ac.kr",
+   "status": "ConnectTimeout"
+  },
+  "suwoncatholic": {
+   "code": "suwoncatholic",
+   "name": "수원가톨릭대학교",
+   "url": "https://www.suwoncatholic.ac.kr",
+   "status": "ConnectTimeout"
+  },
+  "mokwon": {
+   "code": "mokwon",
+   "name": "목원대학교",
+   "url": "https://www.mokwon.ac.kr",
+   "status": "ConnectTimeout"
+  },
+  "cku": {
+   "code": "cku",
+   "name": "가톨릭관동대학교",
+   "url": "https://www.cku.ac.kr",
+   "status": "ReadTimeout"
+  },
   "halla": {
    "code": "halla",
    "name": "한라대학교",
    "url": "https://www.halla.ac.kr",
+   "status": "ConnectTimeout"
+  },
+  "knu": {
+   "code": "knu",
+   "name": "경북대학교",
+   "url": "https://www.knu.ac.kr",
    "status": "ConnectTimeout"
   },
   "dgist": {
@@ -19,6 +61,18 @@
    "name": "DGIST",
    "url": "https://www.dgist.ac.kr",
    "status": "ConnectionError"
+  },
+  "kiu": {
+   "code": "kiu",
+   "name": "경일대학교",
+   "url": "https://www.kiu.ac.kr",
+   "status": "ConnectTimeout"
+  },
+  "uu": {
+   "code": "uu",
+   "name": "위덕대학교",
+   "url": "https://www.uu.ac.kr",
+   "status": "ConnectTimeout"
   },
   "dyu": {
    "code": "dyu",
@@ -50,6 +104,12 @@
    "url": "https://www.kaya.ac.kr",
    "status": "ConnectTimeout"
   },
+  "jnu": {
+   "code": "jnu",
+   "name": "전남대학교",
+   "url": "https://www.jnu.ac.kr",
+   "status": "ReadTimeout"
+  },
   "chosun": {
    "code": "chosun",
    "name": "조선대학교",
@@ -74,6 +134,18 @@
    "url": "https://www.kwangshin.ac.kr",
    "status": "ConnectionError"
   },
+  "jesus": {
+   "code": "jesus",
+   "name": "예수대학교",
+   "url": "https://www.jesus.ac.kr",
+   "status": "ReadTimeout"
+  },
+  "youngsan": {
+   "code": "youngsan",
+   "name": "영산선학대학교",
+   "url": "https://www.youngsan.ac.kr",
+   "status": 403
+  },
   "kma": {
    "code": "kma",
    "name": "육군사관학교",
@@ -84,7 +156,7 @@
    "code": "navy",
    "name": "해군사관학교",
    "url": "https://www.navy.ac.kr",
-   "status": "ConnectionError"
+   "status": "ConnectTimeout"
   },
   "afa": {
    "code": "afa",
@@ -92,19 +164,27 @@
    "url": "https://www.afa.ac.kr",
    "status": "ConnectionError"
   },
-  "kndu": {
-   "code": "kndu",
-   "name": "국군간호사관학교",
-   "url": "https://www.kafna.ac.kr",
+  "police": {
+   "code": "police",
+   "name": "경찰대학",
+   "url": "https://www.police.ac.kr",
    "status": "ConnectTimeout"
   }
  },
  "reported_sites": [
   "afa",
   "chosun",
+  "daeshin",
   "deu",
   "dgist",
+  "dyu",
+  "halla",
+  "honam",
+  "kaya",
   "kma",
-  "navy"
+  "ks",
+  "kwangshin",
+  "navy",
+  "songwon"
  ]
 }
