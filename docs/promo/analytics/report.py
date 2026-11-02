@@ -7,12 +7,31 @@
 
 열쇠 파일: docs/promo/.secrets/ga-reader.json (서비스 계정, git 에 안 올라감). 읽기 전용 권한만 준다.
 """
-import argparse, datetime, sys, warnings
+import argparse, datetime, os, ssl, sys, tempfile, warnings
 from pathlib import Path
 
 warnings.filterwarnings("ignore")
 sys.stdout.reconfigure(encoding="utf-8")
 HERE = Path(__file__).resolve().parent
+
+
+def trust_windows_roots():
+    """회사망은 TLS 를 중간에서 다시 서명하므로, 검증은 그대로 두고 윈도우가 신뢰하는 루트 인증서를 기본 목록에 더한다."""
+    if os.name != "nt":
+        return
+    import certifi
+    pems = [Path(certifi.where()).read_text(encoding="ascii", errors="ignore")]
+    for store in ("ROOT", "CA"):
+        for der, enc, _ in ssl.enum_certificates(store):
+            if enc == "x509_asn":
+                pems.append(ssl.DER_cert_to_PEM_cert(der))
+    f = Path(tempfile.gettempdir()) / "mjgak-ca-bundle.pem"
+    f.write_text("\n".join(pems), encoding="ascii")
+    for k in ("GRPC_DEFAULT_SSL_ROOTS_FILE_PATH", "REQUESTS_CA_BUNDLE", "HTTPLIB2_CA_CERTS", "SSL_CERT_FILE"):
+        os.environ.setdefault(k, str(f))
+
+
+trust_windows_roots()
 KEY = HERE.parent / ".secrets" / "ga-reader.json"
 PROPERTY = "properties/556489763"
 SC_SITE = "https://mjgak.com/"
@@ -30,7 +49,7 @@ def ga(c, start, end, dims, mets, limit=25, filt=None, order=None):
     from google.analytics.data_v1beta import BetaAnalyticsDataClient
     from google.analytics.data_v1beta.types import (DateRange, Dimension, Filter, FilterExpression, Metric,
                                                     OrderBy, RunReportRequest)
-    cl = BetaAnalyticsDataClient(credentials=c)
+    cl = BetaAnalyticsDataClient(credentials=c, transport="rest")  # 회사 프록시가 gRPC(HTTP/2)를 막아 REST 로
     req = RunReportRequest(property=PROPERTY, date_ranges=[DateRange(start_date=start, end_date=end)],
                            dimensions=[Dimension(name=d) for d in dims], metrics=[Metric(name=m) for m in mets], limit=limit,
                            order_bys=[OrderBy(metric=OrderBy.MetricOrderBy(metric_name=order or mets[0]), desc=True)])
