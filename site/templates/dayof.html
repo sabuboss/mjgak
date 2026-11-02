@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="/schedule/">면접 일정</a> › 면접 당일 안내</p>
+<h1>2027 수시 면접 당일 안내 <small>{{ rows|length }}개 대학</small></h1>
+<p class="lead">면접 날 지각, 신분증 누락, 교복 착용처럼 실력과 관계없는 일로 불이익을 받지 않도록, 면접각이 2027학년도 수시모집요강에서 확인한 {{ rows|length }}개 대학의 <b>입실 · 준비물 · 휴대폰 · 복장과 블라인드 규정</b>을 모았습니다. 대학 이름을 누르면 전형별 면접 정보가 있습니다.</p>
+<div class="callout"><b>꼭 확인하세요</b> 개인별 면접 시간과 장소는 대학마다 1단계 발표 때나 면접 며칠 전에 입학처 홈페이지에 따로 공지합니다. 모바일 신분증을 인정하지 않는 대학이 있으니 실물 신분증을 챙기세요. 아래 내용은 모집요강 기준이며 바뀔 수 있습니다.</div>
+<label class="pl-search" style="margin:16px 0 8px">대학 찾기 <input id="dyQ" type="search" placeholder="예: 가톨릭, 경희, 부산" autocomplete="off"></label>
+<div id="dyList">
+{% for x in rows %}<section class="dy-item" data-k="{{ x.name }} {{ x.full }}"><h2 class="dy-h"><a href="{{ x.url }}#dayof">{{ x.name }}</a></h2>
+<dl class="ylist">{% if x.arrive %}<dt>입실·시간</dt><dd>{{ x.arrive }}</dd>{% endif %}{% if x.bring %}<dt>준비물</dt><dd>{{ x.bring }}</dd>{% endif %}{% if x.phone %}<dt>휴대폰·전자기기</dt><dd>{{ x.phone }}</dd>{% endif %}{% if x.blind %}<dt>복장·블라인드</dt><dd>{{ x.blind }}</dd>{% endif %}{% if x.other %}<dt>그 밖에</dt><dd>{{ x.other }}</dd>{% endif %}</dl>
+{% if x.source %}<p class="note">출처: {{ x.source }}</p>{% endif %}</section>
+{% endfor %}</div>
+<p class="note" id="dyNone" hidden>찾는 대학이 없습니다. 이 목록에는 면접각이 모집요강에서 면접 당일 안내를 확인한 대학만 있습니다.</p>
+<h2>면접 전날 확인할 것</h2>
+<ol>
+  <li><b>개인별 면접 시간·장소</b>를 입학처 홈페이지 공지에서 확인하고, 입실 마감 시각을 적어 둡니다. <a href="/planner/">내 면접 일정표</a></li>
+  <li><b>수험표와 실물 신분증</b>을 가방에 넣습니다. 수험표를 출력해야 하는 대학이 있습니다.</li>
+  <li><b>교복·교표·명찰</b>처럼 출신 고교가 드러나는 복장은 입지 않습니다.</li>
+  <li>답변에서 <b>이름·수험번호·출신 고교·부모 직업</b>을 말하지 않도록 연습합니다. <a href="/practice/">60초 모의 면접</a></li>
+</ol>
+<script>
+(function(){var q=document.getElementById("dyQ"),rows=[].slice.call(document.querySelectorAll("#dyList .dy-item")),none=document.getElementById("dyNone");
+q.addEventListener("input",function(){var v=q.value.trim(),n=0;rows.forEach(function(r){var ok=!v||r.getAttribute("data-k").indexOf(v)>=0;r.hidden=!ok;if(ok)n++;});none.hidden=n>0;});})();
+</script>
+{% endblock %}

@@ -716,6 +716,20 @@ def main():
              description=f"2027학년도 수시 최종 합격자 발표일, 합격자 등록 기간, 충원(추가) 합격 일정을 {len(rsrows)}개 대학 수시모집요강에서 확인해 모았습니다. 면접을 마친 수험생이 다음 날짜를 한눈에 볼 수 있습니다.")
         urls.append("/results/")
 
+    # 면접 당일 안내 모아보기: 대학 rich 의 dayof(모집요강 확인분)
+    dyrows = []
+    for code, r in sorted(rich_univ.items(), key=lambda kv: kv[1].get("name", "")):
+        dy = r.get("dayof") or {}
+        if code not in prof_by or not any(dy.get(k) for k in ("arrive", "bring", "phone", "blind", "other")):
+            continue
+        dyrows.append({"name": short(r.get("name") or prof_by[code]["name"]), "url": prof_by[code]["url"], "full": r.get("name", ""),
+                       **{k: dy.get(k, "") for k in ("arrive", "bring", "phone", "blind", "other", "source")}})
+    if dyrows:
+        page("dayof", "dayof.html", rows=dyrows,
+             title=f"2027 수시 면접 당일 안내 — 준비물·입실·휴대폰·복장 규정 {len(dyrows)}개 대학",
+             description=f"2027학년도 수시 면접 당일 입실 시간, 준비물(수험표·신분증), 휴대폰·전자기기 규정, 교복·블라인드 면접 규정을 {len(dyrows)}개 대학 수시모집요강에서 확인해 모았습니다.")
+        urls.append("/dayof/")
+
     # 제시문·MMI 면접 안내: 면접 설명에 제시문·MMI(다중미니면접)가 나오는 전형을 모집요강 데이터에서 골라 붙인다
     mmirows = []
     for code, r in sorted(rich_univ.items(), key=lambda kv: kv[1].get("name", "")):
@@ -767,6 +781,7 @@ def main():
              f"- [모의 면접]({site['url']}/practice/): 무작위 질문·60초 타이머·녹음", f"- [2027 수능 정보]({site['url']}/suneung/): 시간표·준비물·성적 통지일",
              f"- [수능최저 모아보기]({site['url']}/minimum/): 면접 전형의 수능최저학력기준",
              f"- [합격자 발표·등록·충원 일정]({site['url']}/results/): 대학별 수시 최종 합격자 발표일·등록 기간·충원 합격 일정(모집요강 확인)",
+             f"- [면접 당일 안내 모아보기]({site['url']}/dayof/): 대학별 입실·준비물·휴대폰·교복·블라인드 규정(모집요강 확인)",
              "", "## 면접 준비 안내",
              f"- [내 생기부로 면접 예상 질문 만들기]({site['url']}/record/): 활동별 질문 3개 틀, ChatGPT 질문 틀, 개인정보 지우기",
              f"- [제시문 면접·MMI 준비법]({site['url']}/mmi/): 시간 나눠 쓰기, 실시 대학·전형(모집요강)",

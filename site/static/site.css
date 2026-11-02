@@ -370,3 +370,10 @@ details.more summary{cursor:pointer;color:var(--muted);font-size:14px}
 @media (max-width:560px){.ylist{grid-template-columns:1fr;gap:0}.ylist dt{font-size:12.5px;margin-top:8px}.ylist dt:first-child{margin-top:0}}
 pre.prompt{white-space:pre-wrap;word-break:keep-all;background:var(--field);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font:inherit;font-size:14px;line-height:1.7}
 .copy-prompt{margin:0 0 14px}
+/* 면접 당일 안내 모아보기 */
+.dy-item{border-top:1px solid var(--line,#e2e6ec);padding:12px 0 6px}
+.dy-item[hidden]{display:none}
+.dy-h{font-size:17px;margin:0 0 4px}
+.dy-item .note{margin:2px 0 0;font-size:12.5px}
+@media (max-width:560px){.dy-item .ylist{grid-template-columns:1fr;gap:2px}.dy-item .ylist dd{margin-bottom:6px}}
+h1 small{white-space:nowrap}
