@@ -40,6 +40,7 @@
 {% if r.dayof.source %}<p class="ysrc">출처: {{ p.name }} {{ r.dayof.source }}</p>{% endif %}
 {% endif %}
 {% if r.after %}
+<div id="afterBox">
 <h3 id="after">면접 이후 일정 — 최종 발표·등록·충원</h3>
 <dl class="ylist">
   {% if r.after.final %}<dt>최종 발표</dt><dd><b>{{ r.after.final }}</b></dd>{% endif %}
@@ -47,6 +48,7 @@
   {% if r.after.extra %}<dt>충원 합격</dt><dd>{{ r.after.extra }}</dd>{% endif %}
 </dl>
 {% if r.after.source %}<p class="ysrc">출처: {{ p.name }} {{ r.after.source }} · <a href="/results/">다른 대학 발표 일정 모아보기</a></p>{% endif %}
+</div>
 {% endif %}
 {% if r.same_day %}
 <h3 id="sameday">같은 날 면접 보는 대학</h3>

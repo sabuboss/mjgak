@@ -581,9 +581,11 @@ def main():
     for p in profiles:
         for q in p["seed_questions"]:
             q["answer_html"] = ph(q["answer"]) if q.get("answer") else None
+        TYPE_TITLE = {"vocational": "마이스터고·특성화고"}
         page(f"type/{p['code'].lower()}", "type.html", p=p, profiles=profiles,
-             title=f"{p['label']} 면접 질문 {len(p['seed_questions'])}개와 답변 전략",
-             description=p["description"])
+             # 검색어 순서에 맞춘 제목(구글 '마이스터고 면접 질문' 4위인데 클릭 0, 2026-11-03)
+             title=f"{TYPE_TITLE.get(p['code'].lower(), p['label'])} 면접 질문 {len(p['seed_questions'])}개와 답변 예시 — 대입 면접 준비",
+             description=f"{p['label']} 대입 면접에서 자주 나오는 질문 {len(p['seed_questions'])}개와 답변 전략. " + p["description"])
         urls.append(p["url"])
 
     # 대학 목록: content/universities.json(지역별 수동 목록) + seed 에만 있는 대학 합치기, 보고서 링크 붙이기
@@ -610,7 +612,7 @@ def main():
         r["universities"].sort(key=lambda u: (u["code"] not in with_data, u["code"] not in prep_link, u["name"]))
     prep_cards = [{"code": u["code"], "name": u["name"], "blurb": u["blurb"], "url": u["url"], "has_data": u["code"] in with_data} for u in uprof["universities"]]
     page("univ", "univ_index.html", regions=unis["regions"], notice=unis["notice"], colleges=unis.get("colleges", []), college_notice=unis.get("college_notice", ""), with_data=set(with_data), prep_link=prep_link, prep_cards=prep_cards, univ_cards=univ_cards, n_univ=sum(len(r["universities"]) for r in unis["regions"]), n_college=sum(len(r["universities"]) for r in unis.get("colleges", [])),
-         title="전국 대학·전문대 면접 안내·준비 가이드·기출 공개 대학", description=f"주요 대학 {len(prep_cards)}곳의 특성·면접 방식·맞춤 예상 질문, 전국 4년제·전문대 홈페이지·보고서 링크, 실제 면접 문항을 공개한 대학의 기출 정리.")
+         title="대학별 2027 수시 면접 일정·방식 — 면접일·1단계 발표·기출 공개 대학", description=f"주요 대학 {len(prep_cards)}곳의 특성·면접 방식·맞춤 예상 질문, 전국 4년제·전문대 홈페이지·보고서 링크, 실제 면접 문항을 공개한 대학의 기출 정리.")
     urls.append("/univ/")
 
     # 기출 없는 대학의 준비 가이드 페이지
@@ -622,7 +624,7 @@ def main():
              report_url=reports[0]["url"] if reports else None, report_year=reports[0]["year"] if reports else None,
              common_questions=uprof["common_questions"], notice=uprof["notice"],
              robots=None if p.get("rich") else "noindex,follow",  # 2027 정보 없는 템플릿 페이지는 색인 제외 (얇은 콘텐츠)
-             title=((f"{p['name']} 면접 2027 — 전형별 면접 방식·일정" + ("·공개 질문" if p["rich"].get("published_questions") else "") if p["rich"].get("tracks") else f"{p['name']} 2027 수시 — 면접 없는 서류평가 전형 안내") if p.get("rich") else f"{p['name']} 면접 준비 가이드 — 특징·면접 방식·예상 질문"),
+             title=((f"{p['name']} 면접 일정·방식 2027 — 1단계 발표·면접일·최종 발표" + ("·공개 질문" if p["rich"].get("published_questions") else "") if p["rich"].get("tracks") else f"{p['name']} 2027 수시 — 면접 없는 서류평가 전형 안내") if p.get("rich") else f"{p['name']} 면접 준비 가이드 — 특징·면접 방식·예상 질문"),
              description=(p["rich"]["summary"][:150] if p.get("rich") else f"{p['blurb']} 면접 방식과 준비 포인트, 맞춤 예상 질문 {len(p['questions'])}개."))
         if p.get("rich"):
             urls.append(p["url"])

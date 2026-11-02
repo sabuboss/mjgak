@@ -377,3 +377,6 @@ pre.prompt{white-space:pre-wrap;word-break:keep-all;background:var(--field);bord
 .dy-item .note{margin:2px 0 0;font-size:12.5px}
 @media (max-width:560px){.dy-item .ylist{grid-template-columns:1fr;gap:2px}.dy-item .ylist dd{margin-bottom:6px}}
 h1 small{white-space:nowrap}
+/* 면접이 모두 끝난 대학: 발표·충원 일정을 위로 */
+#afterBox.after-top{border:2px solid var(--accent);border-radius:12px;padding:6px 16px 10px;margin:14px 0 18px;background:var(--accent-soft)}
+#afterBox .after-first{margin:8px 0 2px;font-size:14.5px}
