@@ -95,6 +95,15 @@ document.addEventListener("click", function (e) {
     if (k) h.insertBefore(tag, k); else if (h) h.appendChild(tag);
     if (all) el.classList.add("is-past");
   });
+  // 이 대학 면접이 모두 끝났으면, 면접 정보보다 '최종 발표·등록·충원'을 먼저 보여 준다(면접 끝난 뒤 들어온 사람의 다음 질문)
+  var qs = document.querySelectorAll("#quick .qc[data-days]"), box = document.getElementById("afterBox"), quick = document.getElementById("quick");
+  if (qs.length && box && quick && [].every.call(qs, function (q) { return q.classList.contains("is-past"); })) {
+    var n = document.createElement("p"); n.className = "after-first";
+    n.innerHTML = "<b>이 대학 면접 일정은 모두 끝났습니다.</b> 이제 확인할 것은 최종 합격자 발표·등록·충원 일정입니다.";
+    box.insertBefore(n, box.firstChild);
+    quick.parentNode.insertBefore(box, quick.nextSibling);
+    box.classList.add("after-top");
+  }
 })();
 
 // 질문 틀(pre.prompt) 아래 '복사' 버튼
