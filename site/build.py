@@ -691,15 +691,19 @@ def main():
 
     # 수능최저 모아보기: 면접 있는 전형 중 수능최저학력기준이 있는 것만
     minrows = []
+    # 사탐 응시자(사탐런)용 표시: content/min_sci.json 의 "code:트랙번호" → 과탐 필수 여부(모집요강 확인분)
+    msp = ROOT / "content" / "min_sci.json"
+    min_sci = json.loads(msp.read_text(encoding="utf-8")).get("rows", {}) if msp.exists() else {}
     for code, r in sorted(rich_univ.items(), key=lambda kv: kv[1].get("name", "")):
         if code not in prof_by:
             continue
-        for t in r.get("tracks", []):
+        for i, t in enumerate(r.get("tracks", [])):
             v = (t.get("min") or "").strip()
             if not v or v.startswith("없음") or v in ("미적용", "-"):
                 continue
             minrows.append({"code": code, "name": short(r.get("name") or prof_by[code]["name"]), "url": prof_by[code]["url"],
-                            "track": t["name"], "min": v, "date": t.get("date", ""), "first": t.get("first", ""), "source": t.get("source", "")})
+                            "track": t["name"], "min": v, "date": t.get("date", ""), "first": t.get("first", ""), "source": t.get("source", ""),
+                            "sci": min_sci.get(f"{code}:{i}") or {}})
     page("minimum", "minimum.html", rows=minrows, n_univ=len({x["code"] for x in minrows}), checked_n=len(prof_by),
          title=f"2027 수시 수능최저 모아보기 — 면접 전형 {len(minrows)}개",
          description=f"면접이 있는 2027학년도 수시 전형 중 수능최저학력기준이 있는 {len(minrows)}개 전형을 대학별로 모았습니다. 수능 가채점 뒤 최저 충족 여부를 확인하고, 면접 준비 순서를 정하는 데 쓰세요.")
