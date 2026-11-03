@@ -50,18 +50,29 @@
   }
   // 줄임말 → 목록에 있는 말
   var ALIAS = [[/컴공/, "컴퓨터"], [/한의대/, "한의예"], [/치대/, "치의예"], [/의대/, "의예"], [/약대/, "약학"], [/간호대/, "간호"],
-    [/수의대/, "수의예"], [/교대/, "교육"], [/경영대/, "경영"], [/소프트웨어|소웨/, "소프트웨어"], [/전전/, "전자"], [/기계과/, "기계"]];
+    [/수의대/, "수의예"], [/교대/, "교육"], [/경영대/, "경영"], [/소프트웨어|소웨/, "소프트웨어"], [/전전/, "전자"], [/기계과/, "기계"],
+    [/응용생물\S*|응용생명\S*|생물\S*학\S*|바이오\S*/, "생명"]];
+  // 묶음이 없는 학과 → 질문이 비슷한 묶음(찾은 뒤 안내 문구를 붙인다). 2026-11-03 못 찾은 검색어(불어·프랑스 등)에서
+  var SIMILAR = [[/불어|불문|프랑스|독어|독문|독일|일어|일문|일본어|중어|중문|중국어|스페인|러시아|노어|서어/, "영어영문", "외국어 계열 학과"]];
   function find() {
-    var q = findEl.value.trim().replace(/\s+/g, "");
+    var q = findEl.value.trim().replace(/\s+/g, ""), similar = "";
     ALIAS.forEach(function (a) { q = q.replace(a[0], a[1]); });
+    SIMILAR.forEach(function (a) { if (a[0].test(q)) { similar = a[2]; q = a[1]; } });
     var hit = function (s) { var l = s.label.replace(/\s+/g, ""); return l.indexOf(q) >= 0 || (q.length > 2 && /대$/.test(q) && l.indexOf(q.slice(0, -1)) >= 0); };
     var list = !q ? DATA.sets : DATA.sets.filter(hit);
     if (!list.length) {
-      // 없는 대학을 찾으면 앞서 고른 묶음에 머무르지 않고 공통 질문으로 바꿔 준다
-      findNote.innerHTML = "‘" + esc(findEl.value.trim()) + "’ 묶음은 없어 <b>공통 질문</b>으로 바꿨습니다. 대학이 질문을 공개하지 않은 곳은 공통·학과 질문으로 연습하세요(학과 이름으로도 찾아 보세요).";
+      // 없는 대학을 찾으면 앞서 고른 묶음에 머무르지 않고 공통 질문으로 바꿔 주고, 그 대학 면접 페이지가 있으면 이어 준다
+      var raw = findEl.value.trim().replace(/\s+/g, "").replace(/(대학교|대학|대)$/, "");
+      var us = DATA.univs || [], nm = function (x, i) { return x[i].replace(/\s+/g, "").replace(/(대학교|대학|대)$/, ""); };
+      // 이름이 꼭 같은 대학 먼저(부산대 → 부산교대가 아니라 부산대), 없으면 앞부분이 같은 대학
+      var u = raw.length > 1 && (us.filter(function (x) { return nm(x, 0) === raw || nm(x, 1) === raw; })[0] || us.filter(function (x) { return nm(x, 0).indexOf(raw) === 0; })[0]);
+      findNote.innerHTML = "‘" + esc(findEl.value.trim()) + "’ 묶음은 없어 <b>공통 질문</b>으로 바꿨습니다. " +
+        (u ? "면접각에는 " + esc(u[1]) + " 질문 묶음이 없습니다. <a href=\"" + u[2] + "\">" + esc(u[1]) + " 면접 방식·일정 보기 ›</a> 지원 학과 이름으로도 찾아 보세요."
+           : "대학이 질문을 공개하지 않은 곳은 공통·학과 질문으로 연습하세요(학과 이름으로도 찾아 보세요).");
       fill(DATA.sets); sel.value = "common"; pickSet(); return;
     }
-    findNote.textContent = q ? list.length + "개 찾음" + (list.length > 1 ? " — 아래 목록에서 고르세요" : "") : "";
+    findNote.textContent = similar ? "‘" + findEl.value.trim() + "’ 묶음은 없어, 질문이 비슷한 " + list.map(short).join(", ") + " 묶음을 보여 드립니다(" + similar + ")."
+      : q ? list.length + "개 찾음" + (list.length > 1 ? " — 아래 목록에서 고르세요" : "") : "";
     var prev = sel.value;  // fill() 뒤엔 목록 첫 항목이 자동 선택되므로 그 전에 기억
     fill(list);
     if (q && list.every(function (s) { return s.id !== prev; })) {
