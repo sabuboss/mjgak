@@ -682,7 +682,9 @@ def main():
         if r.get("published_questions") and code in prof_by:
             sets.append({"id": f"univ:{code}", "label": f"대학 공개 질문 · {r.get('name', code)}",
                          "items": [{"q": q["q"], "ex": "", "tip": q.get("area", ""), "u": prof_by[code]["url"]} for q in r["published_questions"]]})
-    write("practice/questions.json", json.dumps({"sets": sets}, ensure_ascii=False))
+    # 묶음이 없는 대학을 검색했을 때 그 대학 면접 페이지로 이어 주려고 대학 이름·주소도 함께 싣는다
+    pr_univs = [[r.get("name", ""), short(r.get("name", "")), prof_by[code]["url"]] for code, r in sorted(rich_univ.items()) if code in prof_by]
+    write("practice/questions.json", json.dumps({"sets": sets, "univs": pr_univs}, ensure_ascii=False))
     page("practice", "practice.html", title="모의 면접 연습 — 무작위 질문·60초 타이머·녹음",
          description="학과별·공통·대학 공개 면접 질문을 무작위로 뽑아 생각 15초, 답변 60초로 연습합니다. 녹음은 내 기기 안에서만 재생되고 서버로 보내지 않습니다.")
     urls.append("/practice/")

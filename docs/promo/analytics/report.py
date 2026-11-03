@@ -110,8 +110,8 @@ def main():
     L += ["", "## 4. 도구 사용(이벤트)", ""]
     ev = ga(c, S, E, ["eventName"], ["eventCount", "totalUsers"], 40)
     L.append(table(["이벤트", "횟수", "사용자"], [r for r in ev if r[0].startswith(("practice_", "fixreq", "click", "file_download"))] or [["(없음)", 0, 0]]))
-    try:  # search_term 맞춤 측정기준을 GA 에 등록해야 읽힌다(없으면 건너뜀)
-        nf = ga(c, S, E, ["customEvent:search_term"], ["eventCount"], 15, ("eventName", "practice_nofind")) if any(r[0] == "practice_nofind" for r in ev) else []
+    try:  # practice_nofind 의 search_term 파라미터는 GA 기본 측정기준 searchTerm 으로 읽힌다
+        nf = ga(c, S, E, ["searchTerm"], ["eventCount"], 15, ("eventName", "practice_nofind")) if any(r[0] == "practice_nofind" for r in ev) else []
     except Exception:
         nf = []
     if nf:
