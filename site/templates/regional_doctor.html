@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="/schedule/">면접 일정</a> › 지역의사제 전형</p>
+<h1>2027 지역의사제 전형 모아보기 <small>의대 {{ n_univ }}곳</small></h1>
+<p class="lead">2027학년도에 처음 시행하는 <b>지역의사 선발전형</b>을 면접각이 각 대학 2027학년도 수시모집요강에서 확인해 모았습니다. 확인한 {{ n_univ }}개 대학의 수시 모집인원은 모두 <b>{{ seats }}명</b>(이 페이지에서 더한 값)이고, 그중 <b>{{ n_iv }}개 전형</b>이 면접을 봅니다. 대학 이름을 누르면 그 대학의 다른 면접 전형도 볼 수 있습니다.</p>
+<div class="callout"><b>꼭 확인하세요</b> 지역의사 전형은 지원 지역(중학교 입학부터 고교 졸업까지 해당 지역 이수·거주 등) 요건과 졸업 뒤 의무복무 조건이 대학·진료권마다 다릅니다. 아래 내용은 모집요강 기준 요약이니 지원 전에 원문을 꼭 읽으세요. 가톨릭관동대·건양대·고신대·대구가톨릭대·동국대(WISE)는 모집요강 원문을 확보하지 못해 이 표에 없습니다.</div>
+<label class="pl-search" style="margin:16px 0 8px">대학·지역 찾기 <input id="rdQ" type="search" placeholder="예: 부산, 강원, 경북, 진료권" autocomplete="off"></label>
+<label class="rd-only"><input type="checkbox" id="rdIv"> 면접이 있는 전형만 보기</label>
+<div id="rdList">
+{% for x in rows %}<section class="dy-item rd-item" data-k="{{ x.univ }} {{ x.track }} {{ x.area }}" data-iv="{{ 1 if x.date else 0 }}">
+<h2 class="dy-h">{% if x.url %}<a href="{{ x.url }}">{{ x.name }}</a>{% else %}{{ x.name }}{% endif %} <small>{{ x.track }} · {{ x.kind }}</small></h2>
+<dl class="ylist">
+<dt>모집인원</dt><dd>{{ x.seats }}</dd>
+<dt>면접</dt><dd>{% if x.date %}<b>{{ x.date }}</b>{% if x.first %} (1단계 발표 {{ x.first }}){% endif %}{% if x.interview %} · {{ x.interview }}{% endif %}{% else %}{{ x.interview or "면접 없음" }}{% endif %}</dd>
+{% if x.method %}<dt>전형 방법</dt><dd>{{ x.method }}</dd>{% endif %}
+{% if x.min %}<dt>수능최저</dt><dd>{{ x.min }}</dd>{% endif %}
+{% if x.duty %}<dt>의무복무</dt><dd>{{ x.duty }}</dd>{% endif %}
+</dl>
+<details class="rd-more"><summary>지원 지역·자격 보기</summary><p>{{ x.area }}</p></details>
+{% if x.source %}<p class="note">출처: {{ x.name }} {{ x.source }}</p>{% endif %}</section>
+{% endfor %}</div>
+<p class="note" id="rdNone" hidden>찾는 대학이 없습니다. 이 목록에는 면접각이 모집요강에서 지역의사 전형을 확인한 대학만 있습니다.</p>
+{% if jung %}<h2>정시로 넘어가는 인원</h2>
+<p>{{ jung|join(", ") }}은(는) 수시모집요강에 "수시에서 뽑지 못한 인원은 정시 지역의사 전형으로 이월"한다고 적었습니다. 정시 인원·일정은 각 대학 정시모집요강으로 확인하세요.</p>{% endif %}
+<h2>함께 보면 좋은 페이지</h2>
+<ul>
+  <li><a href="/minimum/">수능최저 모아보기</a> — 의약계열 최저를 다른 전형과 비교</li>
+  <li><a href="/mmi/">제시문 면접·MMI 준비법</a> — 의대 면접 형식 연습</li>
+  <li><a href="/planner/">내 면접 일정표</a> — 면접일을 날짜순으로 정리</li>
+</ul>
+<script>
+(function(){var q=document.getElementById("rdQ"),iv=document.getElementById("rdIv"),rows=[].slice.call(document.querySelectorAll("#rdList .rd-item")),none=document.getElementById("rdNone");
+function run(){var v=q.value.trim(),n=0;rows.forEach(function(r){var ok=(!v||r.getAttribute("data-k").indexOf(v)>=0)&&(!iv.checked||r.getAttribute("data-iv")==="1");r.hidden=!ok;if(ok)n++;});none.hidden=n>0;}
+q.addEventListener("input",run);iv.addEventListener("change",run);})();
+</script>
+{% endblock %}

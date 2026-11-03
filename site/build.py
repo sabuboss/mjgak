@@ -690,6 +690,18 @@ def main():
     urls.append("/practice/")
 
     # 수능최저 모아보기: 면접 있는 전형 중 수능최저학력기준이 있는 것만
+    def sci_label(x):
+        """사탐 응시자가 이 최저를 맞출 수 있는지 한 줄 표시(min_sci.json 의 cat·note 에서)."""
+        if not x:
+            return {}
+        cat, note = x.get("cat", ""), x.get("note", "")
+        if cat == "sci_required":
+            lab, cls = ("사탐 응시자 불가(과탐 필요)", "no") if "불가" in note else ("탐구는 과탐만 인정", "part")
+        else:
+            lab, cls = {"either": ("사탐·과탐 모두 인정", "ok"), "sci_bonus": ("과탐 가산·사탐 하향", "part"),
+                        "no_tamgu": ("탐구 미반영", "ok")}.get(cat, ("", ""))
+        return {"lab": lab, "cls": cls, "note": note, "math": x.get("math", ""), "src": x.get("source", "")}
+
     minrows = []
     # 사탐 응시자(사탐런)용 표시: content/min_sci.json 의 "code:트랙번호" → 과탐 필수 여부(모집요강 확인분)
     msp = ROOT / "content" / "min_sci.json"
@@ -703,7 +715,7 @@ def main():
                 continue
             minrows.append({"code": code, "name": short(r.get("name") or prof_by[code]["name"]), "url": prof_by[code]["url"],
                             "track": t["name"], "min": v, "date": t.get("date", ""), "first": t.get("first", ""), "source": t.get("source", ""),
-                            "sci": min_sci.get(f"{code}:{i}") or {}})
+                            "sci": sci_label(min_sci.get(f"{code}:{i}") or {})})
     page("minimum", "minimum.html", rows=minrows, n_univ=len({x["code"] for x in minrows}), checked_n=len(prof_by),
          title=f"2027 수시 수능최저 모아보기 — 면접 전형 {len(minrows)}개",
          description=f"면접이 있는 2027학년도 수시 전형 중 수능최저학력기준이 있는 {len(minrows)}개 전형을 대학별로 모았습니다. 수능 가채점 뒤 최저 충족 여부를 확인하고, 면접 준비 순서를 정하는 데 쓰세요.")
@@ -737,6 +749,20 @@ def main():
              title=f"2027 수시 면접 당일 안내 — 준비물·입실·휴대폰·복장 규정 {len(dyrows)}개 대학",
              description=f"2027학년도 수시 면접 당일 입실 시간, 준비물(수험표·신분증), 휴대폰·전자기기 규정, 교복·블라인드 면접 규정을 {len(dyrows)}개 대학 수시모집요강에서 확인해 모았습니다.")
         urls.append("/dayof/")
+
+    # 2027 지역의사제 전형 모아보기: content/regional_doctor.json(대학 모집요강 원문 확인분, 2026-11-03 작성·독립 검수)
+    rdp = ROOT / "content" / "regional_doctor.json"
+    if rdp.exists():
+        rd = json.loads(rdp.read_text(encoding="utf-8"))
+        rd_su = [dict(x, url=(prof_by[x["code"]]["url"] if x.get("code") in prof_by else ""), name=short(x["univ"]))
+                 for x in rd["rows"] if not x.get("kind", "").startswith("정시")]
+        rd_jung = sorted({short(x["univ"]) for x in rd["rows"] if x.get("kind", "").startswith("정시")})
+        seat_n = lambda x: int(re.match(r"\s*(\d+)", x.get("seats", "") or "0").group(1)) if re.match(r"\s*(\d+)", x.get("seats", "") or "") else 0
+        page("regional-doctor", "regional_doctor.html", rows=rd_su, jung=rd_jung, n_univ=len({x["univ"] for x in rd_su}),
+             seats=sum(seat_n(x) for x in rd_su), n_iv=sum(1 for x in rd_su if x.get("date")), checked=rd.get("checked", ""),
+             title=f"2027 지역의사제 전형 모아보기 — 의대 {len({x['univ'] for x in rd_su})}곳 모집인원·면접일·수능최저·의무복무",
+             description="2027학년도 처음 시행하는 지역의사 선발전형을 각 의대 수시모집요강에서 확인해 모았습니다. 진료권·광역권 모집인원, 면접 유무와 날짜, 수능최저, 10년 의무복무 조건을 대학별로 볼 수 있습니다.")
+        urls.append("/regional-doctor/")
 
     # 제시문·MMI 면접 안내: 면접 설명에 제시문·MMI(다중미니면접)가 나오는 전형을 모집요강 데이터에서 골라 붙인다
     mmirows = []
@@ -790,6 +816,7 @@ def main():
              f"- [수능최저 모아보기]({site['url']}/minimum/): 면접 전형의 수능최저학력기준",
              f"- [합격자 발표·등록·충원 일정]({site['url']}/results/): 대학별 수시 최종 합격자 발표일·등록 기간·충원 합격 일정(모집요강 확인)",
              f"- [면접 당일 안내 모아보기]({site['url']}/dayof/): 대학별 입실·준비물·휴대폰·교복·블라인드 규정(모집요강 확인)",
+             f"- [2027 지역의사제 전형 모아보기]({site['url']}/regional-doctor/): 의대별 지역의사 선발전형 모집인원·면접일·수능최저·의무복무(모집요강 확인)",
              "", "## 면접 준비 안내",
              f"- [내 생기부로 면접 예상 질문 만들기]({site['url']}/record/): 활동별 질문 3개 틀, ChatGPT 질문 틀, 개인정보 지우기",
              f"- [제시문 면접·MMI 준비법]({site['url']}/mmi/): 시간 나눠 쓰기, 실시 대학·전형(모집요강)",
