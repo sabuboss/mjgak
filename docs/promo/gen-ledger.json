@@ -28,8 +28,8 @@
   ]
  },
  "2026-11": {
-  "krw": 980,
-  "count": 14,
+  "krw": 1190,
+  "count": 17,
   "items": [
    "gem-results-1.png",
    "gem-results-1.png",
@@ -44,7 +44,10 @@
    "gem-repeat-1.png",
    "gem-gpt-2.png",
    "gem-clash-1.png",
-   "gem-clash-1.png"
+   "gem-clash-1.png",
+   "gem-rdoc-4.png",
+   "gem-rdoc-5.png",
+   "gem-rdoc-5.png"
   ]
  }
 }
