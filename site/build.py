@@ -696,7 +696,7 @@ def main():
             return {}
         cat, note = x.get("cat", ""), x.get("note", "")
         if cat == "sci_required":
-            lab, cls = ("사탐 응시자 불가(과탐 필요)", "no") if "불가" in note else ("탐구는 과탐만 인정", "part")
+            lab, cls = ("사탐만 응시했다면 불가(과탐 필요)", "no") if "불가" in note else ("탐구는 과탐만 인정", "part")
         else:
             lab, cls = {"either": ("사탐·과탐 모두 인정", "ok"), "sci_bonus": ("과탐 가산·사탐 하향", "part"),
                         "no_tamgu": ("탐구 미반영", "ok")}.get(cat, ("", ""))
