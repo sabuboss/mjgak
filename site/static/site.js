@@ -95,6 +95,9 @@ document.addEventListener("click", function (e) {
     if (k) h.insertBefore(tag, k); else if (h) h.appendChild(tag);
     if (all) el.classList.add("is-past");
   });
+  // 한눈에 보기: 면접이 끝난 전형은 아래로(남은 전형을 먼저 보게)
+  var qcwrap = document.querySelector("#quick .quick-c");
+  if (qcwrap) [].slice.call(qcwrap.querySelectorAll(".qc.is-past")).forEach(function (q) { qcwrap.appendChild(q); });
   // 이 대학 면접이 모두 끝났으면, 면접 정보보다 '최종 발표·등록·충원'을 먼저 보여 준다(면접 끝난 뒤 들어온 사람의 다음 질문)
   var qs = document.querySelectorAll("#quick .qc[data-days]"), box = document.getElementById("afterBox"), quick = document.getElementById("quick");
   if (qs.length && box && quick && [].every.call(qs, function (q) { return q.classList.contains("is-past"); })) {
