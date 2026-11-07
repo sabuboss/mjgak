@@ -689,6 +689,16 @@ def main():
          description="학과별·공통·대학 공개 면접 질문을 무작위로 뽑아 생각 15초, 답변 60초로 연습합니다. 녹음은 내 기기 안에서만 재생되고 서버로 보내지 않습니다.")
     urls.append("/practice/")
 
+    # 면접 카드 챌린지(게임형 연습): 공통·학과 질문만 쓴다. 대학 공개 질문 묶음은 넣지 않는다(이용 조건이 대학마다 달라서).
+    play_sets = [{"id": s["id"], "label": s["label"].replace("학과 · ", ""),
+                  "items": [{"q": it["q"], "ex": it["ex"], "tip": it["tip"], "u": it["u"]} for it in s["items"]]}
+                 for s in sets if s["id"] == "common" or s["id"].startswith("dept:")]
+    write("play/questions.json", json.dumps({"sets": play_sets}, ensure_ascii=False))
+    page("play", "play.html", n_q=sum(len(s["items"]) for s in play_sets), n_dept=len(play_sets) - 1,
+         title="면접 카드 챌린지 — 하루 3장, 소리 내어 답하고 레벨 올리기",
+         description="면접 질문 카드를 하루 3장 뽑아 생각 15초·답변 60초로 소리 내어 답하고, 스스로 체크해 경험치·레벨·연속 기록을 쌓습니다. 기록은 이 기기 브라우저에만 저장됩니다.")
+    urls.append("/play/")
+
     # 수능최저 모아보기: 면접 있는 전형 중 수능최저학력기준이 있는 것만
     def sci_label(x):
         """사탐 응시자가 이 최저를 맞출 수 있는지 한 줄 표시(min_sci.json 의 cat·note 에서)."""
@@ -812,7 +822,7 @@ def main():
     lines = [f"# {site['name']}", "", f"> {site['description']}", "",
              "모든 대학 정보는 각 대학 2027학년도 수시모집요강 원문을 대조해 정리했고, 페이지마다 원문 쪽수를 적었습니다.", "",
              "## 도구", f"- [내 면접 일정표]({site['url']}/planner/): 지원 대학의 1단계 발표일·면접일을 날짜순으로",
-             f"- [모의 면접]({site['url']}/practice/): 무작위 질문·60초 타이머·녹음", f"- [2027 수능 정보]({site['url']}/suneung/): 시간표·준비물·성적 통지일",
+             f"- [모의 면접]({site['url']}/practice/): 무작위 질문·60초 타이머·녹음", f"- [면접 카드 챌린지]({site['url']}/play/): 하루 3장 답변 연습, 스스로 체크해 레벨·연속 기록 쌓기",f"- [2027 수능 정보]({site['url']}/suneung/): 시간표·준비물·성적 통지일",
              f"- [수능최저 모아보기]({site['url']}/minimum/): 면접 전형의 수능최저학력기준",
              f"- [합격자 발표·등록·충원 일정]({site['url']}/results/): 대학별 수시 최종 합격자 발표일·등록 기간·충원 합격 일정(모집요강 확인)",
              f"- [면접 당일 안내 모아보기]({site['url']}/dayof/): 대학별 입실·준비물·휴대폰·교복·블라인드 규정(모집요강 확인)",
@@ -836,6 +846,7 @@ def main():
     search += [{"t": f"{p['label']} · {q['text']}", "u": p["url"], "c": "유형별"} for p in profiles for q in p["seed_questions"]]
     search += [{"t": f"{d['label']} · {q['question']}", "u": d["url"], "c": "학과별"} for d in depts for q in (d["rich"]["questions"] if d.get("rich") else d["questions"])]
     search += [{"t": "모의 면접 연습 (무작위 질문·타이머·녹음)", "u": "/practice/", "c": "도구", "p": 1}]
+    search += [{"t": "면접 카드 챌린지 (하루 3장·레벨·연속 기록)", "u": "/play/", "c": "도구", "p": 1}]
     search += [{"t": "내 면접 일정표 (1단계 발표일·면접일·겹침 확인)", "u": "/planner/", "c": "도구", "p": 1}]
     search += [{"t": "수능최저 모아보기 (면접 있는 전형)", "u": "/minimum/", "c": "도구", "p": 1}]
     search += [{"t": "2027 수능 D-day·시간표·준비물·성적 통지일", "u": "/suneung/", "c": "수능", "p": 1}]

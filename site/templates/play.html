@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="/practice/">모의 면접</a> › 면접 카드 챌린지</p>
+<h1>면접 카드 챌린지</h1>
+<p class="lead">하루 <b>카드 3장</b>을 뽑아 <b>생각 15초 → 답변 60초</b>로 소리 내어 답하고, 스스로 체크하면 경험치가 쌓입니다. 매일 끝내면 연속 기록이 이어집니다.</p>
+
+<div class="gm" id="gm">
+  <div class="gm-hud" aria-live="polite">
+    <div class="gm-lv"><span class="gm-lvnum" id="gmLv">Lv.1</span><span class="gm-title" id="gmTitle">첫 카드</span></div>
+    <div class="gm-xp"><div class="gm-xpbar"><i id="gmXpBar"></i></div><small id="gmXpText">0 / 60 XP</small></div>
+    <div class="gm-stats">
+      <span class="gm-stat"><b id="gmStreak">0</b><small>일 연속</small></span>
+      <span class="gm-stat"><b id="gmToday">0/3</b><small>오늘</small></span>
+    </div>
+  </div>
+
+  <label class="gm-pick">질문 묶음 <select id="gmSet" aria-label="질문 묶음 선택"><option>불러오는 중…</option></select></label>
+
+  <ol class="gm-slots" id="gmSlots" aria-label="오늘의 카드 3장"></ol>
+
+  <div class="gm-card" id="gmCard">
+    <p class="gm-meta" id="gmMeta">질문을 불러오는 중입니다.</p>
+    <p class="gm-q" id="gmQ">잠시만 기다려 주세요.</p>
+    <div class="gm-timer" id="gmTimerBox" hidden><span id="gmPhase">생각하는 시간</span><b id="gmTime">0:15</b></div>
+    <div class="gm-bar" id="gmBarBox" hidden><i id="gmBar"></i></div>
+    <div class="gm-btns" id="gmBtns">
+      <button class="btn" id="gmGo" type="button" disabled>카드 뒤집기</button>
+      <button class="btn ghost" id="gmAns" type="button" hidden>바로 답변 시작</button>
+      <button class="btn ghost" id="gmStop" type="button" hidden>답변 끝</button>
+      <button class="btn ghost" id="gmSkip" type="button" hidden>다른 카드로</button>
+    </div>
+
+    <form class="gm-check" id="gmCheck" hidden>
+      <p class="gm-said" id="gmSaid"></p>
+      <p class="gm-ck-h">방금 답변을 스스로 체크해 보세요 <small>(체크 1개 +5 XP)</small></p>
+      <label><input type="checkbox" name="c" value="0"> <b>결론부터</b> 첫 문장에 내 답을 말했다</label>
+      <label><input type="checkbox" name="c" value="1"> <b>내 경험</b> 구체적인 장면 하나를 넣었다</label>
+      <label><input type="checkbox" name="c" value="2"> <b>배운 점</b> 그래서 무엇을 배웠는지·전공과 어떻게 이어지는지 말했다</label>
+      <label><input type="checkbox" name="c" value="3" id="gmCkTime"> <b>시간</b> 20~60초 안에 끝냈다 <small id="gmTimeNote"></small></label>
+      <button class="btn" type="submit">기록하고 경험치 받기</button>
+    </form>
+
+    <div class="gm-after" id="gmAfter" hidden>
+      <p class="gm-gain" id="gmGain"></p>
+      <details class="gm-ex" id="gmExWrap"><summary>답변 예시와 주의할 점 보기</summary><div id="gmEx"></div></details>
+      <button class="btn" id="gmNext" type="button">다음 카드</button>
+    </div>
+  </div>
+
+  <div class="gm-done" id="gmDone" hidden>
+    <p class="gm-done-h">오늘의 카드 3장 완료!</p>
+    <p id="gmDoneText">내일 또 3장을 하면 연속 기록이 이어집니다.</p>
+    <button class="btn ghost" id="gmMore" type="button">한 장 더 연습하기</button>
+  </div>
+
+  <h2>내 기록</h2>
+  <div class="gm-week" id="gmWeek" aria-label="최근 7일 미션 완료"></div>
+  <ul class="gm-nums" id="gmNums"></ul>
+  <p class="gm-weak" id="gmWeak" hidden></p>
+  <h3>배지</h3>
+  <ul class="gm-badges" id="gmBadges"></ul>
+</div>
+
+<h2>규칙</h2>
+<table class="tbl">
+  <tr><th>한 일</th><th>경험치</th></tr>
+  <tr><td>카드 한 장에 20초 이상 답하고 기록</td><td>+10</td></tr>
+  <tr><td>스스로 체크 1개마다 (최대 4개)</td><td>+5</td></tr>
+  <tr><td>오늘의 카드 3장 모두 완료</td><td>+20</td></tr>
+  <tr><td>3일 이상 연속으로 완료한 날</td><td>+10 더</td></tr>
+</table>
+<ul>
+  <li>답변 시간이 20초보다 짧으면 경험치 없이 넘어갑니다. 실제로 소리 내어 답해야 연습이 됩니다.</li>
+  <li>체크는 정직하게 하세요. 점수가 아니라, 내가 자주 빠뜨리는 것이 무엇인지 알려고 하는 것입니다. 자주 놓친 체크는 <b>내 기록</b>에 보여 줍니다.</li>
+  <li>답변 구조는 결론 → 경험 → 배운 점 → 연결 순서입니다. <a href="/guide/">답변 구조 자세히</a></li>
+  <li>녹음해서 다시 듣고 싶다면 <a href="/practice/">모의 면접 연습</a>을 쓰세요.</li>
+</ul>
+<p class="note">질문은 이 사이트의 공통 질문 묶음과 학과별 질문 묶음 {{ n_dept }}개, 모두 {{ n_q }}개에서 뽑습니다. 이름·학교·성적을 묻지 않고, 기록(레벨·경험치·연속일·연습한 카드)은 <b>이 기기 브라우저에만</b> 저장되어 서버로 보내지 않습니다. 브라우저 기록을 지우거나 다른 기기에서 열면 처음부터 시작합니다.
+<br><button type="button" class="gm-reset" id="gmReset">내 기록 모두 지우기</button></p>
+<script>window.PLAY_URL="{{ base }}/play/questions.json";</script>
+<script src="/static/play.js?v={{ site.ver }}" defer></script>
+{% endblock %}
