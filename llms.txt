@@ -7,6 +7,7 @@
 ## 도구
 - [내 면접 일정표](https://mjgak.com/planner/): 지원 대학의 1단계 발표일·면접일을 날짜순으로
 - [모의 면접](https://mjgak.com/practice/): 무작위 질문·60초 타이머·녹음
+- [면접 카드 챌린지](https://mjgak.com/play/): 하루 3장 답변 연습, 스스로 체크해 레벨·연속 기록 쌓기
 - [2027 수능 정보](https://mjgak.com/suneung/): 시간표·준비물·성적 통지일
 - [수능최저 모아보기](https://mjgak.com/minimum/): 면접 전형의 수능최저학력기준
 - [합격자 발표·등록·충원 일정](https://mjgak.com/results/): 대학별 수시 최종 합격자 발표일·등록 기간·충원 합격 일정(모집요강 확인)
