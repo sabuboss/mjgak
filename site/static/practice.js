@@ -51,15 +51,47 @@
   // 줄임말 → 목록에 있는 말
   var ALIAS = [[/컴공/, "컴퓨터"], [/한의대/, "한의예"], [/치대/, "치의예"], [/의대/, "의예"], [/약대/, "약학"], [/간호대/, "간호"],
     [/수의대/, "수의예"], [/교대/, "교육"], [/경영대/, "경영"], [/소프트웨어|소웨/, "소프트웨어"], [/전전/, "전자"], [/기계과/, "기계"],
-    [/응용생물\S*|응용생명\S*|생물\S*학\S*|바이오\S*/, "생명"]];
+    // 2026-11-08 못 찾은 검색어(식품생명·운동재활·시스템생명과학과)에서. 식품 → 생명보다 먼저 바꾼다
+    [/식품\S*/, "식품"], [/운동재활\S*|재활운동\S*/, "스포츠재활"],
+    [/응용생물\S*|\S*생명\S*|생물\S*학\S*|바이오\S*/, "생명"]];
   // 묶음이 없는 학과 → 질문이 비슷한 묶음(찾은 뒤 안내 문구를 붙인다). 2026-11-03 못 찾은 검색어(불어·프랑스 등)에서
-  var SIMILAR = [[/불어|불문|프랑스|독어|독문|독일|일어|일문|일본어|중어|중문|중국어|스페인|러시아|노어|서어/, "영어영문", "외국어 계열 학과"]];
+  var SIMILAR = [[/불어|불문|프랑스|독어|독문|독일|일어|일문|일본어|중어|중문|중국어|스페인|러시아|노어|서어/, "영어영문", "외국어 계열 학과"],
+    [/ELLT|영어학|통번역/i, "영어영문", "영어 계열 학과"], [/소비자|생활과학|가정관리/, "경영학과", "소비자·생활과학 계열 학과"]];
+  // 한글 자판으로 바꾸지 않고 친 검색어(tlrvna → 식품)를 한글로 되돌린다
+  var KEY = { q: "ㅂ", w: "ㅈ", e: "ㄷ", r: "ㄱ", t: "ㅅ", y: "ㅛ", u: "ㅕ", i: "ㅑ", o: "ㅐ", p: "ㅔ", a: "ㅁ", s: "ㄴ", d: "ㅇ", f: "ㄹ", g: "ㅎ",
+    h: "ㅗ", j: "ㅓ", k: "ㅏ", l: "ㅣ", z: "ㅋ", x: "ㅌ", c: "ㅊ", v: "ㅍ", b: "ㅠ", n: "ㅜ", m: "ㅡ", Q: "ㅃ", W: "ㅉ", E: "ㄸ", R: "ㄲ", T: "ㅆ", O: "ㅒ", P: "ㅖ" };
+  var CHO = "ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ", JUNG = "ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ", JONG = " ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ";
+  var V2 = { "ㅗㅏ": "ㅘ", "ㅗㅐ": "ㅙ", "ㅗㅣ": "ㅚ", "ㅜㅓ": "ㅝ", "ㅜㅔ": "ㅞ", "ㅜㅣ": "ㅟ", "ㅡㅣ": "ㅢ" };
+  var C2 = { "ㄱㅅ": "ㄳ", "ㄴㅈ": "ㄵ", "ㄴㅎ": "ㄶ", "ㄹㄱ": "ㄺ", "ㄹㅁ": "ㄻ", "ㄹㅂ": "ㄼ", "ㄹㅅ": "ㄽ", "ㄹㅌ": "ㄾ", "ㄹㅍ": "ㄿ", "ㄹㅎ": "ㅀ", "ㅂㅅ": "ㅄ" };
+  function hangul(s) {
+    var j = s.split("").map(function (c) { return KEY[c] || KEY[c.toLowerCase()] || ""; }), out = "", i = 0;
+    if (j.indexOf("") >= 0) return "";
+    var isV = function (k) { return k && JUNG.indexOf(k) >= 0; };
+    while (i < j.length) {
+      var c = j[i];
+      if (CHO.indexOf(c) < 0 || !isV(j[i + 1])) return "";  // 글자가 되지 않으면 바꾸지 않는다
+      var v = j[i + 1]; i += 2;
+      if (V2[v + j[i]]) { v = V2[v + j[i]]; i++; }
+      var t = "";
+      if (j[i] && !isV(j[i]) && JONG.indexOf(j[i]) > 0 && !isV(j[i + 1])) {
+        t = j[i]; i++;
+        if (j[i] && C2[t + j[i]] && !isV(j[i + 1])) { t = C2[t + j[i]]; i++; }
+      }
+      out += String.fromCharCode(0xAC00 + (CHO.indexOf(c) * 21 + JUNG.indexOf(v)) * 28 + (t ? JONG.indexOf(t) : 0));
+    }
+    return out;
+  }
+  var missed = false;  // 정말 못 찾은 검색어만 통계에 남기려고(비슷한 묶음·대학 페이지로 이어 준 것과 구분)
   function find() {
-    var q = findEl.value.trim().replace(/\s+/g, ""), similar = "";
+    var q = findEl.value.trim().replace(/\s+/g, ""), similar = "", typed = "";
+    if (/^[a-zA-Z]{2,}$/.test(q) && !SIMILAR.some(function (a) { return a[0].test(q); })) {
+      var h = hangul(q); if (h) { typed = q; q = h; }
+    }
     ALIAS.forEach(function (a) { q = q.replace(a[0], a[1]); });
     SIMILAR.forEach(function (a) { if (a[0].test(q)) { similar = a[2]; q = a[1]; } });
     var hit = function (s) { var l = s.label.replace(/\s+/g, ""); return l.indexOf(q) >= 0 || (q.length > 2 && /대$/.test(q) && l.indexOf(q.slice(0, -1)) >= 0); };
     var list = !q ? DATA.sets : DATA.sets.filter(hit);
+    missed = !list.length;
     if (!list.length) {
       // 없는 대학을 찾으면 앞서 고른 묶음에 머무르지 않고 공통 질문으로 바꿔 주고, 그 대학 면접 페이지가 있으면 이어 준다
       var raw = findEl.value.trim().replace(/\s+/g, "").replace(/(대학교|대학|대)$/, "");
@@ -72,7 +104,7 @@
       fill(DATA.sets); sel.value = "common"; pickSet(); return;
     }
     findNote.textContent = similar ? "‘" + findEl.value.trim() + "’ 묶음은 없어, 질문이 비슷한 " + list.map(short).join(", ") + " 묶음을 보여 드립니다(" + similar + ")."
-      : q ? list.length + "개 찾음" + (list.length > 1 ? " — 아래 목록에서 고르세요" : "") : "";
+      : q ? (typed ? "‘" + typed + "’를 한글 자판으로 바꿔 찾았습니다. " : "") + list.length + "개 찾음" + (list.length > 1 ? " — 아래 목록에서 고르세요" : "") : "";
     var prev = sel.value;  // fill() 뒤엔 목록 첫 항목이 자동 선택되므로 그 전에 기억
     fill(list);
     if (q && list.every(function (s) { return s.id !== prev; })) {
@@ -162,7 +194,8 @@
   // 찾은 게 없던 검색어만 남긴다(어느 대학·학과 묶음을 더 만들지 정하려고)
   findEl.addEventListener("change", function () {
     var q = findEl.value.trim();
-    if (q && /없어/.test(findNote.textContent)) ev("practice_nofind", { search_term: q.slice(0, 30) });
+    if (q && missed) ev("practice_nofind", { search_term: q.slice(0, 30) });
+    else if (q && /비슷한/.test(findNote.textContent)) ev("practice_similar", { search_term: q.slice(0, 30) });
   });
   chipEl.addEventListener("click", function (e) {
     var b = e.target.closest && e.target.closest(".pr-chip"); if (!b) return;

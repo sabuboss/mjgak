@@ -4,6 +4,7 @@
 <h1>2027 수시 합격자 발표·등록·충원 일정 <small>{{ rows|length }}개 대학</small></h1>
 <p class="lead">면접을 마쳤다면 다음은 <b>최종 합격자 발표 → 합격자 등록 → 충원(추가) 합격</b>입니다. 면접각이 2027학년도 수시모집요강에서 확인한 {{ rows|length }}개 대학의 날짜를 모았습니다. 대학 이름을 누르면 전형별 면접 정보와 면접 당일 안내가 있습니다.</p>
 <div class="callout"><b>꼭 확인하세요</b> 날짜는 모집요강 기준이고, 대학 사정으로 바뀔 수 있습니다. 발표 당일에는 입학처 공지를 먼저 확인하세요. 수시에 최종 합격(충원 합격 포함)하면 등록하지 않아도 정시·추가모집에 지원할 수 없습니다(과학기술원·경찰대학·사관학교 등은 예외가 있으니 각 모집요강 확인). 충원 합격 연락을 받을 수 있게 전화는 꼭 받으세요.</div>
+<div class="practice-cta rs-play"><b>다른 대학 면접이 아직 남았나요?</b> 발표를 기다리는 동안 하루 질문 3장만 소리 내어 답해 보세요. 매일 하면 연속 기록과 레벨이 쌓입니다. <a class="btn" href="/play/?from=results">면접 카드 챌린지 시작</a></div>
 <label class="pl-search" style="margin:16px 0 8px">대학 찾기 <input id="rsQ" type="search" placeholder="예: 가천, 인제, 부산" autocomplete="off"></label>
 <table class="tbl" id="rsTbl"><tr><th>대학</th><th>최종 합격자 발표</th><th>등록 · 충원 합격</th></tr>
 {% for x in rows %}<tr data-k="{{ x.name }} {{ x.full }}"><td><a href="{{ x.url }}#after">{{ x.name }}</a></td><td>{{ x.final or "-" }}</td><td>{% if x.register %}<b>등록</b> {{ x.register }}{% endif %}{% if x.extra %}{% if x.register %}<br>{% endif %}<b>충원</b> {{ x.extra }}{% endif %}{% if x.source %}<br><small>출처: {{ x.source }}</small>{% endif %}</td></tr>
