@@ -466,3 +466,4 @@ h1 small{white-space:nowrap}
 .gm-reset{font:inherit;font-size:12.5px;margin-top:8px;padding:4px 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--muted);cursor:pointer}
 @media (min-width:561px){.gm-badges{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:560px){.gm-hud{grid-template-columns:auto 1fr;padding:12px 14px}.gm-stats{grid-column:1/-1;justify-content:space-around;border-top:1px solid rgba(255,255,255,.15);padding-top:8px}.gm-q{font-size:18px}.gm-card{padding:16px}.gm-btns{display:grid;grid-template-columns:1fr 1fr}.gm-btns .btn{justify-content:center;padding:11px 6px;font-size:14px}.gm-btns .btn:only-child{grid-column:1/-1}}
+.rs-play{margin:14px 0 6px;padding:12px 14px;font-size:14.5px}.rs-play .btn{margin-top:8px;padding:9px 14px;font-size:14px}
