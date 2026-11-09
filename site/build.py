@@ -746,6 +746,31 @@ def main():
              description=f"2027학년도 수시 최종 합격자 발표일, 합격자 등록 기간, 충원(추가) 합격 일정을 {len(rsrows)}개 대학 수시모집요강에서 확인해 모았습니다. 면접을 마친 수험생이 다음 날짜를 한눈에 볼 수 있습니다.")
         urls.append("/results/")
 
+    # 입시 용어 사전: content/terms.json (블로그 152 와 같은 내용, 대교협 기본사항·시행령 쪽수 확인분)
+    tp = ROOT / "content" / "terms.json"
+    if tp.exists():
+        terms, groups = [], {}
+        for x in json.loads(tp.read_text(encoding="utf-8")):
+            srcs = []
+            for s in (x.get("source") or "").split(" ; "):
+                m = re.search(r"https?://\S+", s)
+                txt = re.sub(r"\s*https?://\S+", "", s).strip()
+                if txt or m:
+                    srcs.append({"text": txt or "원문", "url": m.group(0) if m else ""})
+            rel = (x.get("related_url") or "").replace(site["url"], "") or ""
+            t2 = dict(x, id="t-" + re.sub(r"[^0-9A-Za-z가-힣]+", "-", x["term"]).strip("-"), sources=srcs, related_url=rel,
+                      aka=x.get("aka") or [], slang="비공식" in (x.get("def", "") + x.get("detail", "")))
+            terms.append(t2)
+            groups.setdefault(x["group"], []).append(t2)
+        ld = {"@context": "https://schema.org", "@type": "DefinedTermSet", "name": "2027 입시 용어 사전", "url": f"{site['url']}/terms/",
+              "hasDefinedTerm": [{"@type": "DefinedTerm", "name": t2["term"], "alternateName": t2["aka"], "description": t2["def"],
+                                  "url": f"{site['url']}/terms/#{t2['id']}"} for t2 in terms]}
+        page("terms", "terms.html", terms=terms, groups=[{"name": k, "terms": v} for k, v in groups.items()],
+             ld=json.dumps(ld, ensure_ascii=False).replace("</", "<\/"),
+             title=f"2027 입시 용어 사전 — 수시납치·6광탈·추합·표점 뜻 {len(terms)}개",
+             description=f"수시납치, 6광탈, 추합, 표점, 문서등록, 수시이월 등 2027 대입에서 헷갈리는 용어 {len(terms)}개를 원서·수능·면접·발표·정시 순서로 정리했습니다. 규칙은 대교협 기본사항·고등교육법 시행령 쪽수와 함께.")
+        urls.append("/terms/")
+
     # 면접 당일 안내 모아보기: 대학 rich 의 dayof(모집요강 확인분)
     dyrows = []
     for code, r in sorted(rich_univ.items(), key=lambda kv: kv[1].get("name", "")):
@@ -825,6 +850,7 @@ def main():
              f"- [모의 면접]({site['url']}/practice/): 무작위 질문·60초 타이머·녹음", f"- [면접 카드 챌린지]({site['url']}/play/): 하루 3장 답변 연습, 스스로 체크해 레벨·연속 기록 쌓기",f"- [2027 수능 정보]({site['url']}/suneung/): 시간표·준비물·성적 통지일",
              f"- [수능최저 모아보기]({site['url']}/minimum/): 면접 전형의 수능최저학력기준",
              f"- [합격자 발표·등록·충원 일정]({site['url']}/results/): 대학별 수시 최종 합격자 발표일·등록 기간·충원 합격 일정(모집요강 확인)",
+             f"- [입시 용어 사전]({site['url']}/terms/): 수시납치·6광탈·추합·표점·문서등록·수시이월 등 2027 입시 용어(대교협 기본사항·시행령 근거)",
              f"- [면접 당일 안내 모아보기]({site['url']}/dayof/): 대학별 입실·준비물·휴대폰·교복·블라인드 규정(모집요강 확인)",
              f"- [2027 지역의사제 전형 모아보기]({site['url']}/regional-doctor/): 의대별 지역의사 선발전형 모집인원·면접일·수능최저·의무복무(모집요강 확인)",
              "", "## 면접 준비 안내",

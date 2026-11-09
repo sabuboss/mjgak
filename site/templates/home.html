@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <section class="ha-filters" aria-label="빠른 찾기">
   <div class="ha-frow"><b class="ha-flabel">시기별</b>
-    <a class="ha-chip" href="/schedule/#dates">대학별 면접 날짜</a><a class="ha-chip" href="/planner/">내 면접 일정표</a><a class="ha-chip" href="/suneung/">수능 시간표·준비물</a><a class="ha-chip" href="/minimum/">수능최저 모아보기</a><a class="ha-chip" href="/dayof/">면접 당일 준비물·규정</a><a class="ha-chip" href="/regional-doctor/">2027 지역의사제 전형</a><a class="ha-chip" href="/results/">합격자 발표 일정</a><a class="ha-chip" href="/schedule/">D-7 체크리스트</a><a class="ha-chip" href="/guide/">2주 준비법</a><a class="ha-chip" href="/record/">생기부 예상 질문 만들기</a><a class="ha-chip" href="/mmi/">제시문·MMI 면접</a></div>
+    <a class="ha-chip" href="/schedule/#dates">대학별 면접 날짜</a><a class="ha-chip" href="/planner/">내 면접 일정표</a><a class="ha-chip" href="/suneung/">수능 시간표·준비물</a><a class="ha-chip" href="/minimum/">수능최저 모아보기</a><a class="ha-chip" href="/dayof/">면접 당일 준비물·규정</a><a class="ha-chip" href="/regional-doctor/">2027 지역의사제 전형</a><a class="ha-chip" href="/results/">합격자 발표 일정</a><a class="ha-chip" href="/terms/">입시 용어 사전</a><a class="ha-chip" href="/schedule/">D-7 체크리스트</a><a class="ha-chip" href="/guide/">2주 준비법</a><a class="ha-chip" href="/record/">생기부 예상 질문 만들기</a><a class="ha-chip" href="/mmi/">제시문·MMI 면접</a></div>
   <div class="ha-frow"><b class="ha-flabel">계열별</b>
     {% for m in majors %}<a class="ha-chip" href="{{ m.url }}">{{ m.label }} <i>{{ m.questions|length }}</i></a>{% endfor %}</div>
   <div class="ha-frow"><b class="ha-flabel">지원자 유형별</b>

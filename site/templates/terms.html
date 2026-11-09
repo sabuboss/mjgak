@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="/schedule/">면접 일정</a> › 입시 용어 사전</p>
+<h1>2027 입시 용어 사전 <small>{{ terms|length }}개</small></h1>
+<p class="lead">수시납치, 6광탈, 추합, 표점처럼 수험생·학부모가 자주 헷갈리는 입시 용어를 원서 → 수능 → 면접 → 발표·등록·충원 → 정시 순서로 모았습니다. 규칙은 대교협 「2027학년도 대학입학전형기본사항」과 고등교육법 시행령의 쪽·조항을 함께 적었습니다.</p>
+<div class="callout"><b>꼭 확인하세요</b> 공식 용어가 아닌 말(수험생 사이 표현)은 <span class="tm-slang">비공식</span>으로 표시했습니다. 대학마다 다른 규칙은 지원 대학 모집요강이 우선입니다.</div>
+<label class="pl-search" style="margin:16px 0 8px">용어 찾기 <input id="tmQ" type="search" placeholder="예: 납치, 추합, 예치금, 표점" autocomplete="off"></label>
+<p class="tm-nav">{% for g in groups %}<a href="#g-{{ loop.index }}">{{ g.name }} ({{ g.terms|length }})</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+{% for g in groups %}
+<h2 id="g-{{ loop.index }}">{{ g.name }}</h2>
+<dl class="tm-list">
+{% for t in g.terms %}<div class="tm-item" id="{{ t.id }}" data-k="{{ t.term }} {{ t.aka|join(' ') }}">
+<dt>{{ t.term }}{% if t.slang %} <span class="tm-slang">비공식</span>{% endif %}{% if t.aka %} <small>{{ t.aka|join(' · ') }}</small>{% endif %}</dt>
+<dd><p>{{ t.def }}</p>{% if t.detail %}<p class="tm-detail">{{ t.detail }}</p>{% endif %}
+{% if t.sources or t.related_url %}<p class="tm-src">{% for s in t.sources %}{% if s.url %}<a href="{{ s.url }}" rel="nofollow noopener" target="_blank">{{ s.text }}</a>{% else %}{{ s.text }}{% endif %}{% if not loop.last %} · {% endif %}{% endfor %}{% if t.related_url %}{% if t.sources %} · {% endif %}<a href="{{ t.related_url }}">면접각에서 보기 ›</a>{% endif %}</p>{% endif %}</dd>
+</div>
+{% endfor %}</dl>
+{% endfor %}
+<p class="note" id="tmNone" hidden>찾는 용어가 없습니다.</p>
+<h2>같이 보면 좋은 페이지</h2>
+<ul>
+  <li><a href="/results/">합격자 발표·등록·충원 일정</a></li>
+  <li><a href="/minimum/">수능최저 모아보기</a></li>
+  <li><a href="/suneung/">2027 수능 시간표·준비물·성적 통지일</a></li>
+  <li><a href="/mmi/">제시문 면접·MMI 준비법</a></li>
+</ul>
+<script type="application/ld+json">{{ ld|safe }}</script>
+<script>
+(function(){var q=document.getElementById("tmQ"),items=[].slice.call(document.querySelectorAll(".tm-item")),none=document.getElementById("tmNone");
+q.addEventListener("input",function(){var v=q.value.trim(),n=0;items.forEach(function(r){var ok=!v||r.getAttribute("data-k").indexOf(v)>=0||r.textContent.indexOf(v)>=0;r.hidden=!ok;if(ok)n++;});none.hidden=n>0;[].forEach.call(document.querySelectorAll(".tm-list"),function(l){var h=l.previousElementSibling,any=[].some.call(l.children,function(c){return !c.hidden;});l.hidden=!any;if(h)h.hidden=!any;});});})();
+</script>
+{% endblock %}
