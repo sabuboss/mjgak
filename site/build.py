@@ -212,6 +212,46 @@ NICK = {"고려대학교": ["고대"], "연세대학교": ["연대"], "성균관
         "POSTECH(포항공과대학교)": ["포스텍", "포항공대"], "UNIST(울산과학기술원)": ["유니스트", "울산과기원"], "GIST(광주과학기술원)": ["지스트"], "DGIST(대구경북과학기술원)": ["디지스트"]}
 
 
+# 수시 발표 시즌(11월~12월 말)에는 대학 페이지 제목·설명을 "합격자 발표·등록·충원" 중심으로 바꾼다.
+# 검색어가 "OO대 면접 일정" → "OO대 합격자 발표·추합" 으로 옮겨 가기 때문. 수시 충원이 끝나는 12/30 이후 False 로 되돌린다.
+RESULTS_SEASON = True
+
+
+def results_meta(name: str, rich: dict | None) -> tuple[str, str] | None:
+    """발표·등록·충원 정보가 확인된 대학만 (제목 앞부분, 설명). 정보가 없으면 None → 기존 제목 유지."""
+    a = (rich or {}).get("after") or {}
+    if not (RESULTS_SEASON and a.get("final") and (a.get("register") or a.get("extra"))):
+        return None
+    def cut(s, n):
+        s = (s or "").split(" · ")[0].strip()
+        if len(s) <= n:
+            return s
+        s = s[:n]
+        if s.count("(") > s.count(")"):  # 괄호 가운데서 끊기지 않게
+            s = s[:s.rfind("(")]
+        for sep in ("·", ", ", " "):  # 날짜 단위 경계에서 끊는다
+            if sep in s[n // 2:]:
+                s = s[:s.rfind(sep)]
+                break
+        return s.rstrip(" ·,~") + " 등"
+    fin = re.sub(r"^(최초|최종)[^0-9:：]{0,15}?발표\s*[:：]?\s*", "", cut(a["final"], 70))
+    if not re.search(r"\d{1,2}/\d", fin):  # 앞의 전형 이름이 길어 날짜가 잘렸으면 날짜부터 보여 준다
+        m = re.search(r"\d{1,2}/\d{1,2}\([^)]*\)[^·,]*", a["final"])
+        fin = m.group(0).strip() if m else fin
+    parts = [f"최종 합격자 발표 {fin}"]
+    if a.get("register"):
+        parts.append("등록 " + re.sub(r"^[^0-9]{0,25}?(?=\d{1,2}/\d)", "", cut(a["register"], 40)))
+    if a.get("extra"):
+        ex = cut(a["extra"], 50)
+        parts.append(ex if ("충원" in ex or "추가" in ex) else f"충원 {ex}")
+    tail = "전형별 면접 방식·일정과 모집요강 출처 쪽수까지 정리."
+    desc = f"{name} 2027 수시 " + ", ".join(parts) + ". " + tail
+    while len(desc) > 175 and len(parts) > 1:
+        parts.pop()
+        desc = f"{name} 2027 수시 " + ", ".join(parts) + ". " + tail
+    return f"{name} 면접·합격자 발표 2027 — 발표 시각·등록·충원(추합) 일정", desc
+
+
 def univ_aliases(name: str) -> list[str]:
     """대학 이름의 흔한 줄임말: 서울교육대학교 → 서울교대, 숙명여자대학교 → 숙명여대, 국립창원대학교 → 창원대 …"""
     out = set()
@@ -620,12 +660,13 @@ def main():
         p = prof_by[code]
         s = seed.get(code, {})
         reports = sorted([s_ for s_ in s.get("sources", []) if s_.get("kind") == "report"], key=lambda x: -x["year"])
+        rm = results_meta(p["name"], p["rich"]) if p.get("rich") and p["rich"].get("tracks") else None
         page(f"univ/{code}", "univ_prep.html", p=p, home=p.get("home") or s.get("admission_url", "#"),
              report_url=reports[0]["url"] if reports else None, report_year=reports[0]["year"] if reports else None,
              common_questions=uprof["common_questions"], notice=uprof["notice"],
              robots=None if p.get("rich") else "noindex,follow",  # 2027 정보 없는 템플릿 페이지는 색인 제외 (얇은 콘텐츠)
-             title=((f"{p['name']} 면접 일정·방식 2027 — 1단계 발표·면접일·최종 발표" + ("·공개 질문" if p["rich"].get("published_questions") else "") if p["rich"].get("tracks") else f"{p['name']} 2027 수시 — 면접 없는 서류평가 전형 안내") if p.get("rich") else f"{p['name']} 면접 준비 가이드 — 특징·면접 방식·예상 질문"),
-             description=(p["rich"]["summary"][:150] if p.get("rich") else f"{p['blurb']} 면접 방식과 준비 포인트, 맞춤 예상 질문 {len(p['questions'])}개."))
+             title=rm[0] if rm else ((f"{p['name']} 면접 일정·방식 2027 — 1단계 발표·면접일·최종 발표" + ("·공개 질문" if p["rich"].get("published_questions") else "") if p["rich"].get("tracks") else f"{p['name']} 2027 수시 — 면접 없는 서류평가 전형 안내") if p.get("rich") else f"{p['name']} 면접 준비 가이드 — 특징·면접 방식·예상 질문"),
+             description=rm[1] if rm else (p["rich"]["summary"][:150] if p.get("rich") else f"{p['blurb']} 면접 방식과 준비 포인트, 맞춤 예상 질문 {len(p['questions'])}개."))
         if p.get("rich"):
             urls.append(p["url"])
             rss.append((f"{p['name']} 면접 2027", p["url"], p["rich"]["summary"][:120]))
@@ -653,6 +694,10 @@ def main():
         else:
             title_u = (f"{u['name']} 면접 2027 — 전형별 면접 방식·일정 · 기출문항 {years[0]}학년도" if rich_p else f"{u['name']} 면접 기출문항 {years[-1]}~{years[0]}학년도")
             desc_u = f"{u['name']} 입학처가 공개한 면접·구술고사 문항 {u['n']}개를 연도·전형별로 정리했습니다. 출제 의도와 출처 링크 포함."
+        rm = results_meta(u["name"], rich_p) if rich_p and rich_p.get("tracks") else None
+        if rm:
+            title_u = rm[0] + (" · 기출 공개 현황" if restricted else " · 기출문항")
+            desc_u = rm[1]
         page(f"univ/{u['code']}", "univ.html", u=u, seed=s, years=years, admissions=list(adm.values()), sample=([] if restricted else [r for r in recs if r["year"] == years[0]][:6]),
              restricted=restricted, year_src=year_src,
              robots=("noindex,follow" if (restricted and not rich_p) else None),
