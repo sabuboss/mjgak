@@ -29,7 +29,7 @@
 
 <h2>{{ d.label }} 면접 질문 {{ r.questions|length }}개와 답변 예시</h2>
 {% if r.principle %}<div class="callout"><b>공통 원칙</b> {{ r.principle }}</div>{% endif %}
-<p class="note">예시 답변은 답변 구조를 보여 주기 위한 가상의 예시입니다. 그대로 외우면 면접관이 알아봅니다. 반드시 본인 경험으로 바꾸세요.</p>
+<p class="note"><span class="kind kind-predicted">면접각 정리 질문</span> 여러 대학 면접에서 반복되는 유형을 면접각이 정리한 예상 질문으로, 실제 기출이 아닙니다. 예시 답변은 답변 구조를 보여 주기 위한 가상의 예시입니다. 그대로 외우면 면접관이 알아봅니다. 반드시 본인 경험으로 바꾸세요.</p>
 <div class="toc"><b>이 페이지의 질문</b><ol>{% for q in r.questions %}<li><a href="#q{{ loop.index }}">{{ q.question }}</a></li>{% endfor %}</ol></div>
 {% for q in r.questions %}
 <section class="qsec" id="q{{ loop.index }}">

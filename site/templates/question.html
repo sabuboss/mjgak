@@ -3,7 +3,7 @@
 {% block body %}
 <p class="crumb"><a href="/">홈</a> › <a href="{{ cat.url }}">{{ cat.label }}</a></p>
 <h1>{{ q.question }}</h1>
-<p class="meta">{{ cat.label }} · 자주 나오는 질문{% if q.keywords %} · {{ q.keywords|join(", ") }}{% endif %}</p>
+<p class="meta"><span class="kind kind-predicted">면접각 정리 질문</span> {{ cat.label }} · 자주 나오는 질문{% if q.keywords %} · {{ q.keywords|join(", ") }}{% endif %}</p>
 
 <h2>왜 이 질문을 할까</h2>
 <p>{{ q.why }}</p>
