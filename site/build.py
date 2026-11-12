@@ -395,13 +395,27 @@ def write_sitemap(urls):
         L.append(f"  <url><loc>{site['url']}{u}</loc><lastmod>{new[u][1]}</lastmod></url>")
     L.append("</urlset>")
     write("sitemap.xml", "\n".join(L) + "\n")
+    return new
 
 
-def write_rss(items):
+def write_rss(items, dates=None):
+    # 2026-11-12: 예전에는 앞 30개(학과·공통 질문)만 들어가 대학 페이지가 RSS 에 하나도 없었다.
+    # 이제 내용이 바뀐 날(sitemap lastmod) 최신순으로 60개를 넣고 pubDate 를 단다(네이버 서치어드바이저 RSS 수집용).
+    dates = dates or {}
+    seen, uniq = set(), []
+    for it in items:
+        if it[1] not in seen:
+            seen.add(it[1]); uniq.append(it)
+    uniq.sort(key=lambda it: ((dates.get(it[1]) or ["", "0000-00-00"])[1], it[1].startswith("/univ/")), reverse=True)  # 같은 날이면 대학 페이지 먼저
     L = ['<?xml version="1.0" encoding="UTF-8"?>', '<rss version="2.0"><channel>',
          f"<title>{escape(site['name'])}</title><link>{site['url']}/</link><description>{escape(site['tagline'])}</description><language>ko</language>"]
-    for t, u, d in items[:30]:
-        L.append(f"<item><title>{escape(t)}</title><link>{site['url']}{u}</link><guid>{site['url']}{u}</guid><description>{escape(d)}</description></item>")
+    for t, u, d in uniq[:60]:
+        lm = (dates.get(u) or [None, None])[1]
+        pub = ""
+        if lm:
+            dd = datetime.date.fromisoformat(lm)
+            pub = f"<pubDate>{['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][dd.weekday()]}, {dd.day:02d} {['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][dd.month-1]} {dd.year} 09:00:00 +0900</pubDate>"
+        L.append(f"<item><title>{escape(t)}</title><link>{site['url']}{u}</link><guid>{site['url']}{u}</guid><description>{escape(d)}</description>{pub}</item>")
     L.append("</channel></rss>")
     write("rss.xml", "\n".join(L) + "\n")
 
@@ -686,7 +700,7 @@ def main():
              description=rm[1] if rm else (p["rich"]["summary"][:150] if p.get("rich") else f"{p['blurb']} 면접 방식과 준비 포인트, 맞춤 예상 질문 {len(p['questions'])}개."))
         if p.get("rich"):
             urls.append(p["url"])
-            rss.append((f"{p['name']} 면접 2027", p["url"], p["rich"]["summary"][:120]))
+            rss.append((rm[0] if rm else f"{p['name']} 면접 2027", p["url"], (rm[1] if rm else p["rich"]["summary"])[:120]))
     for u in univ_cards:
         recs = actual_by[u["code"]]
         s = seed[u["code"]]
@@ -722,6 +736,7 @@ def main():
              title=title_u, description=desc_u)
         if not (restricted and not rich_p):
             urls.append(u["url"])
+            rss.append((title_u, u["url"], desc_u[:120]))
         for y in ([] if restricted else years):
             yr = [r for r in recs if r["year"] == y]
             by_adm: dict[str, list] = {}
@@ -927,8 +942,8 @@ def main():
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {site['url']}/sitemap.xml\n")
     if site.get("indexnow_key"):  # IndexNow 소유 확인 파일(https://mjgak.com/<key>.txt)
         write(f"{site['indexnow_key']}.txt", site["indexnow_key"])
-    write_sitemap(urls)
-    write_rss(rss)
+    lastmods = write_sitemap(urls)
+    write_rss(rss, lastmods)
     search = [{"t": q["question"], "u": q["url"], "c": q["cat_label"]} for q in common["questions"]]
     search += [{"t": f"{m['label']} · {q['question']}", "u": m["url"], "c": "계열별"} for m in majors["majors"] for q in m["questions"]]
     search += [{"t": f"{p['label']} · {q['text']}", "u": p["url"], "c": "유형별"} for p in profiles for q in p["seed_questions"]]

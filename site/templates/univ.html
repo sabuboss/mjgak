@@ -1,7 +1,10 @@
 {% extends "base.html" %}
+{% block head %}<script type="application/ld+json">{{ {"@context": "https://schema.org", "@graph": [
+ {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": site.url ~ "/"}, {"@type": "ListItem", "position": 2, "name": "대학별", "item": site.url ~ "/univ/"}, {"@type": "ListItem", "position": 3, "name": u.name, "item": site.url ~ path}]},
+ {"@type": "WebPage", "name": title, "description": description, "url": site.url ~ path, "inLanguage": "ko", "dateModified": (p.rich.after.checked if p and p.rich and p.rich.after and p.rich.after.checked else (p.rich.checked if p and p.rich else none)), "about": {"@type": "CollegeOrUniversity", "name": u.name}}]}|tojson }}</script>{% endblock %}
 {% block body %}
 <p class="crumb"><a href="/">홈</a> › <a href="/univ/">대학별</a></p>
-<h1>{{ u.name }} 면접 {% if restricted %}기출 공개 현황{% else %}기출문항{% endif %}</h1>
+<h1>{{ u.name }} 면접{% if p and p.rich %} 2027{% if p.rich.after %} · 합격자 발표{% endif %} ·{% endif %} {% if restricted %}기출 공개 현황{% else %}기출문항{% endif %}</h1>
 <p class="meta">{{ u.label }} · <a href="{{ seed.admission_url }}" target="_blank" rel="noopener">입학처↗</a>{% if seed.report_board_url %} · <a href="{{ seed.report_board_url }}" target="_blank" rel="noopener">공개자료 게시판↗</a>{% endif %}</p>
 
 {% if p and p.rich %}{% include "_rich_univ.html" %}{% endif %}
