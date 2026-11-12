@@ -67,36 +67,105 @@
  ],
  "dress": "모집요강의 전형일정과 면접고사 안내(35·84쪽)에는 면접 복장 규정이 따로 없습니다. 전형일정에는 면접고사 당일 '09:30(오후반 13:00) 예비소집 실시하오니 필히 시간 내 참석 요함(수험표, 신분증, 필기구 지참)'이라고 적혀 있습니다(35쪽).",
  "depts": [
-  {"slug": "nursing", "label": "간호학과"},
-  {"slug": "korean-literature", "label": "국어국문학과"},
-  {"slug": "english-literature", "label": "영어영문학과"},
-  {"slug": "history", "label": "사학과"},
-  {"slug": "philosophy", "label": "철학과"},
-  {"slug": "special-education", "label": "특수교육과"},
-  {"slug": "early-childhood-education", "label": "유아교육과"},
-  {"slug": "law", "label": "법학과"},
-  {"slug": "public-administration", "label": "행정학과"},
-  {"slug": "international-studies", "label": "국제관계학과"},
-  {"slug": "sociology", "label": "사회학과"},
-  {"slug": "media-communication", "label": "미디어커뮤니케이션학과"},
-  {"slug": "social-welfare", "label": "사회복지학과"},
-  {"slug": "business", "label": "글로벌비즈니스학부 · 국제무역학과"},
-  {"slug": "food-nutrition", "label": "식품영양학과"},
-  {"slug": "chemistry", "label": "화학과"},
-  {"slug": "materials-engineering", "label": "재료금속공학과 · 첨단소재융합공학과"},
-  {"slug": "computer-science", "label": "컴퓨터공학과"},
-  {"slug": "ai-data", "label": "인공지능공학과"},
-  {"slug": "robotics-ai", "label": "지능로봇융합공학과"},
-  {"slug": "mechanical-engineering", "label": "에너지기계·모빌리티기계·원자력기계공학과"},
-  {"slug": "aerospace-engineering", "label": "우주항공공학부"},
-  {"slug": "physical-education", "label": "체육학과"}
+  {
+   "slug": "nursing",
+   "label": "간호학과"
+  },
+  {
+   "slug": "korean-literature",
+   "label": "국어국문학과"
+  },
+  {
+   "slug": "english-literature",
+   "label": "영어영문학과"
+  },
+  {
+   "slug": "history",
+   "label": "사학과"
+  },
+  {
+   "slug": "philosophy",
+   "label": "철학과"
+  },
+  {
+   "slug": "special-education",
+   "label": "특수교육과"
+  },
+  {
+   "slug": "early-childhood-education",
+   "label": "유아교육과"
+  },
+  {
+   "slug": "law",
+   "label": "법학과"
+  },
+  {
+   "slug": "public-administration",
+   "label": "행정학과"
+  },
+  {
+   "slug": "international-studies",
+   "label": "국제관계학과"
+  },
+  {
+   "slug": "sociology",
+   "label": "사회학과"
+  },
+  {
+   "slug": "media-communication",
+   "label": "미디어커뮤니케이션학과"
+  },
+  {
+   "slug": "social-welfare",
+   "label": "사회복지학과"
+  },
+  {
+   "slug": "business",
+   "label": "글로벌비즈니스학부 · 국제무역학과"
+  },
+  {
+   "slug": "food-nutrition",
+   "label": "식품영양학과"
+  },
+  {
+   "slug": "chemistry",
+   "label": "화학과"
+  },
+  {
+   "slug": "materials-engineering",
+   "label": "재료금속공학과 · 첨단소재융합공학과"
+  },
+  {
+   "slug": "computer-science",
+   "label": "컴퓨터공학과"
+  },
+  {
+   "slug": "ai-data",
+   "label": "인공지능공학과"
+  },
+  {
+   "slug": "robotics-ai",
+   "label": "지능로봇융합공학과"
+  },
+  {
+   "slug": "mechanical-engineering",
+   "label": "에너지기계·모빌리티기계·원자력기계공학과"
+  },
+  {
+   "slug": "aerospace-engineering",
+   "label": "우주항공공학부"
+  },
+  {
+   "slug": "physical-education",
+   "label": "체육학과"
+  }
  ],
  "checked": "2026-10-29",
  "after": {
-  "final": "12/18(금) 14:00(예정) · 입학 홈페이지 공고(개별 통보 없음)",
+  "final": "학생부교과(학업성적우수자·글로컬인재·지역인재·사회통합·취업자·평생학습자·농어촌학생·특성화고교졸업자·기회균형선발·특수교육대상자·특성화고 등을 졸업한 재직자·만학도)·학생부종합(계열적합인재·지역인재)·실기/실적(특기자): 12/18(금) 14:00(예정) · 실기/실적(예체능): 11/20(금) 14:00(예정) · 입학 홈페이지 공고(개별 통보 없음)",
   "register": "12/21(월) 10:00~12/23(수) 18:00 · 입학 홈페이지 온라인 문서등록(예치금 없음) · 본등록금 납부 2/10(수) 10:00~2/12(금) 16:00",
   "extra": "충원 1차 12/24(목) 10:00 ~ 5차(최종) 12/29(화) 18:00 · 1~3차 홈페이지, 4·5차 개별 전화 · 5차 등록 12/30(수) 10:00~(마감 35쪽 18:00, 85쪽 16:00)",
-  "source": "2027학년도 국립창원대학교 창원캠퍼스 수시모집요강 35쪽(전형일정)·85쪽(합격자발표 및 등록)"
+  "source": "2027학년도 수시모집요강 31쪽(전형요약)·32쪽(전형별 모집인원 변경: 실기/실적 '예체능전형'·'특기자 전형')·35쪽(전형일정)·85쪽(합격자발표 및 등록)"
  },
  "dayof": {
   "arrive": "고사 당일 09:30(오후반 13:00) 예비소집 · 지정시간 내 고사장 입실 · 장소는 입학 홈페이지 고사장 안내",
