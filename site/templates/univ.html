@@ -2,14 +2,14 @@
 {% block body %}
 <p class="crumb"><a href="/">홈</a> › <a href="/univ/">대학별</a></p>
 <h1>{{ u.name }} 면접 {% if restricted %}기출 공개 현황{% else %}기출문항{% endif %}</h1>
-<p class="meta">{{ years[-1] }}~{{ years[0] }}학년도 · 문항 {{ u.n }}개 (실제 기출 {{ u.actual }}) · <a href="{{ seed.admission_url }}" target="_blank" rel="noopener">입학처↗</a>{% if seed.report_board_url %} · <a href="{{ seed.report_board_url }}" target="_blank" rel="noopener">공개자료 게시판↗</a>{% endif %}</p>
+<p class="meta">{{ u.label }} · <a href="{{ seed.admission_url }}" target="_blank" rel="noopener">입학처↗</a>{% if seed.report_board_url %} · <a href="{{ seed.report_board_url }}" target="_blank" rel="noopener">공개자료 게시판↗</a>{% endif %}</p>
 
 {% if p and p.rich %}{% include "_rich_univ.html" %}{% endif %}
 {% if restricted %}
 <h2>면접 문항 원문은 입학처에서 확인하세요</h2>
 <p>{{ u.name }}는 면접·구술고사 문항과 출제 의도를 입학처에 공개합니다. 다만 공개 자료에 <b>"{{ restricted }}"</b>라는 이용 조건이 적혀 있어, 이 사이트에는 문항 원문을 싣지 않고 공개 현황과 원문 링크만 안내합니다.</p>
 <table class="tbl"><tr><th>학년도</th><th>전형 · 원문</th></tr>
-{% for y in years %}<tr><td>{{ y }}</td><td>{% for name, url in year_src[y].items() %}{% if url %}<a href="{{ url }}" target="_blank" rel="noopener">{{ name }} ↗</a>{% else %}{{ name }}{% endif %}{% if not loop.last %}<br>{% endif %}{% endfor %}</td></tr>{% endfor %}
+{% for y in years %}<tr><td>{{ y }}{% if y in u.example_only %} (예시 문항){% endif %}</td><td>{% for name, url in year_src[y].items() %}{% if url %}<a href="{{ url }}" target="_blank" rel="noopener">{{ name }} ↗</a>{% else %}{{ name }}{% endif %}{% if not loop.last %}<br>{% endif %}{% endfor %}</td></tr>{% endfor %}
 </table>
 {% else %}
 <h2>연도별 보기</h2>

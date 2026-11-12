@@ -59,6 +59,20 @@ def blog_links() -> dict:
 
 env.globals["blog_links"] = blog_links()
 
+def records_label(recs: list[dict]) -> str:
+    """'2022~2026학년도 실제 기출 333 · 2028학년도 대학 공개 예시 37' 처럼 실제 기출과 예시를 나눠 적는다.
+    (2026-11-12: 서울대 2028학년도 예시 문항 때문에 '2022~2028학년도 · 실제 기출 333' 으로 보여 미래 학년도 기출처럼 읽혔다)"""
+    act = sorted({r["year"] for r in recs if r["kind"] == "actual"})
+    ex = sorted({r["year"] for r in recs if r["kind"] != "actual"})
+    n_act = sum(1 for r in recs if r["kind"] == "actual")
+    parts = []
+    if act:
+        parts.append(f"{act[0]}~{act[-1]}학년도 실제 기출 {n_act}" if len(act) > 1 else f"{act[0]}학년도 실제 기출 {n_act}")
+    if len(recs) > n_act:
+        parts.append(f"{'·'.join(map(str, ex))}학년도 대학 공개 예시 {len(recs) - n_act}")
+    return " · ".join(parts)
+
+
 # 원문에 상업적 이용·발췌 금지 문구가 있는 대학: 문항 원문은 싣지 않고 공개 현황과 원문 링크만 안내한다.
 RESTRICTED = {
     "snu": "이 문서는 상업적인 목적으로 사용할 수 없으며, 문서의 변형 및 발췌를 금지합니다.",
@@ -440,7 +454,9 @@ def main():
         recs = actual_by[code]
         years = sorted({r["year"] for r in recs}, reverse=True)
         univ_cards.append({"code": code, "name": univ_names[code], "n": len(recs), "years": years,
-                           "actual": sum(1 for r in recs if r["kind"] == "actual"), "url": f"/univ/{code}/"})
+                           "actual": sum(1 for r in recs if r["kind"] == "actual"), "url": f"/univ/{code}/",
+                           "label": records_label(recs),
+                           "example_only": sorted({r["year"] for r in recs} - {r["year"] for r in recs if r["kind"] == "actual"})})
     univ_cards.sort(key=lambda u: -u["n"])
     for m in majors["majors"]:
         m["url"] = f"/major/{m['code']}/"
@@ -539,7 +555,8 @@ def main():
 
     # 홈
     n_videos = sum(len(d.get("videos", [])) for d in depts) + sum(len(d.get("videos", [])) for d in newd["departments"]) + sum(len(u.get("videos", [])) for u in uprof["universities"])
-    stats = {"questions": len(common["questions"]), "depts": len(depts) + len(newd["departments"]), "univs": sum(1 for p in prof_by.values() if p.get("rich")), "actual": sum(len(v) for c, v in actual_by.items() if c not in RESTRICTED),
+    stats = {"questions": len(common["questions"]), "depts": len(depts) + len(newd["departments"]),
+             "dept_main": len(depts), "dept_new": len(newd["departments"]), "univs": sum(1 for p in prof_by.values() if p.get("rich")), "actual": sum(len(v) for c, v in actual_by.items() if c not in RESTRICTED),
              "videos": n_videos, "updated": TODAY.strftime("%Y.%m.%d")}
     page("", "home.html", common=common, by_cat=by_cat, majors=majors["majors"], profiles=profiles, univ_cards=univ_cards, stats=stats,
          depts=depts, newd=newd["departments"], prep_n=len(prof_by), top=common["questions"][:8], description=site["description"])

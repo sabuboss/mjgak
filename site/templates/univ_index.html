@@ -8,7 +8,7 @@
 
 <h2>실제 면접 문항을 공개한 대학</h2>
 <div class="cards">
-{% for u in univ_cards %}<a class="card" href="{{ u.url }}"><span class="chip">실제 기출 {{ u.actual }}</span><b>{{ u.name }}</b><p>{{ u.years[-1] }}~{{ u.years[0] }}학년도 · 문항 {{ u.n }}개</p></a>{% endfor %}
+{% for u in univ_cards %}<a class="card" href="{{ u.url }}"><span class="chip">실제 기출 {{ u.actual }}</span><b>{{ u.name }}</b><p>{{ u.label }}</p></a>{% endfor %}
 </div>
 <p class="note">이 대학들은 제시문 기반 면접·구술고사 문항을 매년 3월 입학처 홈페이지에 공개합니다. 서류 기반 면접·인성면접은 문항이 공개되지 않으므로 <a href="/category/intro/">공통 질문</a>과 <a href="/type/general/">유형별 질문</a>으로 준비하세요.</p>
 
