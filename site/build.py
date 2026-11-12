@@ -800,7 +800,7 @@ def main():
         if code not in prof_by or not (a.get("final") or a.get("register") or a.get("extra")):
             continue
         rsrows.append({"name": short(r.get("name") or prof_by[code]["name"]), "url": prof_by[code]["url"], "final": a.get("final", ""),
-                       "register": a.get("register", ""), "extra": a.get("extra", ""), "source": a.get("source", ""),
+                       "register": a.get("register", ""), "extra": a.get("extra", ""), "source": a.get("source", ""), "checked": a.get("checked", ""),
                        "full": r.get("name", "")})
     if rsrows:
         page("results", "results.html", rows=rsrows,
