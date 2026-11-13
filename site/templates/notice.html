@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% macro rows_tbl(rows, tid, first_col) %}
+<table class="tbl nt-tbl" id="{{ tid }}"><tr><th>{{ first_col }}</th><th>대학 · 전형</th><th>무엇을 · 어디서</th><th>면접일</th></tr>
+{% for x in rows %}<tr data-k="{{ x.name }} {{ x.full }}"><td>{{ x.when }}</td><td><a href="{{ x.url }}#dayof">{{ x.name }}</a><br><small>{{ x.tracks }}</small></td><td>{{ x.what }}{% if x.where %}<br><small>{{ x.where }}</small>{% endif %}</td><td>{{ x.interview }}{% if x.page %}<br><small>요강 {{ x.page }}</small>{% endif %}</td></tr>
+{% endfor %}</table>
+{% endmacro %}
+{% block body %}
+<p class="crumb"><a href="/">홈</a> › <a href="/schedule/">면접 일정</a> › 고사장·면접 시간 공지일</p>
+<h1>2027 수시 면접 고사장·면접 시간 공지일 <small>{{ n_u }}개 대학</small></h1>
+<p class="lead">1단계에 합격했다면 다음으로 볼 것은 <b>내 고사장과 면접 시간이 언제 공지되는지</b>입니다. 면접이 남은 {{ n_u }}개 대학의 2027학년도 수시모집요강에서 고사장·개인별 면접 시간·수험표 출력 공지일을 확인해 공지일 순으로 모았습니다. 대학 이름을 누르면 그 대학의 면접 당일 안내(입실·준비물·휴대폰 규정)로 갑니다.</p>
+<div class="callout"><b>꼭 확인하세요</b> 날짜는 모집요강 기준이고 대학 사정으로 바뀔 수 있습니다. 대부분 개별 연락 없이 입학처 홈페이지에만 올라오니, 공지일에 직접 들어가 확인하세요. 면접 시간은 대부분 바꿀 수 없으니 같은 날 다른 대학 면접이 있다면 <a href="/planner/">내 면접 일정표</a>로 겹치는지 먼저 보세요.</div>
+<label class="pl-search" style="margin:16px 0 8px">대학 찾기 <input id="ntQ" type="search" placeholder="예: 동국, 경북, 전남" autocomplete="off"></label>
+{% if soon %}
+<h2 id="soon">공지일이 다가오는 대학 <small>{{ soon|length }}건</small></h2>
+{{ rows_tbl(soon, "ntSoon", "공지 일시") }}
+{% endif %}
+{% if rel %}
+<h2 id="rel">면접일 기준으로 공지하는 대학 <small>{{ rel|length }}건</small></h2>
+<p class="note">모집요강에 날짜 대신 「고사 3일 전」처럼 면접일을 기준으로 적힌 곳입니다. 면접일에서 거꾸로 세어 달력에 적어 두세요.</p>
+{{ rows_tbl(rel, "ntRel", "공지 시점") }}
+{% endif %}
+{% if nodate %}
+<h2 id="nodate">공지일이 모집요강에 없는 대학 <small>{{ nodate|length }}건</small></h2>
+<p class="note">모집요강에 「추후 홈페이지 공지」처럼만 적혀 있는 곳입니다. 1단계 발표 날부터 면접 며칠 전까지 입학처 홈페이지 공지사항을 매일 확인하세요.</p>
+{{ rows_tbl(nodate, "ntNo", "요강 표기") }}
+{% endif %}
+{% if past %}
+<h2 id="past">공지일이 지난 대학 <small>{{ past|length }}건</small></h2>
+<p class="note">모집요강의 공지일이 지났습니다. 아직 확인하지 않았다면 입학처 홈페이지 공지사항이나 1단계 합격자 조회 화면에서 바로 확인하세요.</p>
+{{ rows_tbl(past, "ntPast", "공지일(요강)") }}
+{% endif %}
+<p class="note" id="ntNone" hidden>찾는 대학이 없습니다. 이 표에는 면접이 남았고, 면접각이 모집요강에서 공지일을 확인한 대학만 있습니다.</p>
+<p class="ysrc">출처: 각 대학 2027학년도 수시모집요강(쪽수는 표에 표시){% if checked %} · {{ checked }} 확인{% endif %}. 면접일이 지난 전형은 다음 날 자동으로 표에서 빠집니다. 틀린 곳은 아래 「수정·요청 보내기」로 알려 주세요.</p>
+<h2>공지가 올라오면 할 일</h2>
+<ol>
+  <li><b>고사장 건물과 입실 마감 시각</b>을 확인하고, 집에서 가는 시간을 지도 앱으로 미리 재 둡니다.</li>
+  <li><b>수험표</b>를 출력해 신분증과 함께 둡니다. 대학별 준비물·휴대폰 규정은 <a href="/dayof/">면접 당일 안내 모아보기</a>에 있습니다.</li>
+  <li>같은 날 두 대학 면접이 잡혔다면 시간과 이동 거리를 따져 봅니다. 시간 변경은 대부분 안 됩니다.</li>
+  <li>면접 시간이 정해졌다면 그 시간대에 맞춰 <a href="/practice/">모의 면접</a>을 한 번 해 봅니다.</li>
+</ol>
+<p>면접 뒤 일정은 <a href="/results/">합격자 발표·등록·충원 일정</a>, 수능최저는 <a href="/minimum/">수능최저 모아보기</a>에서 보세요.</p>
+<script>
+(function(){var q=document.getElementById("ntQ"),rows=[].slice.call(document.querySelectorAll(".nt-tbl tr[data-k]")),none=document.getElementById("ntNone");
+q.addEventListener("input",function(){var v=q.value.trim(),n=0;rows.forEach(function(r){var ok=!v||r.getAttribute("data-k").indexOf(v)>=0;r.hidden=!ok;if(ok)n++;});none.hidden=n>0;});})();
+</script>
+{% endblock %}

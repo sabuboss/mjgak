@@ -597,6 +597,34 @@ def main():
         pr += [{"set": f"dept:{x['slug']}", "label": all_dept_url[x["slug"]][1]} for x in r.get("depts", []) if x.get("slug") in all_dept_url][:5]
         pr.append({"set": "common", "label": "자주 나오는 공통"})
         r["practice"] = pr
+    # 면접 고사장·시간 공지일: content/interview_notice.json(모집요강 확인분). 면접이 지난 항목은 빼고, 대학 페이지에도 붙인다.
+    notice_rows = []
+    npath = ROOT / "content" / "interview_notice.json"
+    ndata = json.loads(npath.read_text(encoding="utf-8")) if npath.exists() else {}
+    for code, v in (ndata.get("univ") or {}).items():
+        if code not in prof_by or code not in rich_univ:
+            continue
+        r, its = rich_univ[code], []
+        for it in v.get("items", []):
+            iv = datesparse.parse(it.get("interview"))
+            if not iv or iv[-1] < TODAY.isoformat():
+                continue
+            it = {**it, "when": drop_past_inline(drop_past_plan(it.get("when", "")))}
+            wd = datesparse.first(it["when"])
+            its.append(it)
+            notice_rows.append({**it, "code": code, "name": short(r.get("name") or prof_by[code]["name"]), "full": r.get("name", ""),
+                                "url": prof_by[code]["url"], "source": v.get("source", ""), "wd": wd, "iv": iv[0], "ivlast": iv[-1]})
+        if its:
+            # 대학 페이지에서는 공지 내용·시점·경로가 같은 항목을 한 줄로 합친다(전형 이름만 이어 붙임)
+            merged = {}
+            for it in its:
+                k = (it["when"], it["what"], it["where"])
+                if k in merged:
+                    merged[k]["tracks"] += " · " + it["tracks"]
+                else:
+                    merged[k] = dict(it)
+            its = list(merged.values())
+            r["notice"] = {"rows": its, "source": v.get("source", ""), "checked": ndata.get("checked", "") if v.get("basis") == "pdf" else ""}
     rich_common = load_rich("common")
     for q in common["questions"]:
         q["example"] = examples.get("common", {}).get(q["slug"])
@@ -871,6 +899,20 @@ def main():
              description=f"2027학년도 수시 최종 합격자 발표일, 합격자 등록 기간, 충원(추가) 합격 일정을 {len(rsrows)}개 대학 수시모집요강에서 확인해 모았습니다. 면접을 마친 수험생이 다음 날짜를 한눈에 볼 수 있습니다.")
         urls.append("/results/")
 
+    # 면접 고사장·시간 공지일 모아보기
+    if notice_rows:
+        today = TODAY.isoformat()
+        soon = sorted([x for x in notice_rows if x["wd"] and x["wd"] >= today], key=lambda x: (x["wd"], x["iv"], x["name"]))
+        past = sorted([x for x in notice_rows if x["wd"] and x["wd"] < today], key=lambda x: (x["iv"], x["name"]))
+        rel = sorted([x for x in notice_rows if not x["wd"] and "미기재" not in x["when"]], key=lambda x: (x["iv"], x["name"]))
+        nodate = sorted([x for x in notice_rows if not x["wd"] and "미기재" in x["when"]], key=lambda x: (x["iv"], x["name"]))
+        n_u = len({x["code"] for x in notice_rows})
+        page("notice", "notice.html", soon=soon, past=past, rel=rel, nodate=nodate, n_u=n_u, checked=ndata.get("checked", ""), dlabel=dlabel,
+             title=f"2027 수시 면접 고사장·면접 시간 공지일 — {n_u}개 대학",
+             description=f"남은 수시 면접의 고사장·개인별 면접 시간·수험표 출력이 언제, 어디에 공지되는지 {n_u}개 대학 2027학년도 수시모집요강에서 확인해 공지일 순으로 모았습니다.")
+        urls.append("/notice/")
+        rss.append(("2027 수시 면접 고사장·면접 시간 공지일 모아보기", "/notice/", f"남은 면접 {n_u}개 대학의 고사장·면접 시간 공지일(모집요강 확인)"))
+
     # 입시 용어 사전: content/terms.json (블로그 152 와 같은 내용, 대교협 기본사항·시행령 쪽수 확인분)
     tp = ROOT / "content" / "terms.json"
     if tp.exists():
@@ -974,6 +1016,7 @@ def main():
              "## 도구", f"- [내 면접 일정표]({site['url']}/planner/): 지원 대학의 1단계 발표일·면접일을 날짜순으로",
              f"- [모의 면접]({site['url']}/practice/): 무작위 질문·60초 타이머·녹음", f"- [면접 카드 챌린지]({site['url']}/play/): 하루 3장 답변 연습, 스스로 체크해 레벨·연속 기록 쌓기",f"- [2027 수능 정보]({site['url']}/suneung/): 시간표·준비물·성적 통지일",
              f"- [수능최저 모아보기]({site['url']}/minimum/): 면접 전형의 수능최저학력기준",
+             f"- [면접 고사장·시간 공지일]({site['url']}/notice/): 남은 수시 면접의 고사장·개인별 면접 시간·수험표 출력 공지일(모집요강 확인)",
              f"- [합격자 발표·등록·충원 일정]({site['url']}/results/): 대학별 수시 최종 합격자 발표일·등록 기간·충원 합격 일정(모집요강 확인)",
              f"- [입시 용어 사전]({site['url']}/terms/): 수시납치·6광탈·추합·표점·문서등록·수시이월 등 2027 입시 용어(대교협 기본사항·시행령 근거)",
              f"- [면접 당일 안내 모아보기]({site['url']}/dayof/): 대학별 입실·준비물·휴대폰·교복·블라인드 규정(모집요강 확인)",

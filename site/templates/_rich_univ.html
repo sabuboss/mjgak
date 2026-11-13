@@ -29,8 +29,12 @@
   {% if t.source %}<p class="ysrc">출처: {{ p.name }} {{ t.source }}</p>{% endif %}
 </details>
 {% endfor %}
-{% if r.dayof %}
+{% if r.dayof or r.notice %}
 <h3 id="dayof">면접 당일 안내</h3>
+{% if r.notice %}<p class="quick-final"><b>고사장·면접 시간 공지</b> {% for n in r.notice.rows %}{% if not loop.first %} · {% endif %}{% if r.notice.rows|length > 1 %}{{ n.tracks }}: {% endif %}{{ n.what }} {{ n.when }}{% if n.where %}({{ n.where }}){% endif %}{% endfor %} <a href="/notice/">다른 대학 공지일 ›</a></p>
+{% if r.notice.source %}<p class="ysrc">출처: {{ p.name }} {{ r.notice.source }}{% if r.notice.checked %} · {{ r.notice.checked }} 확인{% endif %}</p>{% endif %}{% endif %}
+{% endif %}
+{% if r.dayof %}
 <dl class="ylist">
   {% if r.dayof.arrive %}<dt>입실·시간</dt><dd>{{ r.dayof.arrive }}</dd>{% endif %}
   {% if r.dayof.bring %}<dt>준비물</dt><dd>{{ r.dayof.bring }}</dd>{% endif %}
