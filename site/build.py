@@ -186,16 +186,36 @@ def drop_past_plan(s: str) -> str:
     return re.sub(r"\s*예정", "", s).strip()
 
 
+_PLAN_INLINE = re.compile(r"(?<!\d)(\d{1,2})/(\d{1,2})(\([월화수목금토일]\)(?:\s*\d{1,2}:\d{2})?)\s*(?:\(예정\)|예정(?!자))")
+
+
+def drop_past_inline(s: str) -> str:
+    """문장 속 'M/D(요일) [HH:MM] 예정' 에서 날짜가 빌드일 이전·당일이면 '예정'만 뺀다."""
+    def rep(m):
+        mo, d = int(m.group(1)), int(m.group(2))
+        try:
+            dt = datetime.date(2026 if mo >= 6 else 2027, mo, d)
+        except ValueError:
+            return m.group(0)
+        return f"{m.group(1)}/{m.group(2)}{m.group(3)}" if dt <= TODAY else m.group(0)
+    return _PLAN_INLINE.sub(rep, s) if "예정" in s else s
+
+
 def _past_plans(o):
     if isinstance(o, dict):
         for k, v in o.items():
-            if k == "first" and isinstance(v, str):
-                o[k] = drop_past_plan(v)
+            if k in ("first", "final") and isinstance(v, str):
+                o[k] = drop_past_inline(" · ".join(drop_past_plan(seg) for seg in v.split(" · ")))
+            elif isinstance(v, str):
+                o[k] = drop_past_inline(v)
             else:
                 _past_plans(v)
     elif isinstance(o, list):
-        for v in o:
-            _past_plans(v)
+        for i, v in enumerate(o):
+            if isinstance(v, str):
+                o[i] = drop_past_inline(v)
+            else:
+                _past_plans(v)
     return o
 
 
@@ -452,7 +472,7 @@ def md_page(name: str):
     head, body = raw.split("\n---\n", 1)
     meta = dict(line.split(":", 1) for line in head.splitlines() if ":" in line)
     meta = {k.strip(): v.strip() for k, v in meta.items()}
-    body = body.replace("{{ contact_email }}", site.get("contact_email", "")).replace("{{ author }}", site.get("author", ""))
+    body = drop_past_inline(body).replace("{{ contact_email }}", site.get("contact_email", "")).replace("{{ author }}", site.get("author", ""))
     return meta, body
 
 
