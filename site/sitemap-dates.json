@@ -44,11 +44,11 @@
 "2026-11-12"
 ],
 "/dept/aerospace-engineering/": [
-"d741c9dbf4497194",
+"200a9aeb64c2d739",
 "2026-11-13"
 ],
 "/dept/ai-data/": [
-"eb3ca0cd2a8c179d",
+"00c95d31921558ab",
 "2026-11-13"
 ],
 "/dept/airline-service/": [
@@ -60,11 +60,11 @@
 "2026-11-13"
 ],
 "/dept/architecture/": [
-"48b99c032a152182",
-"2026-11-12"
+"e0d0aa12b9babf99",
+"2026-11-13"
 ],
 "/dept/biology/": [
-"f68f39c5c8cb18f0",
+"b4c4e632f1de6d5a",
 "2026-11-13"
 ],
 "/dept/biomedical-lab/": [
@@ -76,11 +76,11 @@
 "2026-11-12"
 ],
 "/dept/chemical-engineering/": [
-"343b262bab6e0a06",
+"fe46b2510ccf1df2",
 "2026-11-13"
 ],
 "/dept/chemistry/": [
-"e824f9876fcdbe9d",
+"37eff3693215e734",
 "2026-11-13"
 ],
 "/dept/child-family/": [
@@ -88,7 +88,7 @@
 "2026-11-13"
 ],
 "/dept/civil-engineering/": [
-"8a98fe08a8c820be",
+"c956b5b5730dc5f8",
 "2026-11-13"
 ],
 "/dept/computer-science/": [
@@ -104,7 +104,7 @@
 "2026-11-13"
 ],
 "/dept/dentistry-oriental/": [
-"5c87cc1c752da0b4",
+"d8665ab34429e336",
 "2026-11-13"
 ],
 "/dept/design/": [
@@ -116,19 +116,19 @@
 "2026-11-13"
 ],
 "/dept/earth-science/": [
-"12d14f8750f38441",
+"e0fefdac9e37d029",
 "2026-11-13"
 ],
 "/dept/economics/": [
-"a8a3e835cec4ead9",
+"ce37fbf24abac5f0",
 "2026-11-13"
 ],
 "/dept/education/": [
-"ec857d10e8c5c2cb",
+"c4fa5f7af55b9d01",
 "2026-11-13"
 ],
 "/dept/electrical-engineering/": [
-"edfedea7dd8f8831",
+"525895008125fdc9",
 "2026-11-13"
 ],
 "/dept/elementary-education/": [
@@ -140,7 +140,7 @@
 "2026-11-12"
 ],
 "/dept/english-literature/": [
-"ee629222ff247708",
+"09c792021646ff12",
 "2026-11-13"
 ],
 "/dept/fine-arts/": [
@@ -148,7 +148,7 @@
 "2026-11-13"
 ],
 "/dept/food-nutrition/": [
-"ea06377fbf1b35b1",
+"50f8a0e8f98d210f",
 "2026-11-13"
 ],
 "/dept/health-administration/": [
@@ -156,27 +156,27 @@
 "2026-11-13"
 ],
 "/dept/history/": [
-"4cd34df2fbc0ea4b",
+"1f370f97d0f9f515",
 "2026-11-13"
 ],
 "/dept/industrial-engineering/": [
-"45ccc98dfb7fee2c",
+"131c1500b839e4f8",
 "2026-11-13"
 ],
 "/dept/international-studies/": [
-"e1b1439d29762f66",
+"bb69d103fd4a106b",
 "2026-11-13"
 ],
 "/dept/korean-language-education/": [
-"d94d35327089eab8",
+"2d1a4b66275ac510",
 "2026-11-13"
 ],
 "/dept/korean-literature/": [
-"ee2dc99ee90ffae7",
+"50033614f33a8e70",
 "2026-11-13"
 ],
 "/dept/law/": [
-"13ebb8040fd48daf",
+"102d075460a20943",
 "2026-11-13"
 ],
 "/dept/liberal-studies/": [
@@ -184,19 +184,19 @@
 "2026-11-13"
 ],
 "/dept/materials-engineering/": [
-"d908d64e49ce5e67",
+"b8237116d52536f9",
 "2026-11-13"
 ],
 "/dept/math-education/": [
-"8b976ea3511477b8",
-"2026-11-12"
+"1343fc6542e8ca5b",
+"2026-11-13"
 ],
 "/dept/mathematics/": [
-"e4678969b528a6c5",
+"37593c191e6c77bd",
 "2026-11-13"
 ],
 "/dept/mechanical-engineering/": [
-"a7a8ae54784ad1b4",
+"68e0a127f4f83a3b",
 "2026-11-13"
 ],
 "/dept/media-communication/": [
@@ -212,8 +212,8 @@
 "2026-11-12"
 ],
 "/dept/nursing/": [
-"ae8681c11e7af09c",
-"2026-11-12"
+"a0aef0e185135dec",
+"2026-11-13"
 ],
 "/dept/occupational-therapy/": [
 "2131fedf6722a980",
@@ -224,55 +224,55 @@
 "2026-11-12"
 ],
 "/dept/pharmacy/": [
-"c812aeab989e40e7",
+"fd9388927da88ef6",
 "2026-11-13"
 ],
 "/dept/philosophy/": [
-"4b07b4d687121c40",
+"4f26deded6c96d49",
 "2026-11-13"
 ],
 "/dept/physical-education/": [
-"5c6e53aa8e536ea7",
-"2026-11-12"
+"3693c25cb9751117",
+"2026-11-13"
 ],
 "/dept/physical-therapy/": [
 "7999525320752ea3",
 "2026-11-13"
 ],
 "/dept/physics/": [
-"7243618b5e32384f",
-"2026-11-12"
+"7b1a14b403b75464",
+"2026-11-13"
 ],
 "/dept/police-administration/": [
 "07d35cf4cf272aaf",
 "2026-11-13"
 ],
 "/dept/political-science/": [
-"1cd38e0a05059ecc",
+"d65daba7bb4af766",
 "2026-11-13"
 ],
 "/dept/psychology/": [
-"21c97d0a75fde4dc",
+"fe55bc9403ef7b75",
 "2026-11-13"
 ],
 "/dept/public-administration/": [
-"1dc7ea6bf97a8db0",
+"38712b84970b1225",
 "2026-11-13"
 ],
 "/dept/radiologic-technology/": [
-"06bc09fa3fd7c37b",
-"2026-11-12"
+"27c83e4fa17e15b6",
+"2026-11-13"
 ],
 "/dept/social-welfare/": [
-"2dd3d98e1de0266b",
+"e807e26f7f74c990",
 "2026-11-13"
 ],
 "/dept/sociology/": [
-"3644ec5021a00c11",
+"d60dc05a3ac3c636",
 "2026-11-13"
 ],
 "/dept/special-education/": [
-"13eb9a948a2d9c76",
+"d38cb06867143a6b",
 "2026-11-13"
 ],
 "/dept/speech-therapy/": [
@@ -284,7 +284,7 @@
 "2026-11-13"
 ],
 "/dept/statistics/": [
-"a0261e56eb067624",
+"cd0f7dd3b3b69cd2",
 "2026-11-13"
 ],
 "/dept/theater-film/": [
@@ -292,11 +292,11 @@
 "2026-11-13"
 ],
 "/dept/tourism-hospitality/": [
-"1dcbec63b0409de7",
-"2026-11-12"
+"9ac050d275b94d4d",
+"2026-11-13"
 ],
 "/dept/veterinary/": [
-"70196667944dd9c6",
+"8bd11b7d27f00751",
 "2026-11-13"
 ],
 "/guide/": [
@@ -344,11 +344,11 @@
 "2026-11-12"
 ],
 "/new/ai-convergence/": [
-"6c0422d6f08d3871",
+"d6b79477c579fd69",
 "2026-11-13"
 ],
 "/new/ai-medical/": [
-"9508576d3ddebcfd",
+"11785be064b38dbc",
 "2026-11-13"
 ],
 "/new/battery/": [
@@ -372,24 +372,24 @@
 "2026-11-12"
 ],
 "/new/mobility/": [
-"33e37521b240fa20",
-"2026-11-12"
+"82a51eebb2645982",
+"2026-11-13"
 ],
 "/new/pet/": [
 "e47827560dba016f",
 "2026-11-12"
 ],
 "/new/quantum/": [
-"a1719a80692f47be",
-"2026-11-12"
+"b970103300957fa5",
+"2026-11-13"
 ],
 "/new/robotics-ai/": [
-"b03f8e47f39d166f",
-"2026-11-12"
+"239ef11d83b83a66",
+"2026-11-13"
 ],
 "/new/semiconductor/": [
-"e0aa879e1c208313",
-"2026-11-12"
+"e411e0854103ac28",
+"2026-11-13"
 ],
 "/new/webtoon/": [
 "4d750fd2563b0309",
