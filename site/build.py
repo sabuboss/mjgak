@@ -173,9 +173,35 @@ RICH = ROOT / "content" / "rich"
 PUA = re.compile("[\ue000-\uf8ff]+")  # PDF 수식 폰트가 깨진 문자(사용자 영역)
 
 
+def drop_past_plan(s: str) -> str:
+    """1단계 발표 문구의 날짜가 모두 빌드일 이전·당일이면 요강의 '예정'을 뺀다(지난 일정이 앞으로 있을 일처럼 읽히지 않게)."""
+    md = re.findall(r"(?<!\d)(\d{1,2})/(\d{1,2})(?!\d)", s)
+    if "예정" not in s or not md:
+        return s
+    ds = [datetime.date(2026 if int(m) >= 6 else 2027, int(m), int(d)) for m, d in md if 1 <= int(m) <= 12 and 1 <= int(d) <= 31]
+    if not ds or max(ds) > TODAY:
+        return s
+    s = re.sub(r"\s*\(예정\)", "", s)
+    s = re.sub(r"\(예정,\s*", "(", s)
+    return re.sub(r"\s*예정", "", s).strip()
+
+
+def _past_plans(o):
+    if isinstance(o, dict):
+        for k, v in o.items():
+            if k == "first" and isinstance(v, str):
+                o[k] = drop_past_plan(v)
+            else:
+                _past_plans(v)
+    elif isinstance(o, list):
+        for v in o:
+            _past_plans(v)
+    return o
+
+
 def load_rich(kind: str) -> dict:
     d = RICH / kind
-    return {p.stem: load(p) for p in sorted(d.glob("*.json"))} if d.exists() else {}
+    return {p.stem: _past_plans(load(p)) for p in sorted(d.glob("*.json"))} if d.exists() else {}
 
 
 def load_examples() -> dict:
