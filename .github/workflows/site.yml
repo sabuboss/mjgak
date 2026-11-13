@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths: ["site/**", "data/seed/**", "pipeline/out/**", ".github/workflows/site.yml"]
   workflow_dispatch:
+  schedule:
+    - cron: "5 15 * * *"  # 매일 00:05(한국) 다시 빌드 — 지난 날짜의 '예정' 제거, 일정표 '남은 면접' 수 갱신
 jobs:
   build:
     runs-on: ubuntu-latest
