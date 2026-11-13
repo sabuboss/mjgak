@@ -56,6 +56,19 @@ document.addEventListener("click", function (e) {
   if (a && window.gtag) gtag("event", "fixreq_click", { page_path: location.pathname });
 });
 
+// 수정·요청 보내기: 페이지 위 경로(crumb) 오른쪽에 「틀린 곳 신고」 바로가기를 붙인다 (아래 신고 칸으로 이동)
+(function () {
+  var c = document.querySelector(".crumb"), f = document.getElementById("fixreq");
+  if (!c || !f) return;
+  var a = document.createElement("a");
+  a.className = "crumb-fix"; a.href = "#fixreq"; a.textContent = "틀린 곳 신고";
+  c.insertBefore(a, c.firstChild);
+})();
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest('a[href="#fixreq"]');
+  if (a && window.gtag) gtag("event", "fixreq_jump", { page_path: location.pathname, link_from: a.className === "crumb-fix" ? "top" : "footer" });
+});
+
 // 수정·요청 보내기: 메일 주소 복사
 document.addEventListener("click", function (e) {
   var b = e.target.closest && e.target.closest(".fixreq-copy");

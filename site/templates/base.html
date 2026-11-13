@@ -30,7 +30,7 @@ if(m){var b=document.createElement('div');b.textContent=on?'이 브라우저의 
 <ul>{% for t, u in bl %}<li><a href="{{ u }}" target="_blank" rel="noopener">{{ t }}</a></li>{% endfor %}</ul></aside>
 {% endif %}
 {% if path and path != "/404" %}{% set em = site.contact_email %}
-<aside class="fixreq"><p class="fixreq-q"><b>이 페이지에 틀린 내용이 있거나, 더 정리해 줬으면 하는 것이 있나요?</b><br>날짜·숫자가 바뀌었거나, 원하는 학과·대학·질문이 있으면 알려 주세요. 확인해서 고치거나 새로 정리합니다.</p>
+<aside class="fixreq" id="fixreq"><p class="fixreq-q"><b>이 페이지에 틀린 내용이 있거나, 더 정리해 줬으면 하는 것이 있나요?</b><br>날짜·숫자가 바뀌었거나, 원하는 학과·대학·질문이 있으면 알려 주세요. 확인해서 고치거나 새로 정리합니다.</p>
 <a class="btn" href="mailto:{{ em }}?subject={{ ('[면접각 수정·요청] ' ~ (title or site.name))|urlencode }}&amp;body={{ ('페이지: ' ~ site.url ~ path ~ '
 
 요청 내용:
@@ -38,6 +38,6 @@ if(m){var b=document.createElement('div');b.textContent=on?'이 브라우저의 
 <p class="note">메일 앱이 열립니다. 열리지 않으면 <b>{{ em }}</b> <button type="button" class="fixreq-copy" data-copy="{{ em }}">주소 복사</button> 으로 이 페이지 주소와 함께 보내 주세요. 이름·학교·성적 같은 개인정보는 적지 않아도 됩니다.</p></aside>
 {% endif %}
 </div>
-<footer><a href="/about/">소개</a>·<a href="/guide/">면접 준비법</a>·<a href="/privacy/">개인정보처리방침</a>·<a href="/contact/">문의</a><br>© {{ year }} {{ site.name }}. 자료는 네 가지로 구분해 표시합니다: <b>실제 기출</b>(대학 입학처 공개 문항, 출처 표기) · <b>대학 공개 예시</b>(대학이 모집요강 등에 예로 든 질문) · <b>면접각 정리 질문</b>(면접각이 만든 예상 질문) · <b>답변 예시</b>(구조를 보여 주는 가상의 예시).</footer>
+<footer>{% if path and path != "/404" %}<a href="#fixreq"><b>틀린 정보 신고</b></a>·{% endif %}<a href="/about/">소개</a>·<a href="/guide/">면접 준비법</a>·<a href="/privacy/">개인정보처리방침</a>·<a href="/contact/">문의</a><br>© {{ year }} {{ site.name }}. 자료는 네 가지로 구분해 표시합니다: <b>실제 기출</b>(대학 입학처 공개 문항, 출처 표기) · <b>대학 공개 예시</b>(대학이 모집요강 등에 예로 든 질문) · <b>면접각 정리 질문</b>(면접각이 만든 예상 질문) · <b>답변 예시</b>(구조를 보여 주는 가상의 예시).</footer>
 <script src="/static/site.js?v={{ site.ver }}" defer></script>
 </body></html>
