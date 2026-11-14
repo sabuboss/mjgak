@@ -312,6 +312,37 @@ def results_meta(name: str, rich: dict | None) -> tuple[str, str] | None:
     return f"{name} 면접·합격자 발표 2027 — 발표 시각·등록·충원(추합) 일정", desc
 
 
+# 수능 뒤 면접 주간(2026-11-20~12월 중순): 면접이 남은 대학은 제목·설명·첫 화면을 "면접일·고사장·면접 시간 공지" 중심으로 한다.
+# 검색어가 "OO대 면접 고사장·면접 시간" 으로 몰리기 때문. 대학의 마지막 면접이 지나면 다음 날 빌드부터 자동으로 발표 중심(results_meta)으로 돌아간다.
+INTERVIEW_SEASON = True
+INTERVIEW_FROM = "2026-11-14"  # 이보다 앞선 날짜(이미 끝난 날)는 범위에서 뺀다. 날마다 바꾸지 않는 고정값이라 제목이 매일 바뀌지 않는다.
+
+
+def interview_meta(name: str, rich: dict | None) -> tuple[str, str] | None:
+    """면접이 남은 대학만 (제목, 설명). _upcoming 은 메인 빌드에서 채운다. 없으면 None → results_meta 로."""
+    up = (rich or {}).get("_upcoming")
+    if not (INTERVIEW_SEASON and up):
+        return None
+    lab = lambda iso: f"{int(iso[5:7])}/{int(iso[8:])}({'월화수목금토일'[datetime.date.fromisoformat(iso).weekday()]})"
+    span = lab(up["first"]) if up["first"] == up["last"] else f"{lab(up['first'])}~{lab(up['last'])}"
+    parts = [f"면접 {span}" + (f"({up['n']}개 전형)" if up["n"] > 1 else "")]
+    rows = (rich.get("notice") or {}).get("rows") or []
+    wds = sorted({w for w in (datesparse.first(x.get("when")) for x in rows) if w})
+    if wds:
+        w = wds[0]
+        parts.append(f"고사장·면접 시간 {lab(w)} 발표" if w < TODAY.isoformat() else f"고사장·면접 시간 공지 {lab(w)}")
+    elif rows:
+        parts.append("고사장·면접 시간은 입학처 홈페이지 공지")
+    # 최종 발표는 남은 면접이 끝난 뒤의 날짜만(가천대처럼 '수능 이전 발표' 날짜가 앞에 있는 경우를 피한다)
+    fin = next((x for x in datesparse.parse((rich.get("after") or {}).get("final")) if x > up["last"]), None)
+    if fin:
+        parts.append(f"최종 합격자 발표 {lab(fin)}")
+    bring = bool(rich.get("dayof"))
+    desc = f"{name} 2027 수시 " + ", ".join(parts) + ". 전형별 면접 방식·평가 기준" + ("·준비물" if bring else "") + "과 모집요강 출처 쪽수까지 정리."
+    title = f"{name} 면접 2027 — {span} 면접 · " + ("고사장·면접 시간 공지" if rows else "전형별 방식") + (" · 준비물" if bring else "")
+    return title, desc
+
+
 def univ_aliases(name: str) -> list[str]:
     """대학 이름의 흔한 줄임말: 서울교육대학교 → 서울교대, 숙명여자대학교 → 숙명여대, 국립창원대학교 → 창원대 …"""
     out = set()
@@ -625,6 +656,11 @@ def main():
                     merged[k] = dict(it)
             its = list(merged.values())
             r["notice"] = {"rows": its, "source": v.get("source", ""), "checked": ndata.get("checked", "") if v.get("basis") == "pdf" else ""}
+    # 면접이 남은 전형(오늘 이후 날짜가 하나라도 있는 전형)의 전체 날짜 범위 — 제목이 날마다 바뀌지 않게 전형 단위로 잡는다
+    for code, r in rich_univ.items():
+        up = [t for t in r.get("tracks", []) if any(x >= TODAY.isoformat() for x in (t.get("_days") or []))]
+        days = sorted({x for t in up for x in t["_days"] if x >= INTERVIEW_FROM})
+        r["_upcoming"] = {"n": len(up), "first": days[0], "last": days[-1]} if days else None
     rich_common = load_rich("common")
     for q in common["questions"]:
         q["example"] = examples.get("common", {}).get(q["slug"])
@@ -767,7 +803,7 @@ def main():
         p = prof_by[code]
         s = seed.get(code, {})
         reports = sorted([s_ for s_ in s.get("sources", []) if s_.get("kind") == "report"], key=lambda x: -x["year"])
-        rm = results_meta(p["name"], p["rich"]) if p.get("rich") and p["rich"].get("tracks") else None
+        rm = (interview_meta(p["name"], p["rich"]) or results_meta(p["name"], p["rich"])) if p.get("rich") and p["rich"].get("tracks") else None
         page(f"univ/{code}", "univ_prep.html", p=p, home=p.get("home") or s.get("admission_url", "#"),
              report_url=reports[0]["url"] if reports else None, report_year=reports[0]["year"] if reports else None,
              common_questions=uprof["common_questions"], notice=uprof["notice"],
@@ -801,7 +837,7 @@ def main():
         else:
             title_u = (f"{u['name']} 면접 2027 — 전형별 면접 방식·일정 · 기출문항 {years[0]}학년도" if rich_p else f"{u['name']} 면접 기출문항 {years[-1]}~{years[0]}학년도")
             desc_u = f"{u['name']} 입학처가 공개한 면접·구술고사 문항 {u['n']}개를 연도·전형별로 정리했습니다. 출제 의도와 출처 링크 포함."
-        rm = results_meta(u["name"], rich_p) if rich_p and rich_p.get("tracks") else None
+        rm = (interview_meta(u["name"], rich_p) or results_meta(u["name"], rich_p)) if rich_p and rich_p.get("tracks") else None
         if rm:
             title_u = rm[0] + (" · 기출 공개 현황" if restricted else " · 기출문항")
             desc_u = rm[1]

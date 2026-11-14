@@ -4,7 +4,7 @@
  {"@type": "WebPage", "name": title, "description": description, "url": site.url ~ path, "inLanguage": "ko", "dateModified": (p.rich.after.checked if p.rich and p.rich.after and p.rich.after.checked else (p.rich.checked if p.rich else none)), "about": {"@type": "CollegeOrUniversity", "name": p.name}}]}|tojson }}</script>{% endblock %}
 {% block body %}
 <p class="crumb"><a href="/">홈</a> › <a href="/univ/">대학별</a></p>
-<h1>{{ p.name }} {% if p.rich %}면접 2027{% if p.rich.after %} · 합격자 발표{% endif %} 일정·방식{% else %}면접 준비 가이드{% endif %}</h1>
+<h1>{{ p.name }} {% if p.rich %}면접 2027{% if p.rich._upcoming and p.rich.notice %} · 고사장·면접 시간 공지{% endif %}{% if p.rich.after %} · 합격자 발표{% endif %} 일정·방식{% else %}면접 준비 가이드{% endif %}</h1>
 <p class="meta"><a href="{{ home }}" target="_blank" rel="noopener">입학처↗</a>{% if report_url %} · <a href="{{ report_url }}" target="_blank" rel="noopener">{{ report_year }} 선행학습 영향평가 보고서↗</a>{% endif %}</p>
 <p class="lead">{{ p.blurb }}</p>
 {% if p.rich %}{% include "_rich_univ.html" %}{% endif %}

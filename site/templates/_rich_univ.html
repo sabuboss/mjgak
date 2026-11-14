@@ -4,6 +4,7 @@
 <h2>2027학년도 {{ p.name }} 면접 핵심 <span class="badge">모집요강 확인</span></h2>
 <div class="quick" id="quick">
 <p class="quick-h"><b>한눈에 보기</b> <span>{{ p.name }} {{ r.basis or "2027학년도 수시모집요강" }} 기준 · 면접 정보 {{ r.checked }} 확인{% if r.after and r.after.checked %} · 합격자 발표 일정 {{ r.after.checked }} 재확인{% endif %}</span></p>
+{% if r._upcoming and r.notice %}<p class="quick-final"><b>고사장·면접 시간 공지</b> {% for n in r.notice.rows[:2] %}{% if not loop.first %} · {% endif %}{{ n.what }} {{ n.when }}{% endfor %}{% if r.notice.rows|length > 2 %} 등{% endif %} <a href="#dayof">면접 당일 안내 ›</a></p>{% endif %}
 {% if r.after and r.after.final %}<p class="quick-final"><b>최종 합격자 발표</b> {{ r.after.final }} <a href="#after">등록·충원 일정 ›</a></p>{% endif %}
 <div class="quick-c">{% for t in r.tracks %}<div class="qc"{% if t._days %} data-days="{{ t._days|join(',') }}"{% endif %}><b>{{ t.name }}</b>
 <span><i>1단계</i>{{ t.first or "-" }}</span><span><i>면접</i><b>{{ (t.date or "-")[:120] }}{% if t.date and t.date|length > 120 %}…{% endif %}</b></span><span><i>선발</i>{{ (t.method or "-")[:70] }}{% if t.method and t.method|length > 70 %}…{% endif %}</span></div>{% endfor %}</div>
