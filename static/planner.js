@@ -130,8 +130,11 @@
   });
   function refresh() { renderList(); renderTimeline(); }
 
+  // 로드맵 3단계(이용자 검증): 일정표를 실제로 쓰는지 보려고 GA 이벤트만 남긴다(개인정보 없음)
+  function ev(name, p) { try { if (window.gtag) gtag("event", name, p || {}); } catch (e) {} }
   listEl.addEventListener("change", function (e) {
     var t = e.target; if (!t || t.type !== "checkbox") return;
+    if (t.checked) ev("planner_add", { univ_code: String(t.value).split(":")[0] });
     var i = picked.indexOf(t.value);
     if (t.checked && i < 0) picked.push(t.value);
     if (!t.checked && i >= 0) picked.splice(i, 1);
@@ -141,8 +144,9 @@
   });
   qEl.addEventListener("input", renderList);
   $("plClear").addEventListener("click", function () { picked = []; save(); refresh(); });
-  $("plPrint").addEventListener("click", function () { window.print(); });
+  $("plPrint").addEventListener("click", function () { ev("planner_print", { n: picked.length }); window.print(); });
   $("plCopy").addEventListener("click", function () {
+    ev("planner_copy", { n: picked.length });
     var url = location.href, b = this;
     var done = function () { b.textContent = "복사됨"; setTimeout(function () { b.textContent = "링크 복사"; }, 1500); };
     if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, function () { prompt("이 주소를 복사하세요", url); });
