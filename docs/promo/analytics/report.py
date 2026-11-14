@@ -7,7 +7,7 @@
 
 열쇠 파일: docs/promo/.secrets/ga-reader.json (서비스 계정, git 에 안 올라감). 읽기 전용 권한만 준다.
 """
-import argparse, datetime, os, ssl, sys, tempfile, warnings
+import argparse, datetime, os, re, ssl, sys, tempfile, time, warnings
 from pathlib import Path
 
 warnings.filterwarnings("ignore")
@@ -57,7 +57,14 @@ def ga(c, start, end, dims, mets, limit=25, filt=None, order=None):
         name, val = filt
         req.dimension_filter = FilterExpression(filter=Filter(field_name=name, string_filter=Filter.StringFilter(
             value=val, match_type=Filter.StringFilter.MatchType.CONTAINS)))
-    res = cl.run_report(req)
+    for k in range(4):  # 하루·시간 할당량(429)이나 회사망 연결 끊김은 잠깐 쉬고 다시
+        try:
+            res = cl.run_report(req)
+            break
+        except Exception:
+            if k == 3:
+                raise
+            time.sleep(20 * (k + 1))
     return [[v.value for v in r.dimension_values] + [v.value for v in r.metric_values] for r in res.rows]
 
 
@@ -66,6 +73,20 @@ def sc(c, start, end, dims, limit=25):
     s = build("searchconsole", "v1", credentials=c, cache_discovery=False)
     body = {"startDate": start, "endDate": end, "dimensions": dims, "rowLimit": limit}
     return s.searchanalytics().query(siteUrl=SC_SITE, body=body).execute().get("rows", [])
+
+
+def post_titles():
+    """utm_campaign 'post-118' → 블로그 글 제목(docs/promo/naver-118-*.md 의 '제목:' 줄). 글은 번호가 아니라 제목으로 부른다."""
+    out = {}
+    for f in sorted(HERE.parent.glob("naver-*.md")):
+        m = re.match(r"naver-(\d+)-", f.name)
+        if not m:
+            continue
+        for line in f.read_text(encoding="utf-8", errors="ignore").splitlines()[:15]:
+            if line.startswith("제목:"):
+                out["post-" + m.group(1)] = line[3:].strip().split(" (")[0][:60]
+                break
+    return out
 
 
 def sec(x):
@@ -98,9 +119,19 @@ def main():
     now = {r[0]: r for r in ga(c, S, E, ["sessionSourceMedium"], ["sessions", "engagedSessions", "averageSessionDuration"], 15)}
     prev = {r[0]: r for r in ga(c, PS, PE, ["sessionSourceMedium"], ["sessions"], 30)}
     tot = sum(int(r[1]) for r in now.values()); ptot = sum(int(r[1]) for r in prev.values())
-    L += ["## 1. 어디서 왔나", f"세션 {tot} (전 기간 {ptot})", ""]
+    L += ["## 0. 하루 세션", ""]
+    L.append(table(["날짜", "세션", "참여 세션", "사용자"], [[f"{r[0][4:6]}/{r[0][6:]}", r[1], r[2], r[3]] for r in
+                   sorted(ga(c, S, E, ["date"], ["sessions", "engagedSessions", "activeUsers"], 31), key=lambda r: r[0])]))
+    L += ["", "## 1. 어디서 왔나", f"세션 {tot} (전 기간 {ptot})", ""]
     L.append(table(["출처/매체", "세션", "전", "참여 세션", "평균 체류"],
                    [[k, r[1], prev.get(k, [0, 0])[1], r[2], sec(r[3])] for k, r in now.items()]))
+    L += ["", "## 1-2. 검색엔진별(자연 검색) — 구글·네이버 검색·Bing 비교", ""]
+    se_now = {r[0]: r[1] for r in ga(c, S, E, ["sessionSource"], ["sessions"], 15, ("sessionMedium", "organic"))}
+    se_prev = {r[0]: r[1] for r in ga(c, PS, PE, ["sessionSource"], ["sessions"], 15, ("sessionMedium", "organic"))}
+    # 블로그 링크 일부가 utm_medium=organic 으로 잡혀 들어오는 것(naver_blog)은 검색엔진이 아니므로 뺀다
+    L.append(table(["검색엔진", "세션", "전"], [[k, v, se_prev.get(k, 0)] for k, v in se_now.items() if "blog" not in k] or [["(없음)", 0, 0]]))
+    L += ["", "## 1-3. 도착 페이지(모든 유입)", ""]
+    L.append(table(["도착 페이지", "세션"], [[r[0] or "(없음)", r[1]] for r in ga(c, S, E, ["landingPage"], ["sessions"], 20)]))
     L += ["", "## 2. ChatGPT 로 온 사람의 도착 페이지(무슨 질문을 하다 왔나)", ""]
     L.append(table(["도착 페이지", "세션", "평균 체류"], [[r[0], r[1], sec(r[2])] for r in
                    ga(c, S, E, ["landingPagePlusQueryString"], ["sessions", "averageSessionDuration"], 20, ("sessionSource", "chatgpt"))]))
@@ -116,9 +147,29 @@ def main():
         nf = []
     if nf:
         L += ["", "모의면접에서 못 찾은 검색어(묶음 추가 후보): " + ", ".join(f"{r[0]}({r[1]})" for r in nf)]
-    L += ["", "## 5. 블로그 글별(utm_campaign)", ""]
-    L.append(table(["글", "세션", "평균 체류"], [[r[0], r[1], sec(r[2])] for r in
-                   ga(c, S, E, ["sessionCampaignName"], ["sessions", "averageSessionDuration"], 20, ("sessionCampaignName", "post-"))]))
+    L += ["", "## 5. 블로그 글별(utm_campaign, top = 글 위쪽 링크)", ""]
+    pt = post_titles()
+    agg = {}  # 같은 글·같은 링크 위치는 한 줄로(utm_content 가 '(not set)'·빈 값으로 갈려 나오는 것 합침), 체류는 세션 가중 평균
+    for r in ga(c, S, E, ["sessionCampaignName", "sessionManualAdContent"], ["sessions", "averageSessionDuration"], 40, ("sessionCampaignName", "post-")):
+        k = (pt.get(r[0], r[0]), r[1] if r[1] not in ("(not set)", "") else "본문")
+        n, d = agg.get(k, (0, 0.0))
+        agg[k] = (n + int(r[2]), d + int(r[2]) * float(r[3]))
+    L.append(table(["글", "링크 위치", "세션", "평균 체류"], [[k[0], k[1], n, sec(d / max(n, 1))] for k, (n, d) in sorted(agg.items(), key=lambda kv: -kv[1][0])]))
+    # 90일 로드맵 지표(신뢰 → 검색 → 이용자 검증): 방문자 수보다 '실제로 준비에 쓴 사람'을 본다
+    users = int((ga(c, S, E, [], ["activeUsers"]) or [[0]])[0][0])
+    evd = {r[0]: r for r in ev}
+    nr = {r[0]: int(r[1]) for r in ga(c, S, E, ["newVsReturning"], ["activeUsers"], 5)}
+    notice_v = sum(int(r[1]) for r in ga(c, S, E, ["pagePath"], ["screenPageViews"], 5, ("pagePath", "/notice")))
+    pct = lambda n: f"{n} ({n * 100 // max(users, 1)}%)"
+    L += ["", "## 5-2. 로드맵 지표", ""]
+    L.append(table(["지표", "값"], [
+        ["사용자", users],
+        ["재방문 사용자", pct(nr.get("returning", 0))],
+        ["모의면접 질문 뽑기 사용자", pct(int(evd.get("practice_draw", [0, 0, 0])[2]))],
+        ["모의면접 끝까지 마친 사용자", pct(int(evd.get("practice_done", [0, 0, 0])[2]))],
+        ["수정·요청 메일 버튼(fixreq_click)", evd.get("fixreq_click", [0, 0])[1]],
+        ["틀린 곳 신고 바로가기(fixreq_jump)", evd.get("fixreq_jump", [0, 0])[1]],
+        ["/notice/ 조회", notice_v]]))
     try:
         rows = sc(c, S, E, ["query"], 20)
         clicks = sum(r["clicks"] for r in sc(c, S, E, ["date"]))
