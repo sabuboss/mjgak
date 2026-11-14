@@ -24,12 +24,24 @@
     s -= Math.min(t.length, 60) / 10;   /* 짧은 제목 우선 */
     return s;
   }
+  // 로드맵 3단계: 무엇을 찾는지·무엇이 없는지 보려고 입력이 1.5초 멈추면 검색어를 GA 로 남긴다(40자까지, 개인정보 입력 안내는 개인정보처리방침)
+  var sentQ = "", sendT = null;
+  function track(raw, n) {
+    clearTimeout(sendT);
+    if (raw.length < 2) return;
+    sendT = setTimeout(function () {
+      if (raw === sentQ || !window.gtag) return;
+      sentQ = raw;
+      try { gtag("event", n ? "site_search" : "site_search_nofind", { search_term: raw.slice(0, 40), results: n }); } catch (e) {}
+    }, 1500);
+  }
   function render(input, list) {
     var raw = input.value.trim();
     if (!raw) { list.hidden = true; list.innerHTML = ""; return; }
     var q = norm(raw), terms = raw.split(/\s+/).map(norm).filter(Boolean);
     var hits = data.map(function (it) { return [score(it, terms, q), it]; }).filter(function (x) { return x[0] !== null; })
       .sort(function (a, b) { return b[0] - a[0]; }).slice(0, 12).map(function (x) { return x[1]; });
+    track(raw, hits.length);
     if (!hits.length) { list.innerHTML = '<li><a href="/univ/">일치하는 결과가 없습니다. 대학 목록 보기</a></li><li><a href="/dept/">학과 목록 보기</a></li>'; list.hidden = false; return; }
     list.innerHTML = hits.map(function (it) { return '<li><a href="' + it.u + '">' + esc(it.t) + "<small>" + esc(it.c) + "</small></a></li>"; }).join("");
     list.hidden = false;
@@ -68,6 +80,26 @@ document.addEventListener("click", function (e) {
   var a = e.target.closest && e.target.closest('a[href="#fixreq"]');
   if (a && window.gtag) gtag("event", "fixreq_jump", { page_path: location.pathname, link_from: a.className === "crumb-fix" ? "top" : "footer" });
 });
+
+// 「이 페이지가 도움이 됐나요?」 예/아니오: GA 이벤트(helpful_yes / helpful_no)만 남긴다. 같은 기기에서 같은 페이지는 한 번만.
+(function () {
+  var box = document.getElementById("helpful"); if (!box) return;
+  var key = "mjgak-hf:" + location.pathname, done = box.querySelector(".hf-done");
+  function show(v) {
+    box.querySelectorAll("button").forEach(function (b) { b.disabled = true; b.classList.toggle("on", b.getAttribute("data-v") === v); });
+    done.innerHTML = v === "yes" ? "고맙습니다. 면접 준비에 도움이 되도록 계속 고쳐 가겠습니다."
+      : '무엇이 부족했는지 <a href="#fixreq">아래 「수정·요청 보내기」</a>로 한 줄만 알려 주시면 확인해서 고치겠습니다.';
+    done.hidden = false;
+  }
+  try { var old = localStorage.getItem(key); if (old) show(old); } catch (e) {}
+  box.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("button[data-v]"); if (!b || b.disabled) return;
+    var v = b.getAttribute("data-v");
+    try { if (window.gtag) gtag("event", "helpful_" + v, { page_path: location.pathname }); } catch (e2) {}
+    try { localStorage.setItem(key, v); } catch (e3) {}
+    show(v);
+  });
+})();
 
 // 수정·요청 보내기: 메일 주소 복사
 document.addEventListener("click", function (e) {

@@ -55,8 +55,11 @@ def ga(c, start, end, dims, mets, limit=25, filt=None, order=None):
                            order_bys=[OrderBy(metric=OrderBy.MetricOrderBy(metric_name=order or mets[0]), desc=True)])
     if filt:
         name, val = filt
-        req.dimension_filter = FilterExpression(filter=Filter(field_name=name, string_filter=Filter.StringFilter(
-            value=val, match_type=Filter.StringFilter.MatchType.CONTAINS)))
+        if isinstance(val, (list, tuple)):  # 목록 중 하나와 정확히 일치(이벤트 여러 개를 한 사람 기준으로 셀 때)
+            req.dimension_filter = FilterExpression(filter=Filter(field_name=name, in_list_filter=Filter.InListFilter(values=list(val))))
+        else:
+            req.dimension_filter = FilterExpression(filter=Filter(field_name=name, string_filter=Filter.StringFilter(
+                value=val, match_type=Filter.StringFilter.MatchType.CONTAINS)))
     for k in range(4):  # 하루·시간 할당량(429)이나 회사망 연결 끊김은 잠깐 쉬고 다시
         try:
             res = cl.run_report(req)
@@ -140,7 +143,7 @@ def main():
                    ga(c, S, E, ["pagePath"], ["screenPageViews", "activeUsers", "userEngagementDuration"], 15)]))
     L += ["", "## 4. 도구 사용(이벤트)", ""]
     ev = ga(c, S, E, ["eventName"], ["eventCount", "totalUsers"], 40)
-    L.append(table(["이벤트", "횟수", "사용자"], [r for r in ev if r[0].startswith(("practice_", "fixreq", "click", "file_download"))] or [["(없음)", 0, 0]]))
+    L.append(table(["이벤트", "횟수", "사용자"], [r for r in ev if r[0].startswith(("practice_", "fixreq", "click", "file_download", "planner_", "helpful_", "site_search", "try_"))] or [["(없음)", 0, 0]]))
     try:  # practice_nofind 의 search_term 파라미터는 GA 기본 측정기준 searchTerm 으로 읽힌다
         nf = ga(c, S, E, ["searchTerm"], ["eventCount"], 15, ("eventName", "practice_nofind")) if any(r[0] == "practice_nofind" for r in ev) else []
     except Exception:
@@ -170,6 +173,33 @@ def main():
         ["수정·요청 메일 버튼(fixreq_click)", evd.get("fixreq_click", [0, 0])[1]],
         ["틀린 곳 신고 바로가기(fixreq_jump)", evd.get("fixreq_jump", [0, 0])[1]],
         ["/notice/ 조회", notice_v]]))
+    # 3단계(이용자 검증, 2026-11-14 부터 이벤트 수집): '방문자'보다 '실제로 준비에 쓴 사람'
+    PREP = ["practice_done", "planner_add", "planner_copy", "planner_print"]
+    prep_u = int((ga(c, S, E, [], ["totalUsers"], 1, ("eventName", PREP)) or [[0]])[0][0])
+    g = lambda n, i=1: int(evd.get(n, [0, 0, 0])[i])
+    pl_u = int((ga(c, S, E, [], ["activeUsers"], 1, ("pagePath", "/planner/")) or [[0]])[0][0])
+    L += ["", "## 5-3. 이용자 검증 지표(3단계)", ""]
+    L.append(table(["지표", "값"], [
+        ["준비 행동 사용자(모의면접 완주·일정표 담기·복사·인쇄 중 하나)", pct(prep_u)],
+        ["일정표 방문 → 전형 담기 → 링크 복사·인쇄(사용자)", f"{pl_u} → {g('planner_add', 2)} → {g('planner_copy', 2)}·{g('planner_print', 2)}"],
+        ["모의면접 질문 뽑기 → 답변 → 끝까지(사용자)", f"{g('practice_draw', 2)} → {g('practice_answer', 2)} → {g('practice_done', 2)}"],
+        ["「도움이 됐나요?」 예 / 아니오(횟수)", f"{g('helpful_yes')} / {g('helpful_no')}"],
+        ["사이트 검색(횟수) / 결과 없음", f"{g('site_search')} / {g('site_search_nofind')}"],
+        ["/try/ 사용해 보기 시작 → 답 복사(사용자)", f"{g('try_start', 2)} → {g('try_copy', 2)}"]]))
+    for evn, label in (("helpful_no", "「아니오」가 나온 페이지"), ("helpful_yes", "「예」가 많은 페이지")):
+        if g(evn):
+            try:
+                rows = ga(c, S, E, ["pagePath"], ["eventCount"], 10, ("eventName", [evn]))
+                L += ["", f"{label}: " + ", ".join(f"{r[0]}({r[1]})" for r in rows)]
+            except Exception:
+                pass
+    for evn, label in (("site_search", "많이 찾은 검색어"), ("site_search_nofind", "찾았지만 결과가 없던 검색어(보강 후보)")):
+        if g(evn):
+            try:
+                rows = ga(c, S, E, ["searchTerm"], ["eventCount"], 15, ("eventName", [evn]))
+                L += ["", f"{label}: " + ", ".join(f"{r[0]}({r[1]})" for r in rows)]
+            except Exception:
+                pass
     try:
         rows = sc(c, S, E, ["query"], 20)
         clicks = sum(r["clicks"] for r in sc(c, S, E, ["date"]))

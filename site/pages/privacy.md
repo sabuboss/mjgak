@@ -22,7 +22,7 @@ description: 면접각은 회원가입을 받지 않고 이용자의 입력을 �
 </ul>
 
 <h2>방문 통계 (Google Analytics)</h2>
-<p>이 사이트는 어떤 페이지가 얼마나 읽히는지 파악하기 위해 Google Analytics 4를 사용합니다. 수집되는 것은 방문한 페이지, 유입 경로, 기기·브라우저 종류, 대략적인 지역(IP 주소는 익명화 처리)이며, 이름·이메일 같은 개인 식별 정보는 수집하지 않습니다. 수집된 통계는 사이트 개선과 콘텐츠 우선순위 결정에만 씁니다.</p>
+<p>이 사이트는 어떤 페이지가 얼마나 읽히는지 파악하기 위해 Google Analytics 4를 사용합니다. 수집되는 것은 방문한 페이지, 유입 경로, 기기·브라우저 종류, 대략적인 지역(IP 주소는 익명화 처리)이며, 이름·이메일 같은 개인 식별 정보는 수집하지 않습니다. 사이트를 고치는 데 쓰려고 「도움이 됐나요?」 버튼 응답, 사이트 검색창에 입력한 검색어(앞 40자), 면접 일정표·모의 면접 사용 여부도 같은 방식으로 통계만 집계합니다. 검색창에는 이름·연락처 같은 개인정보를 입력하지 마세요. 수집된 통계는 사이트 개선과 콘텐츠 우선순위 결정에만 씁니다.</p>
 <ul>
 <li>Google Analytics의 수집을 원하지 않으면 <a href="https://tools.google.com/dlpage/gaoptout?hl=ko" target="_blank" rel="noopener">Google Analytics 차단 브라우저 부가기능</a>을 설치하거나, 브라우저의 쿠키 차단 기능을 사용할 수 있습니다.</li>
 <li>Google이 데이터를 처리하는 방식은 <a href="https://policies.google.com/technologies/partner-sites?hl=ko" target="_blank" rel="noopener">Google 파트너 사이트 정책</a>에서 확인할 수 있습니다.</li>
