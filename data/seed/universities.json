@@ -1776,6 +1776,15 @@
       "priority": 3,
       "sources": [
         {
+          "year": 2026,
+          "kind": "report",
+          "title": "[수시] 2026학년도 면접고사 기출문제(예시) 선행학습 영향평가 자체분석 보고서 (인천대 입학처 지난입시결과)",
+          "page_url": "https://admission.inu.ac.kr/detail.do?menuurl=4428MQNdeF7ekIPFWbVCAg%3D%3D&categoryid=52&board_seq=15134",
+          "url": "https://admission.inu.ac.kr/detail.do?menuurl=4428MQNdeF7ekIPFWbVCAg%3D%3D&categoryid=52&board_seq=15134",
+          "filename": "inu_2026_report.pdf",
+          "verified": true
+        },
+        {
           "year": 2025,
           "kind": "report",
           "title": "2025학년도 인천대학교 선행학습 영향평가 보고서 (서울진로진학정보센터 미러)",
@@ -1783,6 +1792,15 @@
           "url": "https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EC%9D%B8%EC%B2%9C%EB%8C%80%ED%95%99%EA%B5%90/%EC%9D%B8%EC%B2%9C%EB%8C%80%ED%95%99%EA%B5%90_2025%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf",
           "filename": "inu_2025_report.pdf",
           "verified": false
+        },
+        {
+          "year": 2024,
+          "kind": "report",
+          "title": "[수시] 2024학년도 면접고사 기출문제(예시)_선행학습 영향평가 자체분석 보고서 (인천대 입학처 지난입시결과)",
+          "page_url": "https://admission.inu.ac.kr/detail.do?menuurl=4428MQNdeF7ekIPFWbVCAg%3D%3D&categoryid=52&board_seq=8856",
+          "url": "https://admission.inu.ac.kr/detail.do?menuurl=4428MQNdeF7ekIPFWbVCAg%3D%3D&categoryid=52&board_seq=8856",
+          "filename": "inu_2024_report.pdf",
+          "verified": true
         }
       ]
     }
