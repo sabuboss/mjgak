@@ -237,7 +237,7 @@ def clean_actual(r: dict) -> dict | None:
     t = (r.get("text") or "").strip()
     if "출제 근거" in t:
         return None
-    for k in ("text", "presented_material", "intent"):
+    for k in ("text", "presented_material", "intent", "rubric", "model_answer_hint"):
         if r.get(k):
             if PUA.search(r[k]):
                 r["has_glyph"] = True
