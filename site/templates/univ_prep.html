@@ -9,17 +9,9 @@
 <p class="lead">{{ p.blurb }}</p>
 {% if p.rich %}{% include "_rich_univ.html" %}{% endif %}
 {% include "_profile.html" %}
-<h2>이 대학 면접에서 자주 묻는 공통 질문</h2>
-{% for q in common_questions %}
-<section class="qsec">
-  <h3>{{ q.question }}</h3>
-  <p class="why"><b>왜 묻나</b> {{ q.why }}</p>
-  <div class="answer">{{ q.answer_html }}</div>
-  <p class="tip"><b>준비 팁</b> {{ q.tips }}</p>
-</section>
-{% endfor %}
 <h2>이어서 준비하기</h2>
 <ul>
+  <li><a href="/q/why-this-university/">우리 대학에 지원한 이유</a> — 대학 인재상·학과 교육과정을 조사해 답하는 법.</li>
   <li><a href="/dept/">지원 학과별 질문</a> — 전공 면접의 핵심.</li>
   <li><a href="/category/intro/">자주 나오는 공통 질문 48개</a> — 서류 기반 면접의 기본.</li>
   <li><a href="/type/general/">지원자 유형별 질문</a> — 검정고시·특성화고·재수 등.</li>

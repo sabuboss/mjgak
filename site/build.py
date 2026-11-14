@@ -566,6 +566,19 @@ def main():
     for u in uprof["universities"]:
         for q in u["questions"]:
             q["answer_html"] = ph(q["answer"])
+    # 2026-11-14 구글 순위 하락 진단: 대학 이름만 다르고 답변이 빈칸 틀인 같은 질문(10개 대학 이상 반복)이 수십 페이지에 똑같이 들어가 있었다.
+    # 대학 페이지에서는 빼고, 같은 주제의 공통 질문 페이지로 한 줄 링크만 남긴다(대학마다 다른 질문은 그대로).
+    GENERIC_LINK = {"진로와 계획은?": "/q/ten-years-later/", "학생부 활동 하나의 과정을 설명해 보세요.": "/q/most-meaningful-activity/",
+                    "협업 경험은?": "/q/team-vs-alone/", "어려움을 극복한 경험은?": "/q/hardest-moment/",
+                    "교사에게 가장 중요한 자질은?": "/dept/elementary-education/", "왜 중등이 아닌 초등 교사인가요?": "/dept/elementary-education/"}
+    qcount: dict[str, int] = {}
+    for u in uprof["universities"]:
+        for q in u["questions"]:
+            qcount[q["question"]] = qcount.get(q["question"], 0) + 1
+    for u in uprof["universities"]:
+        gen = [q for q in u["questions"] if qcount[q["question"]] >= 10]
+        u["questions"] = [q for q in u["questions"] if qcount[q["question"]] < 10]
+        u["questions_generic"] = [{"question": q["question"], "url": GENERIC_LINK.get(q["question"], "/category/intro/")} for q in gen]
     prepped = {c for c in prof_by if c not in with_data}
     # 분교·캠퍼스 코드(also) 는 본교 프로필 페이지로 연결
     prep_link = {c: f"/univ/{c}/" for c in prof_by}
