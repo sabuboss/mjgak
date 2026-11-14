@@ -1069,7 +1069,20 @@ def main():
          description="2027학년도 수능(2026년 11월 19일) 시간표, 반입 금지 물품과 준비물, 4교시 탐구 주의사항, 수험표 뒷면 가채점표, 정답 확정·성적 통지일, 수능 뒤 면접 대학과 정시 일정을 평가원·교육부·대교협 공식 자료로 정리했습니다.")
     urls.append("/suneung/")
 
-    # 내 면접 일정표
+    # 내 면접 일정표 — 달력 파일(.ics)에 넣을 고사장·시간 공지일과 최종 합격자 발표일도 대학마다 붙인다(오늘 이후만)
+    for pu in planner:
+        r = rich_univ[pu["c"]]
+        nt = []
+        for row in (r.get("notice") or {}).get("rows", []):
+            w = datesparse.first(row.get("when"))
+            if w and w >= TODAY.isoformat():
+                nt.append({"d": w, "w": row.get("when", ""), "what": row.get("what", ""), "tr": row.get("tracks", "")})
+        if nt:
+            pu["nt"] = nt
+        last = max(d for t in pu["t"] for d in t["d"])
+        fin = next((x for x in datesparse.parse((r.get("after") or {}).get("final")) if x > last), None)
+        if fin:
+            pu["fin"] = {"d": fin, "w": ((r.get("after") or {}).get("final") or "")[:160]}
     write("planner/data.json", json.dumps({"today": TODAY.isoformat(), "csat": "2026-11-19", "events": [m for m in site.get("milestones", []) if m["date"] != "2026-11-19"], "univs": planner}, ensure_ascii=False))
     page("planner", "planner.html", n_univ=len(planner), n_track=sum(len(u["t"]) for u in planner),
          title="내 면접 일정표 — 지원한 대학의 1단계 발표일·면접일 한눈에",

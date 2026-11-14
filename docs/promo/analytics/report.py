@@ -174,14 +174,14 @@ def main():
         ["틀린 곳 신고 바로가기(fixreq_jump)", evd.get("fixreq_jump", [0, 0])[1]],
         ["/notice/ 조회", notice_v]]))
     # 3단계(이용자 검증, 2026-11-14 부터 이벤트 수집): '방문자'보다 '실제로 준비에 쓴 사람'
-    PREP = ["practice_done", "planner_add", "planner_copy", "planner_print"]
+    PREP = ["practice_done", "planner_add", "planner_copy", "planner_print", "planner_ics"]
     prep_u = int((ga(c, S, E, [], ["totalUsers"], 1, ("eventName", PREP)) or [[0]])[0][0])
     g = lambda n, i=1: int(evd.get(n, [0, 0, 0])[i])
     pl_u = int((ga(c, S, E, [], ["activeUsers"], 1, ("pagePath", "/planner/")) or [[0]])[0][0])
     L += ["", "## 5-3. 이용자 검증 지표(3단계)", ""]
     L.append(table(["지표", "값"], [
-        ["준비 행동 사용자(모의면접 완주·일정표 담기·복사·인쇄 중 하나)", pct(prep_u)],
-        ["일정표 방문 → 전형 담기 → 링크 복사·인쇄(사용자)", f"{pl_u} → {g('planner_add', 2)} → {g('planner_copy', 2)}·{g('planner_print', 2)}"],
+        ["준비 행동 사용자(모의면접 완주·일정표 담기·복사·인쇄·달력 넣기 중 하나)", pct(prep_u)],
+        ["일정표 방문 → 전형 담기 → 링크 복사·인쇄(사용자)", f"{pl_u} → {g('planner_add', 2)} → {g('planner_copy', 2)}·{g('planner_print', 2)} · 달력 {g('planner_ics', 2)}"],
         ["모의면접 질문 뽑기 → 답변 → 끝까지(사용자)", f"{g('practice_draw', 2)} → {g('practice_answer', 2)} → {g('practice_done', 2)}"],
         ["「도움이 됐나요?」 예 / 아니오(횟수)", f"{g('helpful_yes')} / {g('helpful_no')}"],
         ["사이트 검색(횟수) / 결과 없음", f"{g('site_search')} / {g('site_search_nofind')}"],
