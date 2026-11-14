@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <p class="ha-bk">대학</p>
     <h2><a href="/univ/">대학별 2027 면접 정보 {{ stats.univs }}곳</a></h2>
     <p>「공교육정상화법」에 따라 매년 3월 입학처가 공개하는 면접 문항을 구조화했습니다. 원문은 출처 링크에서. 실제 기출을 공개한 대학:</p>
-    <div class="ha-tags">{% for u in univ_cards %}<a class="ha-tag" href="{{ u.url }}" title="{{ u.label }}">{{ u.name }} <i>기출 {{ u.actual }}</i></a>{% endfor %}</div>
+    <div class="ha-tags">{% for u in univ_cards %}<a class="ha-tag" href="{{ u.url }}" title="{{ u.label }}">{{ u.name }} <i>{% if u.actual %}기출 {{ u.actual }}{% else %}예시 {{ u.n }}{% endif %}</i></a>{% endfor %}</div>
     <p class="ha-small">서류(학생부) 기반 면접과 인성면접은 문항 공개 의무가 없어 대부분의 대학이 공개하지 않습니다. 그 경우 공통·유형별·학과별 질문으로 준비하세요. <a href="/univ/">대학 페이지</a> {{ prep_n }}곳에 대학 특성·면접 방식·맞춤 예상 질문을 정리했고, 그중 {{ stats.univs }}곳은 2027학년도 모집요강의 면접 일정·방식까지 담았습니다.</p>
     <a class="ha-btn ha-btn-navy ha-btn-sm" href="/univ/">내 지원 대학 찾기</a>
   </div>

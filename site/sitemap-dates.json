@@ -1,6 +1,6 @@
 {
 "/": [
-"bb289b8506dbc46a",
+"1a50cc48d6959baf",
 "2026-11-14"
 ],
 "/about/": [
@@ -72,11 +72,11 @@
 "2026-11-14"
 ],
 "/dept/business/": [
-"0c15806f80551b69",
+"661127f4a57d4ad6",
 "2026-11-14"
 ],
 "/dept/chemical-engineering/": [
-"568c06238360a099",
+"587ea6beb48c3c26",
 "2026-11-14"
 ],
 "/dept/chemistry/": [
@@ -88,7 +88,7 @@
 "2026-11-14"
 ],
 "/dept/civil-engineering/": [
-"84035bc4348e2a6d",
+"8c1b3a2213c2e462",
 "2026-11-14"
 ],
 "/dept/computer-science/": [
@@ -108,19 +108,19 @@
 "2026-11-14"
 ],
 "/dept/design/": [
-"d74ce300742a8426",
+"0836ba85804c4a92",
 "2026-11-14"
 ],
 "/dept/early-childhood-education/": [
-"0a55d1a820fcf27c",
+"2c7884a8387d71d5",
 "2026-11-14"
 ],
 "/dept/earth-science/": [
-"d8fb6f85d83c8861",
+"b9bdea7600a9c16a",
 "2026-11-14"
 ],
 "/dept/economics/": [
-"5f411416061211a2",
+"08c53bdcfdf2ff88",
 "2026-11-14"
 ],
 "/dept/education/": [
@@ -148,11 +148,11 @@
 "2026-11-14"
 ],
 "/dept/food-nutrition/": [
-"47bfbec9993cb59c",
+"4d8f5ab9ba5958fa",
 "2026-11-14"
 ],
 "/dept/health-administration/": [
-"3e813e1f624ebec8",
+"8802a0445ebd0294",
 "2026-11-14"
 ],
 "/dept/history/": [
@@ -188,7 +188,7 @@
 "2026-11-14"
 ],
 "/dept/math-education/": [
-"5484b58799dd210a",
+"e5552cb65c9249ed",
 "2026-11-14"
 ],
 "/dept/mathematics/": [
@@ -196,7 +196,7 @@
 "2026-11-14"
 ],
 "/dept/mechanical-engineering/": [
-"7842b67aafd541c1",
+"8fc0c2976c7ea379",
 "2026-11-14"
 ],
 "/dept/media-communication/": [
@@ -260,7 +260,7 @@
 "2026-11-14"
 ],
 "/dept/radiologic-technology/": [
-"36ea2cca86c8ada6",
+"a27f912c03458b28",
 "2026-11-14"
 ],
 "/dept/social-welfare/": [
@@ -268,11 +268,11 @@
 "2026-11-14"
 ],
 "/dept/sociology/": [
-"070050bd734d7122",
+"4d62e179829fb351",
 "2026-11-14"
 ],
 "/dept/special-education/": [
-"50a38e874f16d740",
+"9436ddc4d2824e53",
 "2026-11-14"
 ],
 "/dept/speech-therapy/": [
@@ -280,7 +280,7 @@
 "2026-11-14"
 ],
 "/dept/sports-rehabilitation/": [
-"85a292afdeb1255c",
+"2e1abb30f8aa3ddd",
 "2026-11-14"
 ],
 "/dept/statistics/": [
@@ -420,7 +420,7 @@
 "2026-11-14"
 ],
 "/q/ai-impact/": [
-"017c12f11106c99f",
+"0e8635ff15324fb8",
 "2026-11-14"
 ],
 "/q/any-questions/": [
@@ -432,19 +432,19 @@
 "2026-11-14"
 ],
 "/q/book-major/": [
-"3795691113035af6",
+"23cff2eef5d23db4",
 "2026-11-14"
 ],
 "/q/career-after-graduation/": [
-"f416e9aa87836e94",
+"f4f7d31cff712ab1",
 "2026-11-14"
 ],
 "/q/career-change/": [
-"7cf414437eefe2ca",
+"ca0252ac1a6425d4",
 "2026-11-14"
 ],
 "/q/club-activity/": [
-"4815028b6dbce3cc",
+"26b5472ec9ceebdf",
 "2026-11-14"
 ],
 "/q/college-life-plan/": [
@@ -452,11 +452,11 @@
 "2026-11-14"
 ],
 "/q/conflict-resolution/": [
-"a1c593937d732552",
+"f2b031c01a8307d7",
 "2026-11-14"
 ],
 "/q/current-preparation/": [
-"f2ca21e312e54e67",
+"ee55cfd75abfd42c",
 "2026-11-14"
 ],
 "/q/debate-topic/": [
@@ -472,7 +472,7 @@
 "2026-11-14"
 ],
 "/q/failure-experience/": [
-"c76f42b8682f012c",
+"130166fbc489fe60",
 "2026-11-14"
 ],
 "/q/favorite-subject/": [
@@ -480,7 +480,7 @@
 "2026-11-14"
 ],
 "/q/grade-drop/": [
-"bd3994c47518533f",
+"a6333ba72c50a7ed",
 "2026-11-14"
 ],
 "/q/graduate-school/": [
@@ -488,11 +488,11 @@
 "2026-11-14"
 ],
 "/q/hardest-moment/": [
-"940d1887c7378adc",
+"e32852f0159d222e",
 "2026-11-14"
 ],
 "/q/hardest-subject/": [
-"676a07a58a145873",
+"933828051215534b",
 "2026-11-14"
 ],
 "/q/how-friends-see-me/": [
@@ -504,7 +504,7 @@
 "2026-11-14"
 ],
 "/q/ideal-student/": [
-"96033087814b9b32",
+"cf8465805c7a19eb",
 "2026-11-14"
 ],
 "/q/if-career-doesnt-fit/": [
@@ -512,7 +512,7 @@
 "2026-11-14"
 ],
 "/q/know-about-university/": [
-"bf127bf93652e077",
+"1cf3040fd1b7c399",
 "2026-11-14"
 ],
 "/q/last-words/": [
@@ -520,19 +520,19 @@
 "2026-11-14"
 ],
 "/q/leadership/": [
-"3f7ae65382774606",
+"ba950f07a5d722fe",
 "2026-11-14"
 ],
 "/q/major-contribution/": [
-"13d886df6e80c032",
+"8a418f309e40f738",
 "2026-11-14"
 ],
 "/q/most-meaningful-activity/": [
-"f00f9467968122b7",
+"cfdf34a3d9505d2a",
 "2026-11-14"
 ],
 "/q/motto-values/": [
-"9c749352fe07e122",
+"69bf0b19a3afe1ce",
 "2026-11-14"
 ],
 "/q/other-applications/": [
@@ -540,7 +540,7 @@
 "2026-11-14"
 ],
 "/q/recent-issue-major/": [
-"beb3efda00c540c6",
+"b62891bb6369c134",
 "2026-11-14"
 ],
 "/q/research-process/": [
@@ -552,7 +552,7 @@
 "2026-11-14"
 ],
 "/q/role-and-learning/": [
-"1137bd6c91f56b15",
+"49375c21d8561cf2",
 "2026-11-14"
 ],
 "/q/rule-vs-situation/": [
@@ -564,7 +564,7 @@
 "2026-11-14"
 ],
 "/q/social-issue/": [
-"bdd3739c07fbed39",
+"3e71f2a1b33587bf",
 "2026-11-14"
 ],
 "/q/strength-weakness/": [
@@ -576,7 +576,7 @@
 "2026-11-14"
 ],
 "/q/study-plan/": [
-"5c798f5aff8f9cd0",
+"8e1d8f6dd498483d",
 "2026-11-14"
 ],
 "/q/team-vs-alone/": [
@@ -608,7 +608,7 @@
 "2026-11-14"
 ],
 "/q/why-this-university/": [
-"a4a472cb63574e4f",
+"fcde0945b4411b5a",
 "2026-11-14"
 ],
 "/record/": [
@@ -664,7 +664,7 @@
 "2026-11-14"
 ],
 "/univ/": [
-"e42cd108717ffbfb",
+"ba9cb4faaff8ee7e",
 "2026-11-14"
 ],
 "/univ/ajou/": [
@@ -744,11 +744,11 @@
 "2026-11-14"
 ],
 "/univ/daejin/": [
-"eb20aa5c44688678",
+"78356d2dfe442b89",
 "2026-11-14"
 ],
 "/univ/daejin/2026/": [
-"66f6fe140f03f2ab",
+"b08ef3c936afb096",
 "2026-11-14"
 ],
 "/univ/dankook/": [
@@ -772,7 +772,11 @@
 "2026-11-14"
 ],
 "/univ/dongguk/": [
-"f5dae944c848bffa",
+"e5bb2ea9e01f9f34",
+"2026-11-14"
+],
+"/univ/dongguk/2026/": [
+"6250481f445ceec5",
 "2026-11-14"
 ],
 "/univ/duksung/": [
@@ -788,7 +792,11 @@
 "2026-11-14"
 ],
 "/univ/gachon/": [
-"b27dffd628cdb6ec",
+"e7163851ee6eab49",
+"2026-11-14"
+],
+"/univ/gachon/2026/": [
+"7f8d0f91c1351a06",
 "2026-11-14"
 ],
 "/univ/gist/": [
@@ -1060,7 +1068,11 @@
 "2026-11-14"
 ],
 "/univ/sungshin/": [
-"37b23a701e71b751",
+"4005cdd9f518add2",
+"2026-11-14"
+],
+"/univ/sungshin/2026/": [
+"8b6d753266f2fa54",
 "2026-11-14"
 ],
 "/univ/sunmoon/": [
