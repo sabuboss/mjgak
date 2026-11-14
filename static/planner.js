@@ -126,7 +126,7 @@
     }
     var b = e.target.closest && e.target.closest(".pl-add"); if (!b) return;
     var id = b.getAttribute("data-id");
-    if (byId[id] && picked.indexOf(id) < 0) { picked.push(id); save(); refresh(); }
+    if (byId[id] && picked.indexOf(id) < 0) { picked.push(id); save(); refresh(); ev("planner_add", { univ_code: id.split(":")[0], from: "upcoming" }); }
   });
   function refresh() { renderList(); renderTimeline(); }
 
@@ -144,6 +144,67 @@
   });
   qEl.addEventListener("input", renderList);
   $("plClear").addEventListener("click", function () { picked = []; save(); refresh(); });
+  // 달력에 넣기: 고른 전형의 1단계 발표·면접(후보일)·고사장 공지·최종 발표를 .ics 파일 하나로 만든다(이 기기 안에서만, 서버 전송 없음)
+  function ics() {
+    var today = DATA.today_local, E = [], seen = {};
+    function x(s) { return String(s || "").replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n"); }
+    function ymd(iso) { return iso.replace(/-/g, ""); }
+    function next(iso) { var d = day(iso); d.setDate(d.getDate() + 1); return d.getFullYear() + ("0" + (d.getMonth() + 1)).slice(-2) + ("0" + d.getDate()).slice(-2); }
+    function add(uid, iso, title, desc, url, alarm) {
+      if (!iso || iso < today || seen[uid]) return; seen[uid] = 1;
+      E.push(["BEGIN:VEVENT", "UID:" + uid + "@mjgak.com", "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+/, ""),
+        "DTSTART;VALUE=DATE:" + ymd(iso), "DTEND;VALUE=DATE:" + next(iso), "SUMMARY:" + x(title),
+        "DESCRIPTION:" + x(desc + (url ? "\n" + url : "") + "\n날짜는 2027학년도 모집요강 기준이며 바뀔 수 있으니 입학처 공지를 확인하세요. (면접각)"),
+        url ? "URL:" + url : ""].concat(alarm ? ["BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + x(title), "TRIGGER:" + alarm, "END:VALARM"] : []).concat(["END:VEVENT"]).filter(Boolean));
+    }
+    var base = location.origin, us = {};
+    picked.forEach(function (id) {
+      var tr = byId[id], u = tr._u, link = base + u.u;
+      us[u.c] = us[u.c] || { u: u, names: [] }; us[u.c].names.push(tr.n);
+      if (tr.f) add(id + "-f", tr.f, "[1단계 발표] " + u.n + " " + tr.n, tr.ft || "", link, "PT9H");
+      tr.d.forEach(function (d) {
+        var multi = tr.d.length > 1;
+        add(id + "-iv-" + d, d, "[면접" + (multi ? " 후보일" : "") + "] " + u.n + " " + tr.n, (multi ? "면접 후보일 중 하루입니다. 내 모집단위 날짜를 확인하세요.\n" + seg(tr.dt, d) : tr.dt), link, "-PT15H");
+      });
+    });
+    Object.keys(us).forEach(function (c) {
+      var o = us[c], u = o.u, link = base + u.u + "#dayof", key = function (s) { return String(s).replace(/\s+/g, ""); };
+      var rows = (u.nt || []).filter(function (r) { return o.names.some(function (n) { return key(r.tr).indexOf(key(n)) >= 0; }); });
+      if (!rows.length) rows = u.nt || [];
+      rows.forEach(function (r, i) { add(c + "-nt-" + r.d + "-" + i, r.d, "[고사장·면접 시간 공지] " + u.n, r.what + " · " + r.w, link, "PT9H"); });
+      if (u.fin) add(c + "-fin-" + u.fin.d, u.fin.d, "[최종 합격자 발표] " + u.n, u.fin.w, base + u.u + "#after", "PT9H");
+    });
+    var enc = window.TextEncoder ? new TextEncoder() : null;
+    function fold(line) {  // 한 줄 75바이트 제한(한글은 3바이트) — 글자 중간에서 끊지 않는다
+      if (!enc || enc.encode(line).length <= 74) return line;
+      var out = [], cur = "", n = 0;
+      for (var i = 0; i < line.length; i++) {
+        var ch = line[i], b = enc.encode(ch).length;
+        if (n + b > (out.length ? 73 : 74)) { out.push(cur); cur = ""; n = 0; }
+        cur += ch; n += b;
+      }
+      out.push(cur);
+      return out.join("\r\n ");
+    }
+    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//mjgak.com//planner//KO", "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "X-WR-CALNAME:면접각 내 면접 일정", "X-WR-TIMEZONE:Asia/Seoul"];
+    E.forEach(function (e) { lines = lines.concat(e); });
+    lines.push("END:VCALENDAR");
+    return { text: lines.map(fold).join("\r\n") + "\r\n", n: E.length };
+  }
+  $("plIcs").addEventListener("click", function () {
+    var msg = $("plIcsMsg");
+    if (!picked.length) { msg.hidden = false; msg.textContent = "먼저 대학 목록에서 지원한 전형을 고르세요."; return; }
+    var r = ics();
+    if (!r.n) { msg.hidden = false; msg.textContent = "고른 전형의 날짜가 모두 지났습니다."; return; }
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([r.text], { type: "text/calendar;charset=utf-8" }));
+    a.download = "면접각-내-면접-일정.ics";
+    document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    ev("planner_ics", { n: picked.length, events: r.n });
+    msg.hidden = false;
+    msg.innerHTML = "<b>일정 " + r.n + "개</b>를 달력 파일로 받았습니다. 파일을 열면 휴대폰·PC 달력에 들어가고, 면접 전날 오전 9시에 알림이 옵니다(달력 앱이 알림을 지원할 때). " +
+      "구글 캘린더는 PC에서 <b>설정 → 가져오기·내보내기 → 가져오기</b>로 넣으세요. 날짜가 바뀌면 일정표에서 다시 받으세요.";
+  });
   $("plPrint").addEventListener("click", function () { ev("planner_print", { n: picked.length }); window.print(); });
   $("plCopy").addEventListener("click", function () {
     ev("planner_copy", { n: picked.length });
