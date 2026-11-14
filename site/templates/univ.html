@@ -30,7 +30,7 @@
 <article class="qa">
   <p class="qmeta"><span class="kind kind-{{ r.kind }}">{{ kind_label[r.kind] }}</span> {{ r.admission_name }}{% if r.unit %} · <span title="{{ r.unit }}">{{ r.unit[:40] }}{% if r.unit|length > 40 %}…{% endif %}</span>{% endif %}</p>
   <p class="qtext">{{ r.text }}</p>
-  <p class="src"><a href="{{ r.source_url }}" target="_blank" rel="noopener">출처: {{ u.name }} 입학처 공개자료{% if r.source_page %} p.{{ r.source_page }}{% endif %} ↗</a></p>
+  <p class="src"><a href="{{ r.source_url }}" target="_blank" rel="noopener">출처: {% if "negagea.net" in r.source_url %}{{ u.name }} {{ r.src_year }}학년도 선행학습 영향평가 보고서(서울진로진학정보센터 사본){% else %}{{ u.name }} 입학처 공개자료{% endif %}{% if r.source_page %} p.{{ r.source_page }}{% endif %} ↗</a></p>
 </article>
 {% endfor %}
 <p><a class="btn" href="/univ/{{ u.code }}/{{ years[0] }}/">{{ years[0] }}학년도 전체 보기</a></p>

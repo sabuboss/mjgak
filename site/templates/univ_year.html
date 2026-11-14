@@ -16,7 +16,7 @@
     {% if r.model_answer_hint %}<p><b>해설</b> {{ r.model_answer_hint[:1200] }}</p>{% endif %}
     {% if r.rubric %}<p><b>평가 요소</b> {{ r.rubric[:600] }}</p>{% endif %}
   </details>{% endif %}
-  <p class="src"><a href="{{ r.source_url }}" target="_blank" rel="noopener">출처: {{ u.name }} 입학처 공개자료{% if r.source_page %} p.{{ r.source_page }}{% endif %} ↗</a></p>
+  <p class="src"><a href="{{ r.source_url }}" target="_blank" rel="noopener">출처: {% if "negagea.net" in r.source_url %}{{ u.name }} {{ r.src_year }}학년도 선행학습 영향평가 보고서(서울진로진학정보센터 사본){% else %}{{ u.name }} 입학처 공개자료{% endif %}{% if r.source_page %} p.{{ r.source_page }}{% endif %} ↗</a></p>
 </article>
 {% endfor %}
 {% endfor %}

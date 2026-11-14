@@ -242,6 +242,8 @@ def clean_actual(r: dict) -> dict | None:
             if PUA.search(r[k]):
                 r["has_glyph"] = True
             r[k] = PUA.sub("□", r[k])
+    m = re.search(r"(\d{4})%ED%95%99%EB%85%84%EB%8F%84", r.get("source_url") or "")  # 「2026학년도」 — 보고서 파일 이름의 학년도
+    r["src_year"] = int(m.group(1)) if m else r.get("year")
     core = re.sub(r"^(\[[^\]]*\]\s*)+", "", r["text"]).strip()
     pm = (r.get("presented_material") or "").strip()
     if not core:
