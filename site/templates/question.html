@@ -35,6 +35,7 @@
 
 <h2>이어서 나오는 꼬리질문</h2>
 <ol class="fu">{% for f in rc.followups %}<li><b>{{ f.q }}</b><br>{{ f.tip }}</li>{% endfor %}</ol>
+<p class="note">꼬리질문에 답하는 순서와 연습법은 <a href="/followup/">면접 꼬리질문 대처법</a>에 있습니다.</p>
 
 <h2>계열별로 이렇게 바꾸세요</h2>
 <dl class="bym">{% for m in rc.by_major %}<dt>{{ m.group }}</dt><dd>{{ m.point }}</dd>{% endfor %}</dl>

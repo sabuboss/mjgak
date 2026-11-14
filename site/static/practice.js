@@ -28,9 +28,9 @@
     timer = setInterval(tick, 1000);
   }
   // 질문 묶음: 공통 / 대학 공개 질문 / 학과(가나다순) 세 갈래로 묶고, 이름 검색·바로가기 칩으로 고른다
-  var GROUPS = [["common", "공통"], ["univ", "대학이 공개한 질문"], ["dept", "학과별 질문"]];
+  var GROUPS = [["common", "공통"], ["followup", "꼬리질문"], ["univ", "대학이 공개한 질문"], ["dept", "학과별 질문"]];
   var CHIPS = ["공통", "간호학과", "경영학과", "컴퓨터", "유아교육", "의예과", "심리학과", "기계공학"];
-  function kind(s) { return s.id === "common" ? "common" : s.id.split(":")[0]; }
+  function kind(s) { return s.id === "common" || s.id === "followup" ? s.id : s.id.split(":")[0]; }
   function short(s) { return s.label.replace(/^학과 · /, "").replace(/^대학 공개 질문 · /, ""); }
   function fill(list) {
     var keep = sel.value;

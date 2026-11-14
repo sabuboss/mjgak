@@ -884,6 +884,10 @@ def main():
         if r.get("published_questions") and code in prof_by:
             sets.append({"id": f"univ:{code}", "label": f"대학 공개 질문 · {r.get('name', code)}",
                          "items": [{"q": q["q"], "ex": "", "tip": q.get("area", ""), "u": prof_by[code]["url"]} for q in r["published_questions"]]})
+    # 꼬리질문만 따로 연습하는 묶음: 앞 질문을 괄호로 붙여 어떤 답에 이어지는 질문인지 알 수 있게
+    sets.append({"id": "followup", "label": "꼬리질문",
+                 "items": [{"q": f"{f['q']} (앞 질문: {q['question']})", "ex": "", "tip": f.get("tip", ""), "u": q["url"]}
+                           for q in common["questions"] for f in (q.get("rich") or {}).get("followups", [])]})
     # 묶음이 없는 대학을 검색했을 때 그 대학 면접 페이지로 이어 주려고 대학 이름·주소도 함께 싣는다
     pr_univs = [[r.get("name", ""), short(r.get("name", "")), prof_by[code]["url"]] for code, r in sorted(rich_univ.items()) if code in prof_by]
     write("practice/questions.json", json.dumps({"sets": sets, "univs": pr_univs}, ensure_ascii=False))
@@ -1033,6 +1037,23 @@ def main():
          description="제시문 기반 면접과 의약 계열 MMI(다중미니면접)가 무엇을 보는지, 읽기·생각·답변 시간을 어떻게 쓰는지, 2027학년도 모집요강에서 확인한 실시 대학·전형과 연습 방법을 정리했습니다.")
     urls.append("/mmi/")
 
+    # 꼬리질문 대처법(2026-11-14, 로드맵 2단계 검색어 '면접 꼬리질문'): 공통 질문 48개의 rich followups 를 주제별로 모은다.
+    # 답하는 요령(tip)은 각 질문 페이지에만 두고 여기서는 질문만 보여 준다(같은 문장 반복을 피하려고).
+    fu_groups = []
+    for ck, clabel in common["categories"].items():
+        its = [{"question": q["question"], "url": q["url"], "followups": [f["q"] for f in (q.get("rich") or {}).get("followups", [])]}
+               for q in common["questions"] if q["category"] == ck]
+        its = [x for x in its if x["followups"]]
+        if its:
+            fu_groups.append({"label": clabel if isinstance(clabel, str) else clabel.get("label", ck), "qs": its, "n": sum(len(x["followups"]) for x in its)})
+    n_fu = sum(g["n"] for g in fu_groups)
+    n_fq = sum(len(g["qs"]) for g in fu_groups)
+    page("followup", "followup.html", groups=fu_groups, n_f=n_fu, n_q=n_fq,
+         title=f"면접 꼬리질문 대처법 — 파고드는 방향 5가지·답하는 순서·질문별 꼬리질문 {n_fu}개",
+         description=f"대입 면접 꼬리질문이 왜 나오는지, 어느 방향으로 파고드는지(구체화·근거·만약에·연결·지식 확인), 답하는 순서와 혼자 연습하는 법, 자주 나오는 질문 {n_fq}개에 이어지는 꼬리질문 {n_fu}개.")
+    urls.append("/followup/")
+    rss.append((f"면접 꼬리질문 대처법 — 질문별 꼬리질문 {n_fu}개", "/followup/", "꼬리질문이 파고드는 방향 5가지와 답하는 순서, 혼자 연습하는 법"))
+
     # 수능 정보 페이지: 수능 뒤 날짜별 면접 대학(내 면접 일정표와 같은 데이터)
     after = []
     for x in sorted(by_day):
@@ -1073,6 +1094,7 @@ def main():
              "", "## 면접 준비 안내",
              f"- [내 생기부로 면접 예상 질문 만들기]({site['url']}/record/): 활동별 질문 3개 틀, ChatGPT 질문 틀, 개인정보 지우기",
              f"- [제시문 면접·MMI 준비법]({site['url']}/mmi/): 시간 나눠 쓰기, 실시 대학·전형(모집요강)",
+             f"- [면접 꼬리질문 대처법]({site['url']}/followup/): 파고드는 방향 5가지, 답하는 순서, 질문별 꼬리질문",
              f"- [면접 준비 2주 순서]({site['url']}/guide/)", "",
              "대학 페이지마다 '면접 당일 안내'(입실·준비물·휴대폰·블라인드 규정)와 '면접 이후 일정'(최종 발표·등록·충원)을 모집요강 쪽수와 함께 적었습니다.",
              "", "## 대학별 2027 면접 정보"]
